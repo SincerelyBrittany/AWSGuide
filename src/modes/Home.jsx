@@ -25,6 +25,7 @@ export default function Home({ cards, deck, domains, modes, settings, setSetting
           <div className="hero-actions">
             <a className="btn btn-primary" href="#flashcards">Start with flashcards</a>
             <a className="btn btn-ghost" href="#rapid">Play a 60-second round</a>
+            <a className="btn btn-ghost" href="#guide">Read the study guide</a>
           </div>
         </div>
 

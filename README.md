@@ -60,6 +60,21 @@
   </tr>
 </table>
 
+## 📖 Study Guide page
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/study-guide-dark.png">
+  <img src="docs/study-guide-light.png" alt="Study Guide page listing every concept with its memory hint, definitions, exam triggers and look-alikes" width="900">
+</picture>
+
+The whole spreadsheet as one readable page. Every concept shows its memory hint, "like I'm 12" line, exam definition, official AWS definition (with source link), exam triggers, look-alikes and your notes.
+
+- **Search** across names, definitions, triggers and notes, with matches highlighted
+- **Filter** by domain, category or confidence, and **group** by domain, category or A–Z
+- **Jump** to any look-alike by clicking it in *Don't confuse with*
+- **Rate** each concept Study / Kinda / Know right from the page
+- Low-priority (out-of-scope) concepts stay hidden unless you turn them on
+
 ## 📈 Progress tracking
 
 <picture>

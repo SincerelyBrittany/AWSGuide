@@ -10,6 +10,7 @@ import RapidFire from './modes/RapidFire.jsx';
 import GameBoard from './modes/GameBoard.jsx';
 import MemoryMatch from './modes/MemoryMatch.jsx';
 import Progress from './modes/Progress.jsx';
+import Guide from './modes/Guide.jsx';
 import { emptyStats, recordAnswer, SESSION_GAP_MS } from './lib/stats.js';
 
 export const MODES = [
@@ -132,19 +133,24 @@ export default function App() {
                 {m.label}
               </a>
             ))}
+            <a href="#guide" className={`tab tab-guide ${hash === 'guide' ? 'is-active' : ''}`} aria-current={hash === 'guide' ? 'page' : undefined}>
+              Study Guide
+            </a>
             <a href="#progress" className={`tab tab-progress ${hash === 'progress' ? 'is-active' : ''}`} aria-current={hash === 'progress' ? 'page' : undefined}>
               Progress
             </a>
           </nav>
-          <button className="btn btn-ghost import-btn" onClick={() => fileRef.current?.click()}>
-            Import .xlsx
+          <button className="btn btn-ghost import-btn" title="Import your study guide (.xlsx)" onClick={() => fileRef.current?.click()}>
+            Import
           </button>
           <input ref={fileRef} id="import-file" type="file" accept=".xlsx,.xls,.csv" hidden onChange={(e) => onImport(e.target.files?.[0])} />
         </div>
       </header>
 
       <main className="main">
-        {hash === 'progress' ? (
+        {hash === 'guide' ? (
+          <Guide {...shared} settings={settings} setSettings={setSettings} />
+        ) : hash === 'progress' ? (
           <Progress
             {...shared}
             modes={MODES}
