@@ -5755,8 +5755,8 @@
         "Condition"
       ],
       "confuse": [
-        "Service Control Policy (SCP)",
-        "IAM Role"
+        "Service Control Policies (SCPs)",
+        "IAM Roles"
       ],
       "domain": "Security & Compliance",
       "confidence": "red",
@@ -5971,6 +5971,808 @@
       "official": "",
       "officialSource": "",
       "notes": ""
+    },
+    {
+      "id": "five-characteristics-of-cloud-computing",
+      "term": "Five Characteristics of Cloud Computing",
+      "category": "Cloud Concepts",
+      "hint": "On-demand, Network, Pooling, Elastic, Measured",
+      "eli12": "Get it yourself, from anywhere, shared, grows on demand, pay for what you use.",
+      "definition": "On-demand self-service; broad network access; multi-tenancy and resource pooling; rapid elasticity and scalability; measured service (you pay for what you use).",
+      "triggers": [
+        "on-demand self-service",
+        "resource pooling",
+        "measured service",
+        "multi-tenancy"
+      ],
+      "confuse": [
+        "Benefits of AWS Cloud"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "aws-acceptable-use-policy",
+      "term": "AWS Acceptable Use Policy",
+      "category": "Security",
+      "hint": "the RULES for using AWS",
+      "eli12": "What you're not allowed to do with AWS.",
+      "definition": "Policy that prohibits using AWS for illegal, harmful or offensive activities, security violations (e.g., unauthorized access), network abuse and email or message abuse (spam). Report violations to AWS Trust & Safety.",
+      "triggers": [
+        "prohibited use",
+        "abuse",
+        "spam"
+      ],
+      "confuse": [
+        "AWS Trust & Safety"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "iam-roles",
+      "term": "IAM Roles",
+      "category": "Security",
+      "hint": "ROLE = temporary permissions to ASSUME",
+      "eli12": "A hat you put on to get permissions for a while.",
+      "definition": "IAM identity with permissions that can be assumed by AWS services (e.g., an EC2 instance role), users or other accounts. It gives temporary credentials instead of a long-term password or access keys.",
+      "triggers": [
+        "assume",
+        "temporary credentials",
+        "EC2 instance role",
+        "service role"
+      ],
+      "confuse": [
+        "IAM Users",
+        "IAM Groups"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Give AWS services permissions with roles, never with access keys."
+    },
+    {
+      "id": "aws-sts-security-token-service",
+      "term": "AWS STS (Security Token Service)",
+      "category": "Security",
+      "hint": "STS = TEMPORARY credentials",
+      "eli12": "Gives out short-lived passes instead of permanent keys.",
+      "definition": "Issues temporary, limited-privilege credentials that expire after a set time. Used when assuming IAM roles, for identity federation and for cross-account access.",
+      "triggers": [
+        "temporary credentials",
+        "assume role",
+        "federation",
+        "expire"
+      ],
+      "confuse": [
+        "Access Keys"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "iam-credentials-report-access-advisor",
+      "term": "IAM Credentials Report & Access Advisor",
+      "category": "Security",
+      "hint": "REPORT = all users' credentials; ADVISOR = what each user actually uses",
+      "eli12": "Two tools that show who has what and what they really use.",
+      "definition": "IAM security tools. The credentials report (account level) lists all users and the status of their passwords, access keys and MFA. Access Advisor/last accessed (user level) shows which services a user can reach and when they last used them, so you can remove unused permissions.",
+      "triggers": [
+        "credentials report",
+        "last accessed",
+        "unused permissions"
+      ],
+      "confuse": [
+        "IAM Access Analyzer"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Helps enforce least privilege."
+    },
+    {
+      "id": "iam-access-analyzer",
+      "term": "IAM Access Analyzer",
+      "category": "Security",
+      "hint": "who OUTSIDE can reach my resources?",
+      "eli12": "Finds anything you've accidentally shared with outsiders.",
+      "definition": "Identifies resources (e.g., S3 buckets, IAM roles, KMS keys, Lambda functions, Secrets Manager secrets) that are shared with an external entity, based on a zone of trust you define (your account or organization).",
+      "triggers": [
+        "external access",
+        "zone of trust",
+        "shared resources"
+      ],
+      "confuse": [
+        "IAM Credentials Report & Access Advisor"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "service-control-policies-scps",
+      "term": "Service Control Policies (SCPs)",
+      "category": "Management & Governance",
+      "hint": "SCP = MAX permissions for accounts",
+      "eli12": "A ceiling on what accounts in your organization can ever do.",
+      "definition": "AWS Organizations policies attached to the organization root, OUs or accounts that set the maximum permissions available. SCPs don't grant permissions themselves, and they don't restrict the management account.",
+      "triggers": [
+        "maximum permissions",
+        "OU",
+        "guardrail",
+        "Organizations"
+      ],
+      "confuse": [
+        "IAM Policy"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "common-ports",
+      "term": "Common Ports",
+      "category": "Networking",
+      "hint": "22 SSH · 21 FTP · 80 HTTP · 443 HTTPS · 3389 RDP",
+      "eli12": "The door numbers for common ways to connect to a server.",
+      "definition": "Ports to know: 22 = SSH (Linux login, also SFTP); 21 = FTP; 80 = HTTP; 443 = HTTPS; 3389 = RDP (Windows remote desktop). Security groups allow or block these.",
+      "triggers": [
+        "SSH 22",
+        "RDP 3389",
+        "HTTPS 443"
+      ],
+      "confuse": [
+        "Security Groups"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "ec2-user-data",
+      "term": "EC2 User Data",
+      "category": "Compute",
+      "hint": "script that runs at FIRST BOOT",
+      "eli12": "Instructions an instance follows the first time it starts.",
+      "definition": "Script you provide at launch that runs once, as root, when the instance first boots. Used to automate setup such as installing updates and software.",
+      "triggers": [
+        "bootstrap",
+        "first boot",
+        "startup script"
+      ],
+      "confuse": [
+        "AMI"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "ec2-instance-connect",
+      "term": "EC2 Instance Connect",
+      "category": "Compute",
+      "hint": "SSH from your BROWSER",
+      "eli12": "Log in to a server straight from the AWS console.",
+      "definition": "Connects to an EC2 instance over SSH from the browser in the AWS console, using a temporary key, with no key file to manage. (Systems Manager Session Manager is another way that doesn't need port 22.)",
+      "triggers": [
+        "browser SSH",
+        "temporary key"
+      ],
+      "confuse": [
+        "AWS Systems Manager"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "ami-amazon-machine-image",
+      "term": "AMI (Amazon Machine Image)",
+      "category": "Compute",
+      "hint": "AMI = TEMPLATE to launch EC2",
+      "eli12": "A saved copy of a server setup you can launch again and again.",
+      "definition": "Template containing the OS, software and configuration used to launch EC2 instances. Use public AWS AMIs, your own custom AMIs (faster boot because software is pre-installed) or AWS Marketplace AMIs. AMIs are Region-specific but can be copied.",
+      "triggers": [
+        "template",
+        "custom image",
+        "launch"
+      ],
+      "confuse": [
+        "EBS Snapshots"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "ebs-snapshots",
+      "term": "EBS Snapshots",
+      "category": "Storage",
+      "hint": "point-in-time BACKUP of a volume",
+      "eli12": "A photo of your hard drive at one moment.",
+      "definition": "Point-in-time, incremental backups of EBS volumes stored in S3. You can copy them across AZs or Regions to move volumes. Features: Snapshot Archive (cheaper tier, slower restore) and Recycle Bin (recover accidentally deleted snapshots).",
+      "triggers": [
+        "backup",
+        "incremental",
+        "copy across AZ",
+        "Recycle Bin"
+      ],
+      "confuse": [
+        "AMI",
+        "AWS Backup"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "An EBS volume is tied to one AZ; use a snapshot to move it."
+    },
+    {
+      "id": "efs-infrequent-access-efs-ia",
+      "term": "EFS Infrequent Access (EFS-IA)",
+      "category": "Storage",
+      "hint": "EFS for files you RARELY open",
+      "eli12": "Cheaper shelf in the shared file system for files you don't use often.",
+      "definition": "Lower-cost EFS storage class for files not accessed every day. A lifecycle policy automatically moves files there based on when they were last accessed.",
+      "triggers": [
+        "lifecycle policy",
+        "cost-optimized",
+        "rarely accessed"
+      ],
+      "confuse": [
+        "S3 Standard-IA"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "load-balancer-types-alb-nlb-gwlb",
+      "term": "Load Balancer Types (ALB, NLB, GWLB)",
+      "category": "Networking",
+      "hint": "ALB = HTTP (L7) · NLB = TCP/UDP fast (L4) · GWLB = firewalls (L3)",
+      "eli12": "Three kinds of traffic cops for different kinds of traffic.",
+      "definition": "Application Load Balancer: HTTP/HTTPS/gRPC at Layer 7, routes by URL path or host. Network Load Balancer: TCP/UDP at Layer 4, ultra-high performance, static IP. Gateway Load Balancer: Layer 3, routes traffic through third-party virtual appliances such as firewalls.",
+      "triggers": [
+        "ALB",
+        "NLB",
+        "GWLB",
+        "Layer 7",
+        "Layer 4"
+      ],
+      "confuse": [
+        "Elastic Load Balancing (ELB)"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "auto-scaling-policies",
+      "term": "Auto Scaling Policies",
+      "category": "Management",
+      "hint": "Manual · Dynamic · Scheduled · Predictive",
+      "eli12": "Rules for when to add or remove servers.",
+      "definition": "Ways an Auto Scaling group scales: manual; dynamic (simple/step scaling or target tracking, e.g., keep CPU at 40%); scheduled (known times); predictive (machine learning forecasts the load ahead of time).",
+      "triggers": [
+        "target tracking",
+        "scheduled",
+        "predictive",
+        "step scaling"
+      ],
+      "confuse": [
+        "AWS Auto Scaling"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "rds-multi-az",
+      "term": "RDS Multi-AZ",
+      "category": "Database",
+      "hint": "Multi-AZ = standby for FAILOVER (high availability)",
+      "eli12": "A twin database in another data center ready to take over.",
+      "definition": "Keeps a synchronous standby copy of the RDS database in another AZ and fails over to it automatically if the primary fails. Used for high availability, not to scale reads.",
+      "triggers": [
+        "failover",
+        "standby",
+        "high availability",
+        "synchronous"
+      ],
+      "confuse": [
+        "Amazon RDS Read Replicas"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Read Replica = performance. Multi-AZ = availability."
+    },
+    {
+      "id": "dynamodb-accelerator-dax",
+      "term": "DynamoDB Accelerator (DAX)",
+      "category": "Database",
+      "hint": "DAX = cache in front of DynamoDB",
+      "eli12": "Super-fast memory layer for DynamoDB.",
+      "definition": "Fully managed in-memory cache for DynamoDB that gives microsecond read latency for frequently read items.",
+      "triggers": [
+        "DynamoDB cache",
+        "microseconds"
+      ],
+      "confuse": [
+        "Amazon ElastiCache"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "DAX is only for DynamoDB; ElastiCache works with other databases."
+    },
+    {
+      "id": "s3-bucket-policies-block-public-access",
+      "term": "S3 Bucket Policies & Block Public Access",
+      "category": "Storage",
+      "hint": "BUCKET POLICY = JSON rules on the bucket",
+      "eli12": "Rules on a bucket saying who can get in.",
+      "definition": "Bucket policies are JSON resource-based policies that control access to a bucket (e.g., make a website public, allow another account, require encryption). Block Public Access settings (on by default) stop data from being made public by mistake.",
+      "triggers": [
+        "bucket policy",
+        "public access",
+        "resource-based policy"
+      ],
+      "confuse": [
+        "IAM Policy"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "s3-versioning",
+      "term": "S3 Versioning",
+      "category": "Storage",
+      "hint": "VERSIONING = keep every version",
+      "eli12": "Undo button for your files.",
+      "definition": "Bucket setting that keeps multiple versions of each object. Protects against accidental deletes (a delete adds a delete marker) and lets you roll back to a previous version.",
+      "triggers": [
+        "versions",
+        "restore",
+        "accidental delete",
+        "delete marker"
+      ],
+      "confuse": [
+        "S3 Replication (CRR & SRR)"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "s3-replication-crr-srr",
+      "term": "S3 Replication (CRR & SRR)",
+      "category": "Storage",
+      "hint": "CRR = other Region · SRR = same Region",
+      "eli12": "Automatic copies of your files into another bucket.",
+      "definition": "Asynchronously copies objects to another bucket. Cross-Region Replication (CRR) is for compliance and lower-latency access in another Region; Same-Region Replication (SRR) is for log aggregation or copying between accounts. Versioning must be on.",
+      "triggers": [
+        "cross-Region",
+        "same-Region",
+        "asynchronous copy"
+      ],
+      "confuse": [
+        "S3 Versioning"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "s3-express-one-zone",
+      "term": "S3 Express One Zone",
+      "category": "Storage",
+      "hint": "FASTEST S3, one AZ",
+      "eli12": "Super-fast S3 storage kept in a single data center area.",
+      "definition": "High-performance S3 storage class that stores data in a single AZ (in directory buckets) for single-digit millisecond access. Used for data-intensive apps like ML training and analytics.",
+      "triggers": [
+        "single-digit millisecond",
+        "one AZ",
+        "high performance"
+      ],
+      "confuse": [
+        "S3 One Zone-IA"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "s3-encryption",
+      "term": "S3 Encryption",
+      "category": "Storage",
+      "hint": "Server-side (default) vs Client-side",
+      "eli12": "S3 locks your files; you can lock them yourself first, too.",
+      "definition": "Server-side encryption: S3 encrypts objects when it stores them (on by default for new objects). Client-side encryption: you encrypt the data before uploading it.",
+      "triggers": [
+        "server-side",
+        "client-side",
+        "default encryption",
+        "SSE"
+      ],
+      "confuse": [
+        "Encryption at Rest"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "s3-transfer-acceleration",
+      "term": "S3 Transfer Acceleration",
+      "category": "Storage",
+      "hint": "upload FASTER via edge locations",
+      "eli12": "Uses AWS's fast network to speed up long-distance uploads.",
+      "definition": "Speeds up long-distance uploads and downloads to S3 by routing them through the nearest edge location, then over the AWS global network.",
+      "triggers": [
+        "edge location",
+        "faster upload",
+        "long distance"
+      ],
+      "confuse": [
+        "Amazon CloudFront"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "containers-docker",
+      "term": "Containers & Docker",
+      "category": "Compute",
+      "hint": "CONTAINER = app + everything it needs",
+      "eli12": "A lunchbox with the app and everything it needs, so it runs the same anywhere.",
+      "definition": "Docker packages an app and its dependencies into a container image that runs the same on any OS. Containers are lighter than VMs because they share the host's kernel. On AWS, images are stored in ECR and run on ECS, EKS or Fargate.",
+      "triggers": [
+        "Docker",
+        "container image",
+        "portable",
+        "lightweight"
+      ],
+      "confuse": [
+        "Amazon EC2"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "amazon-cloudwatch-logs",
+      "term": "Amazon CloudWatch Logs",
+      "category": "Monitoring",
+      "hint": "LOGS collected in one place",
+      "eli12": "Collects every app's diary in one place.",
+      "definition": "Collects and stores logs from apps, EC2 (via the CloudWatch agent), Lambda, VPC Flow Logs, CloudTrail and more, for real-time monitoring and search. Retention is adjustable.",
+      "triggers": [
+        "logs",
+        "CloudWatch agent",
+        "retention"
+      ],
+      "confuse": [
+        "AWS CloudTrail"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "cloudwatch-billing-alarm",
+      "term": "CloudWatch Billing Alarm",
+      "category": "Billing",
+      "hint": "ALARM when estimated CHARGES go up",
+      "eli12": "Alerts you when your AWS bill passes a number.",
+      "definition": "CloudWatch alarm on the EstimatedCharges billing metric. Billing data is stored in us-east-1 and covers your whole account's estimated charges. AWS Budgets offers more options.",
+      "triggers": [
+        "EstimatedCharges",
+        "us-east-1",
+        "billing metric"
+      ],
+      "confuse": [
+        "AWS Budgets"
+      ],
+      "domain": "Billing, Pricing & Support",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "aws-cost-anomaly-detection",
+      "term": "AWS Cost Anomaly Detection",
+      "category": "Billing",
+      "hint": "ML spots UNUSUAL spend",
+      "eli12": "Watches your spending and flags anything weird.",
+      "definition": "Uses machine learning to monitor cost and usage, detect unusual spend, show root-cause analysis and send alerts (individual or summary) by email or SNS.",
+      "triggers": [
+        "anomaly",
+        "machine learning",
+        "unusual spend",
+        "root cause"
+      ],
+      "confuse": [
+        "AWS Budgets"
+      ],
+      "domain": "Billing, Pricing & Support",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "vpc-flow-logs",
+      "term": "VPC Flow Logs",
+      "category": "Networking",
+      "hint": "log of IP TRAFFIC in your VPC",
+      "eli12": "A record of what network traffic came and went.",
+      "definition": "Captures information about IP traffic going to and from network interfaces in a VPC, subnet or ENI. Sent to CloudWatch Logs or S3 to troubleshoot connectivity and security.",
+      "triggers": [
+        "IP traffic",
+        "troubleshoot",
+        "network logs"
+      ],
+      "confuse": [
+        "AWS CloudTrail"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "vpc-peering",
+      "term": "VPC Peering",
+      "category": "Networking",
+      "hint": "connect TWO VPCs privately",
+      "eli12": "A private bridge between two networks.",
+      "definition": "Privately connects two VPCs over the AWS network so they act as if they're in the same network. IP ranges must not overlap, and peering isn't transitive (A↔B and B↔C doesn't give A↔C).",
+      "triggers": [
+        "two VPCs",
+        "non-transitive",
+        "private"
+      ],
+      "confuse": [
+        "AWS Transit Gateway"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Many VPCs → Transit Gateway."
+    },
+    {
+      "id": "vpc-endpoints",
+      "term": "VPC Endpoints",
+      "category": "Networking",
+      "hint": "reach AWS services PRIVATELY (no internet)",
+      "eli12": "A private door from your network to AWS services.",
+      "definition": "Connect to AWS services over the private AWS network instead of the public internet. Gateway endpoints: S3 and DynamoDB. Interface endpoints (AWS PrivateLink): most other services.",
+      "triggers": [
+        "gateway endpoint",
+        "interface endpoint",
+        "private access"
+      ],
+      "confuse": [
+        "NAT Gateway",
+        "AWS PrivateLink"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "kms-key-types",
+      "term": "KMS Key Types",
+      "category": "Security",
+      "hint": "AWS owned · AWS managed · Customer managed",
+      "eli12": "Who holds and controls the encryption keys.",
+      "definition": "AWS owned keys: used by AWS services for you, invisible and free. AWS managed keys (aws/service-name): in your account, managed and rotated by AWS. Customer managed keys: you create them and control policies and rotation; a monthly fee applies.",
+      "triggers": [
+        "AWS managed key",
+        "customer managed key",
+        "rotation"
+      ],
+      "confuse": [
+        "AWS CloudHSM"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "cloud-design-principles",
+      "term": "Cloud Design Principles",
+      "category": "Cloud Concepts",
+      "hint": "Scale · Disposable · Automate · Loose coupling · Services not servers",
+      "eli12": "AWS's rules of thumb for building good cloud apps.",
+      "definition": "AWS cloud best practices: design for scalability (vertical and horizontal); treat servers as disposable resources; automate (serverless, IaC, Auto Scaling); loose coupling so failures don't cascade (e.g., queues); use managed services instead of only EC2.",
+      "triggers": [
+        "loose coupling",
+        "disposable",
+        "automation",
+        "services not servers"
+      ],
+      "confuse": [
+        "AWS Well-Architected Framework"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "aws-caf-perspectives",
+      "term": "AWS CAF Perspectives",
+      "category": "Cloud Concepts",
+      "hint": "Business · People · Governance | Platform · Security · Operations",
+      "eli12": "The six viewpoints a company uses to plan its move to the cloud.",
+      "definition": "The six AWS CAF perspectives. Business capabilities: Business, People, Governance. Technical capabilities: Platform, Security, Operations.",
+      "triggers": [
+        "six perspectives",
+        "business",
+        "people",
+        "governance",
+        "platform",
+        "security",
+        "operations"
+      ],
+      "confuse": [
+        "AWS CAF Transformation Domains"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "aws-caf-transformation-domains",
+      "term": "AWS CAF Transformation Domains",
+      "category": "Cloud Concepts",
+      "hint": "Technology → Process → Organization → Product",
+      "eli12": "Four areas a company changes when it moves to the cloud.",
+      "definition": "The four CAF transformation domains: Technology (migrate and modernize), Process (digitize, automate, optimize operations), Organization (reorganize around products and value streams), Product (new value propositions and revenue models).",
+      "triggers": [
+        "technology",
+        "process",
+        "organization",
+        "product"
+      ],
+      "confuse": [
+        "AWS CAF Perspectives"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
     }
   ],
   "domains": [
@@ -6119,5 +6921,5 @@
     }
   ],
   "source": "Master Study Guide",
-  "importedAt": "2026-10-30T20:51:51.724Z"
+  "importedAt": "2026-10-30T21:05:31.170Z"
 }
