@@ -9,7 +9,7 @@ const LEVEL_FILTERS = [
   { id: 'green', label: 'Know It' },
 ];
 
-export default function Flashcards({ cards, domains, index, setLevel }) {
+export default function Flashcards({ cards, domains, index, setLevel, record }) {
   const [domain, setDomain] = useState('all');
   const [levelFilter, setLevelFilter] = useState('all');
   const [category, setCategory] = useState('all');
@@ -46,6 +46,7 @@ export default function Flashcards({ cards, domains, index, setLevel }) {
   const rate = (level) => {
     if (!current) return;
     setLevel(current.id, level);
+    record(current, level === 'green' ? 'right' : level === 'red' ? 'wrong' : 'kinda');
     setReviewed((n) => n + 1);
     next();
   };

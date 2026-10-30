@@ -23,7 +23,7 @@ function makeQuestion(pool, all, index, cheats, lastId) {
   return { card, options, prompt };
 }
 
-export default function RapidFire({ cards, index, domains, deck, missed }) {
+export default function RapidFire({ cards, index, domains, deck, missed, record }) {
   const [domain, setDomain] = useState('all');
   const [phase, setPhase] = useState('ready');
   const [q, setQ] = useState(null);
@@ -79,6 +79,7 @@ export default function RapidFire({ cards, index, domains, deck, missed }) {
 
   const answer = (opt) => {
     if (phase !== 'playing' || !q) return;
+    record(q.card, opt.id === q.card.id ? 'right' : 'wrong');
     if (opt.id === q.card.id) {
       const mult = 1 + Math.floor(streak / 3);
       setScore((s) => s + 10 * mult);

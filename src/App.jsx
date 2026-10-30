@@ -9,6 +9,8 @@ import Showdown from './modes/Showdown.jsx';
 import RapidFire from './modes/RapidFire.jsx';
 import GameBoard from './modes/GameBoard.jsx';
 import MemoryMatch from './modes/MemoryMatch.jsx';
+import Progress from './modes/Progress.jsx';
+import { emptyStats, recordAnswer, SESSION_GAP_MS } from './lib/stats.js';
 
 export const MODES = [
   { id: 'flashcards', label: 'Flashcards', blurb: 'Flip, rate yourself, and your weak cards come back more often.', Component: Flashcards },
@@ -36,12 +38,15 @@ export default function App() {
   const [deck, setDeck] = useState(() => store.loadDeck() || builtInDeck);
   const [progress, setProgress] = useState(() => store.loadProgress());
   const [settings, setSettings] = useState(() => store.loadSettings());
+  const [stats, setStats] = useState(() => store.loadStats() || emptyStats());
+  const session = useRef(null);
   const [toast, setToast] = useState(null);
   const fileRef = useRef(null);
   const isImported = deck !== builtInDeck && deck.importedAt !== builtInDeck.importedAt;
 
   useEffect(() => { store.saveProgress(progress); }, [progress]);
   useEffect(() => { store.saveSettings(settings); }, [settings]);
+  useEffect(() => { store.saveStats(stats); }, [stats]);
   useEffect(() => {
     if (!toast) return;
     const t = setTimeout(() => setToast(null), 7000);
@@ -63,6 +68,19 @@ export default function App() {
   const missed = useCallback(
     (card) => setProgress((p) => ({ ...p, [card.id]: demote(p[card.id] || card.confidence) })),
     []
+  );
+
+  // Every answer in every game lands here. A session is one stretch of play in one mode;
+  // switching modes or 30 idle minutes starts a new one.
+  const record = useCallback(
+    (card, outcome) => {
+      const now = Date.now();
+      const s = session.current;
+      if (!s || s.mode !== hash || now - s.lastAt > SESSION_GAP_MS) session.current = { id: `s${now}`, mode: hash, lastAt: now };
+      else s.lastAt = now;
+      setStats((st) => recordAnswer(st, { card, outcome, mode: hash, sessionId: session.current.id, now }));
+    },
+    [hash]
   );
 
   const onImport = async (file) => {
@@ -98,7 +116,7 @@ export default function App() {
   };
 
   const mode = MODES.find((m) => m.id === hash);
-  const shared = { cards, index, domains, deck, setLevel, missed };
+  const shared = { cards, index, domains, deck, setLevel, missed, record, stats };
 
   return (
     <div className="app">
@@ -114,6 +132,9 @@ export default function App() {
                 {m.label}
               </a>
             ))}
+            <a href="#progress" className={`tab tab-progress ${hash === 'progress' ? 'is-active' : ''}`} aria-current={hash === 'progress' ? 'page' : undefined}>
+              Progress
+            </a>
           </nav>
           <button className="btn btn-ghost import-btn" onClick={() => fileRef.current?.click()}>
             Import .xlsx
@@ -123,7 +144,24 @@ export default function App() {
       </header>
 
       <main className="main">
-        {mode ? (
+        {hash === 'progress' ? (
+          <Progress
+            {...shared}
+            modes={MODES}
+            progress={progress}
+            onRestore={(next) => {
+              setStats(next.stats);
+              if (next.progress) setProgress(next.progress);
+              setToast({ kind: 'ok', text: `Restored ${Object.keys(next.stats.concepts).length} concepts and ${next.stats.sessions.length} sessions from the backup.` });
+            }}
+            onClearHistory={() => {
+              setStats(emptyStats());
+              session.current = null;
+              setToast({ kind: 'ok', text: 'Answer history cleared.' });
+            }}
+            onError={(text) => setToast({ kind: 'error', text })}
+          />
+        ) : mode ? (
           <mode.Component key={mode.id} {...shared} />
         ) : (
           <Home

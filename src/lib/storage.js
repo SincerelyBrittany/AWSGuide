@@ -4,6 +4,7 @@ const KEYS = {
   progress: 'clf-arcade:progress:v1',
   settings: 'clf-arcade:settings:v1',
   best: 'clf-arcade:best:v1',
+  stats: 'clf-arcade:stats:v1',
 };
 
 function read(key, fallback) {
@@ -35,5 +36,7 @@ export const loadProgress = () => read(KEYS.progress, {});
 export const saveProgress = (p) => write(KEYS.progress, p);
 export const loadSettings = () => read(KEYS.settings, { includeLow: false });
 export const saveSettings = (s) => write(KEYS.settings, s);
+export const loadStats = () => read(KEYS.stats, null);
+export const saveStats = (s) => write(KEYS.stats, s);
 export const loadBest = () => read(KEYS.best, {});
 export const saveBest = (b) => write(KEYS.best, b);

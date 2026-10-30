@@ -23,7 +23,7 @@ function buildRound(cards, index, domain) {
   return round;
 }
 
-export default function Showdown({ cards, index, domains, missed }) {
+export default function Showdown({ cards, index, domains, missed, record }) {
   const [domain, setDomain] = useState('all');
   const [round, setRound] = useState(() => buildRound(cards, index, 'all'));
   const [i, setI] = useState(0);
@@ -47,6 +47,7 @@ export default function Showdown({ cards, index, domains, missed }) {
   const choose = (card) => {
     if (picked || !q) return;
     setPicked(card.id);
+    record(q.answer, card.id === q.answer.id ? 'right' : 'wrong');
     if (card.id === q.answer.id) {
       setScore((s) => s + 1);
       setStreak((s) => s + 1);

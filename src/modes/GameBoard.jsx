@@ -23,7 +23,7 @@ function dealBoard(cards, domains) {
   return board;
 }
 
-export default function GameBoard({ cards, index, domains, missed }) {
+export default function GameBoard({ cards, index, domains, missed, record }) {
   const [names, setNames] = useState(['Player 1']);
   const [phase, setPhase] = useState('setup');
   const [scores, setScores] = useState([]);
@@ -61,6 +61,7 @@ export default function GameBoard({ cards, index, domains, missed }) {
     if (picked || !open) return;
     setPicked(opt.id);
     const right = opt.id === open.card.id;
+    record(open.card, right ? 'right' : 'wrong');
     setScores((s) => s.map((v, i) => (i === turn ? v + (right ? open.value : -Math.round(open.value / 2)) : v)));
     if (!right) missed(open.card);
   };

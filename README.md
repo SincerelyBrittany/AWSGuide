@@ -50,8 +50,8 @@
       Pair each service with its memory hint or its “explain like I'm 12” line. A lighter review for tired brains.
     </td>
     <td width="50%" valign="top">
-      <h3>📈 It learns what you don't know</h3>
-      Missing a question in any game moves that card down a confidence level, so it shows up more in flashcards.
+      <h3>🧠 It learns what you don't know</h3>
+      Missing a question in any game moves that card down a confidence level, so it comes back more often everywhere.
       <br><br>
       The home screen turns your ratings into an <b>exam-readiness score</b>, weighted by how much each domain counts on the real exam.
       <br><br>
@@ -59,6 +59,27 @@
     </td>
   </tr>
 </table>
+
+## 📈 Progress tracking
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/progress-dark.png">
+  <img src="docs/progress-light.png" alt="Progress page with answer totals, accuracy, a study-next list and accuracy by exam domain" width="900">
+</picture>
+
+Every answer in Flashcards, Don't Confuse Me, Rapid-Fire and the Game Board is recorded. The **Progress** tab shows:
+
+- **Totals:** questions answered, accuracy, concepts practiced and study sessions
+- **Study these next:** the concepts you miss most, ranked by misses, accuracy and recent mistakes
+- **By exam domain:** your accuracy in each domain next to its exam weight
+- **Recent sessions:** when you studied, which mode, right/wrong and what you missed
+- **All concepts:** a sortable, searchable table of all 221 concepts, with right/wrong counts, accuracy, your last 8 answers and a status (Not practiced → Struggling → Learning → Mastered)
+
+A session is one stretch of play in one mode. Switching modes or 30 idle minutes starts a new one.
+
+### Where your data lives
+
+Everything is saved in your browser's `localStorage`. No account, no server, no cost, and nothing leaves your device. That also means history is per browser, so use **Export backup** on the Progress page to save a `.json` file, and **Restore backup** to load it on another device or after clearing your browser data.
 
 ## Quick start
 
@@ -113,16 +134,29 @@ scripts/sync-data.mjs      spreadsheet → src/data/studyGuide.json
 src/
   lib/parseWorkbook.js     reads the .xlsx (shared by the app and the sync script)
   lib/deck.js              look-alike matching, weighted picks, question building
-  lib/storage.js           ratings, imported deck and best scores (localStorage)
-  modes/                   one file per study mode
+  lib/stats.js             answer history, sessions, mastery rules
+  lib/storage.js           ratings, history, imported deck and best scores (localStorage)
+  modes/                   one file per study mode, plus Progress.jsx
   styles.css               light and dark theme tokens and all styles
 ```
 </details>
 
-## Build & deploy
+## Deploy to GitHub Pages
+
+A workflow in `.github/workflows/deploy.yml` builds and publishes the site on every push to `main`. One-time setup:
+
+1. Go to the repo's **Settings → Pages**.
+2. Under **Build and deployment → Source**, choose **GitHub Actions**.
+3. Push to `main` (or run the workflow from the **Actions** tab).
+
+The site goes live at `https://<your-username>.github.io/AWSGuide/`.
+
+> GitHub Pages is free for **public** repos. A private repo needs a paid GitHub plan, and the published site is public either way.
+
+Other build options:
 
 ```bash
-npm run build          # static site in dist/ (Netlify, Vercel, GitHub Pages, S3 + CloudFront)
+npm run build          # static site in dist/ (works on any static host)
 npm run build:single   # one self-contained HTML file in dist-single/
 ```
 

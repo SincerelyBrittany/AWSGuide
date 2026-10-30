@@ -37,6 +37,7 @@ export default function Home({ cards, deck, domains, modes, settings, setSetting
             </span>
           </div>
           <p className="readiness-note">Weighted by each domain’s share of the exam. Know It counts fully, Kinda Know It counts half.</p>
+
           <ul className="domain-bars">
             {rows.map((d) => (
               <li key={d.name}>
@@ -58,6 +59,7 @@ export default function Home({ cards, deck, domains, modes, settings, setSetting
               </li>
             ))}
           </ul>
+          <a className="readiness-link" href="#progress">See right/wrong history for every concept →</a>
         </div>
       </section>
 
