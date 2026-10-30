@@ -6773,6 +6773,380 @@
       "official": "",
       "officialSource": "",
       "notes": ""
+    },
+    {
+      "id": "aws-codedeploy",
+      "term": "AWS CodeDeploy",
+      "category": "Developer Tools",
+      "hint": "DEPLOY code to servers automatically",
+      "eli12": "Pushes new app versions onto your servers for you.",
+      "definition": "Automates application deployments to EC2 instances, on-premises servers, Lambda and ECS, with rolling or blue/green updates.",
+      "triggers": [
+        "deployment",
+        "rolling",
+        "blue/green"
+      ],
+      "confuse": [
+        "AWS CodePipeline",
+        "AWS Elastic Beanstalk"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": true,
+      "coverage": "⚪ Low Priority / Out of Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Not on the official CLF-C02 in-scope list. Mentioned in the course."
+    },
+    {
+      "id": "aws-codecommit",
+      "term": "AWS CodeCommit",
+      "category": "Developer Tools",
+      "hint": "AWS-hosted private GIT repos",
+      "eli12": "AWS's version of GitHub.",
+      "definition": "Managed private Git repositories. AWS stopped onboarding new customers to CodeCommit in 2024.",
+      "triggers": [
+        "Git",
+        "source control",
+        "repository"
+      ],
+      "confuse": [
+        "AWS CodeBuild"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": true,
+      "coverage": "⚪ Low Priority / Out of Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Not on the official CLF-C02 in-scope list. Mentioned in the course."
+    },
+    {
+      "id": "aws-codeartifact",
+      "term": "AWS CodeArtifact",
+      "category": "Developer Tools",
+      "hint": "store software PACKAGES",
+      "eli12": "A private shelf for the code libraries your apps use.",
+      "definition": "Managed artifact repository for storing and sharing software packages (e.g., npm, Maven, PyPI, NuGet).",
+      "triggers": [
+        "packages",
+        "dependencies",
+        "artifact repository"
+      ],
+      "confuse": [
+        "Amazon ECR"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": true,
+      "coverage": "⚪ Low Priority / Out of Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Not on the official CLF-C02 in-scope list. Mentioned in the course."
+    },
+    {
+      "id": "amazon-timestream",
+      "term": "Amazon Timestream",
+      "category": "Database",
+      "hint": "TIME-SERIES database",
+      "eli12": "A database for readings over time, like sensor data.",
+      "definition": "Fully managed, serverless time-series database for data such as IoT sensor readings and application metrics.",
+      "triggers": [
+        "time-series",
+        "IoT sensors",
+        "metrics"
+      ],
+      "confuse": [
+        "Amazon DynamoDB"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": true,
+      "coverage": "⚪ Low Priority / Out of Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Not on the official CLF-C02 in-scope list. Mentioned in the course."
+    },
+    {
+      "id": "amazon-mq",
+      "term": "Amazon MQ",
+      "category": "Application Integration",
+      "hint": "managed MESSAGE BROKER (ActiveMQ / RabbitMQ)",
+      "eli12": "A message post office that speaks the old standard languages.",
+      "definition": "Managed message broker for Apache ActiveMQ and RabbitMQ. Used when migrating apps that rely on standard messaging protocols (MQTT, AMQP, STOMP) instead of rewriting them for SQS/SNS.",
+      "triggers": [
+        "ActiveMQ",
+        "RabbitMQ",
+        "MQTT",
+        "AMQP",
+        "migrate"
+      ],
+      "confuse": [
+        "Amazon SQS",
+        "Amazon SNS"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": true,
+      "coverage": "⚪ Low Priority / Out of Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Not on the official CLF-C02 in-scope list. Mentioned in the course."
+    },
+    {
+      "id": "amazon-managed-blockchain",
+      "term": "Amazon Managed Blockchain",
+      "category": "Blockchain",
+      "hint": "BLOCKCHAIN networks, managed",
+      "eli12": "Helps you run a shared, tamper-proof ledger.",
+      "definition": "Fully managed service for creating and managing blockchain networks using open-source frameworks such as Hyperledger Fabric and Ethereum.",
+      "triggers": [
+        "blockchain",
+        "Hyperledger Fabric",
+        "Ethereum"
+      ],
+      "confuse": [
+        "Amazon DynamoDB"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": true,
+      "coverage": "⚪ Low Priority / Out of Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Not on the official CLF-C02 in-scope list. Mentioned in the course."
+    },
+    {
+      "id": "amazon-personalize",
+      "term": "Amazon Personalize",
+      "category": "AI / ML",
+      "hint": "RECOMMENDATIONS ('you may also like')",
+      "eli12": "Suggests products people will probably like.",
+      "definition": "Fully managed machine learning service for building real-time personalized recommendations, based on the same technology used by Amazon.com.",
+      "triggers": [
+        "recommendations",
+        "personalization",
+        "real-time"
+      ],
+      "confuse": [
+        "Amazon SageMaker AI"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": true,
+      "coverage": "⚪ Low Priority / Out of Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Not on the official CLF-C02 in-scope list. Mentioned in the course."
+    },
+    {
+      "id": "amazon-kendra",
+      "term": "Amazon Kendra",
+      "category": "AI / ML",
+      "hint": "SEARCH company documents with ML",
+      "eli12": "A smart search engine for your company's files.",
+      "definition": "Machine learning-powered enterprise search that finds answers across documents and content repositories using natural-language questions.",
+      "triggers": [
+        "enterprise search",
+        "documents",
+        "natural language"
+      ],
+      "confuse": [
+        "Amazon OpenSearch Service"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": true,
+      "coverage": "⚪ Low Priority / Out of Scope",
+      "official": "Amazon Kendra is an intelligent search service powered by ML.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/machine-learning.html",
+      "notes": "Not on the official CLF-C02 in-scope list. Mentioned in the course."
+    },
+    {
+      "id": "amazon-pinpoint",
+      "term": "Amazon Pinpoint",
+      "category": "Business Applications",
+      "hint": "targeted MARKETING messages",
+      "eli12": "Sends marketing texts and emails to the right customers.",
+      "definition": "Multichannel marketing communications service for sending targeted email, SMS, push notifications and voice messages to customers.",
+      "triggers": [
+        "marketing",
+        "campaigns",
+        "SMS",
+        "push"
+      ],
+      "confuse": [
+        "Amazon SNS",
+        "Amazon SES"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": true,
+      "coverage": "⚪ Low Priority / Out of Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Not on the official CLF-C02 in-scope list. Mentioned in the course."
+    },
+    {
+      "id": "aws-ground-station",
+      "term": "AWS Ground Station",
+      "category": "Satellite",
+      "hint": "SATELLITE ground stations as a service",
+      "eli12": "Talk to satellites without building your own antenna.",
+      "definition": "Fully managed ground stations to control satellite communications and download and process satellite data, without building your own ground station infrastructure.",
+      "triggers": [
+        "satellite",
+        "ground station"
+      ],
+      "confuse": [
+        "AWS IoT Core"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": true,
+      "coverage": "⚪ Low Priority / Out of Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Not on the official CLF-C02 in-scope list. Mentioned in the course."
+    },
+    {
+      "id": "aws-device-farm",
+      "term": "AWS Device Farm",
+      "category": "Front-end Web & Mobile",
+      "hint": "TEST apps on REAL devices",
+      "eli12": "Try your app on lots of real phones in the cloud.",
+      "definition": "Tests web and mobile apps on real phones, tablets and desktop browsers hosted by AWS.",
+      "triggers": [
+        "app testing",
+        "real devices",
+        "mobile"
+      ],
+      "confuse": [
+        "AWS Amplify"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": true,
+      "coverage": "⚪ Low Priority / Out of Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Not on the official CLF-C02 in-scope list. Mentioned in the course."
+    },
+    {
+      "id": "aws-appsync",
+      "term": "AWS AppSync",
+      "category": "Front-end Web & Mobile",
+      "hint": "managed GRAPHQL APIs",
+      "eli12": "Lets apps get exactly the data they need from one API.",
+      "definition": "Managed service for building GraphQL and Pub/Sub APIs that let apps query and get real-time updates from multiple data sources.",
+      "triggers": [
+        "GraphQL",
+        "real-time",
+        "API"
+      ],
+      "confuse": [
+        "Amazon API Gateway"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": true,
+      "coverage": "⚪ Low Priority / Out of Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Not on the official CLF-C02 in-scope list. Mentioned in the course."
+    },
+    {
+      "id": "aws-network-firewall",
+      "term": "AWS Network Firewall",
+      "category": "Security",
+      "hint": "FIREWALL for your whole VPC",
+      "eli12": "A guard for the whole network, not just one server or website.",
+      "definition": "Managed network firewall that protects an entire VPC, with traffic filtering and intrusion prevention from Layer 3 to Layer 7.",
+      "triggers": [
+        "VPC firewall",
+        "intrusion prevention",
+        "network protection"
+      ],
+      "confuse": [
+        "AWS WAF",
+        "Security Groups"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": true,
+      "coverage": "⚪ Low Priority / Out of Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Not on the official CLF-C02 in-scope list. Mentioned in the course."
+    },
+    {
+      "id": "aws-infrastructure-composer",
+      "term": "AWS Infrastructure Composer",
+      "category": "Developer Tools",
+      "hint": "DRAG-AND-DROP architecture → CloudFormation",
+      "eli12": "Draw your app's design and it writes the template for you.",
+      "definition": "Visual designer for building application architectures by dragging and connecting AWS resources. It generates infrastructure as code (CloudFormation templates). Formerly AWS Application Composer.",
+      "triggers": [
+        "visual design",
+        "CloudFormation",
+        "drag and drop"
+      ],
+      "confuse": [
+        "AWS CloudFormation"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": true,
+      "coverage": "⚪ Low Priority / Out of Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Not on the official CLF-C02 in-scope list. Mentioned in the course."
+    },
+    {
+      "id": "aws-fault-injection-service-fis",
+      "term": "AWS Fault Injection Service (FIS)",
+      "category": "Management",
+      "hint": "CHAOS testing: break things on purpose",
+      "eli12": "Practice failures on purpose to see if your app survives.",
+      "definition": "Managed service for running fault-injection (chaos engineering) experiments, such as stopping instances or adding latency, to test how resilient a workload is.",
+      "triggers": [
+        "chaos engineering",
+        "resilience testing",
+        "inject faults"
+      ],
+      "confuse": [
+        "AWS Elastic Disaster Recovery"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": true,
+      "coverage": "⚪ Low Priority / Out of Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Not on the official CLF-C02 in-scope list. Mentioned in the course."
+    },
+    {
+      "id": "aws-managed-services-ams",
+      "term": "AWS Managed Services (AMS)",
+      "category": "Support / Resources",
+      "hint": "AWS experts RUN your infrastructure",
+      "eli12": "AWS staff take care of your cloud for you.",
+      "definition": "AWS team that operates your AWS infrastructure for you, including monitoring, incident management, patching, backup and security.",
+      "triggers": [
+        "managed operations",
+        "outsourced ops",
+        "incident management"
+      ],
+      "confuse": [
+        "AWS Professional Services"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": true,
+      "coverage": "⚪ Low Priority / Out of Scope",
+      "official": "AWS Managed Services provides ongoing management of your AWS infrastructure so you can focus on your applications.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/customer-enablement.html",
+      "notes": "Not on the official CLF-C02 in-scope list. Mentioned in the course."
     }
   ],
   "domains": [
@@ -6921,5 +7295,5 @@
     }
   ],
   "source": "Master Study Guide",
-  "importedAt": "2026-10-30T21:05:31.170Z"
+  "importedAt": "2026-10-30T21:07:37.194Z"
 }
