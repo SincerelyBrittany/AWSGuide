@@ -5337,6 +5337,640 @@
       "official": "AWS Marketplace is a curated digital catalog that customers can use to find, buy, deploy, and manage third-party software, data, and services to build solutions and run their businesses. AWS Marketplace includes thousands of software listings from popular categories such as security, business applications, machine learning, and data products across specific industries, such as healthcare, financial services, and telecommunications.",
       "officialSource": "https://docs.aws.amazon.com/marketplace/latest/userguide/what-is-marketplace.html",
       "notes": ""
+    },
+    {
+      "id": "aws-management-console",
+      "term": "AWS Management Console",
+      "category": "Management",
+      "hint": "Point-and-CLICK web console",
+      "eli12": "The website where you click around to use AWS.",
+      "definition": "Web-based interface for accessing and managing AWS services. For Regional services, the console is scoped to the Region you select.",
+      "triggers": [
+        "console",
+        "web interface",
+        "GUI",
+        "browser"
+      ],
+      "confuse": [
+        "AWS CLI",
+        "AWS CloudShell"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "The AWS Management Console is a web-based application that contains and provides centralized access to all individual AWS service consoles.",
+      "officialSource": "https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/what-is.html",
+      "notes": "In scope for CLF-C02. Console = clicking; CLI/SDK = programmatic."
+    },
+    {
+      "id": "aws-cloudshell",
+      "term": "AWS CloudShell",
+      "category": "Developer Tools",
+      "hint": "CLI in your BROWSER",
+      "eli12": "A command line inside the AWS console, with nothing to install.",
+      "definition": "Browser-based shell launched from the AWS Management Console, already signed in with your console credentials and preinstalled with the AWS CLI. No extra charge.",
+      "triggers": [
+        "browser-based shell",
+        "preinstalled CLI",
+        "no setup"
+      ],
+      "confuse": [
+        "AWS CLI",
+        "AWS Management Console"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "AWS CloudShell is a browser-based shell that makes it easier to securely manage, explore, and interact with your AWS ...",
+      "officialSource": "https://aws.amazon.com/cloudshell/faqs/",
+      "notes": ""
+    },
+    {
+      "id": "aws-cloud-development-kit-cdk",
+      "term": "AWS Cloud Development Kit (CDK)",
+      "category": "Management & Governance",
+      "hint": "IaC in a REAL programming language",
+      "eli12": "Describe your infrastructure with code like Python or TypeScript instead of a template file.",
+      "definition": "Open-source framework for defining cloud infrastructure in familiar programming languages (TypeScript, Python, Java, C#, Go). It deploys through AWS CloudFormation.",
+      "triggers": [
+        "IaC",
+        "programming language",
+        "CloudFormation"
+      ],
+      "confuse": [
+        "AWS CloudFormation"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "AWS Cloud Development Kit (AWS CDK) is an open-source software development framework for defining your cloud infrastructure in code and provisioning it through CloudFormation.",
+      "officialSource": "https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html",
+      "notes": "Think IaC → CloudFormation (templates) or CDK (code)."
+    },
+    {
+      "id": "amazon-resource-name-arn",
+      "term": "Amazon Resource Name (ARN)",
+      "category": "Management",
+      "hint": "ARN = unique ADDRESS of a resource",
+      "eli12": "Every AWS thing has its own unique ID string.",
+      "definition": "Unique identifier for an AWS resource, used to refer to it unambiguously across AWS, for example in IAM policies. Format: arn:partition:service:region:account-id:resource.",
+      "triggers": [
+        "unique identifier",
+        "IAM policy",
+        "resource"
+      ],
+      "confuse": [
+        "AWS Account ID"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Usually shown under a resource's properties."
+    },
+    {
+      "id": "iaas-infrastructure-as-a-service",
+      "term": "IaaS (Infrastructure as a Service)",
+      "category": "Cloud Concepts",
+      "hint": "Give me a COMPUTER, I'll do the rest",
+      "eli12": "Rent the kitchen, make your own pizza.",
+      "definition": "Cloud model that provides the basic building blocks: networking, virtual or dedicated computers, and storage. The customer manages the OS, apps and data. AWS example: Amazon EC2.",
+      "triggers": [
+        "IaaS",
+        "virtual servers",
+        "most control",
+        "manage OS"
+      ],
+      "confuse": [
+        "PaaS",
+        "SaaS"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Exam: 'rent virtual servers and install own OS' → IaaS (EC2)."
+    },
+    {
+      "id": "paas-platform-as-a-service",
+      "term": "PaaS (Platform as a Service)",
+      "category": "Cloud Concepts",
+      "hint": "Give me somewhere to RUN MY CODE",
+      "eli12": "Pick your pizza; someone else runs the kitchen.",
+      "definition": "Cloud model where the provider manages the underlying infrastructure (hardware, OS, runtime) so you focus on deploying and managing your applications. AWS example: AWS Elastic Beanstalk.",
+      "triggers": [
+        "PaaS",
+        "upload code",
+        "no server management"
+      ],
+      "confuse": [
+        "IaaS",
+        "SaaS"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Exam: 'upload code without managing servers' → PaaS (Elastic Beanstalk)."
+    },
+    {
+      "id": "saas-software-as-a-service",
+      "term": "SaaS (Software as a Service)",
+      "category": "Cloud Concepts",
+      "hint": "Give me READY-TO-USE software",
+      "eli12": "Order a pizza that's already made.",
+      "definition": "Complete product that the provider runs and manages; you just use it (e.g., web-based email, Microsoft 365, Salesforce). You manage only your data and settings.",
+      "triggers": [
+        "SaaS",
+        "ready to use",
+        "fully managed application"
+      ],
+      "confuse": [
+        "IaaS",
+        "PaaS"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Exam: 'use online email without maintaining servers' → SaaS."
+    },
+    {
+      "id": "high-availability",
+      "term": "High Availability",
+      "category": "Cloud Concepts",
+      "hint": "stay UP: run in MULTIPLE AZs",
+      "eli12": "If one data center fails, the app keeps running.",
+      "definition": "Ability of a system to stay operational with minimal downtime by removing single points of failure, for example running in multiple Availability Zones behind Elastic Load Balancing.",
+      "triggers": [
+        "multiple AZs",
+        "minimal downtime",
+        "no single point of failure"
+      ],
+      "confuse": [
+        "Fault Tolerance",
+        "Scalability"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "S3 is highly available by default; a single EC2 instance is not (deploy 2+ AZs)."
+    },
+    {
+      "id": "fault-tolerance",
+      "term": "Fault Tolerance",
+      "category": "Cloud Concepts",
+      "hint": "keeps working even when PARTS FAIL",
+      "eli12": "Like a spare tire: something breaks and you keep driving.",
+      "definition": "Ability of a system to keep operating without interruption when one or more components fail, using redundancy and automatic failover (e.g., RDS Multi-AZ standby).",
+      "triggers": [
+        "redundancy",
+        "failover",
+        "no interruption"
+      ],
+      "confuse": [
+        "High Availability"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "durability",
+      "term": "Durability",
+      "category": "Storage",
+      "hint": "DATA won't get LOST",
+      "eli12": "Your files won't disappear.",
+      "definition": "How likely stored data is to stay intact and not be lost over time. Amazon S3 is designed for 99.999999999% (11 nines) durability by storing data redundantly across multiple Availability Zones.",
+      "triggers": [
+        "11 nines",
+        "data loss",
+        "redundancy"
+      ],
+      "confuse": [
+        "High Availability"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Durability = data not lost. Availability = data reachable right now."
+    },
+    {
+      "id": "disaster-recovery-strategies",
+      "term": "Disaster Recovery Strategies",
+      "category": "Cloud Concepts",
+      "hint": "Backup → Pilot Light → Warm Standby → Multi-site (more cost = faster recovery)",
+      "eli12": "Four ways to be ready for a disaster, from cheap and slow to expensive and instant.",
+      "definition": "AWS DR strategies from lowest cost and slowest recovery to highest cost and fastest: Backup and restore; Pilot light (data replicated, core infrastructure ready but idle); Warm standby (scaled-down but fully working copy running); Multi-site active/active (full production in multiple Regions).",
+      "triggers": [
+        "backup and restore",
+        "pilot light",
+        "warm standby",
+        "multi-site active/active"
+      ],
+      "confuse": [
+        "RTO",
+        "RPO"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "With the pilot light approach, you replicate your data from one Region to another and provision a copy of your core workload infrastructure. The warm standby approach involves ensuring that there is a scaled down, but fully functional, copy of your production environment in another Region.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html",
+      "notes": "Lower RTO/RPO = more expensive strategy."
+    },
+    {
+      "id": "recovery-time-objective-rto",
+      "term": "Recovery Time Objective (RTO)",
+      "category": "Cloud Concepts",
+      "hint": "RTO = TIME to get back UP",
+      "eli12": "How long you can afford to be down.",
+      "definition": "Maximum acceptable delay between a service interruption and the restoration of service.",
+      "triggers": [
+        "downtime",
+        "how long to recover"
+      ],
+      "confuse": [
+        "Recovery Point Objective (RPO)"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Time → RTO. Data loss → RPO."
+    },
+    {
+      "id": "recovery-point-objective-rpo",
+      "term": "Recovery Point Objective (RPO)",
+      "category": "Cloud Concepts",
+      "hint": "RPO = how much DATA you can lose (Point in time)",
+      "eli12": "How far back in time you can afford to lose data.",
+      "definition": "Maximum acceptable amount of time since the last data recovery point, which defines how much data loss is acceptable.",
+      "triggers": [
+        "data loss",
+        "last backup",
+        "point in time"
+      ],
+      "confuse": [
+        "Recovery Time Objective (RTO)"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "aws-govcloud-us",
+      "term": "AWS GovCloud (US)",
+      "category": "Infrastructure",
+      "hint": "GOVERNMENT-only isolated Region",
+      "eli12": "A special AWS Region for US government and regulated data.",
+      "definition": "Isolated AWS Regions for sensitive US government workloads and regulated industries, built to meet requirements such as ITAR, FedRAMP and DoD SRG.",
+      "triggers": [
+        "government",
+        "ITAR",
+        "FedRAMP",
+        "isolated Region",
+        "compliance"
+      ],
+      "confuse": [
+        "AWS Region"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "AWS GovCloud (US) is an isolated AWS Region that hosts sensitive workloads in the cloud, ensuring that this work meets the US government's regulatory and compliance requirements.",
+      "officialSource": "https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html",
+      "notes": ""
+    },
+    {
+      "id": "elastic-ip-address",
+      "term": "Elastic IP Address",
+      "category": "Networking",
+      "hint": "STATIC public IP you keep",
+      "eli12": "A public IP address that doesn't change when you restart.",
+      "definition": "Static public IPv4 address allocated to your account. You can attach it to an instance and quickly remap it to another instance to mask a failure. Public IPv4 addresses are billed.",
+      "triggers": [
+        "static IP",
+        "remap",
+        "public IPv4"
+      ],
+      "confuse": [
+        "Internet Gateway"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "A fixed (static) IP address that you have allocated in Amazon EC2 or Amazon VPC and then attached to an instance. Elastic IP addresses are associated with your account, not a specific instance.",
+      "officialSource": "https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html",
+      "notes": ""
+    },
+    {
+      "id": "reserved-instance-marketplace",
+      "term": "Reserved Instance Marketplace",
+      "category": "Pricing",
+      "hint": "SELL unused RIs",
+      "eli12": "Like reselling a gym membership you no longer use.",
+      "definition": "Marketplace where you can sell unused Standard Reserved Instances to other AWS customers, or buy RIs with shorter remaining terms. Convertible RIs can't be sold there.",
+      "triggers": [
+        "sell RIs",
+        "Standard RI",
+        "unused reservation"
+      ],
+      "confuse": [
+        "Reserved Instances",
+        "Savings Plans"
+      ],
+      "domain": "Billing, Pricing & Support",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Standard RI = bigger discount, can be sold. Convertible RI = can be exchanged, can't be sold."
+    },
+    {
+      "id": "zero-trust",
+      "term": "Zero Trust",
+      "category": "Security",
+      "hint": "NEVER trust, ALWAYS verify",
+      "eli12": "Nobody gets automatic trust, even inside the network.",
+      "definition": "Security model that grants no trust based on network location. Every request is authenticated and authorized based on identity, so identity becomes the main security perimeter. On AWS: IAM, MFA, least privilege, IAM Identity Center.",
+      "triggers": [
+        "never trust always verify",
+        "identity perimeter"
+      ],
+      "confuse": [
+        "Defense in Depth"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "iam-policy",
+      "term": "IAM Policy",
+      "category": "Security",
+      "hint": "JSON: Effect + Action + Resource",
+      "eli12": "A permission slip written in JSON.",
+      "definition": "JSON document that defines permissions. Each statement has an Effect (Allow or Deny), Action (API operations), Resource (ARNs) and an optional Condition. Attach policies to users, groups or roles. An explicit Deny always wins.",
+      "triggers": [
+        "JSON",
+        "Effect",
+        "Action",
+        "Resource",
+        "Condition"
+      ],
+      "confuse": [
+        "Service Control Policy (SCP)",
+        "IAM Role"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "tags-and-resource-groups",
+      "term": "Tags and Resource Groups",
+      "category": "Management",
+      "hint": "TAG it, then GROUP it",
+      "eli12": "Labels on your resources so you can find, organize and bill them.",
+      "definition": "Tags are key-value labels on AWS resources used to organize, search, control access and track costs. AWS Resource Groups collect resources that share tags so you can view and manage them together.",
+      "triggers": [
+        "key-value",
+        "organize",
+        "resource group"
+      ],
+      "confuse": [
+        "Cost Allocation Tags"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "A tag is a label that you or AWS assigns to an AWS resource. Each tag consists of a key and a value.",
+      "officialSource": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html",
+      "notes": "Handy for per-project IAM policies and cost tracking."
+    },
+    {
+      "id": "total-cost-of-ownership-tco",
+      "term": "Total Cost of Ownership (TCO)",
+      "category": "Cloud Economics",
+      "hint": "count ALL the costs, not just servers",
+      "eli12": "Add up everything (hardware, power, people) to compare on-premises with cloud.",
+      "definition": "Estimate of all direct and indirect costs of running a solution (hardware, software, facilities, power, cooling, staff), used to compare on-premises with the cloud. Migration Evaluator builds a TCO-based business case.",
+      "triggers": [
+        "TCO",
+        "business case",
+        "compare costs"
+      ],
+      "confuse": [
+        "AWS Pricing Calculator",
+        "Migration Evaluator"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "vm-import-export",
+      "term": "VM Import/Export",
+      "category": "Migration",
+      "hint": "bring your VM IMAGES in or out",
+      "eli12": "Copy your existing virtual machines into AWS.",
+      "definition": "Imports virtual machine images from your existing environment (e.g., VMware, Microsoft Hyper-V) as Amazon EC2 instances, and exports them back.",
+      "triggers": [
+        "VM image",
+        "import",
+        "VMware"
+      ],
+      "confuse": [
+        "AWS Application Migration Service"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "aws-free-tier",
+      "term": "AWS Free Tier",
+      "category": "Billing",
+      "hint": "FREE to TRY",
+      "eli12": "Use some AWS services for free while you learn.",
+      "definition": "Lets customers try AWS services at no charge up to set limits, including always-free usage on some services (e.g., AWS Lambda) and free credits or trial periods for new accounts.",
+      "triggers": [
+        "free",
+        "try",
+        "limits"
+      ],
+      "confuse": [
+        "AWS Budgets"
+      ],
+      "domain": "Billing, Pricing & Support",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Set a budget alert so you don't go past the free limits."
+    },
+    {
+      "id": "service-level-agreement-sla",
+      "term": "Service Level Agreement (SLA)",
+      "category": "Support",
+      "hint": "AWS's UPTIME promise (or service credits)",
+      "eli12": "AWS promises a level of uptime; if they miss it you get credits back.",
+      "definition": "AWS's commitment to a monthly uptime percentage for a service (e.g., Amazon EC2's Region-level SLA is 99.99%). If AWS misses it, customers can claim service credits.",
+      "triggers": [
+        "uptime percentage",
+        "service credits"
+      ],
+      "confuse": [
+        "AWS Health Dashboard"
+      ],
+      "domain": "Billing, Pricing & Support",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "penetration-testing-on-aws",
+      "term": "Penetration Testing on AWS",
+      "category": "Security",
+      "hint": "PEN TEST approved services: no permission needed",
+      "eli12": "You can run security tests on your own stuff on certain services without asking first.",
+      "definition": "Customers can run penetration tests on their own resources for a list of approved services (e.g., EC2, RDS, Lambda, CloudFront) without prior approval. DoS/DDoS simulations and attacks on AWS infrastructure are not allowed without separate approval.",
+      "triggers": [
+        "pen test",
+        "no prior approval",
+        "prohibited DoS"
+      ],
+      "confuse": [
+        "Amazon Inspector"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "defense-in-depth",
+      "term": "Defense in Depth",
+      "category": "Security",
+      "hint": "LAYERS of security",
+      "eli12": "Many locks: a fence, a door and a safe.",
+      "definition": "Security approach that applies multiple layers of controls (edge and WAF, network and security groups, compute, application, data encryption, IAM) so that if one layer fails, others still protect.",
+      "triggers": [
+        "layers",
+        "multiple controls"
+      ],
+      "confuse": [
+        "Zero Trust"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "cia-triad",
+      "term": "CIA Triad",
+      "category": "Security",
+      "hint": "Confidentiality, Integrity, Availability",
+      "eli12": "Keep secrets secret, data unchanged, and systems up.",
+      "definition": "Core security model. Confidentiality: only authorized access (encryption, IAM). Integrity: data is accurate and unaltered (hashing, checksums). Availability: systems and data are reachable when needed (Multi-AZ, backups).",
+      "triggers": [
+        "confidentiality",
+        "integrity",
+        "availability"
+      ],
+      "confuse": [
+        "Defense in Depth"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "serverless-computing",
+      "term": "Serverless Computing",
+      "category": "Compute",
+      "hint": "NO SERVERS to manage; pay per use",
+      "eli12": "You give AWS code and it runs it.",
+      "definition": "Model where AWS manages the servers: you don't provision or patch infrastructure, it scales automatically and you pay for what you use (e.g., AWS Lambda, AWS Fargate, DynamoDB, S3). Cold starts can add latency.",
+      "triggers": [
+        "no servers to manage",
+        "auto scale",
+        "pay per use"
+      ],
+      "confuse": [
+        "Amazon EC2"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
     }
   ],
   "domains": [
@@ -5485,5 +6119,5 @@
     }
   ],
   "source": "Master Study Guide",
-  "importedAt": "2026-10-30T20:37:48.950Z"
+  "importedAt": "2026-10-30T20:51:51.724Z"
 }
