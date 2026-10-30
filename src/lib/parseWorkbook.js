@@ -15,6 +15,8 @@ const COLUMNS = {
   confidence: ['confidence'],
   notes: ['my notes', 'notes'],
   coverage: ['official exam guide coverage', 'exam guide coverage', 'coverage'],
+  official: ['official aws definition', 'aws definition'],
+  officialSource: ['official source', 'source'],
 };
 
 const DEFAULT_DOMAINS = [
@@ -105,6 +107,8 @@ export function parseWorkbook(data, type = 'array') {
       confidence: confidence === 'low' ? 'red' : confidence,
       lowPriority: confidence === 'low' || outOfScope,
       coverage,
+      official: clean(get(row, 'official')),
+      officialSource: /^https?:\/\//.test(clean(get(row, 'officialSource'))) ? clean(get(row, 'officialSource')) : '',
       notes: clean(get(row, 'notes')),
     });
   }

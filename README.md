@@ -120,6 +120,8 @@ Columns are matched by header name, so order doesn't matter and extra columns ar
 | `Confidence` | 🔴 Study It · 🟡 Kinda Know It · 🟢 Know It · ⚪ Low Priority |
 | `Official Exam Guide Coverage` | ⚪ Out of Scope rows are hidden unless you turn them on |
 | `My Notes` | Shown on the card back and after a miss |
+| `Official AWS Definition` | Quoted from AWS documentation, shown on the card back |
+| `Official Source` | Link to the AWS page each official definition came from |
 
 The **Exam Info** sheet sets the domain weights and **Exam Cheat Sheet** adds extra Rapid-Fire prompts.
 </details>

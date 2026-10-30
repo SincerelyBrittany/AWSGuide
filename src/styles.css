@@ -650,3 +650,8 @@ select, input[type='text'], .player-row input {
 .table-tools input[type='search'] { background: var(--surface); border: 1px solid var(--line); border-radius: 9px; padding: 8px 10px; min-width: 0; width: 220px; max-width: 100%; }
 .status-filter { align-self: flex-start; }
 .danger-zone { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
+
+/* Official AWS definition on the card back */
+.back-details .official { grid-column: 1 / -1; padding: 12px 14px; border-radius: 10px; background: var(--surface-2); border: 1px solid var(--line); }
+.back-details .official dd { font-size: 0.92rem; }
+.source-link { margin-left: 8px; font-size: 0.82rem; font-weight: 600; color: var(--t-tech); white-space: nowrap; }

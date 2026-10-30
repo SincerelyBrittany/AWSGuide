@@ -23,6 +23,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS CloudTrail is a web service that records AWS API calls for your account and delivers log files to you. The recorded information includes the identity of the API caller, the time of the API call, the source IP address of the API caller, the request parameters, and the response elements that the AWS service returns.",
+      "officialSource": "https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html",
       "notes": ""
     },
     {
@@ -46,6 +48,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon Bedrock is a fully managed service that makes foundational models (FMs) from Amazon and leading AI companies available through an API. With the Amazon Bedrock serverless experience, you can quickly get started, experiment with FMs, privately customize them with your own data, and seamlessly integrate and deploy FMs into your AWS applications.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/machine-learning.html",
       "notes": ""
     },
     {
@@ -67,6 +71,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Wavelength Zones provide you with the ability to build applications that deliver ultra-low latencies to 5G devices and end users. Wavelength deploys standard AWS compute and storage services to the edge of telecommunication carriers' 5G networks.",
+      "officialSource": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html",
       "notes": ""
     },
     {
@@ -92,6 +98,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon CloudWatch is a web service that you can use to monitor and manage various metrics, and configure alarm actions based on data from those metrics.",
+      "officialSource": "https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html",
       "notes": ""
     },
     {
@@ -115,6 +123,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Shield is a managed Distributed Denial of Service (DDoS) protection service that safeguards web applications running on AWS. AWS Shield provides you with always-on detection and automatic inline mitigations that minimize application downtime and latency, so there is no need to engage Support to benefit from DDoS protection.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/security-services.html",
       "notes": ""
     },
     {
@@ -140,6 +150,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS WAF is a web application firewall that helps protect your web applications or APIs against common web exploits and bots that may affect availability, compromise security, or consume excessive resources. AWS WAF gives you control over how traffic reaches your applications by enabling you to create security rules that control bot traffic and block common attack patterns, such as SQL injection or cross-site scripting.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/security-services.html",
       "notes": ""
     },
     {
@@ -164,6 +176,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon Simple Storage Service (Amazon S3) is an object storage service that offers industry-leading scalability, data availability, security, and performance. This means customers of all sizes and industries can use it to store and protect any amount of data for a range of use cases, such as websites, mobile applications, backup and restore, archive, enterprise applications, IoT devices, and big data analytics.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/storage-services.html",
       "notes": ""
     },
     {
@@ -188,6 +202,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides secure, resizable compute capacity in the cloud. It is designed to make web-scale computing easier for developers.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/compute-services.html",
       "notes": ""
     },
     {
@@ -212,6 +228,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Lambda lets you run code without provisioning or managing servers. You pay only for the compute time you consume—there is no charge when your code is not running.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/compute-services.html",
       "notes": ""
     },
     {
@@ -238,6 +256,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Identity and Access Management (IAM) enables you to securely control access to AWS services and resources for your AWS users, groups, and roles. Using IAM, you can create and manage fine-grained access controls with permissions, specify who can access which services and resources, and under which conditions.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/security-services.html",
       "notes": ""
     },
     {
@@ -262,6 +282,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon Relational Database Service (Amazon RDS) makes it easy to set up, operate, and scale a relational database in the cloud. It provides cost-efficient and resizable capacity while automating time-consuming administration tasks such as hardware provisioning, database setup, patching and backups.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/database.html",
       "notes": ""
     },
     {
@@ -286,6 +308,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon DynamoDB is a key-value and document database that delivers single-digit millisecond performance at any scale. It's a fully managed, multi-Region database with built-in security, backup and restore, and in-memory caching for internet-scale applications.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/database.html",
       "notes": ""
     },
     {
@@ -310,6 +334,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon Redshift is the most widely used cloud data warehouse. It makes it fast, simple and cost-effective to analyze all your data using standard SQL and your existing Business Intelligence (BI) tools.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/analytics.html",
       "notes": ""
     },
     {
@@ -335,6 +361,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Artifact is your go-to, central resource for compliance-related information that matters to you. It provides on-demand access to AWS security and compliance reports and select online agreements.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/security-services.html",
       "notes": ""
     },
     {
@@ -359,6 +387,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Budgets gives you the ability to set custom budgets that alert you when your costs or usage exceed (or are forecasted to exceed) your budgeted amount.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/aws-cost-management.html",
       "notes": ""
     },
     {
@@ -383,6 +413,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Cost Explorer has an easy-to-use interface that lets you visualize, understand, and manage your AWS costs and usage over time.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/aws-cost-management.html",
       "notes": ""
     },
     {
@@ -407,6 +439,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Organizations helps you centrally manage and govern your environment as you grow and scale your AWS resources.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/management-governance.html",
       "notes": ""
     },
     {
@@ -429,6 +463,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "The AWS Cloud Adoption Framework (AWS CAF) leverages AWS experience and best practices to help you digitally transform and accelerate your business outcomes through innovative use of AWS.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/your-cloud-transformation-journey.html",
       "notes": ""
     },
     {
@@ -451,6 +487,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Envision phase focuses on demonstrating how cloud will help accelerate your business outcomes. It does so by identifying and prioritizing transformation opportunities across each of the four transformation domains in line with your strategic business objectives.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/your-cloud-transformation-journey.html",
       "notes": ""
     },
     {
@@ -474,6 +512,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Align phase focuses on identifying capability gaps across the six AWS CAF perspectives, identifying cross-organizational dependencies, and surfacing stakeholder concerns and challenges. Doing so will help you create strategies for improving your cloud readiness, ensure stakeholder alignment, and facilitate relevant organizational change management activities.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/your-cloud-transformation-journey.html",
       "notes": ""
     },
     {
@@ -497,6 +537,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Launch phase focuses on delivering pilot initiatives in production and on demonstrating incremental business value. Pilots should be highly impactful and if/when successful they will help influence future direction.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/your-cloud-transformation-journey.html",
       "notes": ""
     },
     {
@@ -520,6 +562,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Scale phase focuses on expanding production pilots and business value to desired scale and ensuring that the business benefits associated with your cloud investments are realized and sustained.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/your-cloud-transformation-journey.html",
       "notes": ""
     },
     {
@@ -545,6 +589,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Config is a fully managed service that provides you with an AWS resource inventory, configuration history, and configuration change notifications to enable security and governance.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/management-governance.html",
       "notes": "Config = resource-specific history. CloudTrail = account/API activity."
     },
     {
@@ -567,6 +613,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Service Catalog allows organizations to create and manage catalogs of IT services that are approved for use on AWS.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/management-governance.html",
       "notes": ""
     },
     {
@@ -594,6 +642,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS CloudFormation gives developers and systems administrators an easy way to create and manage a collection of related AWS resources, provisioning and updating them in an orderly and predictable fashion.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/management-governance.html",
       "notes": ""
     },
     {
@@ -622,6 +672,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Business Support will be discontinued January 1, 2027. Customers with Business Support can continue using their existing plan or choose to upgrade to Business Support+ anytime before January 1, 2027.",
+      "officialSource": "https://docs.aws.amazon.com/awssupport/latest/user/aws-support-plans.html",
       "notes": "Often the cost-effective answer when the requirement is production + 24/7 technical support."
     },
     {
@@ -646,6 +698,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "On January 1, 2027, AWS will discontinue Enterprise On-Ramp. Throughout 2026, Enterprise On-Ramp customers will be automatically upgraded to AWS Enterprise Support during contract renewal or in periodic batches.",
+      "officialSource": "https://docs.aws.amazon.com/awssupport/latest/user/aws-support-plans.html",
       "notes": ""
     },
     {
@@ -671,6 +725,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Developer Support will be discontinued January 1, 2027. Customers with Developer Support can continue using their existing plan or choose to upgrade to Business Support+ anytime before January 1, 2027.",
+      "officialSource": "https://docs.aws.amazon.com/awssupport/latest/user/aws-support-plans.html",
       "notes": "No 24/7 phone technical support."
     },
     {
@@ -698,6 +754,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": "If the question says designated TAM, think Enterprise."
     },
     {
@@ -724,6 +782,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Elastic Load Balancing (ELB) automatically distributes incoming application traffic across multiple targets, such as Amazon EC2 instances, containers, and IP addresses. It can handle the varying load of your application traffic in a single Availability Zone or across multiple Availability Zones.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/networking-services.html",
       "notes": "ELB distributes traffic; Auto Scaling changes capacity."
     },
     {
@@ -746,6 +806,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "A read replica is a read-only copy of a DB instance. You can reduce the load on your primary DB instance by routing queries from your applications to the read replica.",
+      "officialSource": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html",
       "notes": "Read Replica = performance/scaling. Multi-AZ = high availability/failover."
     },
     {
@@ -772,6 +834,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Elastic Beanstalk is an easy-to-use service for deploying and scaling web applications and services developed with Java, .NET, PHP, Node.js, Python, Ruby, Go, and Docker on familiar servers such as Apache, Nginx, Passenger, and Internet Information Services (IIS). You can simply upload your code, and AWS Elastic Beanstalk automatically handles the deployment, from capacity provisioning, load balancing, and auto scaling to application health monitoring.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/compute-services.html",
       "notes": "No extra Beanstalk service charge; pay for underlying AWS resources."
     },
     {
@@ -796,6 +860,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Direct Connect makes it easy to establish a dedicated network connection from your premises to AWS. Using Direct Connect, you can establish private connectivity between AWS and your data center, office, or co-location environment, which in many cases can reduce your network costs, increase bandwidth throughput, and provide a more consistent network experience than Internet-based connections.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/networking-services.html",
       "notes": ""
     },
     {
@@ -820,6 +886,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Local Zones provide you with the ability to place resources, such as compute and storage, in multiple locations closer to your end users.",
+      "officialSource": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html",
       "notes": ""
     },
     {
@@ -846,6 +914,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon Aurora is a MySQL and PostgreSQL compatible relational database engine that combines the speed and availability of high-end commercial databases with the simplicity and cost-effectiveness of open source databases.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/database.html",
       "notes": ""
     },
     {
@@ -871,6 +941,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "A data center that an AWS service uses to perform service-specific operations. For example, CloudFront uses edge locations to cache copies of your content, so the content is closer to your users and can be delivered faster regardless of their location. Route 53 uses edge locations to speed up the response to public DNS queries.",
+      "officialSource": "https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html",
       "notes": ""
     },
     {
@@ -895,6 +967,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "A security group controls the traffic that is allowed to reach and leave the resources that it is associated with. For example, after you associate a security group with an EC2 instance, it controls the inbound and outbound traffic for the instance. Security groups are stateful.",
+      "officialSource": "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html",
       "notes": ""
     },
     {
@@ -920,6 +994,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon Simple Queue Service (Amazon SQS) is a fully managed message queuing service that enables you to decouple and scale microservices, distributed systems, and serverless applications. SQS eliminates the complexity and overhead associated with managing and operating message oriented middleware, and empowers developers to focus on differentiating work.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/application-integration.html",
       "notes": ""
     },
     {
@@ -945,6 +1021,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon Simple Notification Service (Amazon SNS) is a highly available, durable, secure, fully managed pub/sub messaging service that enables you to decouple microservices, distributed systems, and serverless applications. Amazon SNS provides topics for high-throughput, push-based, many-to-many messaging.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/application-integration.html",
       "notes": ""
     },
     {
@@ -967,6 +1045,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon Rekognition makes it easy to add image and video analysis to your applications using proven, highly scalable, deep learning technology that requires no ML expertise to use. With Amazon Rekognition, you can identify objects, people, text, scenes, and activities in images and videos, as well as detect any inappropriate content.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/machine-learning.html",
       "notes": ""
     },
     {
@@ -991,6 +1071,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Trusted Advisor is an online resource to help you reduce cost, increase performance, and improve security by optimizing your AWS environment.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/management-governance.html",
       "notes": ""
     },
     {
@@ -1015,6 +1097,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon Inspector is a new automated vulnerability management service that continually scans AWS workloads for software vulnerabilities and unintended network exposure.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/security-services.html",
       "notes": ""
     },
     {
@@ -1039,6 +1123,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Virtual Private Network (Site-to-Site VPN) solutions establish secure connections between your on-premises networks, remote offices, client devices, and the AWS global network. Site-to-Site VPN is comprised of two services: AWS Site-to-Site VPN and AWS Client VPN.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/networking-services.html",
       "notes": ""
     },
     {
@@ -1058,6 +1144,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon Virtual Private Cloud (Amazon VPC) lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define. You have complete control over your virtual networking environment, including selection of your own IP address range, creation of subnets, and configuration of route tables and network gateways.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/networking-services.html",
       "notes": ""
     },
     {
@@ -1079,6 +1167,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Connects a network to the internet. You can route traffic for IP addresses outside your Amazon VPC to the internet gateway.",
+      "officialSource": "https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html",
       "notes": ""
     },
     {
@@ -1104,6 +1194,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon Route 53 is a highly available and scalable cloud Domain Name System (DNS) web service. It is designed to give developers and businesses an extremely reliable and cost-effective way to route users to internet applications by translating human-readable names, such as www.example.com, into the numeric IP addresses, such as 192.0.2.1, that computers use to connect to each other.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/networking-services.html",
       "notes": ""
     },
     {
@@ -1129,6 +1221,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "When necessary, use network ACLs to provide stateless, coarse-grain network control. (AWS comparison: network ACLs operate at the subnet level, support allow and deny rules, and return traffic must be explicitly allowed.)",
+      "officialSource": "https://docs.aws.amazon.com/vpc/latest/userguide/infrastructure-security.html",
       "notes": ""
     },
     {
@@ -1153,6 +1247,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "A subnet is a range of IP addresses in your VPC.",
+      "officialSource": "https://docs.aws.amazon.com/vpc/latest/userguide/how-it-works.html",
       "notes": ""
     },
     {
@@ -1173,6 +1269,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "A route table contains a set of rules, called routes, that are used to determine where network traffic from your VPC is directed.",
+      "officialSource": "https://docs.aws.amazon.com/vpc/latest/userguide/how-it-works.html",
       "notes": ""
     },
     {
@@ -1195,6 +1293,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "You can use a network address translation (NAT) device. NAT maps multiple private IPv4 addresses to a single public IPv4 address.",
+      "officialSource": "https://docs.aws.amazon.com/vpc/latest/userguide/how-it-works.html",
       "notes": ""
     },
     {
@@ -1220,6 +1320,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon CloudFront is a fast content delivery network (CDN) service that securely delivers data, videos, applications, and APIs to customers globally with low latency, high transfer speeds, all within a developer-friendly environment.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/networking-services.html",
       "notes": ""
     },
     {
@@ -1244,6 +1346,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Global Accelerator is a network layer service that you use to create accelerators that direct traffic to optimal endpoints over the AWS global network. This improves the availability and performance of your internet applications that are used by a global audience.",
+      "officialSource": "https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html",
       "notes": ""
     },
     {
@@ -1267,6 +1371,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS PrivateLink simplifies the security of data shared with cloud-based applications by eliminating the exposure of data to the public Internet. AWS PrivateLink provides private connectivity between VPCs, AWS services, and on-premises applications, securely on the Amazon network.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/networking-services.html",
       "notes": ""
     },
     {
@@ -1287,6 +1393,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Transit Gateway is a service that enables customers to connect their Amazon Virtual Private Clouds (VPCs) and their on-premises networks to a single gateway.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/networking-services.html",
       "notes": ""
     },
     {
@@ -1307,6 +1415,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "You can optionally connect your VPC to your own corporate data center using an IPsec AWS Site-to-Site VPN connection, making the AWS Cloud an extension of your data center.",
+      "officialSource": "https://docs.aws.amazon.com/vpc/latest/userguide/how-it-works.html",
       "notes": ""
     },
     {
@@ -1327,6 +1437,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "For managing remote access, AWS Client VPN connects your users to AWS or on-premises resources using a VPN software client.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/networking-services.html",
       "notes": ""
     },
     {
@@ -1348,6 +1460,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon API Gateway is a fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale. With a few clicks in the AWS Management Console, you can create an API that acts as a “front door” for applications to access data, business logic, or functionality from your back-end services, such as workloads running on Amazon EC2, code running on AWS Lambda, or any web application.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/networking-services.html",
       "notes": ""
     },
     {
@@ -1372,6 +1486,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon Athena is an interactive query service that makes it easy to analyze data in Amazon S3 using standard SQL. Athena is serverless, so there is no infrastructure to manage, and you pay only for the queries that you run.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/analytics.html",
       "notes": ""
     },
     {
@@ -1392,6 +1508,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Glue is a fully managed extract, transform, and load (ETL) service that makes it easy for customers to prepare and load their data for analytics.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/analytics.html",
       "notes": ""
     },
     {
@@ -1412,6 +1530,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon Kinesis Data Streams is a massively scalable and durable real-time data streaming service. Kinesis Data Streams can continuously capture gigabytes of data per second from hundreds of thousands of sources such as website clickstreams, database event streams, financial transactions, social media feeds, IT logs, and location-tracking events.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/analytics.html",
       "notes": ""
     },
     {
@@ -1432,6 +1552,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "[Amazon] Quick is a fast, cloud-powered business intelligence (BI) service that makes it easy for you to deliver insights to everyone in your organization. QuickSight lets you create and publish interactive dashboards that can be accessed from browsers or mobile devices.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/analytics.html",
       "notes": ""
     },
     {
@@ -1453,6 +1575,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon EventBridge is a serverless event bus that makes it easier to build event-driven applications at scale using events generated from your applications, integrated Software-as-a-Service (SaaS) applications, and AWS services.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/application-integration.html",
       "notes": ""
     },
     {
@@ -1473,6 +1597,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Step Functions is a fully managed service that makes it easy to coordinate the components of distributed applications and microservices using visual workflows.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/application-integration.html",
       "notes": ""
     },
     {
@@ -1492,6 +1618,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon Simple Email Service (Amazon SES) is a cost-effective, flexible, and scalable email service that enables developers to send mail from within any application. You can configure Amazon SES quickly to support several email use cases, including transactional, marketing, or mass email communications.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/business-applications.html",
       "notes": ""
     },
     {
@@ -1516,6 +1644,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "The AWS Cost and Usage Report is a single location for accessing comprehensive information about your AWS costs and usage. The AWS Cost and Usage Report lists AWS usage for each service category used by an account and its IAM users in hourly or daily line items, as well as any tags that you have activated for cost allocation purposes.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/aws-cost-management.html",
       "notes": ""
     },
     {
@@ -1536,6 +1666,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Marketplace is a curated digital catalog that customers can use to find, buy, deploy, and manage third-party software, data, and services to build solutions and run their businesses.",
+      "officialSource": "https://docs.aws.amazon.com/marketplace/latest/userguide/what-is-marketplace.html",
       "notes": ""
     },
     {
@@ -1560,6 +1692,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon Lightsail is designed to be the easiest way to launch and manage a virtual private server with AWS. Lightsail plans include everything you need to jumpstart your project – a VM, SSD-based storage, data transfer, DNS management, and a static IP address – for a low, predictable price.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/compute-services.html",
       "notes": ""
     },
     {
@@ -1583,6 +1717,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Outposts bring native AWS services, infrastructure, and operating models to virtually any data center, co-location space, or on-premises facility. You can use the same APIs, the same tools, the same hardware, and the same functionality across on-premises and the cloud to deliver a truly consistent hybrid experience.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/compute-services.html",
       "notes": ""
     },
     {
@@ -1604,6 +1740,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon Elastic Container Registry (Amazon ECR) is a fully managed Docker container registry that makes it easy for developers to store, manage, and deploy Docker container images.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/containers.html",
       "notes": ""
     },
     {
@@ -1624,6 +1762,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon Elastic Container Service (Amazon ECS) is a highly scalable, high-performance container orchestration service that supports Docker containers and allows you to easily run and scale containerized applications on AWS.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/containers.html",
       "notes": ""
     },
     {
@@ -1644,6 +1784,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon Elastic Kubernetes Service (Amazon EKS) makes it easy to deploy, manage, and scale containerized applications using Kubernetes on AWS. Amazon EKS runs the Kubernetes management infrastructure for you across multiple AWS Availability Zones to eliminate a single point of failure.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/containers.html",
       "notes": ""
     },
     {
@@ -1668,6 +1810,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon ElastiCache is a web service that makes it easy to deploy, operate, and scale an in-memory cache in the cloud. The service improves the performance of web applications by allowing you to retrieve information from fast, managed, in-memory caches, instead of relying entirely on slower disk-based databases.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/database.html",
       "notes": ""
     },
     {
@@ -1688,6 +1832,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon Neptune is a fast, reliable, fully managed graph database service that makes it easy to build and run applications that work with highly connected datasets.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/database.html",
       "notes": ""
     },
     {
@@ -1708,6 +1854,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon DocumentDB (with MongoDB compatibility) is a fast, scalable, highly available, and fully managed document database service that supports MongoDB workloads.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/database.html",
       "notes": ""
     },
     {
@@ -1728,6 +1876,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Command Line Interface is a unified downloadable and configurable tool for managing AWS services. Control multiple AWS services from the command line and automate them through scripts.",
+      "officialSource": "https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html",
       "notes": ""
     },
     {
@@ -1749,6 +1899,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS CodeBuild is a fully managed build service that compiles source code, runs tests, and produces software packages that are ready to deploy. With CodeBuild, you don't need to provision, manage, and scale your own build servers.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/developer-tools.html",
       "notes": ""
     },
     {
@@ -1769,6 +1921,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS CodePipeline is a fully managed continuous delivery service that helps you automate your release pipelines for fast and reliable application and infrastructure updates. CodePipeline automates the build, test, and deploy phases of your release process every time there is a code change, based on the release model you define.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/developer-tools.html",
       "notes": ""
     },
     {
@@ -1790,6 +1944,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS X-Ray helps developers analyze and debug distributed applications in production or under development, such as those built using a microservices architecture.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/developer-tools.html",
       "notes": ""
     },
     {
@@ -1809,6 +1965,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon WorkSpaces is a fully managed, secure cloud desktop service. You can use WorkSpaces to provision either Windows or Linux desktops in just a few minutes and quickly scale to provide thousands of desktops to workers across the globe.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/end-user-computing.html",
       "notes": ""
     },
     {
@@ -1828,6 +1986,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -1849,6 +2009,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Amplify makes it easy to create, configure, and implement scalable mobile applications powered by AWS. Amplify seamlessly provisions and manages your mobile backend and provides a simple framework to easily integrate your backend with your iOS, Android, Web, and React Native frontends.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/mobile-services.html",
       "notes": ""
     },
     {
@@ -1867,6 +2029,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS IoT Core is a managed cloud service that lets connected devices easily and securely interact with cloud applications and other devices. AWS IoT Core can support billions of devices and trillions of messages, and can process and route those messages to AWS endpoints and to other devices reliably and securely.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/internet-of-things-services.html",
       "notes": ""
     },
     {
@@ -1887,6 +2051,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon Comprehend uses ML and natural language processing (NLP) to help you uncover the insights and relationships in your unstructured data.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/machine-learning.html",
       "notes": ""
     },
     {
@@ -1907,6 +2073,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon Lex is a fully managed artificial intelligence (AI) service to design, build, test, and deploy conversational interfaces into any application using voice and text.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/machine-learning.html",
       "notes": ""
     },
     {
@@ -1926,6 +2094,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon Polly is a service that turns text into lifelike speech. Amazon Polly lets you create applications that talk, enabling you to build entirely new categories of speech-enabled products.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/machine-learning.html",
       "notes": ""
     },
     {
@@ -1947,6 +2117,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon Textract is a service that automatically extracts text and data from scanned documents. Amazon Textract goes beyond simple optical character recognition (OCR) to also identify the contents of fields in forms and information stored in tables.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/machine-learning.html",
       "notes": ""
     },
     {
@@ -1966,6 +2138,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon Transcribe is an automatic speech recognition (ASR) service that makes it easy for customers to automatically convert speech to text.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/machine-learning.html",
       "notes": ""
     },
     {
@@ -1985,6 +2159,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon Translate is a neural machine translation service that delivers fast, high-quality, and affordable language translation.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/machine-learning.html",
       "notes": ""
     },
     {
@@ -2008,6 +2184,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Auto Scaling monitors your applications and automatically adjusts capacity to maintain steady, predictable performance at the lowest possible cost.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/management-governance.html",
       "notes": ""
     },
     {
@@ -2028,6 +2206,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Compute Optimizer recommends optimal AWS resources for your workloads to reduce costs and improve performance by using machine learning to analyze historical utilization metrics.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/management-governance.html",
       "notes": ""
     },
     {
@@ -2048,6 +2228,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Control Tower automates the set-up of a baseline environment, or landing zone, that is a secure, well-architected multi-account AWS environment.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/management-governance.html",
       "notes": ""
     },
     {
@@ -2069,6 +2251,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Health provides alerts and remediation guidance when AWS is experiencing events that might affect you.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/management-governance.html",
       "notes": ""
     },
     {
@@ -2089,6 +2273,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "With Service Quotas, you can view and manage your quotas for AWS services from a central location. Quotas, also referred to as limits in AWS services, are the maximum values for the resources, actions, and items in your AWS account.",
+      "officialSource": "https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html",
       "notes": ""
     },
     {
@@ -2114,6 +2300,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Systems Manager gives you visibility and control of your infrastructure on AWS.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/management-governance.html",
       "notes": ""
     },
     {
@@ -2134,6 +2322,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "The AWS Well-Architected Tool (AWS WA Tool) helps you review the state of your workloads and compares them to the latest AWS architectural best practices.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/management-governance.html",
       "notes": ""
     },
     {
@@ -2157,6 +2347,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Transform MGN (AWS MGN) allows you to quickly realize the benefits of migrating applications to the cloud without changes and with minimal downtime.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/migration-services.html",
       "notes": ""
     },
     {
@@ -2179,6 +2371,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Database Migration Service (AWS DMS) helps you migrate databases to AWS easily and securely. The source database remains fully operational during the migration, minimizing downtime to applications that rely on the database.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/migration-services.html",
       "notes": ""
     },
     {
@@ -2199,6 +2393,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Migration Hub provides a single location to track the progress of application migrations across multiple AWS and partner solutions.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/migration-services.html",
       "notes": ""
     },
     {
@@ -2219,6 +2415,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -2242,6 +2440,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Certificate Manager is a service that lets you easily provision, manage, and deploy Secure Sockets Layer/Transport Layer Security (SSL/TLS) certificates for use with AWS services and your internal connected resources.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/security-services.html",
       "notes": ""
     },
     {
@@ -2265,6 +2465,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "The AWS CloudHSM is a cloud-based hardware security module (HSM) that enables you to easily generate and use your own encryption keys on the AWS Cloud. With AWS CloudHSM, you can manage your own encryption keys using dedicated FIPS 140-2 Level 3 validated HSMs.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/security-services.html",
       "notes": ""
     },
     {
@@ -2288,6 +2490,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon Cognito lets you add user sign-up, sign-in, and access control to your web and mobile apps quickly and easily. With Amazon Cognito, you can scale to millions of users and supports sign-in with social identity providers such as Apple, Facebook, Twitter, or Amazon, with SAML 2.0 identity solutions, or by using your own identity system.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/security-services.html",
       "notes": ""
     },
     {
@@ -2308,6 +2512,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon Detective makes it easy to analyze, investigate, and quickly identify the root cause of potential security issues or suspicious activities.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/security-services.html",
       "notes": ""
     },
     {
@@ -2328,6 +2534,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Firewall Manager is a security management service which allows you to centrally configure and manage firewall rules across your accounts and applications in AWS Organizations.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/security-services.html",
       "notes": ""
     },
     {
@@ -2353,6 +2561,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon GuardDuty is a threat detection service that continuously monitors for malicious activity and anomalous behavior to protect your AWS accounts, workloads, Kubernetes clusters, and data stored in Amazon Simple Storage Service (Amazon S3). The GuardDuty service monitors for activity such as unusual API calls, unauthorized deployments, and exfiltrated credentials that indicate a possible account reconnaissance or compromise.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/security-services.html",
       "notes": ""
     },
     {
@@ -2376,6 +2586,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS IAM Identity Center (SSO) is a cloud SSO service that makes it easy to centrally manage SSO access to multiple AWS accounts and business applications.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/security-services.html",
       "notes": ""
     },
     {
@@ -2399,6 +2611,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Key Management Service (AWS KMS) makes it easy for you to create and manage cryptographic keys and control their use across a wide range of AWS services and in your applications.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/security-services.html",
       "notes": ""
     },
     {
@@ -2422,6 +2636,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon Macie is a fully managed data security and data privacy service that uses inventory evaluations, machine learning, and pattern matching to discover sensitive data and accessibility in your Amazon S3 environment.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/security-services.html",
       "notes": ""
     },
     {
@@ -2445,6 +2661,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Secrets Manager helps you protect secrets needed to access your applications, services, and IT resources. The service enables you to easily rotate, manage, and retrieve database credentials, API keys, and other secrets throughout their lifecycle.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/security-services.html",
       "notes": ""
     },
     {
@@ -2467,6 +2685,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Security Hub CSPM is a cloud security posture management service that performs automated, continuous security best practice checks against your AWS resources. Security Hub CSPM aggregates your security alerts (i.e. findings) from various AWS services and partner products in a standardized format so that you can more easily take action on them.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/security-services.html",
       "notes": ""
     },
     {
@@ -2489,6 +2709,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Fargate is a compute engine for Amazon ECS that allows you to run containers without having to manage servers or clusters. With AWS Fargate, you no longer have to provision, configure, and scale clusters of VMs to run containers.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/compute-services.html",
       "notes": ""
     },
     {
@@ -2509,6 +2731,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Backup enables you to centralize and automate data protection across AWS services. AWS Backup offers a cost-effective, fully managed, policy-based service that further simplifies data protection at scale.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/storage-services.html",
       "notes": ""
     },
     {
@@ -2535,6 +2759,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon Elastic Block Store (Amazon EBS) provides persistent block storage volumes for use with Amazon EC2 instances in the AWS Cloud. Each Amazon EBS volume is automatically replicated within its Availability Zone to protect you from component failure, offering high availability and durability.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/storage-services.html",
       "notes": ""
     },
     {
@@ -2560,6 +2786,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon Elastic File System (Amazon EFS) provides a simple, scalable, elastic file system for Linux-based workloads for use with AWS Cloud services and on-premises resources. It is built to scale on demand to petabytes without disrupting applications, growing and shrinking automatically as you add and remove files.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/storage-services.html",
       "notes": ""
     },
     {
@@ -2585,6 +2813,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon FSx for Windows File Server provides a fully managed native Microsoft Windows file system so you can easily move your Windows-based applications that require file storage to AWS. Amazon FSx for Lustre is a fully managed file system that is optimized for compute-intensive workloads, such as high performance computing, machine learning, and media data processing workflows.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/storage-services.html",
       "notes": ""
     },
     {
@@ -2609,6 +2839,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -2631,6 +2863,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "The AWS Storage Gateway is a hybrid storage service that allows your on-premises applications to seamlessly use AWS cloud storage. You can use the service for backup and archiving, disaster recovery, cloud data processing, storage tiering, and migration.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/storage-services.html",
       "notes": ""
     },
     {
@@ -2653,6 +2887,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "The AWS Cloud enables a shared responsibility model. While AWS manages security of the cloud, you are responsible for security in the cloud. This means that you retain control of the security you choose to implement to protect your own content, platform, applications, systems, and networks no differently than you would in an on-site data center.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/security-and-compliance.html",
       "notes": ""
     },
     {
@@ -2677,6 +2913,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "An AWS Region is a physical location in the world where we have multiple Availability Zones. Availability Zones consist of one or more discrete data centers, each with redundant power, networking, and connectivity, housed in separate facilities.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/global-infrastructure.html",
       "notes": ""
     },
     {
@@ -2699,6 +2937,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "A distinct location within a Region that's insulated from failures in other Availability Zones, and provides inexpensive, low-latency network connectivity to other Availability Zones in the same Region.",
+      "officialSource": "https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html",
       "notes": ""
     },
     {
@@ -2719,6 +2959,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Stop guessing capacity: ... You can access as much or as little capacity as you need, and scale up and down as required with only a few minutes' notice.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/six-advantages-of-cloud-computing.html",
       "notes": ""
     },
     {
@@ -2739,6 +2981,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -2758,6 +3002,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -2777,6 +3023,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -2797,6 +3045,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "The AWS Well-Architected Framework ... provides a consistent set of best practices for customers and partners to evaluate architectures, and provides a set of questions you can use to evaluate how well an architecture is aligned to AWS best practices. The AWS Well-Architected Framework is based on six pillars — operational excellence, security, reliability, performance efficiency, cost optimization, and sustainability.",
+      "officialSource": "https://docs.aws.amazon.com/wellarchitected/latest/framework/definitions.html",
       "notes": ""
     },
     {
@@ -2820,6 +3070,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "On-Demand Instances – Pay, by the second, for the instances that you launch.",
+      "officialSource": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html",
       "notes": ""
     },
     {
@@ -2844,6 +3096,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Reserved Instances – Reduce your Amazon EC2 costs by making a commitment to a consistent instance configuration, including instance type and Region, for a term of 1 or 3 years.",
+      "officialSource": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html",
       "notes": ""
     },
     {
@@ -2868,6 +3122,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Spot Instances – Request unused EC2 instances, which can reduce your Amazon EC2 costs significantly.",
+      "officialSource": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html",
       "notes": ""
     },
     {
@@ -2892,6 +3148,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Savings Plans is a flexible pricing model offering lower prices compared to On-Demand pricing, in exchange for a specific usage commitment (measured in $/hour) for a one or three-year period. AWS offers three types of Savings Plans – Compute Savings Plans, Amazon EC2 Instance Savings Plans, and Amazon SageMaker AI Savings Plans.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/aws-cost-management.html",
       "notes": ""
     },
     {
@@ -2915,6 +3173,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -2934,6 +3194,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Trade fixed expense for variable expense: Instead of having to invest heavily in data centers and servers before you know how you're going to use them, you can pay only when you consume computing resources, and pay only for how much you consume.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/six-advantages-of-cloud-computing.html",
       "notes": ""
     },
     {
@@ -2954,6 +3216,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Wavelength is an AWS Infrastructure offering optimized for mobile edge computing applications. Wavelength Zones are AWS infrastructure deployments that embed AWS compute and storage services within communications service providers' (CSP) datacenters at the edge of the 5G network, so application traffic from 5G devices can reach application servers running in Wavelength Zones without leaving the telecommunications network.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/compute-services.html",
       "notes": ""
     },
     {
@@ -2975,6 +3239,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon EMR is the industry-leading cloud big data platform for processing vast amounts of data using open source tools such as Apache Spark, Apache Hive, Apache HBase, Apache Flink, Apache Hudi, and Presto. Amazon EMR makes it easy to set up, operate, and scale your big data environments by automating time-consuming tasks such as provisioning capacity and tuning clusters.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/analytics.html",
       "notes": ""
     },
     {
@@ -2996,6 +3262,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon OpenSearch Service (OpenSearch Service) makes it easy to deploy, secure, operate, and scale OpenSearch to search, analyze, and visualize data in real-time.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/analytics.html",
       "notes": ""
     },
     {
@@ -3013,6 +3281,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "[Amazon] Connect Customer is a self-service, omnichannel cloud contact center service that makes it easy for any business to deliver better customer service at lower cost.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/business-applications.html",
       "notes": ""
     },
     {
@@ -3033,6 +3303,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Batch enables developers, scientists, and engineers to easily and efficiently run hundreds of thousands of batch computing jobs on AWS. AWS Batch dynamically provisions the optimal quantity and type of compute resources (such as CPU or memory-optimized instances) based on the volume and specific resource requirements of the batch jobs submitted.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/compute-services.html",
       "notes": ""
     },
     {
@@ -3052,6 +3324,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -3072,6 +3346,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon Q is a generative AI-powered assistant for accelerating software development and leveraging your internal data.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/machine-learning.html",
       "notes": ""
     },
     {
@@ -3093,6 +3369,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "With Amazon SageMaker AI, you can build, train, and deploy ML models for any use case with fully managed infrastructure, tools, and workflows. SageMaker AI removes the heavy lifting from each step of the ML process to make it easier to develop high-quality models.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/machine-learning.html",
       "notes": ""
     },
     {
@@ -3111,6 +3389,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS License Manager makes it easier to manage licenses in AWS and on-premises servers from software vendors such as Microsoft, SAP, Oracle, and IBM.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/management-governance.html",
       "notes": ""
     },
     {
@@ -3131,6 +3411,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Application Discovery Service helps enterprise customers plan migration projects by gathering information about their on-premises data centers.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/migration-services.html",
       "notes": ""
     },
     {
@@ -3151,6 +3433,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -3170,6 +3454,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Directory Service for Microsoft Active Directory, also known as AWS Managed Microsoft AD, enables your directory-aware workloads and AWS resources to use managed Active Directory in the AWS Cloud.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/security-services.html",
       "notes": ""
     },
     {
@@ -3189,6 +3475,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Resource Access Manager (AWS RAM) helps you securely share your resources across AWS accounts, within your organization or organizational units (OUs) in AWS Organizations, and with IAM roles and IAM users for supported resource types.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/security-services.html",
       "notes": ""
     },
     {
@@ -3208,6 +3496,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Elastic Disaster Recovery (Elastic Disaster Recovery) minimizes downtime and data loss with fast, reliable recovery of on-premises and cloud-based applications using affordable storage, minimal compute, and point-in-time recovery.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/storage-services.html",
       "notes": ""
     },
     {
@@ -3231,6 +3521,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "MFA adds extra security that requires users to provide unique authentication from an AWS supported MFA mechanism ...",
+      "officialSource": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html",
       "notes": ""
     },
     {
@@ -3248,6 +3540,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -3271,6 +3565,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "When you first create an AWS account, you begin with a default set of credentials with complete access to all AWS resources in your account. Because a root user can perform privileged actions, it's crucial to add MFA for the root user as a second authentication factor in addition to the email address and password as sign-in credentials. Instead of accessing the root user, create an administrative user for everyday tasks.",
+      "officialSource": "https://docs.aws.amazon.com/IAM/latest/UserGuide/root-user-best-practices.html",
       "notes": ""
     },
     {
@@ -3291,6 +3587,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Encrypt: To use a mathematical algorithm to make data unintelligible to unauthorized users. Encryption also gives authorized users a method (such as a key or password) to convert the altered data back to its original state.",
+      "officialSource": "https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html",
       "notes": ""
     },
     {
@@ -3311,6 +3609,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -3334,6 +3634,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "A feature of the AWS Organizations service for consolidating payment for multiple AWS accounts. You create an organization that contains your AWS accounts, and you use the management account of your organization to pay for all member accounts.",
+      "officialSource": "https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html",
       "notes": ""
     },
     {
@@ -3356,6 +3658,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "A tag is a label that you or AWS assigns to an AWS resource. Each tag consists of a key and a value. You can use tags to organize your resources, and cost allocation tags to track your AWS costs on a detailed level.",
+      "officialSource": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html",
       "notes": ""
     },
     {
@@ -3379,6 +3683,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Dedicated Hosts – Pay for a physical host that is fully dedicated to running your instances, and bring your existing per-socket, per-core, or per-VM software licenses to reduce costs.",
+      "officialSource": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html",
       "notes": ""
     },
     {
@@ -3400,6 +3706,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Dedicated Instances – Pay, by the hour, for instances that run on single-tenant hardware.",
+      "officialSource": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html",
       "notes": ""
     },
     {
@@ -3423,6 +3731,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Capacity Reservations – Reserve capacity for your EC2 instances in a specific Availability Zone.",
+      "officialSource": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html",
       "notes": ""
     },
     {
@@ -3442,6 +3752,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -3462,6 +3774,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -3482,6 +3796,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -3501,6 +3817,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -3521,6 +3839,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS re:Post (re:Post), a new, community-driven, questions-and-answers service ...",
+      "officialSource": "https://aws.amazon.com/about-aws/whats-new/2021/12/aws-repost-community-question-answer-service/",
       "notes": ""
     },
     {
@@ -3541,6 +3861,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -3561,6 +3883,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -3581,6 +3905,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -3604,6 +3930,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Basic Support offers assistance for account and billing questions and service quota increases.",
+      "officialSource": "https://docs.aws.amazon.com/awssupport/latest/user/aws-support-plans.html",
       "notes": ""
     },
     {
@@ -3627,6 +3955,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -3651,6 +3981,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -3676,6 +4008,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Six advantages of cloud computing: Trade fixed expense for variable expense; Benefit from massive economies of scale; Stop guessing capacity; Increase speed and agility; Stop spending money running and maintaining data centers; Go global in minutes.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/six-advantages-of-cloud-computing.html",
       "notes": ""
     },
     {
@@ -3697,6 +4031,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "In a cloud computing environment, new IT resources are only a click away, which means that you reduce the time to make those resources available to your developers from weeks to just minutes. This results in a dramatic increase in agility for the organization, since the cost and time it takes to experiment and develop is significantly lower.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/six-advantages-of-cloud-computing.html",
       "notes": ""
     },
     {
@@ -3719,6 +4055,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -3747,6 +4085,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -3768,6 +4108,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -3793,6 +4135,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Snowball Edge is a device with on-board storage and compute power for select AWS capabilities. Snowball Edge can process data locally, run edge-computing workloads, and transfer data to or from the AWS Cloud. (AWS notes Snowball Edge is no longer available to new customers.)",
+      "officialSource": "https://docs.aws.amazon.com/snowball/latest/developer-guide/whatisedge.html",
       "notes": ""
     },
     {
@@ -3814,6 +4158,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Trade fixed expense for variable expense: Instead of having to invest heavily in data centers and servers before you know how you're going to use them, you can pay only when you consume computing resources, and pay only for how much you consume.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/six-advantages-of-cloud-computing.html",
       "notes": ""
     },
     {
@@ -3836,6 +4182,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Stop spending money running and maintaining data centers: Focus on projects that differentiate your business, not the infrastructure. Cloud computing lets you focus on your own customers, rather than on the heavy lifting of racking, stacking, and powering servers.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/six-advantages-of-cloud-computing.html",
       "notes": ""
     },
     {
@@ -3857,6 +4205,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -3878,6 +4228,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -3903,6 +4255,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -3929,6 +4283,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Access key: A pair of an access key ID and a secret access key, used to sign API requests to AWS.",
+      "officialSource": "https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html",
       "notes": ""
     },
     {
@@ -3950,6 +4306,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "You can set a custom password policy on your AWS account to specify complexity requirements and mandatory rotation periods ...",
+      "officialSource": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html",
       "notes": ""
     },
     {
@@ -3971,6 +4329,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "IAM users aren't separate accounts; they're individual users within your account. Each user has their own password for access to the AWS Management Console.",
+      "officialSource": "https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_identity-management.html",
       "notes": ""
     },
     {
@@ -3992,6 +4352,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "A collection of IAM users. You can use IAM groups to simplify specifying and managing permissions for multiple users.",
+      "officialSource": "https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html",
       "notes": ""
     },
     {
@@ -4013,6 +4375,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -4034,6 +4398,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Inline policy: An IAM policy that's embedded in a single IAM user, group, or role.",
+      "officialSource": "https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html",
       "notes": ""
     },
     {
@@ -4055,6 +4421,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "IAM roles are an IAM identity that you can create in your account that has specific permissions that determine what the identity can and can't do. However, instead of being uniquely associated with one person, a role is intended to be assumable by anyone who needs it.",
+      "officialSource": "https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_identity-management.html",
       "notes": ""
     },
     {
@@ -4076,6 +4444,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "With identity federation in AWS, external identities (federated users) are granted secure access to resources in an AWS account without having to create IAM users. These external identities can come from a corporate identity store (such as LDAP or Windows Active Directory) or from a third party (such as Login with Amazon, Facebook, or Google).",
+      "officialSource": "https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html",
       "notes": ""
     },
     {
@@ -4096,6 +4466,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -4117,6 +4489,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -4137,6 +4511,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -4157,6 +4533,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -4180,6 +4558,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -4204,6 +4584,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -4225,6 +4607,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Cloud computing is the on-demand delivery of compute power, database, storage, applications, and other IT resources through a cloud services platform via the internet with pay-as-you-go pricing.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/what-is-cloud-computing.html",
       "notes": ""
     },
     {
@@ -4246,6 +4630,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -4266,6 +4652,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -4287,6 +4675,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -4309,6 +4699,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Go global in minutes: Easily deploy your application in multiple regions around the world with just a few clicks. This means you can provide lower latency and a better experience for your customers at minimal cost.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/six-advantages-of-cloud-computing.html",
       "notes": ""
     },
     {
@@ -4333,6 +4725,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "A distinct location within a Region that's insulated from failures in other Availability Zones, and provides inexpensive, low-latency network connectivity to other Availability Zones in the same Region.",
+      "officialSource": "https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html",
       "notes": ""
     },
     {
@@ -4355,6 +4749,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "General purpose – Provide a balance of compute, memory, and networking resources. These instances are ideal for applications that use these resources in equal proportions, such as web servers and code repositories.",
+      "officialSource": "https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-instance-type-specifications.html",
       "notes": ""
     },
     {
@@ -4379,6 +4775,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Compute optimized – Designed for compute intensive applications that benefit from high performance processors. These instances are ideal for batch processing workloads, media transcoding, high performance web servers, high performance computing (HPC), scientific modeling, dedicated gaming servers, ad server engines, and machine learning inference.",
+      "officialSource": "https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-instance-type-specifications.html",
       "notes": ""
     },
     {
@@ -4401,6 +4799,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Memory optimized – Designed to deliver fast performance for workloads that process large data sets in memory.",
+      "officialSource": "https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-instance-type-specifications.html",
       "notes": ""
     },
     {
@@ -4425,6 +4825,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Storage optimized – Designed for workloads that require high, sequential read and write access to very large data sets on local storage. They are optimized to deliver tens of thousands of low-latency, random I/O operations per second (IOPS) to applications.",
+      "officialSource": "https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-instance-type-specifications.html",
       "notes": ""
     },
     {
@@ -4447,6 +4849,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Accelerated computing – Use hardware accelerators, or co-processors, to perform functions, such as floating point number calculations, graphics processing, or data pattern matching, more efficiently than is possible in software running on CPUs.",
+      "officialSource": "https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-instance-type-specifications.html",
       "notes": ""
     },
     {
@@ -4471,6 +4875,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -4494,6 +4900,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "The default storage class. If you don't specify the storage class when you upload an object, Amazon S3 assigns the S3 Standard storage class.",
+      "officialSource": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html",
       "notes": ""
     },
     {
@@ -4517,6 +4925,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon S3 stores the object data redundantly across multiple geographically separated Availability Zones (similar to the S3 Standard storage class).",
+      "officialSource": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html",
       "notes": ""
     },
     {
@@ -4541,6 +4951,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Amazon S3 stores the object data in only one Availability Zone, which makes it less expensive than S3 Standard-IA. However, the data is not resilient to the physical loss of the Availability Zone resulting from disasters, such as earthquakes and floods.",
+      "officialSource": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html",
       "notes": ""
     },
     {
@@ -4564,6 +4976,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "S3 Intelligent-Tiering is an Amazon S3 storage class that's designed to optimize storage costs by automatically moving data to the most cost-effective access tier, without performance impact or operational overhead.",
+      "officialSource": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html",
       "notes": ""
     },
     {
@@ -4587,6 +5001,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Use for long-term data that's rarely accessed and requires milliseconds retrieval. Data in this storage class is available for real-time access.",
+      "officialSource": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html",
       "notes": ""
     },
     {
@@ -4612,6 +5028,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Use for archives where portions of the data might need to be retrieved in minutes. Data in this storage class is archived, and not available for real-time access.",
+      "officialSource": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html",
       "notes": ""
     },
     {
@@ -4637,6 +5055,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Use for archiving data that rarely needs to be accessed. Data in this storage class is archived, and not available for real-time access.",
+      "officialSource": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html",
       "notes": ""
     },
     {
@@ -4661,6 +5081,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -4686,6 +5108,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -4713,6 +5137,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -4737,6 +5163,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -4760,6 +5188,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "Consolidated billing: A feature of the AWS Organizations service for consolidating payment for multiple AWS accounts. You create an organization that contains your AWS accounts, and you use the management account of your organization to pay for all member accounts.",
+      "officialSource": "https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html",
       "notes": ""
     },
     {
@@ -4785,6 +5215,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -4809,6 +5241,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -4830,6 +5264,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -4851,6 +5287,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -4873,6 +5311,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
       "notes": ""
     },
     {
@@ -4894,6 +5334,8 @@
       "confidence": "red",
       "lowPriority": false,
       "coverage": " Official Guide / In Scope",
+      "official": "AWS Marketplace is a curated digital catalog that customers can use to find, buy, deploy, and manage third-party software, data, and services to build solutions and run their businesses. AWS Marketplace includes thousands of software listings from popular categories such as security, business applications, machine learning, and data products across specific industries, such as healthcare, financial services, and telecommunications.",
+      "officialSource": "https://docs.aws.amazon.com/marketplace/latest/userguide/what-is-marketplace.html",
       "notes": ""
     }
   ],
@@ -5043,5 +5485,5 @@
     }
   ],
   "source": "Master Study Guide",
-  "importedAt": "2026-10-29T17:42:39.759Z"
+  "importedAt": "2026-10-30T20:37:48.950Z"
 }

@@ -149,6 +149,19 @@ export default function Flashcards({ cards, domains, index, setLevel, record }) 
                       <dd>{current.definition}</dd>
                     </div>
                   )}
+                  {current.official && (
+                    <div className="official">
+                      <dt>Official AWS definition</dt>
+                      <dd>
+                        {current.official}
+                        {current.officialSource && (
+                          <a className="source-link" href={current.officialSource} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
+                            Source ↗
+                          </a>
+                        )}
+                      </dd>
+                    </div>
+                  )}
                   {direction === 'term' && current.triggers.length > 0 && (
                     <div>
                       <dt>Exam triggers</dt>
