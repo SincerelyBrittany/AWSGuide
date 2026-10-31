@@ -847,3 +847,5 @@ mark { background: color-mix(in srgb, var(--accent) 45%, transparent); color: in
 .jump-empty { padding: 10px; color: var(--muted); font-size: 0.9rem; }
 @media (max-width: 720px) { .jump-pop { position: fixed; left: 16px; right: 16px; top: auto; width: auto; } }
 .qentry-low { margin: 0; font-size: 0.86rem; font-style: italic; }
+.data-table tfoot td { border-top: 2px solid var(--line); font-weight: 700; padding-top: 10px; }
+.data-table .num.kinda { color: var(--yellow); }

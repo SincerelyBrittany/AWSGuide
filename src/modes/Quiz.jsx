@@ -68,7 +68,7 @@ function Explanation({ q, link, ok }) {
 const answerText = (q) => q.correct.map((l) => q.options.find((o) => o.letter === l)?.text).join(' + ');
 const pickedText = (q, picked) => (picked.length ? picked.map((l) => q.options.find((o) => o.letter === l)?.text).join(' + ') : 'No answer');
 
-export default function Quiz({ questions, links, domains, record, missed, quizHistory, onQuestion, onAttempt, lowCount = 0, settings, setSettings }) {
+export default function Quiz({ questions, qCardOf = {}, links, domains, record, missed, quizHistory, onQuestion, onAttempt, lowCount = 0, settings, setSettings }) {
   const [style, setStyle] = useState('practice');
   const [count, setCount] = useState(20);
   const [domain, setDomain] = useState('all');
@@ -130,11 +130,10 @@ export default function Quiz({ questions, links, domains, record, missed, quizHi
     const ok = isCorrect(question, letters);
     const result = ok ? 'right' : 'wrong';
     onQuestion(question.id, result);
-    const card = links[question.id]?.strong ? links[question.id].card : null;
-    if (card) {
-      record(card, result);
-      if (!ok) missed(card);
-    }
+    // Counts toward the Questions Guide entry and, when there is one, the study-guide concept it tests.
+    const cards = [qCardOf[question.id], links[question.id]?.strong ? links[question.id].card : null].filter(Boolean);
+    record(cards, result);
+    if (!ok) cards.forEach((c) => missed(c));
     return ok;
   };
 

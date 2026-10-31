@@ -18,7 +18,7 @@ import GameBoard from './modes/GameBoard.jsx';
 import MemoryMatch from './modes/MemoryMatch.jsx';
 import Progress from './modes/Progress.jsx';
 import Guide from './modes/Guide.jsx';
-import { emptyStats, recordAnswer, SESSION_GAP_MS } from './lib/stats.js';
+import { emptyStats, recordAnswer, upgradeStats, deckOf, SESSION_GAP_MS } from './lib/stats.js';
 
 export const MODES = [
   { id: 'flashcards', label: 'Flashcards', blurb: 'Flip, rate yourself, and your weak cards come back more often.', Component: Flashcards },
@@ -84,15 +84,27 @@ export default function App() {
   const links = useMemo(() => {
     const all = buildIndex(deck.cards);
     const out = {};
-    for (const q of questions) {
+    for (const q of allQuestions) {
       const l = linkConcept(q, all);
       if (l) out[q.id] = { ...l, domain: l.card.domain };
     }
     return out;
-  }, [questions, deck]);
+  }, [allQuestions, deck]);
 
   // Questions Guide: one card per correct answer, titled by the answer, defined by "why it's right".
   const qCardsBase = useMemo(() => buildQuestionCards(questions, links), [questions, links]);
+  // Every quiz question (hidden ones too) → its Questions Guide entry, so quiz answers count there.
+  const qCardOf = useMemo(() => {
+    const out = {};
+    for (const c of buildQuestionCards(allQuestions, links)) for (const q of c.questions) out[q.id] = c;
+    return out;
+  }, [allQuestions, links]);
+
+  // One-time upgrade of history saved before answers were tagged by deck.
+  useEffect(() => {
+    if ((stats.version || 1) < 2) setStats((st) => upgradeStats(st, quizHistory, qCardOf));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [stats.version]);
   const qCards = useMemo(() => qCardsBase.map((c) => ({ ...c, level: progress[c.id] || c.confidence })), [qCardsBase, progress]);
   const qIndex = useMemo(() => buildIndex(qCards), [qCards]);
   const qDomains = useMemo(() => deck.domains.filter((d) => qCards.some((c) => c.domain === d.name)), [deck, qCards]);
@@ -113,12 +125,16 @@ export default function App() {
   // Every answer in every game lands here. A session is one stretch of play in one mode;
   // switching modes or 30 idle minutes starts a new one.
   const record = useCallback(
-    (card, outcome) => {
+    (cardOrCards, outcome) => {
+      const cards = [].concat(cardOrCards).filter(Boolean);
+      if (!cards.length) return;
       const now = Date.now();
+      // Switching deck in a game also starts a new session, so each session belongs to one deck.
+      const key = `${hash}|${hash === 'quiz' ? 'both' : deckOf(cards[0])}`;
       const s = session.current;
-      if (!s || s.mode !== hash || now - s.lastAt > SESSION_GAP_MS) session.current = { id: `s${now}`, mode: hash, lastAt: now };
+      if (!s || s.key !== key || now - s.lastAt > SESSION_GAP_MS) session.current = { id: `s${now}`, key, lastAt: now };
       else s.lastAt = now;
-      setStats((st) => recordAnswer(st, { card, outcome, mode: hash, sessionId: session.current.id, now }));
+      setStats((st) => recordAnswer(st, { cards, outcome, mode: hash, sessionId: session.current.id, now }));
     },
     [hash]
   );
@@ -173,6 +189,7 @@ export default function App() {
 
   const quizProps = {
     questions,
+    qCardOf,
     lowCount: lowQuestionCount,
     settings,
     setSettings,
@@ -227,6 +244,7 @@ export default function App() {
         ) : hash === 'progress' ? (
           <Progress
             deckSwitch={deckSwitch}
+            source={source}
             {...shared}
             modes={MODES}
             progress={progress}

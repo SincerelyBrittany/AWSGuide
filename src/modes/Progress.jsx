@@ -1,5 +1,5 @@
 import { useMemo, useRef, useState } from 'react';
-import { accuracy, attempts, weakness, status, summary, parseBackup } from '../lib/stats.js';
+import { accuracy, attempts, weakness, status, summary, parseBackup, deckTotals, sessionFor } from '../lib/stats.js';
 import { domainTone, shortDomain } from '../lib/deck.js';
 import { DomainChip, ModeHeader } from './ui.jsx';
 
@@ -46,12 +46,13 @@ function AccBar({ value }) {
   );
 }
 
-export default function Progress({ deckSwitch, cards, domains, stats, modes, progress, extraBackup, onRestore, onClearHistory, onError }) {
+export default function Progress({ deckSwitch, source = 'guide', cards, domains, stats, modes, progress, extraBackup, onRestore, onClearHistory, onError }) {
   const [query, setQuery] = useState('');
   const [domain, setDomain] = useState('all');
   const [filter, setFilter] = useState('all');
   const [sort, setSort] = useState({ key: 'weakness', dir: -1 });
   const [confirmClear, setConfirmClear] = useState(false);
+  const [allSessions, setAllSessions] = useState(false);
   const fileRef = useRef(null);
 
   const rows = useMemo(
@@ -62,7 +63,8 @@ export default function Progress({ deckSwitch, cards, domains, stats, modes, pro
       }),
     [cards, stats]
   );
-  const sum = useMemo(() => summary(stats, cards), [stats, cards]);
+  // Answer totals come from the same per-deck session numbers as the Recent sessions table, so they always match.
+  const sum = useMemo(() => ({ ...deckTotals(stats, source), practiced: summary(stats, cards).practiced }), [stats, cards, source]);
   const counts = useMemo(() => {
     const o = { all: rows.length, struggling: 0, learning: 0, mastered: 0, new: 0 };
     rows.forEach((r) => o[r.status]++);
@@ -117,7 +119,11 @@ export default function Progress({ deckSwitch, cards, domains, stats, modes, pro
 
   const modeLabel = (id) => modes.find((m) => m.id === id)?.label || id;
   const termOf = (id) => cards.find((c) => c.id === id)?.term || stats.concepts[id]?.term || id;
-  const sessions = [...stats.sessions].reverse().slice(0, 12);
+  const deckSessions = useMemo(
+    () => stats.sessions.map((s) => ({ s, t: sessionFor(s, source) })).filter((x) => x.t).reverse(),
+    [stats, source]
+  );
+  const sessions = allSessions ? deckSessions : deckSessions.slice(0, 12);
 
   const exportBackup = () => {
     const data = { app: 'clf-study-arcade', exportedAt: new Date().toISOString(), stats, progress, ...extraBackup };
@@ -170,7 +176,7 @@ export default function Progress({ deckSwitch, cards, domains, stats, modes, pro
         <div className="tile-stat">
           <span className="tile-label">Study sessions</span>
           <span className="tile-num">{sum.sessions}</span>
-          <span className="tile-sub">{sessions[0] ? `Last: ${ago(sessions[0].endedAt)}` : 'None yet'}</span>
+          <span className="tile-sub">{sum.last ? `Last: ${ago(sum.last)}` : 'None yet'}</span>
         </div>
       </div>
 
@@ -229,15 +235,22 @@ export default function Progress({ deckSwitch, cards, domains, stats, modes, pro
 
       {sessions.length > 0 && (
         <section className="panel">
-          <h2 className="section-title">Recent sessions</h2>
+          <div className="table-head">
+            <h2 className="section-title">{allSessions ? 'All sessions' : 'Recent sessions'}</h2>
+            {deckSessions.length > 12 && (
+              <button className="btn btn-ghost" onClick={() => setAllSessions((v) => !v)}>
+                {allSessions ? 'Show recent 12' : `Show all ${deckSessions.length}`}
+              </button>
+            )}
+          </div>
           <div className="table-wrap">
             <table className="data-table">
               <thead>
-                <tr><th>When</th><th>Mode</th><th className="num">Right</th><th className="num">Wrong</th><th>Accuracy</th><th>Missed</th></tr>
+                <tr><th>When</th><th>Mode</th><th className="num">Right</th><th className="num">Wrong</th>{sum.kinda > 0 && <th className="num">Kinda</th>}<th>Accuracy</th><th>Missed</th></tr>
               </thead>
               <tbody>
-                {sessions.map((s) => {
-                  const n = s.right + s.wrong + s.kinda;
+                {sessions.map(({ s, t }) => {
+                  const n = t.n;
                   const mins = Math.max(1, Math.round((s.endedAt - s.startedAt) / 60000));
                   return (
                     <tr key={s.id}>
@@ -246,16 +259,30 @@ export default function Progress({ deckSwitch, cards, domains, stats, modes, pro
                         <span className="muted small"> · {mins} min</span>
                       </td>
                       <td className="nowrap">{modeLabel(s.mode)}</td>
-                      <td className="num ok">{s.right}</td>
-                      <td className="num bad">{s.wrong}</td>
-                      <td><AccBar value={n ? (s.right + 0.5 * s.kinda) / n : null} /></td>
+                      <td className="num ok">{t.right}</td>
+                      <td className="num bad">{t.wrong}</td>
+                      {sum.kinda > 0 && <td className="num kinda">{t.kinda}</td>}
+                      <td><AccBar value={n ? (t.right + 0.5 * t.kinda) / n : null} /></td>
                       <td className="missed-cell">
-                        {s.missed.length ? s.missed.slice(0, 3).map(termOf).join(', ') + (s.missed.length > 3 ? ` +${s.missed.length - 3} more` : '') : <span className="muted">None</span>}
+                        {t.missed.length ? t.missed.slice(0, 3).map(termOf).join(', ') + (t.missed.length > 3 ? ` +${t.missed.length - 3} more` : '') : <span className="muted">None</span>}
                       </td>
                     </tr>
                   );
                 })}
               </tbody>
+              {(allSessions || deckSessions.length <= 12) && deckSessions.length > 1 && (
+                <tfoot>
+                  <tr>
+                    <td>Total · {deckSessions.length} sessions</td>
+                    <td />
+                    <td className="num ok">{sum.right}</td>
+                    <td className="num bad">{sum.wrong}</td>
+                    {sum.kinda > 0 && <td className="num kinda">{sum.kinda}</td>}
+                    <td><AccBar value={sum.accuracy} /></td>
+                    <td className="muted">Matches “Questions answered” above</td>
+                  </tr>
+                </tfoot>
+              )}
             </table>
           </div>
         </section>
@@ -327,7 +354,7 @@ export default function Progress({ deckSwitch, cards, domains, stats, modes, pro
         </p>
         {confirmClear ? (
           <div className="confirm">
-            <span>Delete all {sum.total} answers and {sum.sessions} sessions?</span>
+            <span>Delete all answer history for both decks ({stats.sessions.length} sessions)?</span>
             <button className="btn btn-danger" onClick={() => { onClearHistory(); setConfirmClear(false); }}>Delete history</button>
             <button className="btn btn-ghost" onClick={() => setConfirmClear(false)}>Cancel</button>
           </div>
