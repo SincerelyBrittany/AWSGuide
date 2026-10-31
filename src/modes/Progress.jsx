@@ -46,7 +46,7 @@ function AccBar({ value }) {
   );
 }
 
-export default function Progress({ cards, domains, stats, modes, progress, extraBackup, onRestore, onClearHistory, onError }) {
+export default function Progress({ deckSwitch, cards, domains, stats, modes, progress, extraBackup, onRestore, onClearHistory, onError }) {
   const [query, setQuery] = useState('');
   const [domain, setDomain] = useState('all');
   const [filter, setFilter] = useState('all');
@@ -149,6 +149,7 @@ export default function Progress({ cards, domains, stats, modes, progress, extra
         <button className="btn btn-ghost" onClick={() => fileRef.current.click()}>Restore backup</button>
         <input ref={fileRef} id="restore-file" type="file" accept=".json,application/json" hidden onChange={(e) => restore(e.target.files?.[0])} />
       </ModeHeader>
+      <div className="deck-switch-bar">{deckSwitch}</div>
 
       <div className="tiles">
         <div className="tile-stat">

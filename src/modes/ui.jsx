@@ -63,3 +63,20 @@ export function ModeHeader({ title, children, eyebrow }) {
 export function Empty({ children }) {
   return <div className="empty">{children}</div>;
 }
+
+/** Which deck Flashcards, the games and Progress use. */
+export function DeckSwitch({ value, onChange, counts }) {
+  return (
+    <div className="deck-switch">
+      <span className="field-label">Studying</span>
+      <div className="segmented" role="group" aria-label="Deck to study">
+        <button className={value === 'guide' ? 'is-on' : ''} onClick={() => onChange('guide')} aria-pressed={value === 'guide'}>
+          Study Guide <span className="count">{counts.guide}</span>
+        </button>
+        <button className={value === 'questions' ? 'is-on' : ''} onClick={() => onChange('questions')} aria-pressed={value === 'questions'} disabled={!counts.questions}>
+          Questions Guide <span className="count">{counts.questions}</span>
+        </button>
+      </div>
+    </div>
+  );
+}

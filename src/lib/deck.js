@@ -100,7 +100,8 @@ export function redact(text, card) {
   const names = [card.term, card.term.replace(/^(AWS|Amazon)\s+/, '').replace(/\s*\(.*?\)/g, ''), ...[...card.term.matchAll(/\(([^)]+)\)/g)].map((m) => m[1])]
     .filter((n) => n && n.length > 2)
     .sort((a, b) => b.length - a.length);
-  for (const n of names) out = out.replace(new RegExp(escapeRe(n), 'gi'), '▢▢▢');
+  // Whole words only, so "Config" doesn't eat the middle of "configuration".
+  for (const n of names) out = out.replace(new RegExp(`(?<![A-Za-z0-9])${escapeRe(n)}(?![A-Za-z0-9])`, 'gi'), '▢▢▢');
   return out;
 }
 

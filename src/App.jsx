@@ -4,6 +4,9 @@ import builtInQuestions from './data/questions.json';
 import { parseQuestionFile, mergeQuestions } from './lib/parseQuestions.js';
 import { linkConcept, emptyQuizHistory, recordQuestion, addAttempt } from './lib/quiz.js';
 import Quiz from './modes/Quiz.jsx';
+import QuestionsGuide from './modes/QuestionsGuide.jsx';
+import { buildQuestionCards } from './lib/questionCards.js';
+import { DeckSwitch } from './modes/ui.jsx';
 import { parseWorkbook } from './lib/parseWorkbook.js';
 import { buildIndex, demote } from './lib/deck.js';
 import * as store from './lib/storage.js';
@@ -62,16 +65,16 @@ export default function App() {
     return () => clearTimeout(t);
   }, [toast]);
 
-  // Cards in play, with your saved confidence layered over the spreadsheet's.
-  const cards = useMemo(
+  // Study-guide cards in play, with your saved confidence layered over the spreadsheet's.
+  const guideCards = useMemo(
     () =>
       deck.cards
         .filter((c) => settings.includeLow || !c.lowPriority)
         .map((c) => ({ ...c, level: progress[c.id] || c.confidence })),
     [deck, progress, settings.includeLow]
   );
-  const index = useMemo(() => buildIndex(cards), [cards]);
-  const domains = useMemo(() => deck.domains.filter((d) => cards.some((c) => c.domain === d.name)), [deck, cards]);
+  const guideIndex = useMemo(() => buildIndex(guideCards), [guideCards]);
+  const guideDomains = useMemo(() => deck.domains.filter((d) => guideCards.some((c) => c.domain === d.name)), [deck, guideCards]);
 
   // Practice questions: built-in bank plus anything imported in this browser, each linked to the concept it tests.
   const questions = useMemo(() => mergeQuestions(builtInQuestions.questions, importedQuestions), [importedQuestions]);
@@ -84,6 +87,19 @@ export default function App() {
     }
     return out;
   }, [questions, deck]);
+
+  // Questions Guide: one card per correct answer, titled by the answer, defined by "why it's right".
+  const qCardsBase = useMemo(() => buildQuestionCards(questions, links), [questions, links]);
+  const qCards = useMemo(() => qCardsBase.map((c) => ({ ...c, level: progress[c.id] || c.confidence })), [qCardsBase, progress]);
+  const qIndex = useMemo(() => buildIndex(qCards), [qCards]);
+  const qDomains = useMemo(() => deck.domains.filter((d) => qCards.some((c) => c.domain === d.name)), [deck, qCards]);
+
+  // Flashcards, the games and Progress run on whichever deck is switched on.
+  const source = settings.source === 'questions' && qCards.length ? 'questions' : 'guide';
+  const cards = source === 'questions' ? qCards : guideCards;
+  const index = source === 'questions' ? qIndex : guideIndex;
+  const domains = source === 'questions' ? qDomains : guideDomains;
+  const setSource = (v) => setSettings((st) => ({ ...st, source: v }));
 
   const setLevel = useCallback((id, level) => setProgress((p) => ({ ...p, [id]: level })), []);
   const missed = useCallback(
@@ -161,6 +177,10 @@ export default function App() {
   };
   const mode = MODES.find((m) => m.id === hash);
   const shared = { cards, index, domains, deck, setLevel, missed, record, stats };
+  const guideShared = { ...shared, cards: guideCards, index: guideIndex, domains: guideDomains };
+  const deckSwitch = (
+    <DeckSwitch value={source} onChange={setSource} counts={{ guide: guideCards.length, questions: qCards.length }} />
+  );
 
   return (
     <div className="app">
@@ -179,6 +199,9 @@ export default function App() {
             <a href="#guide" className={`tab tab-guide ${hash === 'guide' ? 'is-active' : ''}`} aria-current={hash === 'guide' ? 'page' : undefined}>
               Study Guide
             </a>
+            <a href="#questions" className={`tab tab-qguide ${hash === 'questions' ? 'is-active' : ''}`} aria-current={hash === 'questions' ? 'page' : undefined}>
+              Questions Guide
+            </a>
             <a href="#progress" className={`tab tab-progress ${hash === 'progress' ? 'is-active' : ''}`} aria-current={hash === 'progress' ? 'page' : undefined}>
               Progress
             </a>
@@ -192,9 +215,12 @@ export default function App() {
 
       <main className="main">
         {hash === 'guide' ? (
-          <Guide {...shared} settings={settings} setSettings={setSettings} />
+          <Guide {...guideShared} settings={settings} setSettings={setSettings} />
+        ) : hash === 'questions' ? (
+          <QuestionsGuide qCards={qCards} domains={qDomains} quizHistory={quizHistory} setLevel={setLevel} />
         ) : hash === 'progress' ? (
           <Progress
+            deckSwitch={deckSwitch}
             {...shared}
             modes={MODES}
             progress={progress}
@@ -218,10 +244,18 @@ export default function App() {
             onError={(text) => setToast({ kind: 'error', text })}
           />
         ) : mode ? (
-          <mode.Component key={mode.id} {...shared} {...(mode.id === 'quiz' ? quizProps : {})} />
+          mode.id === 'quiz' ? (
+            <Quiz key="quiz" {...guideShared} {...quizProps} />
+          ) : (
+            <>
+              <div className="deck-switch-bar">{deckSwitch}</div>
+              <mode.Component key={`${mode.id}-${source}`} {...shared} />
+            </>
+          )
         ) : (
           <Home
-            {...shared}
+            {...guideShared}
+            deckSwitch={deckSwitch}
             modes={MODES}
             settings={settings}
             setSettings={setSettings}

@@ -801,3 +801,33 @@ mark { background: color-mix(in srgb, var(--accent) 45%, transparent); color: in
 /* Top bar fits 8 tabs */
 @media (max-width: 1320px) { .brand-name { display: none; } }
 @media (max-width: 720px) { .brand-name { display: inline; } }
+
+/* ---------- Deck switch + Questions Guide ---------- */
+.deck-switch { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.deck-switch .segmented button:disabled { opacity: 0.5; cursor: not-allowed; }
+.deck-switch-bar { display: flex; justify-content: flex-start; margin: -6px 0 18px; }
+.home-deck-switch { display: flex; flex-direction: column; gap: 6px; margin: 4px 0 12px; }
+.home-deck-switch p { margin: 0; }
+.tab-qguide { margin-left: 2px; border: 1px solid var(--line); }
+.tab-guide + .tab-qguide { margin-left: 2px; }
+.qguide-lede { margin: -8px 0 18px; font-size: 0.98rem; }
+.qentry-why { margin: 0; line-height: 1.6; }
+.qentry-why + .qentry-why { padding-top: 8px; border-top: 1px dashed var(--line); }
+.qentry-related { margin: 0; font-size: 0.92rem; display: flex; flex-wrap: wrap; gap: 6px; align-items: baseline; }
+.qentry-questions summary { cursor: pointer; font-weight: 600; font-size: 0.88rem; color: var(--t-tech); width: fit-content; }
+.qentry-questions[open] summary { margin-bottom: 8px; }
+.qentry-q { background: var(--surface-2); border-radius: 10px; padding: 12px 14px; font-size: 0.92rem; }
+.qentry-q + .qentry-q { margin-top: 8px; }
+.qentry-q p { margin: 0 0 8px; font-weight: 600; }
+.qentry-q ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.qentry-q li { color: var(--muted); }
+.qentry-q li.is-right { color: var(--green); font-weight: 700; }
+.qentry-letter { display: inline-block; width: 1.4em; font-family: var(--font-mono); font-size: 0.8rem; }
+.qentry { gap: 10px; }
+/* Top bar fits 9 tabs */
+@media (max-width: 1440px) { .brand-name { display: none; } }
+@media (max-width: 720px) { .brand-name { display: inline; } }
+@media (min-width: 721px) and (max-width: 1440px) {
+  .tab { padding: 6px 8px; font-size: 0.86rem; }
+  .tab-guide, .tab-qguide, .tab-progress { margin-left: 2px; }
+}

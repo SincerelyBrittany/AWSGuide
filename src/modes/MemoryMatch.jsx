@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { weightedPick, shuffle } from '../lib/deck.js';
+import { weightedPick, shuffle, redact } from '../lib/deck.js';
 import { DomainFilter, ModeHeader } from './ui.jsx';
 import { loadBest, saveBest } from '../lib/storage.js';
 
 const SIZES = { 6: '6 pairs', 8: '8 pairs', 10: '10 pairs' };
-const PAIR_WITH = { hint: 'Memory hint', eli12: 'Like I’m 12' };
+const PAIR_WITH = { hint: 'Memory hint', eli12: 'Like I’m 12', short: 'Explanation' };
 
 function deal(pool, pairs, pairWith) {
   const chosen = [];
@@ -16,7 +16,7 @@ function deal(pool, pairs, pairWith) {
   return shuffle(
     chosen.flatMap((c) => [
       { key: `${c.id}-t`, cardId: c.id, kind: 'term', text: c.term },
-      { key: `${c.id}-h`, cardId: c.id, kind: 'clue', text: c[pairWith] },
+      { key: `${c.id}-h`, cardId: c.id, kind: 'clue', text: pairWith === 'short' ? redact(c.short, c) : c[pairWith] },
     ])
   );
 }
@@ -24,7 +24,8 @@ function deal(pool, pairs, pairWith) {
 export default function MemoryMatch({ cards, domains }) {
   const [domain, setDomain] = useState('all');
   const [pairs, setPairs] = useState(6);
-  const [pairWith, setPairWith] = useState('hint');
+  const options = Object.keys(PAIR_WITH).filter((k) => cards.filter((c) => c[k]).length >= 6);
+  const [pairWith, setPairWith] = useState(() => options[0] || 'hint');
   const pool = domain === 'all' ? cards : cards.filter((c) => c.domain === domain);
   const [tiles, setTiles] = useState(() => deal(pool, pairs, pairWith));
   const [up, setUp] = useState([]);
@@ -83,7 +84,7 @@ export default function MemoryMatch({ cards, domains }) {
 
   return (
     <div className="mode">
-      <ModeHeader eyebrow={best[bestKey] ? `Best: ${best[bestKey]} moves` : 'Match each service to its clue'} title="Memory Match">
+      <ModeHeader eyebrow={best[bestKey] ? `Best: ${best[bestKey]} moves` : 'Match each name to its clue'} title="Memory Match">
         <DomainFilter domains={domains} value={domain} onChange={(v) => { setDomain(v); reset({ domain: v }); }} id="mm-domain" />
         <label className="field" htmlFor="mm-size">
           <span className="field-label">Size</span>
@@ -94,7 +95,7 @@ export default function MemoryMatch({ cards, domains }) {
         <label className="field" htmlFor="mm-with">
           <span className="field-label">Pair with</span>
           <select id="mm-with" value={pairWith} onChange={(e) => { setPairWith(e.target.value); reset({ pairWith: e.target.value }); }}>
-            {Object.entries(PAIR_WITH).map(([v, l]) => <option key={v} value={v}>{l}</option>)}
+            {options.map((v) => <option key={v} value={v}>{PAIR_WITH[v]}</option>)}
           </select>
         </label>
       </ModeHeader>

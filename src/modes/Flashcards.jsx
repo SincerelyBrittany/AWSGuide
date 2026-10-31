@@ -145,7 +145,7 @@ export default function Flashcards({ cards, domains, index, setLevel, record }) 
                   )}
                   {direction === 'term' && (
                     <div>
-                      <dt>Exam definition</dt>
+                      <dt>{current.source === 'questions' ? 'Why it’s the answer' : 'Exam definition'}</dt>
                       <dd>{current.definition}</dd>
                     </div>
                   )}
@@ -170,11 +170,23 @@ export default function Flashcards({ cards, domains, index, setLevel, record }) 
                   )}
                   {current.confuse.length > 0 && (
                     <div>
-                      <dt>Don’t confuse with</dt>
+                      <dt>{current.source === 'questions' ? 'Wrong choices in the quiz' : 'Don’t confuse with'}</dt>
                       <dd>
                         {current.confuse.join(', ')}
                         {lookalikes[0]?.hint && <span className="muted"> · {lookalikes[0].term}: {lookalikes[0].hint}</span>}
                       </dd>
+                    </div>
+                  )}
+                  {current.related && current.related.term !== current.term && (
+                    <div>
+                      <dt>Study guide</dt>
+                      <dd>{current.related.term}{current.related.hint && <span className="muted"> · {current.related.hint}</span>}</dd>
+                    </div>
+                  )}
+                  {current.questions?.length > 0 && (
+                    <div>
+                      <dt>Asked as</dt>
+                      <dd className="muted">{current.questions[0].text}</dd>
                     </div>
                   )}
                   {current.notes && (

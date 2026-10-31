@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { readiness, domainTone } from '../lib/deck.js';
 
-export default function Home({ cards, deck, domains, modes, settings, setSettings, isImported, onImportClick, onUseBuiltIn, onResetProgress }) {
+export default function Home({ deckSwitch, cards, deck, domains, modes, settings, setSettings, isImported, onImportClick, onUseBuiltIn, onResetProgress }) {
   const [confirmReset, setConfirmReset] = useState(false);
   const { rows, overall } = readiness(cards, domains);
   const totals = { red: 0, yellow: 0, green: 0 };
@@ -85,6 +85,10 @@ export default function Home({ cards, deck, domains, modes, settings, setSetting
             {isImported && <> on {new Date(deck.importedAt).toLocaleDateString()}</>}: {deck.cards.length} concepts
             {lowCount > 0 && !settings.includeLow && <> ({cards.length} in play, {lowCount} low priority hidden)</>}. {totals.green} know it · {totals.yellow} kinda · {totals.red} to study.
           </p>
+          <div className="home-deck-switch">
+            {deckSwitch}
+            <p className="muted">Flashcards, the games and Progress use this deck. <strong>Questions Guide</strong> turns each quiz answer and its explanation into a card.</p>
+          </div>
           <p className="muted">
             Added rows to your spreadsheet? Import it here and the new concepts appear in every mode. Keep the same column headers. Imports and ratings are saved in this browser only, so import again if you switch browsers or devices.
           </p>

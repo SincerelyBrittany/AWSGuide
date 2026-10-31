@@ -91,6 +91,28 @@ Questions live in [`data/questions/`](data/questions). Any number of `.xlsx` fil
 
 Then either click **Import** in the app and pick the file (it's recognized as a question sheet and added to the quiz in that browser), or drop it in `data/questions/` and run `npm run sync` to build it in for everyone.
 
+## 📚 Questions Guide
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/questions-guide-dark.png">
+  <img src="docs/questions-guide-light.png" alt="Questions Guide entry: the answer, the explanation of why it's right, the related study-guide concept and the original question" width="900">
+</picture>
+
+A second study page built only from your question sheets. Each correct answer is an entry: the answer is the title, **"Description on why its the right answer"** is the explanation, and **Concept Covered** is the label. When the answer is a phrase ("Test recovery procedures"), the entry uses the concept's name instead ("Reliability Pillar").
+
+- Group by Concept Covered, exam domain or A–Z, and search answers, explanations and questions
+- **Show the question** opens the original question with every choice and the right one marked
+- Questions with the same answer share one entry, with each explanation listed
+- Your quiz record on each entry, plus an **Only ones I've missed** filter
+
+### Study these in Flashcards and the games
+
+Flashcards, Don't Confuse Me, Rapid-Fire, the Game Board, Memory Match and Progress all have a **Studying: Study Guide / Questions Guide** switch. On the Questions Guide deck:
+
+- **Flashcards** show the answer, why it's right, the wrong choices from the quiz and the question it came from
+- **Don't Confuse Me** pits the right answer against a wrong choice from the same question
+- **Memory Match** pairs each answer with the first line of its explanation
+
 ## 📖 Study Guide page
 
 <picture>
@@ -187,7 +209,8 @@ src/
   lib/quiz.js              links questions to concepts, builds rounds, quiz history
   lib/stats.js             answer history, sessions, mastery rules
   lib/storage.js           ratings, history, imported deck and best scores (localStorage)
-  modes/                   one file per study mode, plus Progress.jsx
+  lib/questionCards.js     turns quiz answers into Questions Guide cards
+  modes/                   one file per study mode, plus Guide, QuestionsGuide and Progress
   styles.css               light and dark theme tokens and all styles
 ```
 </details>
