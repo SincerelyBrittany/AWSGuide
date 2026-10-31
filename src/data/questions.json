@@ -1,6 +1,998 @@
 {
   "questions": [
     {
+      "id": "qea60w8",
+      "text": "Which perspective of the AWS Cloud Adoption Framework (CAF) helps you move from a model that separates business and IT strategies into a model that integrates IT strategy into the overall business strategy?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Business Perspective"
+        },
+        {
+          "letter": "B",
+          "text": "People Perspective"
+        },
+        {
+          "letter": "C",
+          "text": "Governance Perspective"
+        },
+        {
+          "letter": "D",
+          "text": "Platform Perspective"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "topic": "Cloud Adoption Framework (CAF)",
+      "why": "The Business Perspective helps stakeholders align their IT strategy with their business strategy, ensuring that their IT investments map directly to key business results.",
+      "concept": "CAF Business Perspective",
+      "lowPriority": false,
+      "priorityNote": "",
+      "source": "Practice Questions CAF and Well-Architected"
+    },
+    {
+      "id": "qvxwbww",
+      "text": "According to the AWS Cloud Adoption Framework (CAF), which perspective focuses on evaluating organizational structures and roles, new skill requirements, and identifying training needs?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Operations Perspective"
+        },
+        {
+          "letter": "B",
+          "text": "People Perspective"
+        },
+        {
+          "letter": "C",
+          "text": "Security Perspective"
+        },
+        {
+          "letter": "D",
+          "text": "Governance Perspective"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "topic": "Cloud Adoption Framework (CAF)",
+      "why": "The People Perspective serves as a bridge between technology and business, focusing on human resources, organizational change management, and training management.",
+      "concept": "CAF People Perspective",
+      "lowPriority": false,
+      "priorityNote": "",
+      "source": "Practice Questions CAF and Well-Architected"
+    },
+    {
+      "id": "q1wjhe11",
+      "text": "Which CAF perspective focuses on ensuring that skills and processes align with maximizing the business value of IT while minimizing business risks?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Business Perspective"
+        },
+        {
+          "letter": "B",
+          "text": "Governance Perspective"
+        },
+        {
+          "letter": "C",
+          "text": "Platform Perspective"
+        },
+        {
+          "letter": "D",
+          "text": "Operations Perspective"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "topic": "Cloud Adoption Framework (CAF)",
+      "why": "The Governance Perspective provides guidance on identifying and implementing best practices for IT governance, and on supporting business processes with technology safely.",
+      "concept": "CAF Governance Perspective",
+      "lowPriority": false,
+      "priorityNote": "",
+      "source": "Practice Questions CAF and Well-Architected"
+    },
+    {
+      "id": "q1tcdo5m",
+      "text": "Which CAF perspective includes principles and patterns for implementing new solutions on the cloud, and migrating on-premises workloads to the cloud?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Platform Perspective"
+        },
+        {
+          "letter": "B",
+          "text": "Operations Perspective"
+        },
+        {
+          "letter": "C",
+          "text": "Business Perspective"
+        },
+        {
+          "letter": "D",
+          "text": "Security Perspective"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "topic": "Cloud Adoption Framework (CAF)",
+      "why": "The Platform Perspective helps you design, implement, and optimize the architecture of AWS technology based on business goals and objectives (e.g., compute, network, storage, database provisioning).",
+      "concept": "CAF Platform Perspective",
+      "lowPriority": false,
+      "priorityNote": "",
+      "source": "Practice Questions CAF and Well-Architected"
+    },
+    {
+      "id": "qlvpiuy",
+      "text": "Which CAF perspective helps structure the selection and implementation of controls that meet the organization's compliance and risk management needs?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Security Perspective"
+        },
+        {
+          "letter": "B",
+          "text": "Governance Perspective"
+        },
+        {
+          "letter": "C",
+          "text": "Operations Perspective"
+        },
+        {
+          "letter": "D",
+          "text": "Platform Perspective"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "topic": "Cloud Adoption Framework (CAF)",
+      "why": "The Security Perspective helps you structure the selection and implementation of security controls that meet your organization's needs, focusing on Identity and Access Management, Detective Controls, and Data Protection.",
+      "concept": "CAF Security Perspective",
+      "lowPriority": false,
+      "priorityNote": "",
+      "source": "Practice Questions CAF and Well-Architected"
+    },
+    {
+      "id": "q18zynyh",
+      "text": "Which CAF perspective helps you to run, use, operate, and recover IT workloads to the level that is agreed upon with your business stakeholders?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Operations Perspective"
+        },
+        {
+          "letter": "B",
+          "text": "Platform Perspective"
+        },
+        {
+          "letter": "C",
+          "text": "Business Perspective"
+        },
+        {
+          "letter": "D",
+          "text": "Governance Perspective"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "topic": "Cloud Adoption Framework (CAF)",
+      "why": "The Operations Perspective focuses on operating and recovering IT workloads to meet the requirements of your business stakeholders. It includes service monitoring, incident management, and disaster recovery.",
+      "concept": "CAF Operations Perspective",
+      "lowPriority": false,
+      "priorityNote": "",
+      "source": "Practice Questions CAF and Well-Architected"
+    },
+    {
+      "id": "q1i9hfmf",
+      "text": "According to the AWS Well-Architected Framework, 'Perform operations as code' is a design principle of which pillar?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Reliability"
+        },
+        {
+          "letter": "B",
+          "text": "Operational Excellence"
+        },
+        {
+          "letter": "C",
+          "text": "Performance Efficiency"
+        },
+        {
+          "letter": "D",
+          "text": "Security"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "topic": "Well-Architected Framework",
+      "why": "Performing operations as code (defining your entire workload as code and updating it with code) is a core design principle of the Operational Excellence pillar.",
+      "concept": "Operational Excellence Pillar",
+      "lowPriority": false,
+      "priorityNote": "",
+      "source": "Practice Questions CAF and Well-Architected"
+    },
+    {
+      "id": "qgtyi3l",
+      "text": "Which pillar of the Well-Architected Framework encompasses the ability to protect data, systems, and assets while delivering business value through risk assessments and mitigation strategies?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Operational Excellence"
+        },
+        {
+          "letter": "B",
+          "text": "Security"
+        },
+        {
+          "letter": "C",
+          "text": "Reliability"
+        },
+        {
+          "letter": "D",
+          "text": "Cost Optimization"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "topic": "Well-Architected Framework",
+      "why": "The Security pillar focuses on protecting information, systems, and assets. Key topics include confidentiality and integrity of data, identifying and managing who can do what, and protecting systems.",
+      "concept": "Security Pillar",
+      "lowPriority": false,
+      "priorityNote": "",
+      "source": "Practice Questions CAF and Well-Architected"
+    },
+    {
+      "id": "qipsd33",
+      "text": "The design principle 'Stop guessing capacity' is primarily associated with which pillar of the Well-Architected Framework?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Cost Optimization"
+        },
+        {
+          "letter": "B",
+          "text": "Performance Efficiency"
+        },
+        {
+          "letter": "C",
+          "text": "Reliability"
+        },
+        {
+          "letter": "D",
+          "text": "Sustainability"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "topic": "Well-Architected Framework",
+      "why": "While it impacts cost, 'Stop guessing capacity' is a fundamental design principle of the Reliability pillar. Cloud elasticity allows you to scale up and down automatically, preventing resource exhaustion failures.",
+      "concept": "Reliability Pillar",
+      "lowPriority": false,
+      "priorityNote": "",
+      "source": "Practice Questions CAF and Well-Architected"
+    },
+    {
+      "id": "qi4ezp0",
+      "text": "Which design principle of the Well-Architected Framework encourages you to consume technologies as a service rather than asking your IT team to learn how to host and run a new technology?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Democratize advanced technologies"
+        },
+        {
+          "letter": "B",
+          "text": "Adopt a consumption model"
+        },
+        {
+          "letter": "C",
+          "text": "Go global in minutes"
+        },
+        {
+          "letter": "D",
+          "text": "Use serverless architectures"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "topic": "Well-Architected Framework",
+      "why": "Democratizing advanced technologies (a Performance Efficiency principle) means pushing complex, advanced tech (like machine learning or NoSQL) to cloud vendors as managed services rather than managing them yourself.",
+      "concept": "Performance Efficiency Pillar",
+      "lowPriority": false,
+      "priorityNote": "",
+      "source": "Practice Questions CAF and Well-Architected"
+    },
+    {
+      "id": "qg4wo18",
+      "text": "According to the Well-Architected Framework, which pillar includes the design principle 'Analyze and attribute expenditure'?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Operational Excellence"
+        },
+        {
+          "letter": "B",
+          "text": "Performance Efficiency"
+        },
+        {
+          "letter": "C",
+          "text": "Cost Optimization"
+        },
+        {
+          "letter": "D",
+          "text": "Governance"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "topic": "Well-Architected Framework",
+      "why": "Analyzing and attributing expenditure is a Cost Optimization design principle. It involves accurately identifying system usage and costs, and attributing IT costs to individual workload owners (e.g., using resource tagging).",
+      "concept": "Cost Optimization Pillar",
+      "lowPriority": false,
+      "priorityNote": "",
+      "source": "Practice Questions CAF and Well-Architected"
+    },
+    {
+      "id": "q1bzifjv",
+      "text": "Which pillar of the Well-Architected Framework focuses on minimizing the environmental impacts of running cloud workloads?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Cost Optimization"
+        },
+        {
+          "letter": "B",
+          "text": "Performance Efficiency"
+        },
+        {
+          "letter": "C",
+          "text": "Operational Excellence"
+        },
+        {
+          "letter": "D",
+          "text": "Sustainability"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "topic": "Well-Architected Framework",
+      "why": "The Sustainability pillar focuses on environmental impacts, including reducing energy consumption, maximizing resource utilization, and adopting more efficient hardware and software.",
+      "concept": "Sustainability Pillar",
+      "lowPriority": false,
+      "priorityNote": "",
+      "source": "Practice Questions CAF and Well-Architected"
+    },
+    {
+      "id": "q159v95u",
+      "text": "Which design principle is part of the Security pillar in the AWS Well-Architected Framework?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Test recovery procedures"
+        },
+        {
+          "letter": "B",
+          "text": "Keep people away from data"
+        },
+        {
+          "letter": "C",
+          "text": "Mechanical sympathy"
+        },
+        {
+          "letter": "D",
+          "text": "Anticipate failure"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "topic": "Well-Architected Framework",
+      "why": "Keeping people away from data is a Security design principle. It involves using mechanisms and tools to reduce or eliminate the need for direct access or manual processing of data to reduce the risk of mishandling or modification.",
+      "concept": "Security Pillar",
+      "lowPriority": false,
+      "priorityNote": "",
+      "source": "Practice Questions CAF and Well-Architected"
+    },
+    {
+      "id": "qfp36p8",
+      "text": "Under the Reliability pillar, what is meant by the design principle 'Scale horizontally to increase aggregate workload availability'?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Upgrade your EC2 instances to a larger instance type when demand increases."
+        },
+        {
+          "letter": "B",
+          "text": "Replace one large resource with multiple small resources to reduce the impact of a single failure."
+        },
+        {
+          "letter": "C",
+          "text": "Deploy your application in multiple cloud providers simultaneously."
+        },
+        {
+          "letter": "D",
+          "text": "Ensure that your database is always running at 100% capacity."
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "topic": "Well-Architected Framework",
+      "why": "Scaling horizontally (scaling out) distributes requests across multiple, smaller resources (like instances or containers). If one fails, the overall impact on the workload is minimized.",
+      "concept": "Reliability Pillar",
+      "lowPriority": false,
+      "priorityNote": "",
+      "source": "Practice Questions CAF and Well-Architected"
+    },
+    {
+      "id": "q817fyb",
+      "text": "Which design principle of the Performance Efficiency pillar emphasizes understanding how cloud services are consumed to ensure you are using the technology approach that best aligns with your workload goals?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Mechanical sympathy"
+        },
+        {
+          "letter": "B",
+          "text": "Go global in minutes"
+        },
+        {
+          "letter": "C",
+          "text": "Experiment more often"
+        },
+        {
+          "letter": "D",
+          "text": "Democratize advanced technologies"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "topic": "Well-Architected Framework",
+      "why": "Mechanical sympathy means using the tool or service that best matches what you are trying to achieve (e.g., understanding the data access patterns to choose the right database engine).",
+      "concept": "Performance Efficiency Pillar",
+      "lowPriority": false,
+      "priorityNote": "",
+      "source": "Practice Questions CAF and Well-Architected"
+    },
+    {
+      "id": "q6yhjo0",
+      "text": "In the context of the Well-Architected Framework, what is the primary purpose of the 'AWS Well-Architected Tool'?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "To automatically deploy cloud architectures based on templates."
+        },
+        {
+          "letter": "B",
+          "text": "To provide a consistent process for reviewing and measuring your cloud architectures against AWS best practices."
+        },
+        {
+          "letter": "C",
+          "text": "To monitor billing and automatically shut down expensive resources."
+        },
+        {
+          "letter": "D",
+          "text": "To act as a firewall that blocks unarchitected deployments."
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "topic": "Well-Architected Framework",
+      "why": "The AWS Well-Architected Tool helps you review the state of your workloads and compares them to the latest AWS architectural best practices, providing a plan on how to architect for the cloud.",
+      "concept": "AWS Well-Architected Tool",
+      "lowPriority": false,
+      "priorityNote": "",
+      "source": "Practice Questions CAF and Well-Architected"
+    },
+    {
+      "id": "q6y639h",
+      "text": "According to the Cost Optimization pillar, what is meant by 'Stop spending money on undifferentiated heavy lifting'?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Fire IT staff that perform manual tasks."
+        },
+        {
+          "letter": "B",
+          "text": "Use managed AWS services instead of managing your own infrastructure and operating systems."
+        },
+        {
+          "letter": "C",
+          "text": "Avoid using AWS support plans to save money."
+        },
+        {
+          "letter": "D",
+          "text": "Only use On-Demand instances to avoid upfront costs."
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "topic": "Well-Architected Framework",
+      "why": "AWS does the 'undifferentiated heavy lifting' of data center operations (racking, stacking, powering servers, patching OS). Using managed services (like RDS instead of self-hosted databases) lets you focus on your customers instead of IT infrastructure.",
+      "concept": "Cost Optimization Pillar",
+      "lowPriority": false,
+      "priorityNote": "",
+      "source": "Practice Questions CAF and Well-Architected"
+    },
+    {
+      "id": "q1e44avv",
+      "text": "Which design principle is part of the Operational Excellence pillar?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Implement a strong identity foundation"
+        },
+        {
+          "letter": "B",
+          "text": "Make frequent, small, reversible changes"
+        },
+        {
+          "letter": "C",
+          "text": "Automatically recover from failure"
+        },
+        {
+          "letter": "D",
+          "text": "Use serverless architectures"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "topic": "Well-Architected Framework",
+      "why": "Making frequent, small, reversible changes allows you to innovate faster while minimizing the impact of a failure. If a change causes an issue, its small scale makes it easy to identify and reverse.",
+      "concept": "Operational Excellence Pillar",
+      "lowPriority": false,
+      "priorityNote": "",
+      "source": "Practice Questions CAF and Well-Architected"
+    },
+    {
+      "id": "qlcpi1y",
+      "text": "Which CAF perspective ensures you have the right incident response procedures in place?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Operations Perspective"
+        },
+        {
+          "letter": "B",
+          "text": "Security Perspective"
+        },
+        {
+          "letter": "C",
+          "text": "Governance Perspective"
+        },
+        {
+          "letter": "D",
+          "text": "People Perspective"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "topic": "Cloud Adoption Framework (CAF)",
+      "why": "Incident Response is a core capability within the Security Perspective of the CAF, ensuring that your organization has the architecture and processes to respond to security incidents.",
+      "concept": "CAF Security Perspective",
+      "lowPriority": false,
+      "priorityNote": "",
+      "source": "Practice Questions CAF and Well-Architected"
+    },
+    {
+      "id": "q163a8ty",
+      "text": "Which pillar of the Well-Architected Framework includes the design principle 'Anticipate failure'?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Reliability"
+        },
+        {
+          "letter": "B",
+          "text": "Operational Excellence"
+        },
+        {
+          "letter": "C",
+          "text": "Security"
+        },
+        {
+          "letter": "D",
+          "text": "Performance Efficiency"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "topic": "Well-Architected Framework",
+      "why": "While 'automatically recover from failure' is Reliability, 'Anticipate failure' (identifying potential sources of failure so they can be removed or mitigated, and testing failure scenarios) is a design principle of Operational Excellence.",
+      "concept": "Operational Excellence Pillar",
+      "lowPriority": false,
+      "priorityNote": "",
+      "source": "Practice Questions CAF and Well-Architected"
+    },
+    {
+      "id": "q1k83103",
+      "text": "A bank must keep customer data inside its own data center because of a regulation, but wants to run it on Amazon EC2 and Amazon EBS using the same AWS APIs and tools it uses in the cloud. Which option fits?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "AWS Local Zones"
+        },
+        {
+          "letter": "B",
+          "text": "AWS Outposts"
+        },
+        {
+          "letter": "C",
+          "text": "AWS Wavelength Zones"
+        },
+        {
+          "letter": "D",
+          "text": "A new AWS Region"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "topic": "Local Zones vs Outposts",
+      "why": "AWS Outposts puts AWS-managed racks or servers inside YOUR building, so data stays on your premises while you use the same AWS services, APIs, and console. Local Zones and Regions are AWS-owned facilities, so the data would leave your data center.",
+      "concept": "AWS Outposts",
+      "lowPriority": false,
+      "priorityNote": "",
+      "source": "Practice Questions Local Zones vs Outposts"
+    },
+    {
+      "id": "q5ywy4x",
+      "text": "A game studio has no data center of its own. Its players are in Los Angeles and need single-digit millisecond latency, but the closest AWS Region is hundreds of miles away. What should the studio use?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "AWS Outposts"
+        },
+        {
+          "letter": "B",
+          "text": "Amazon CloudFront edge locations"
+        },
+        {
+          "letter": "C",
+          "text": "AWS Local Zones"
+        },
+        {
+          "letter": "D",
+          "text": "An additional Availability Zone in the same Region"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "topic": "Local Zones vs Outposts",
+      "why": "AWS Local Zones place AWS compute, storage, and database services in large cities like Los Angeles, close to end users, so latency-sensitive apps like real-time gaming get single-digit millisecond latency. Outposts would need a building of your own to install it in; edge locations only cache content for CloudFront and don't run your game servers.",
+      "concept": "AWS Local Zones",
+      "lowPriority": false,
+      "priorityNote": "",
+      "source": "Practice Questions Local Zones vs Outposts"
+    },
+    {
+      "id": "q14wrwi0",
+      "text": "Who owns and operates the building where AWS Local Zones infrastructure runs?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "AWS"
+        },
+        {
+          "letter": "B",
+          "text": "The customer"
+        },
+        {
+          "letter": "C",
+          "text": "A 5G telecom carrier"
+        },
+        {
+          "letter": "D",
+          "text": "A colocation partner chosen by the customer"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "topic": "Local Zones vs Outposts",
+      "why": "Local Zones are AWS facilities: AWS owns and runs the building and the hardware, just like a Region, only placed in a big city closer to users. That's the key difference from Outposts, where the hardware sits in the customer's own data center. (Inside a telecom carrier's 5G network is Wavelength Zones.)",
+      "concept": "AWS Local Zones",
+      "lowPriority": false,
+      "priorityNote": "",
+      "source": "Practice Questions Local Zones vs Outposts"
+    },
+    {
+      "id": "q116sl58",
+      "text": "Under the AWS Shared Responsibility Model, who is responsible for the physical security, power, and network connection of the site where an AWS Outposts rack is installed?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "AWS"
+        },
+        {
+          "letter": "B",
+          "text": "The customer"
+        },
+        {
+          "letter": "C",
+          "text": "The AWS Partner that sold the rack"
+        },
+        {
+          "letter": "D",
+          "text": "AWS Enterprise Support"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "topic": "Local Zones vs Outposts",
+      "why": "Because Outposts lives in the customer's own building, the customer handles the site: physical security and access, power, cooling, and the network uplink. AWS still owns, monitors, maintains, and replaces the Outposts hardware and the AWS services running on it.",
+      "concept": "AWS Outposts",
+      "lowPriority": false,
+      "priorityNote": "",
+      "source": "Practice Questions Local Zones vs Outposts"
+    },
+    {
+      "id": "q1vd9ute",
+      "text": "Which statement correctly describes the difference between AWS Local Zones and AWS Outposts?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Local Zones are installed in your data center; Outposts are AWS buildings in large cities."
+        },
+        {
+          "letter": "B",
+          "text": "Local Zones are AWS-run infrastructure in large metro areas near users; Outposts are AWS-managed hardware installed in your own data center or on-premises site."
+        },
+        {
+          "letter": "C",
+          "text": "Both run inside telecom 5G networks, but Outposts are faster."
+        },
+        {
+          "letter": "D",
+          "text": "Local Zones are for storage only; Outposts are for compute only."
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "topic": "Local Zones vs Outposts",
+      "why": "Remember it as: Local Zones = AWS comes to your CITY (AWS's building, near your users). Outposts = AWS comes to your BUILDING (AWS hardware on your premises). Both run AWS services such as EC2 and EBS with the same APIs.",
+      "concept": "AWS Outposts",
+      "lowPriority": false,
+      "priorityNote": "",
+      "source": "Practice Questions Local Zones vs Outposts"
+    },
+    {
+      "id": "qc3pvji",
+      "text": "A manufacturer needs to process data from factory machines with very low latency to equipment on its plant floor, using AWS services, without sending the data to an AWS Region first. Which option is the best fit?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "AWS Outposts"
+        },
+        {
+          "letter": "B",
+          "text": "AWS Local Zones"
+        },
+        {
+          "letter": "C",
+          "text": "Amazon CloudFront"
+        },
+        {
+          "letter": "D",
+          "text": "AWS Global Accelerator"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "topic": "Local Zones vs Outposts",
+      "why": "When the low latency you need is to systems inside your own facility (factory equipment, on-prem databases, local medical devices), Outposts is the answer: the AWS hardware sits right next to them. Local Zones lower latency to users in a city, not to machines inside your building.",
+      "concept": "AWS Outposts",
+      "lowPriority": false,
+      "priorityNote": "",
+      "source": "Practice Questions Local Zones vs Outposts"
+    },
+    {
+      "id": "qv3ep5j",
+      "text": "A visual effects company in a major city wants to rent extra rendering capacity close to its artists for a few months, paying only for what it uses and without buying or housing any hardware. Which option fits?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "AWS Outposts"
+        },
+        {
+          "letter": "B",
+          "text": "AWS Local Zones"
+        },
+        {
+          "letter": "C",
+          "text": "AWS Snowball Edge"
+        },
+        {
+          "letter": "D",
+          "text": "Dedicated Hosts in a distant Region"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "topic": "Local Zones vs Outposts",
+      "why": "Local Zones offer pay-as-you-go AWS capacity in large metro areas, with nothing to install or house, which suits short-term, latency-sensitive work like media rendering. Outposts means hardware delivered to and kept in your own site on a 3-year term.",
+      "concept": "AWS Local Zones",
+      "lowPriority": false,
+      "priorityNote": "",
+      "source": "Practice Questions Local Zones vs Outposts"
+    },
+    {
+      "id": "qr8t64q",
+      "text": "How is AWS Outposts purchased?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Per second On-Demand with no commitment, like EC2"
+        },
+        {
+          "letter": "B",
+          "text": "As a 3-year term, with all upfront, partial upfront, or no upfront payment options"
+        },
+        {
+          "letter": "C",
+          "text": "By bidding on spare capacity, like Spot Instances"
+        },
+        {
+          "letter": "D",
+          "text": "It is free with any AWS Support plan"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "topic": "Local Zones vs Outposts",
+      "why": "Outposts racks and servers are ordered for a 3-year term (all upfront, partial upfront, or no upfront). That commitment fits because AWS ships and installs physical hardware at your site. Local Zones, by contrast, are pay-as-you-go like a normal Region.",
+      "concept": "AWS Outposts",
+      "lowPriority": false,
+      "priorityNote": "",
+      "source": "Practice Questions Local Zones vs Outposts"
+    },
+    {
+      "id": "q1g6pnax",
+      "text": "A mobile app running on 5G phones needs ultra-low latency, so its back end should run inside the telecom carrier's 5G network. Which AWS option is designed for this?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "AWS Local Zones"
+        },
+        {
+          "letter": "B",
+          "text": "AWS Outposts"
+        },
+        {
+          "letter": "C",
+          "text": "AWS Wavelength Zones"
+        },
+        {
+          "letter": "D",
+          "text": "Amazon CloudFront"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "topic": "Local Zones vs Outposts",
+      "why": "Wavelength Zones put AWS compute and storage inside telecom providers' 5G networks, so traffic from mobile devices doesn't have to leave the carrier network. Think: Wavelength = 5G carrier, Local Zones = city, Outposts = your building.",
+      "concept": "AWS Wavelength Zones",
+      "lowPriority": false,
+      "priorityNote": "",
+      "source": "Practice Questions Local Zones vs Outposts"
+    },
+    {
+      "id": "qjs6wu8",
+      "text": "Which statement about AWS Outposts is true?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "It runs completely disconnected from AWS with no need for a Region."
+        },
+        {
+          "letter": "B",
+          "text": "AWS installs it in an AWS-owned building near your city."
+        },
+        {
+          "letter": "C",
+          "text": "It is an extension of an AWS Region and needs a reliable network connection back to that Region."
+        },
+        {
+          "letter": "D",
+          "text": "The customer is responsible for replacing failed Outposts hardware."
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "topic": "Local Zones vs Outposts",
+      "why": "Each Outpost is tied to a parent AWS Region and is managed through a connection back to it (the console, APIs, and control plane live in the Region). AWS replaces failed hardware. An AWS-owned building near your city describes Local Zones.",
+      "concept": "AWS Outposts",
+      "lowPriority": false,
+      "priorityNote": "",
+      "source": "Practice Questions Local Zones vs Outposts"
+    },
+    {
+      "id": "qrakzvo",
+      "text": "What do AWS Local Zones and AWS Outposts have in common?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Both are installed inside the customer's data center."
+        },
+        {
+          "letter": "B",
+          "text": "Both extend an AWS Region, letting you run AWS services like EC2 and EBS with the same APIs, tools, and console."
+        },
+        {
+          "letter": "C",
+          "text": "Both are only for caching static website content."
+        },
+        {
+          "letter": "D",
+          "text": "Both require AWS Direct Connect and cannot use the internet."
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "topic": "Local Zones vs Outposts",
+      "why": "Both are extensions of a parent AWS Region: you use the same AWS APIs, tools, and console to run services such as EC2, EBS, and ECS closer to where you need them. The difference is location: Local Zones are AWS facilities in a city, while Outposts are in your own building.",
+      "concept": "AWS Local Zones",
+      "lowPriority": false,
+      "priorityNote": "",
+      "source": "Practice Questions Local Zones vs Outposts"
+    },
+    {
+      "id": "qw17w52",
+      "text": "A company must keep its data inside a country where there is no AWS Region. It already runs its own data center in that country. Which AWS option lets it use AWS services while meeting this data residency requirement?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "AWS Local Zones"
+        },
+        {
+          "letter": "B",
+          "text": "AWS Outposts"
+        },
+        {
+          "letter": "C",
+          "text": "AWS Global Accelerator"
+        },
+        {
+          "letter": "D",
+          "text": "An AWS Region in a neighboring country"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "topic": "Local Zones vs Outposts",
+      "why": "Outposts can be installed in your own data center wherever you operate, so data stays in the country while you use AWS services. A Local Zone only helps if AWS has built one in that location, and a neighboring country's Region would move the data across the border.",
+      "concept": "AWS Outposts",
+      "lowPriority": false,
+      "priorityNote": "",
+      "source": "Practice Questions Local Zones vs Outposts"
+    },
+    {
       "id": "q1rphqzh",
       "text": "A company wants to grant a 3rd party application access to their AWS account without sharing long-term credentials. Which service or feature should they use?",
       "options": [

@@ -65,7 +65,8 @@
         "ultra-low latency"
       ],
       "confuse": [
-        "Local Zones"
+        "AWS Local Zones",
+        "AWS Outposts"
       ],
       "domain": "Cloud Technology & Services",
       "confidence": "red",
@@ -870,7 +871,7 @@
       "category": "Infrastructure",
       "hint": "LOCAL = AWS closer to your CITY",
       "eli12": "Run AWS resources closer to users for low latency.",
-      "definition": "Extensions of an AWS Region placed in large metropolitan areas so latency-sensitive workloads (media rendering, real-time gaming, live video) run with single-digit-millisecond latency for nearby users.",
+      "definition": "Extensions of an AWS Region placed in large metropolitan areas so latency-sensitive workloads (media rendering, real-time gaming, live video) run with single-digit-millisecond latency for nearby users. AWS owns and runs the facility, nothing is installed at your site, and you pay as you go.",
       "triggers": [
         "low latency",
         "close to users",
@@ -879,8 +880,9 @@
         "extension of Region"
       ],
       "confuse": [
+        "AWS Outposts",
         "Regions",
-        "Wavelength"
+        "AWS Wavelength Zones"
       ],
       "domain": "Cloud Concepts",
       "confidence": "red",
@@ -1702,7 +1704,7 @@
       "category": "Infrastructure",
       "hint": "AWS at YOUR building",
       "eli12": "AWS-managed infrastructure installed on-premises.",
-      "definition": "Fully managed AWS racks and servers installed in your own data center, running AWS services with the same APIs and tools, for workloads needing low latency to on-prem systems, local data processing or data residency.",
+      "definition": "Fully managed AWS racks and servers installed in your own data center, running AWS services with the same APIs and tools, for workloads needing low latency to on-prem systems, local data processing or data residency. You provide the site (space, power, network, physical security); AWS owns, maintains and replaces the hardware. Each Outpost connects back to a parent Region and is bought on a 3-year term.",
       "triggers": [
         "on-prem",
         "hybrid",
@@ -1711,7 +1713,8 @@
         "rack"
       ],
       "confuse": [
-        "Local Zones"
+        "AWS Local Zones",
+        "AWS Wavelength Zones"
       ],
       "domain": "Cloud Concepts",
       "confidence": "red",
@@ -9743,6 +9746,37 @@
       "official": "AWS Database Migration Service (AWS DMS) helps you migrate databases to AWS easily and securely. The source database remains fully operational during the migration, minimizing downtime to applications that rely on the database.",
       "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/migration-services.html",
       "notes": ""
+    },
+    {
+      "id": "local-zones-vs-outposts-vs-wavelength",
+      "term": "Local Zones vs Outposts vs Wavelength",
+      "category": "Infrastructure",
+      "hint": "OUTPOSTS = your BUILDING · LOCAL ZONES = your CITY · WAVELENGTH = 5G carrier",
+      "eli12": "Outposts: AWS puts its computers in your house. Local Zones: AWS builds a mini store in your town. Wavelength: AWS sets up inside the phone company.",
+      "definition": "All three extend an AWS Region and use the same AWS APIs and console. Outposts: AWS-managed hardware installed in YOUR data center; pick it for data that must stay on-premises, data residency, or low latency to on-prem systems; you secure and power the site; 3-year term. Local Zones: AWS-owned facilities in large metro areas; pick it for single-digit-millisecond latency to users in that city (gaming, media rendering, live video) with nothing to install; pay as you go. Wavelength Zones: AWS compute inside telecom 5G networks for ultra-low-latency mobile apps.",
+      "triggers": [
+        "on-premises",
+        "your data center",
+        "data residency → Outposts",
+        "large city",
+        "metro",
+        "end users",
+        "no data center → Local Zones",
+        "5G",
+        "mobile carrier → Wavelength"
+      ],
+      "confuse": [
+        "AWS Local Zones",
+        "AWS Outposts",
+        "AWS Wavelength Zones"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
     }
   ],
   "domains": [
@@ -9891,5 +9925,5 @@
     }
   ],
   "source": "Master Study Guide",
-  "importedAt": "2026-10-31T01:53:08.546Z"
+  "importedAt": "2026-10-31T03:07:11.574Z"
 }

@@ -24,7 +24,7 @@ function titleFor(q, link) {
   if (answers.length !== 1) return concept || answers.join(' + ');
   const answer = answers[0];
   if (!concept) return answer;
-  if (isPhrase(answer)) return concept;
+  if (isPhrase(answer) || core(answer).length < 4) return concept; // "AWS", "Yes" are too short to be a title
   // A bare short answer that's part of the concept's name ("Security" → "Security Pillar", "Enterprise" → "AWS Enterprise Support").
   const a = core(answer), c = core(concept);
   if (a !== c && answer.split(/\s+/).length <= 3 && c.includes(a)) return concept;
