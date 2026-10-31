@@ -4133,8 +4133,8 @@
       ],
       "domain": "Cloud Concepts",
       "confidence": "red",
-      "lowPriority": false,
-      "coverage": " Official Guide / In Scope",
+      "lowPriority": true,
+      "coverage": "⚪ Low Priority / Out of Scope",
       "official": "Snowball Edge is a device with on-board storage and compute power for select AWS capabilities. Snowball Edge can process data locally, run edge-computing workloads, and transfer data to or from the AWS Cloud. (AWS notes Snowball Edge is no longer available to new customers.)",
       "officialSource": "https://docs.aws.amazon.com/snowball/latest/developer-guide/whatisedge.html",
       "notes": ""
@@ -9891,5 +9891,5 @@
     }
   ],
   "source": "Master Study Guide",
-  "importedAt": "2026-10-31T01:46:01.257Z"
+  "importedAt": "2026-10-31T01:53:08.546Z"
 }

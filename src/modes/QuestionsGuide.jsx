@@ -31,7 +31,7 @@ function quizRecord(card, quizHistory) {
   return { right, wrong, tried: right + wrong > 0, lastWrong: last?.lastResult === 'wrong' };
 }
 
-export default function QuestionsGuide({ qCards, domains, quizHistory, setLevel }) {
+export default function QuestionsGuide({ qCards, domains, quizHistory, setLevel, lowCount = 0, settings, setSettings }) {
   const [query, setQuery] = useState('');
   const [domain, setDomain] = useState('all');
   const [level, setLevelFilter] = useState('all');
@@ -73,7 +73,7 @@ export default function QuestionsGuide({ qCards, domains, quizHistory, setLevel 
 
   return (
     <div className="mode guide-page qguide">
-      <ModeHeader eyebrow={`${list.length} of ${qCards.length} answers · from ${questionCount} quiz questions`} title="Questions Guide">
+      <ModeHeader eyebrow={`${list.length} of ${qCards.length} answers · from ${questionCount} quiz questions${lowCount && !settings.includeLow ? ` · ${lowCount} low-priority hidden` : ''}`} title="Questions Guide">
         <a className="btn btn-ghost" href="#quiz">Take the quiz</a>
       </ModeHeader>
       <p className="lede qguide-lede">
@@ -100,6 +100,12 @@ export default function QuestionsGuide({ qCards, domains, quizHistory, setLevel 
           <input id="qg-missed" type="checkbox" checked={onlyMissed} onChange={(e) => setOnlyMissed(e.target.checked)} />
           <span>Only ones I’ve missed ({missedCount})</span>
         </label>
+        {lowCount > 0 && (
+          <label className="toggle" htmlFor="qg-low">
+            <input id="qg-low" type="checkbox" checked={!!settings.includeLow} onChange={(e) => setSettings({ ...settings, includeLow: e.target.checked })} />
+            <span>Show low priority ({lowCount})</span>
+          </label>
+        )}
         {sections.length > 1 && (
           <JumpMenu
             items={sections.map((s) => ({ key: s.key, label: group === 'domain' ? shortDomain(s.title) : s.title, count: s.items.length }))}
@@ -124,13 +130,14 @@ export default function QuestionsGuide({ qCards, domains, quizHistory, setLevel 
             {s.items.map((c) => {
               const r = records[c.id];
               return (
-                <article key={c.id} className="entry qentry">
+                <article key={c.id} className={`entry qentry ${c.lowPriority ? 'is-low' : ''}`}>
                   <header className="entry-head">
                     <div className="entry-title">
                       <h3><Highlight text={c.term} q={q} /></h3>
                       <div className="entry-meta">
                         <DomainChip name={c.domain} />
                         <span className="category">{c.topics.join(' · ')}</span>
+                        {c.lowPriority && <span className="pill pill-new" title={c.priorityNotes.join('; ')}>Low priority</span>}
                         {r.tried && (
                           <span className={`pill ${r.wrong ? 'pill-red' : 'pill-green'}`} title="Your quiz record for this answer">
                             Quiz: {r.right} right{r.wrong ? ` · ${r.wrong} missed` : ''}
@@ -153,6 +160,9 @@ export default function QuestionsGuide({ qCards, domains, quizHistory, setLevel 
                     <p className="qentry-why muted">No explanation in the sheet for this one yet.</p>
                   )}
 
+                  {c.lowPriority && c.priorityNotes.length > 0 && (
+                    <p className="qentry-low muted">Low priority: {c.priorityNotes.join('; ')}.</p>
+                  )}
                   {c.related && c.related.term !== c.term && (
                     <p className="qentry-related">
                       <span className="field-label">Study guide</span> <strong>{c.related.term}</strong>

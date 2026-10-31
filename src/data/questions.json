@@ -27,6 +27,8 @@
       "topic": "Advanced Identity / IAM",
       "why": "AWS STS enables the creation of temporary, limited-privilege credentials to access AWS resources, which is ideal for cross-account or 3rd party access without sharing permanent access keys.",
       "concept": "AWS STS (Security Token Service)",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 1"
     },
     {
@@ -56,6 +58,8 @@
       "topic": "Amazon EC2 / Purchasing Options",
       "why": "Spot Instances can offer up to a 90% discount compared to On-Demand pricing. They are the most cost-efficient option for workloads that are resilient to failure and can be interrupted, such as batch processing.",
       "concept": "Spot Instances",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 1"
     },
     {
@@ -85,6 +89,8 @@
       "topic": "Amazon S3 / Storage Classes",
       "why": "S3 Glacier Instant Retrieval offers millisecond retrieval for long-term storage of data accessed maybe once a quarter, making it cheaper than Standard-IA but faster than Flexible Retrieval.",
       "concept": "S3 Glacier Instant Retrieval",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 1"
     },
     {
@@ -114,6 +120,8 @@
       "topic": "Databases",
       "why": "ElastiCache is a managed Redis or Memcached in-memory database that provides high performance and sub-millisecond latency, perfect for read-intensive caching workloads like leaderboards.",
       "concept": "Amazon ElastiCache",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 1"
     },
     {
@@ -143,6 +151,8 @@
       "topic": "Other Compute / Containers",
       "why": "Fargate is a serverless compute engine for containers. It allows you to run Docker containers on ECS or EKS without having to manage the underlying EC2 infrastructure.",
       "concept": "AWS Fargate",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 1"
     },
     {
@@ -172,6 +182,8 @@
       "topic": "Deploying at Scale",
       "why": "AWS CDK allows developers to define cloud infrastructure using familiar programming languages (like Python, Java, JS/TS). The code is then compiled down into CloudFormation templates.",
       "concept": "AWS Cloud Development Kit (CDK)",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 1"
     },
     {
@@ -201,6 +213,8 @@
       "topic": "Global Infrastructure / Route 53",
       "why": "Latency Routing Policy is specifically designed to route user traffic to the AWS region that provides the lowest network latency, optimizing the global user experience.",
       "concept": "Route 53 Routing Policies",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 1"
     },
     {
@@ -230,6 +244,8 @@
       "topic": "Cloud Integration",
       "why": "SQS is a message queue service used to decouple application tiers. If traffic spikes, messages wait safely in the queue until the encoding consumer service can process them.",
       "concept": "Amazon SQS",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 1"
     },
     {
@@ -259,6 +275,8 @@
       "topic": "Cloud Monitoring / Auditing",
       "why": "AWS CloudTrail provides governance, compliance, and auditing by recording a history of events and API calls made within the AWS account via the Console, SDK, or CLI.",
       "concept": "AWS CloudTrail",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 1"
     },
     {
@@ -288,6 +306,8 @@
       "topic": "VPC / Networking",
       "why": "A NAT Gateway (placed in a public subnet) allows instances in private subnets to initiate outbound IPv4 traffic to the internet while preventing inbound traffic initiated from the internet.",
       "concept": "NAT Gateway",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 1"
     },
     {
@@ -317,6 +337,8 @@
       "topic": "Security & Compliance",
       "why": "Amazon Macie is a fully managed data security and data privacy service that uses machine learning and pattern matching specifically to discover and protect sensitive data (like PII) in Amazon S3.",
       "concept": "Amazon Macie",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 1"
     },
     {
@@ -346,6 +368,8 @@
       "topic": "Machine Learning",
       "why": "Amazon Lex is the service used to build conversational bots (chatbots). It uses the same ASR and NLU technology that powers Alexa to recognize intent from text and speech.",
       "concept": "Amazon Lex",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 1"
     },
     {
@@ -375,6 +399,8 @@
       "topic": "Account Management / AWS Organizations",
       "why": "SCPs are used within AWS Organizations to restrict account privileges. They apply to all users (including the root user) and can explicitly blacklist or whitelist AWS services for entire accounts or OUs.",
       "concept": "Service Control Policies (SCPs)",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 1"
     },
     {
@@ -404,6 +430,8 @@
       "topic": "EC2 Instance Storage",
       "why": "Amazon Elastic File System (EFS) is a managed network file system (NFS) that can be mounted by hundreds of Linux EC2 instances simultaneously across multiple Availability Zones.",
       "concept": "Amazon EFS",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 1"
     },
     {
@@ -433,6 +461,8 @@
       "topic": "AWS Architecting / Well-Architected Framework",
       "why": "Testing recovery procedures is a core design principle of the Reliability pillar. It encourages using automation to simulate different failures to ensure the system can recover seamlessly.",
       "concept": "Reliability Pillar",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 1"
     },
     {
@@ -462,6 +492,8 @@
       "topic": "Cloud Computing Characteristics",
       "why": "Rapid elasticity and scalability allow you to automatically and quickly acquire and dispose of resources when needed, scaling out and in based on actual demand.",
       "concept": "Elasticity",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 2"
     },
     {
@@ -491,6 +523,8 @@
       "topic": "Deployment Models",
       "why": "A Hybrid Cloud deployment model combines on-premises infrastructure with public cloud resources, allowing control over sensitive assets while leveraging cloud flexibility.",
       "concept": "Private vs Public vs Hybrid Cloud",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 2"
     },
     {
@@ -520,6 +554,8 @@
       "topic": "EC2 Purchasing Options",
       "why": "Dedicated Hosts provide a physical server with EC2 capacity fully dedicated to your use, giving you visibility into sockets and cores, which is required for Bring Your Own License (BYOL) scenarios.",
       "concept": "Dedicated Hosts",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 2"
     },
     {
@@ -549,6 +585,8 @@
       "topic": "EC2 Instance Types",
       "why": "Memory Optimized instances deliver fast performance for workloads that process large datasets in memory, such as high-performance relational or in-memory databases.",
       "concept": "EC2 Memory Optimized Instances",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 2"
     },
     {
@@ -578,6 +616,8 @@
       "topic": "Amazon VPC",
       "why": "A NAT Gateway (or NAT Instance) placed in a public subnet allows instances in private subnets to connect to the internet while preventing the internet from initiating connections to those instances.",
       "concept": "NAT Gateway",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 2"
     },
     {
@@ -607,6 +647,8 @@
       "topic": "Amazon VPC / Security",
       "why": "Network ACLs act as a stateless firewall for subnets. Because they are stateless, return traffic must be explicitly allowed, and you can create both ALLOW and DENY rules.",
       "concept": "Network ACL (NACL)",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 2"
     },
     {
@@ -636,6 +678,8 @@
       "topic": "Storage / EFS",
       "why": "Amazon Elastic File System (EFS) is a managed network file system (NFS) that scales automatically and can be attached to hundreds of Linux EC2 instances across multiple AZs.",
       "concept": "Amazon EFS",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 2"
     },
     {
@@ -665,6 +709,8 @@
       "topic": "Amazon S3 / Storage Classes",
       "why": "S3 Standard-IA is cost-optimized for data that is infrequently accessed but requires rapid, millisecond access when needed (unlike standard Glacier, which has retrieval delays).",
       "concept": "S3 Standard-IA",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 2"
     },
     {
@@ -694,6 +740,8 @@
       "topic": "Databases / NoSQL",
       "why": "DynamoDB is AWS's fully managed, highly available, key-value NoSQL database designed for massive scale and single-digit millisecond latency.",
       "concept": "Amazon DynamoDB",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 2"
     },
     {
@@ -723,6 +771,8 @@
       "topic": "Databases & Analytics",
       "why": "Amazon Athena is an interactive, serverless query service that allows you to easily analyze data in Amazon S3 using standard SQL.",
       "concept": "Amazon Athena",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 2"
     },
     {
@@ -752,6 +802,8 @@
       "topic": "Cloud Integration",
       "why": "Amazon Simple Queue Service (SQS) is a fully managed message queuing service used to decouple application components and process messages asynchronously.",
       "concept": "Amazon SQS",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 2"
     },
     {
@@ -781,6 +833,8 @@
       "topic": "ELB & ASG",
       "why": "The Application Load Balancer (ALB) operates at Layer 7 (HTTP/HTTPS) and routes traffic to targets within Amazon VPC based on the content of the request.",
       "concept": "Load Balancer Types (ALB, NLB, GWLB)",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 2"
     },
     {
@@ -810,6 +864,8 @@
       "topic": "Deploying at Scale",
       "why": "AWS CloudFormation allows you to define and provision AWS infrastructure predictably and repeatedly using declarative JSON or YAML templates.",
       "concept": "AWS CloudFormation",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 2"
     },
     {
@@ -839,6 +895,8 @@
       "topic": "Security & Compliance",
       "why": "Amazon GuardDuty is an intelligent threat discovery service that uses machine learning and anomaly detection on CloudTrail, VPC Flow Logs, and DNS logs to protect your AWS account.",
       "concept": "Amazon GuardDuty",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 2"
     },
     {
@@ -868,6 +926,8 @@
       "topic": "Security & Compliance",
       "why": "AWS Secrets Manager is specifically designed to store, retrieve, and automatically rotate database credentials, API keys, and other secrets.",
       "concept": "AWS Secrets Manager",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 2"
     },
     {
@@ -897,6 +957,8 @@
       "topic": "Security & Compliance / Shared Responsibility",
       "why": "Customers are responsible for 'Security IN the Cloud', which includes configuring firewalls (Security Groups, WAF), managing IAM, and encrypting customer data.",
       "concept": "Shared Responsibility Model",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 2"
     },
     {
@@ -926,6 +988,8 @@
       "topic": "Amazon VPC",
       "why": "AWS Direct Connect provides a dedicated, private network connection from your premises to AWS, bypassing the public internet for increased security and consistent network performance.",
       "concept": "AWS Direct Connect",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 2"
     },
     {
@@ -955,6 +1019,8 @@
       "topic": "Machine Learning",
       "why": "Amazon Personalize is a fully managed ML service that allows developers to easily build applications with real-time personalized recommendations.",
       "concept": "Amazon Personalize",
+      "lowPriority": true,
+      "priorityNote": "not on the CLF-C02 in-scope list",
       "source": "Practice Questions Part 2"
     },
     {
@@ -984,6 +1050,8 @@
       "topic": "Account Management / Billing",
       "why": "AWS Organizations allows you to consolidate billing across multiple accounts and apply Service Control Policies (SCPs) to centrally manage permissions and compliance.",
       "concept": "AWS Organizations",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 2"
     },
     {
@@ -1013,6 +1081,8 @@
       "topic": "Account Management / Billing",
       "why": "AWS Trusted Advisor acts as an automated cloud expert, analyzing your account to provide recommendations across Cost Optimization, Performance, Security, Fault Tolerance, and Service Limits.",
       "concept": "AWS Trusted Advisor",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 2"
     },
     {
@@ -1042,6 +1112,8 @@
       "topic": "Cloud Migration",
       "why": "Rehosting, also known as 'lift-and-shift', involves migrating applications to AWS without making any changes to the underlying architecture.",
       "concept": "Rehost (Lift and Shift)",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 2"
     },
     {
@@ -1071,6 +1143,8 @@
       "topic": "Security & Compliance",
       "why": "AWS Web Application Firewall (WAF) helps protect web applications against common web exploits at Layer 7 by letting you define rules that filter HTTP/HTTPS traffic.",
       "concept": "AWS WAF",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 2"
     },
     {
@@ -1100,6 +1174,8 @@
       "topic": "AWS Architecting / Well-Architected",
       "why": "Performance Efficiency focuses on using IT and computing resources efficiently. Democratizing advanced technologies (using managed services) and adopting serverless are key principles here.",
       "concept": "Performance Efficiency Pillar",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 2"
     },
     {
@@ -1129,6 +1205,8 @@
       "topic": "Databases",
       "why": "Amazon Timestream is a fast, scalable, serverless time-series database optimized for IoT and operational applications to store and analyze trillions of events daily.",
       "concept": "Amazon Timestream",
+      "lowPriority": true,
+      "priorityNote": "not on the CLF-C02 in-scope list",
       "source": "Practice Questions Part 2"
     },
     {
@@ -1158,6 +1236,8 @@
       "topic": "Deploying at Scale",
       "why": "AWS Elastic Beanstalk is a Platform as a Service (PaaS) that handles capacity provisioning, load balancing, scaling, and application health monitoring automatically so developers can just deploy code.",
       "concept": "AWS Elastic Beanstalk",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 2"
     },
     {
@@ -1187,6 +1267,8 @@
       "topic": "Global Infrastructure",
       "why": "Edge Locations are endpoints for AWS CloudFront (the CDN service) used to cache content closer to users globally, reducing latency.",
       "concept": "AWS Edge Locations",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -1216,6 +1298,8 @@
       "topic": "Support Plans",
       "why": "Only the Enterprise Support plan provides access to a designated Technical Account Manager (TAM) to provide proactive guidance and best practices.",
       "concept": "AWS Enterprise Support",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -1245,6 +1329,8 @@
       "topic": "Billing & Pricing",
       "why": "The AWS Pricing Calculator allows you to estimate the cost of AWS services and architectural solutions before you build them.",
       "concept": "AWS Pricing Calculator",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -1274,6 +1360,8 @@
       "topic": "Compute / Serverless",
       "why": "AWS Lambda is a serverless compute service that runs code in response to events (like an S3 upload). You only pay for the exact compute time used (e.g., 3 seconds).",
       "concept": "AWS Lambda",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -1303,6 +1391,8 @@
       "topic": "Storage / EC2",
       "why": "EC2 Instance Store provides temporary (ephemeral) block storage that is physically attached to the host. If the instance stops or terminates, the data is permanently lost.",
       "concept": "EC2 Instance Store",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -1332,6 +1422,8 @@
       "topic": "Migration & Transfer / Snow Family",
       "why": "AWS Snowball Edge is a physical data transport device used to move petabyte-scale data into and out of AWS securely and quickly when internet connections are insufficient.",
       "concept": "AWS Snowball",
+      "lowPriority": true,
+      "priorityNote": "not on the CLF-C02 in-scope list",
       "source": "Practice Questions Part 3"
     },
     {
@@ -1361,6 +1453,8 @@
       "topic": "Security & Compliance",
       "why": "AWS KMS is a managed service that makes it easy to create and manage cryptographic keys and control their use across a wide range of AWS services.",
       "concept": "AWS KMS",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -1390,6 +1484,8 @@
       "topic": "Security & Compliance",
       "why": "AWS Artifact is your go-to, central resource for compliance-related information. It provides on-demand access to AWS security and compliance reports.",
       "concept": "AWS Artifact",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -1419,6 +1515,8 @@
       "topic": "Databases",
       "why": "RDS Multi-AZ deployments provide high availability and failover support by automatically provisioning and maintaining a synchronous standby replica in a different Availability Zone.",
       "concept": "RDS Multi-AZ",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -1448,6 +1546,8 @@
       "topic": "Security & Identity",
       "why": "Amazon Cognito lets you add user sign-up, sign-in, and access control to your web and mobile apps quickly and easily (often providing federated access via Google, Facebook, etc.).",
       "concept": "Amazon Cognito",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -1477,6 +1577,8 @@
       "topic": "Application Integration",
       "why": "Amazon Simple Notification Service (SNS) is a highly available, durable, secure, fully managed pub/sub messaging service that enables you to decouple microservices and send emails/SMS.",
       "concept": "Amazon SNS",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -1506,6 +1608,8 @@
       "topic": "Networking",
       "why": "AWS Transit Gateway acts as a central cloud router (hub and spoke model) to connect your Amazon VPCs, on-premises data centers, and SD-WAN gateways.",
       "concept": "AWS Transit Gateway",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -1535,6 +1639,8 @@
       "topic": "Machine Learning",
       "why": "Amazon Rekognition makes it easy to add image and video analysis to your applications using proven, highly scalable deep learning technology.",
       "concept": "Amazon Rekognition",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -1564,6 +1670,8 @@
       "topic": "Management & Governance",
       "why": "AWS Systems Manager (specifically Patch Manager) automates the process of patching managed instances with both security related and other types of updates.",
       "concept": "AWS Systems Manager",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -1593,6 +1701,8 @@
       "topic": "Management & Governance",
       "why": "AWS Config enables you to assess, audit, and evaluate the configurations of your AWS resources, keeping a historical record of configuration changes.",
       "concept": "AWS Config",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -1622,6 +1732,8 @@
       "topic": "Security & Compliance",
       "why": "AWS Shield Advanced provides expanded DDoS attack protection for web applications, access to the 24x7 DDoS Response Team (DRT), and cost protection against resource scaling spikes.",
       "concept": "AWS Shield",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -1651,6 +1763,8 @@
       "topic": "Developer Tools",
       "why": "AWS X-Ray helps developers analyze and debug distributed applications, such as those built using a microservices architecture, by tracing user requests.",
       "concept": "AWS X-Ray",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -1680,6 +1794,8 @@
       "topic": "Security & Identity / IAM",
       "why": "An IAM Policy is a JSON document that defines the specific permissions (Allow/Deny actions on resources) which can be attached to IAM users, groups, or roles.",
       "concept": "IAM Policy",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -1709,6 +1825,8 @@
       "topic": "Developer Tools",
       "why": "AWS Cloud9 is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser.",
       "concept": "",
+      "lowPriority": true,
+      "priorityNote": "closed to new customers, not on the in-scope list",
       "source": "Practice Questions Part 3"
     },
     {
@@ -1738,6 +1856,8 @@
       "topic": "Networking / Route 53",
       "why": "Geolocation routing lets you choose the resources that serve your traffic based on the geographic location of your users (e.g., routing all European users to the Frankfurt region).",
       "concept": "Route 53 Routing Policies",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -1767,6 +1887,8 @@
       "topic": "Databases",
       "why": "Amazon DocumentDB (with MongoDB compatibility) is a fast, scalable, highly available, and fully managed document database service that supports MongoDB workloads.",
       "concept": "Amazon DocumentDB",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -1796,6 +1918,8 @@
       "topic": "Compute",
       "why": "Amazon Lightsail provides easy-to-use virtual private servers (VPS) with everything needed to jumpstart a project (like WordPress) at a predictable, low monthly price.",
       "concept": "Amazon Lightsail",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -1825,6 +1949,8 @@
       "topic": "Billing & Pricing",
       "why": "AWS Budgets allows you to set custom cost and usage budgets and receive alerts (via email or SNS) when your costs exceed (or are forecasted to exceed) your budgeted amount.",
       "concept": "AWS Budgets",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -1854,6 +1980,8 @@
       "topic": "Analytics",
       "why": "Amazon EMR (Elastic MapReduce) is a cloud big data platform for processing vast amounts of data using open source tools such as Apache Spark, Apache Hive, Apache HBase, Apache Flink, Apache Hudi, and Presto.",
       "concept": "Amazon EMR",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -1883,6 +2011,8 @@
       "topic": "Application Integration",
       "why": "Amazon EventBridge is a serverless event bus that makes it easy to connect applications together using data from your own applications, integrated SaaS applications, and AWS services.",
       "concept": "Amazon EventBridge",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -1912,6 +2042,8 @@
       "topic": "Global Infrastructure",
       "why": "AWS Outposts brings native AWS services, infrastructure, and operating models to virtually any data center, co-location space, or on-premises facility.",
       "concept": "AWS Outposts",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -1941,6 +2073,8 @@
       "topic": "Databases",
       "why": "Read Replicas allow you to scale out beyond the capacity constraints of a single DB instance for read-heavy database workloads by routing read queries to the replicas.",
       "concept": "Amazon RDS Read Replicas",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -1970,6 +2104,8 @@
       "topic": "Developer Tools",
       "why": "AWS CodePipeline is a fully managed continuous delivery service (CI/CD orchestration) that helps you automate your release pipelines for fast and reliable application updates.",
       "concept": "AWS CodePipeline",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -1999,6 +2135,8 @@
       "topic": "Networking",
       "why": "AWS Global Accelerator uses the highly available and congestion-free AWS global network to route user traffic, providing two static Anycast IP addresses and improving latency and throughput.",
       "concept": "AWS Global Accelerator",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -2028,6 +2166,8 @@
       "topic": "Analytics / Data Streaming",
       "why": "Amazon Kinesis Data Firehose is the easiest way to reliably load streaming data into data lakes, data stores (like S3 or Redshift), and analytics services in near real-time.",
       "concept": "Amazon Data Firehose",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -2057,6 +2197,8 @@
       "topic": "Security & Identity",
       "why": "An IAM Role is an identity with permission policies that determine what the identity can and cannot do. EC2 instances can assume a role to obtain temporary credentials to securely access AWS services.",
       "concept": "IAM Roles",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -2086,6 +2228,8 @@
       "topic": "Migration & Transfer",
       "why": "AWS Database Migration Service (DMS) helps you migrate databases to AWS quickly and securely. The source database remains fully operational during the migration, minimizing downtime.",
       "concept": "AWS Database Migration Service (DMS)",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -2115,6 +2259,8 @@
       "topic": "Billing & Pricing",
       "why": "Savings Plans (and Reserved Instances) offer lower prices than On-Demand pricing in exchange for a commitment to a specific amount of usage for a 1- or 3-year period.",
       "concept": "Savings Plans",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -2144,6 +2290,8 @@
       "topic": "Networking",
       "why": "AWS Site-to-Site VPN creates a secure IPsec VPN connection between your corporate data center and your AWS VPC, encrypting traffic over the public internet.",
       "concept": "AWS Site-to-Site VPN",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -2173,6 +2321,8 @@
       "topic": "Storage",
       "why": "Amazon S3 is an object storage service designed for storing and retrieving any amount of unstructured data (like images, videos, backups) with 99.999999999% (11 9s) of durability.",
       "concept": "Amazon S3",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -2202,6 +2352,8 @@
       "topic": "Application Integration",
       "why": "AWS Step Functions is a serverless function orchestrator that makes it easy to sequence AWS Lambda functions and multiple AWS services into business-critical applications (using visual workflows).",
       "concept": "AWS Step Functions",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -2231,6 +2383,8 @@
       "topic": "Security & Compliance / Shared Responsibility",
       "why": "AWS is responsible for 'Security OF the Cloud,' which includes protecting the physical infrastructure, facilities, hardware, and the global network.",
       "concept": "Shared Responsibility Model",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -2260,6 +2414,8 @@
       "topic": "Management & Governance",
       "why": "Amazon CloudWatch collects monitoring and operational data in the form of logs, metrics, and events. It can trigger alarms (like scaling actions or SNS notifications) based on thresholds like CPU utilization.",
       "concept": "Amazon CloudWatch",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -2289,6 +2445,8 @@
       "topic": "Management & Governance",
       "why": "AWS Config rules allow you to define desired configurations (like enforcing S3 versioning) and continually evaluate your resources against those rules for compliance.",
       "concept": "AWS Config",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -2318,6 +2476,8 @@
       "topic": "Databases",
       "why": "Amazon Neptune is a fast, reliable, fully managed graph database service built for storing and navigating highly connected relationships (using property graphs or RDF).",
       "concept": "Amazon Neptune",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 3"
     },
     {
@@ -2326,11 +2486,11 @@
       "options": [
         {
           "letter": "A",
-          "text": "AWS Service Health Dashboard"
+          "text": "AWS Health Dashboard – Service health"
         },
         {
           "letter": "B",
-          "text": "AWS Personal Health Dashboard"
+          "text": "AWS Health Dashboard – Your account health"
         },
         {
           "letter": "C",
@@ -2345,8 +2505,10 @@
         "B"
       ],
       "topic": "Monitoring & Reporting",
-      "why": "AWS Personal Health Dashboard provides alerts and remediation guidance when AWS is experiencing events that may impact you. The Service Health Dashboard shows general status of all AWS services.",
+      "why": "The AWS Health Dashboard's Your account health view (formerly the Personal Health Dashboard) shows events that affect your own AWS resources, with alerts and remediation guidance. The Service health view (formerly the Service Health Dashboard) shows the general status of every AWS service.",
       "concept": "AWS Health Dashboard",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -2376,6 +2538,8 @@
       "topic": "Billing & Pricing",
       "why": "Because the workload runs for only 3 months, On-Demand is the most cost-effective. Reserved Instances require a minimum 1-year commitment, and Spot Instances can be interrupted.",
       "concept": "On-Demand EC2",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -2405,6 +2569,8 @@
       "topic": "Security & Compliance",
       "why": "AWS WAF (Web Application Firewall) helps protect web applications or APIs against common web exploits and bots, such as SQL injection and XSS, that may affect availability or compromise security.",
       "concept": "AWS WAF",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -2434,6 +2600,8 @@
       "topic": "Migration & Transfer",
       "why": "AWS Snowmobile is an exabyte-scale data transfer service used to move extremely large amounts of data (up to 100 PB per Snowmobile) to AWS via a 45-foot long ruggedized shipping container.",
       "concept": "",
+      "lowPriority": true,
+      "priorityNote": "retired by AWS",
       "source": "Practice Questions Part 4"
     },
     {
@@ -2463,6 +2631,8 @@
       "topic": "Well-Architected Framework",
       "why": "The Security pillar focuses on protecting information, systems, and assets while delivering business value. Enforcing strong identity foundations (like MFA) is a core principle.",
       "concept": "Security Pillar",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -2492,6 +2662,8 @@
       "topic": "Security & Compliance",
       "why": "Amazon Inspector is an automated vulnerability management service that continually scans AWS workloads for software vulnerabilities and unintended network exposure.",
       "concept": "Amazon Inspector",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -2521,6 +2693,8 @@
       "topic": "Networking",
       "why": "AWS Transit Gateway connects VPCs and on-premises networks through a central hub. This simplifies your network and puts an end to complex peering relationships.",
       "concept": "AWS Transit Gateway",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -2550,6 +2724,8 @@
       "topic": "Databases",
       "why": "Amazon Neptune is a fast, reliable, fully managed graph database service built for storing and navigating highly connected datasets.",
       "concept": "Amazon Neptune",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -2579,6 +2755,8 @@
       "topic": "Support Plans",
       "why": "Only the Enterprise Support plan provides a 15-minute response time SLA for business-critical system down events. Business support is 1 hour.",
       "concept": "AWS Enterprise Support",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -2608,6 +2786,8 @@
       "topic": "Global Infrastructure",
       "why": "CloudFront is a Content Delivery Network (CDN) that caches data, videos, APIs, and applications at Edge Locations globally to reduce latency for end-users.",
       "concept": "AWS Edge Locations",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -2637,6 +2817,8 @@
       "topic": "Management & Governance",
       "why": "AWS CloudFormation is the Infrastructure as Code (IaC) service that lets you model, provision, and manage AWS resources using JSON/YAML templates.",
       "concept": "AWS CloudFormation",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -2666,6 +2848,8 @@
       "topic": "Compute / Containers",
       "why": "AWS Fargate is a serverless compute engine for containers that works with Amazon ECS and EKS, removing the need to provision or manage servers.",
       "concept": "AWS Fargate",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -2695,6 +2879,8 @@
       "topic": "Analytics / Databases",
       "why": "Amazon Redshift is a fully managed, petabyte-scale cloud data warehouse service specifically designed for running complex analytical queries on massive datasets.",
       "concept": "Amazon Redshift",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -2724,6 +2910,8 @@
       "topic": "Management & Governance",
       "why": "AWS Trusted Advisor acts as a customized cloud expert, evaluating your account by providing checks across Cost Optimization, Performance, Security, Fault Tolerance, and Service Limits.",
       "concept": "AWS Trusted Advisor",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -2753,6 +2941,8 @@
       "topic": "Machine Learning",
       "why": "Amazon Polly is an ML service that turns text into lifelike speech, allowing you to create applications that talk and build entirely new categories of speech-enabled products.",
       "concept": "Amazon Polly",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -2782,6 +2972,8 @@
       "topic": "Security / Shared Responsibility",
       "why": "AWS is responsible for 'Security OF the Cloud,' which inherently includes the physical security of data centers, hardware, and underlying network infrastructure.",
       "concept": "Shared Responsibility Model",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -2811,6 +3003,8 @@
       "topic": "Billing & Pricing",
       "why": "Spot Instances allow you to request unused EC2 capacity at steep discounts (up to 90%), but they can be interrupted if AWS needs the capacity back.",
       "concept": "Spot Instances",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -2840,6 +3034,8 @@
       "topic": "Business Applications",
       "why": "Amazon Connect is a highly scalable, easy-to-use, cloud-based contact center service (call center) that helps businesses provide superior customer service at a lower cost.",
       "concept": "Amazon Connect",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -2869,6 +3065,8 @@
       "topic": "Databases / Caching",
       "why": "Amazon ElastiCache (Redis or Memcached) is a fully managed in-memory data store providing sub-millisecond latency, making it ideal for caching and session management.",
       "concept": "Amazon ElastiCache",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -2898,6 +3096,8 @@
       "topic": "Global Infrastructure",
       "why": "Deploying across multiple AZs ensures that if a single data center (AZ) fails, the application remains available, providing High Availability and Fault Tolerance.",
       "concept": "High Availability",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -2927,6 +3127,8 @@
       "topic": "Networking",
       "why": "Amazon VPC lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define.",
       "concept": "Amazon VPC",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -2956,6 +3158,8 @@
       "topic": "Management & Governance",
       "why": "Tags are key-value pairs assigned to AWS resources that help manage, identify, organize, search for, and filter resources, as well as allocate costs.",
       "concept": "Tags and Resource Groups",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -2985,6 +3189,8 @@
       "topic": "Databases",
       "why": "Amazon Aurora is a fully managed relational database engine compatible with MySQL and PostgreSQL that offers high performance, scaling, and up to 5x the throughput of standard MySQL.",
       "concept": "Amazon Aurora",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -3014,6 +3220,8 @@
       "topic": "Compute / Deployment",
       "why": "AWS Elastic Beanstalk is an easy-to-use PaaS for deploying and scaling web applications and services. You simply upload your code, and it handles the deployment and provisioning.",
       "concept": "AWS Elastic Beanstalk",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -3043,6 +3251,8 @@
       "topic": "Management & Governance",
       "why": "AWS Organizations provides central governance and management across multiple AWS accounts, allowing for consolidated billing and the application of Service Control Policies (SCPs).",
       "concept": "AWS Organizations",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -3072,6 +3282,8 @@
       "topic": "Storage",
       "why": "Amazon Elastic Block Store (EBS) provides highly available, consistent, low-latency block storage volumes for use with Amazon EC2 instances.",
       "concept": "Amazon EBS",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -3101,6 +3313,8 @@
       "topic": "Networking",
       "why": "VPC Endpoints (Gateway or Interface endpoints) enable private connectivity between your VPC and supported AWS services, keeping traffic entirely within the AWS network.",
       "concept": "VPC Endpoints",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -3130,6 +3344,8 @@
       "topic": "Security & Compliance",
       "why": "AWS Secrets Manager helps you protect secrets needed to access your applications, services, and IT resources, and natively supports automatic password rotation for databases.",
       "concept": "AWS Secrets Manager",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -3159,6 +3375,8 @@
       "topic": "Cloud Migration",
       "why": "Refactoring (or Rearchitecting) involves completely reimagining how the application is architected and developed using cloud-native features (like Lambda, DynamoDB) to improve agility, performance, or scalability.",
       "concept": "Refactor / Re-architect",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -3188,6 +3406,8 @@
       "topic": "Cost Management",
       "why": "AWS Compute Optimizer uses machine learning to analyze historical utilization metrics and recommend optimal AWS compute resources to reduce costs and improve performance.",
       "concept": "AWS Compute Optimizer",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -3217,6 +3437,8 @@
       "topic": "Security & Compliance",
       "why": "Security Groups act as a virtual, stateful firewall for your EC2 instances to control incoming and outgoing traffic. (NACLs act at the subnet level and are stateless).",
       "concept": "Security Groups",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -3246,6 +3468,8 @@
       "topic": "Analytics",
       "why": "Amazon Athena is an interactive query service that makes it easy to analyze data in Amazon S3 using standard SQL. It is serverless, so there is no infrastructure to manage.",
       "concept": "Amazon Athena",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -3275,6 +3499,8 @@
       "topic": "Developer Tools",
       "why": "AWS CodeBuild is a fully managed continuous integration service that compiles source code, runs tests, and produces software packages that are ready to deploy.",
       "concept": "AWS CodeBuild",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -3304,6 +3530,8 @@
       "topic": "Cloud Concepts",
       "why": "Pay-as-you-go is a fundamental pricing model of cloud computing where you trade capital expense for variable expense and only pay for what you use.",
       "concept": "AWS Pricing Fundamentals",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -3333,6 +3561,8 @@
       "topic": "Security & Compliance",
       "why": "AWS CloudHSM provides hardware security modules in the AWS Cloud. It allows you to easily generate and use your own encryption keys in a single-tenant hardware appliance.",
       "concept": "AWS CloudHSM",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -3362,6 +3592,8 @@
       "topic": "Machine Learning",
       "why": "Amazon Textract is a machine learning service that automatically extracts printed text, handwriting, and data from scanned documents, going beyond simple OCR.",
       "concept": "Amazon Textract",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -3391,6 +3623,8 @@
       "topic": "Databases",
       "why": "Amazon DynamoDB is a key-value and document NoSQL database that delivers single-digit millisecond performance at any scale.",
       "concept": "Amazon DynamoDB",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -3420,6 +3654,8 @@
       "topic": "Application Integration",
       "why": "Amazon Simple Queue Service (SQS) is a fully managed message queuing service used to decouple applications, ensuring messages are stored safely until processed.",
       "concept": "Amazon SQS",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -3449,6 +3685,8 @@
       "topic": "Databases / Compute",
       "why": "Running a database directly on an EC2 instance gives you full administrative root access to the operating system, allowing you to install any custom software you need. RDS does not provide OS access.",
       "concept": "Amazon EC2",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -3478,6 +3716,8 @@
       "topic": "Well-Architected Framework",
       "why": "The Operational Excellence pillar focuses on running and monitoring systems to deliver business value, and continually improving processes and procedures (like Infrastructure as Code and automated deployments).",
       "concept": "Operational Excellence Pillar",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -3507,6 +3747,8 @@
       "topic": "Management & Governance",
       "why": "AWS CloudTrail records AWS API calls for your account, providing a history of actions taken via the AWS Management Console, SDKs, command line tools, and other AWS services.",
       "concept": "AWS CloudTrail",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -3536,6 +3778,8 @@
       "topic": "Billing & Pricing",
       "why": "AWS Budgets gives you the ability to set custom budgets that alert you when your costs or usage exceed (or are forecasted to exceed) your budgeted amount.",
       "concept": "AWS Budgets",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -3565,6 +3809,8 @@
       "topic": "Networking",
       "why": "Amazon Route 53 is a highly available and scalable cloud DNS web service used for domain registration, DNS routing, and health checking.",
       "concept": "Amazon Route 53",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -3594,6 +3840,8 @@
       "topic": "End User Computing",
       "why": "Amazon WorkSpaces is a fully managed, secure Desktop-as-a-Service (DaaS) solution that helps you provision Windows or Linux desktops for your remote workers in minutes.",
       "concept": "Amazon WorkSpaces",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -3623,6 +3871,8 @@
       "topic": "Networking",
       "why": "A NAT (Network Address Translation) Gateway, placed in a public subnet, allows instances in a private subnet to connect to the internet while stopping the internet from establishing connections back to the instances.",
       "concept": "NAT Gateway",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -3652,6 +3902,8 @@
       "topic": "Networking",
       "why": "AWS Direct Connect establishes a dedicated private physical network connection from your premises to AWS, which bypassing the public internet, offering lower latency and higher security.",
       "concept": "AWS Direct Connect",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -3681,6 +3933,8 @@
       "topic": "Analytics",
       "why": "AWS Lake Formation is a fully managed service that simplifies and automates the complex manual steps required to create, manage, and secure a data lake.",
       "concept": "",
+      "lowPriority": true,
+      "priorityNote": "not on the CLF-C02 in-scope list",
       "source": "Practice Questions Part 4"
     },
     {
@@ -3710,6 +3964,8 @@
       "topic": "Global Infrastructure",
       "why": "An Availability Zone (AZ) consists of one or more discrete, physical data centers, each with redundant power, networking, and connectivity, housed in separate facilities within a Region.",
       "concept": "Availability Zone (AZ)",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -3739,6 +3995,8 @@
       "topic": "Analytics",
       "why": "AWS Glue is a fully managed extract, transform, and load (ETL) service that makes it easy for customers to prepare and load their data for analytics.",
       "concept": "AWS Glue",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -3768,6 +4026,8 @@
       "topic": "Security & Compliance",
       "why": "AWS Certificate Manager (ACM) is a service that lets you easily provision, manage, and deploy public and private Secure Sockets Layer/Transport Layer Security (SSL/TLS) certificates for use with AWS services.",
       "concept": "AWS Certificate Manager (ACM)",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 4"
     },
     {
@@ -3797,6 +4057,8 @@
       "topic": "Cloud Adoption Framework",
       "why": "The Business perspective helps stakeholders understand how to update the staff skills and organizational processes they will need to optimize business value as they move to the cloud.",
       "concept": "CAF Business Perspective",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -3826,6 +4088,8 @@
       "topic": "Security & Identity",
       "why": "AWS IAM Identity Center (the successor to AWS Single Sign-On) is the recommended service for centrally managing human user access across multiple AWS accounts and cloud applications.",
       "concept": "AWS IAM Identity Center",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -3855,6 +4119,8 @@
       "topic": "Billing & Pricing",
       "why": "The AWS Cost and Usage Report (CUR) contains the most comprehensive set of AWS cost and usage data available, delivered to an S3 bucket in CSV or Parquet format.",
       "concept": "AWS Cost and Usage Reports",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -3884,6 +4150,8 @@
       "topic": "Management & Governance",
       "why": "AWS Control Tower provides the easiest way to set up and govern a secure, multi-account AWS environment (called a landing zone) based on AWS best practices.",
       "concept": "AWS Control Tower",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -3913,6 +4181,8 @@
       "topic": "Compute / Containers",
       "why": "Amazon Elastic Kubernetes Service (EKS) is a managed service that makes it easy to run Kubernetes on AWS without needing to install, operate, and maintain your own Kubernetes control plane.",
       "concept": "Amazon EKS",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -3942,6 +4212,8 @@
       "topic": "Storage / Data Transfer",
       "why": "Amazon S3 Transfer Acceleration enables fast, easy, and secure transfers of files over long distances between a client and an S3 bucket by utilizing Amazon CloudFront's globally distributed edge locations.",
       "concept": "S3 Transfer Acceleration",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -3971,6 +4243,8 @@
       "topic": "Global Infrastructure",
       "why": "AWS Wavelength embeds AWS compute and storage services within telecommunications providers' datacenters at the edge of the 5G network for ultra-low latency mobile apps.",
       "concept": "AWS Wavelength",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -4000,6 +4274,8 @@
       "topic": "Storage / Management",
       "why": "AWS Backup is a fully managed, policy-based service that makes it easy to centralize and automate the back up of data across AWS services in the cloud as well as on-premises.",
       "concept": "AWS Backup",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -4029,6 +4305,8 @@
       "topic": "Storage / S3",
       "why": "Amazon S3 Object Lock enables you to store objects using a write-once-read-many (WORM) model, preventing them from being deleted or overwritten for a fixed amount of time or indefinitely.",
       "concept": "Amazon S3",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -4058,6 +4336,8 @@
       "topic": "Migration & Transfer",
       "why": "AWS Application Discovery Service helps enterprise customers plan migration projects by gathering information about their on-premises data centers, server utilization data, and dependency mappings.",
       "concept": "AWS Application Discovery Service",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -4087,6 +4367,8 @@
       "topic": "Networking / Serverless",
       "why": "Amazon API Gateway is a fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs (REST, HTTP, WebSocket) at any scale.",
       "concept": "Amazon API Gateway",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -4116,6 +4398,8 @@
       "topic": "Security & Compliance",
       "why": "Amazon Macie is a data security service that uses machine learning and pattern matching to discover and protect sensitive data (such as Personally Identifiable Information) in AWS.",
       "concept": "Amazon Macie",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -4145,6 +4429,8 @@
       "topic": "Analytics",
       "why": "Amazon QuickSight is a scalable, serverless, embeddable, machine learning-powered business intelligence (BI) service built for the cloud to create interactive dashboards.",
       "concept": "Amazon QuickSight",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -4174,6 +4460,8 @@
       "topic": "Storage",
       "why": "Amazon FSx for Lustre provides a high-performance file system optimized for fast processing of workloads such as machine learning, high performance computing (HPC), video processing, and financial modeling.",
       "concept": "Amazon FSx for Lustre",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -4203,6 +4491,8 @@
       "topic": "Migration & Transfer",
       "why": "AWS Migration Hub provides a single location to track the progress of application migrations across multiple AWS and partner solutions, giving you visibility into the status of your portfolio.",
       "concept": "AWS Migration Hub",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -4211,7 +4501,7 @@
       "options": [
         {
           "letter": "A",
-          "text": "AWS Fault Injection Simulator (FIS)"
+          "text": "AWS Fault Injection Service (FIS)"
         },
         {
           "letter": "B",
@@ -4230,8 +4520,10 @@
         "A"
       ],
       "topic": "Management & Governance",
-      "why": "AWS Fault Injection Simulator (FIS) is a fully managed service for running fault injection experiments (chaos engineering) to improve application performance, observability, and resiliency.",
+      "why": "AWS Fault Injection Service (FIS), formerly Fault Injection Simulator, is a fully managed service for running fault injection experiments (chaos engineering) to improve application performance, observability, and resiliency.",
       "concept": "AWS Fault Injection Service (FIS)",
+      "lowPriority": true,
+      "priorityNote": "not on the CLF-C02 in-scope list",
       "source": "Practice Questions Part 5"
     },
     {
@@ -4261,6 +4553,8 @@
       "topic": "Storage / S3",
       "why": "S3 Intelligent-Tiering automatically moves data to the most cost-effective access tier based on access frequency, without performance impact or operational overhead, saving costs when access patterns change.",
       "concept": "S3 Intelligent-Tiering",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -4290,6 +4584,8 @@
       "topic": "Front-End Web & Mobile",
       "why": "AWS AppSync is a fully managed service that makes it easy to develop GraphQL APIs by handling the heavy lifting of securely connecting to data sources like DynamoDB, Lambda, and more.",
       "concept": "AWS AppSync",
+      "lowPriority": true,
+      "priorityNote": "not on the CLF-C02 in-scope list",
       "source": "Practice Questions Part 5"
     },
     {
@@ -4319,6 +4615,8 @@
       "topic": "Migration & Transfer",
       "why": "AWS DataSync is a secure, online service that automates and accelerates moving data between on-premises storage (like NFS/SMB) and AWS storage services (like S3, EFS, FSx).",
       "concept": "",
+      "lowPriority": true,
+      "priorityNote": "not on the CLF-C02 in-scope list",
       "source": "Practice Questions Part 5"
     },
     {
@@ -4348,6 +4646,8 @@
       "topic": "Security & Compliance",
       "why": "AWS Security Hub provides a comprehensive view of your security alerts and security posture across your AWS accounts, automatically aggregating findings from GuardDuty, Inspector, Macie, etc.",
       "concept": "AWS Security Hub",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -4377,6 +4677,8 @@
       "topic": "Machine Learning",
       "why": "Amazon Forecast is a time-series forecasting service based on machine learning. It is built for business metrics forecasting like inventory demand, financial planning, and resource allocation.",
       "concept": "",
+      "lowPriority": true,
+      "priorityNote": "closed to new customers, not on the in-scope list",
       "source": "Practice Questions Part 5"
     },
     {
@@ -4406,6 +4708,8 @@
       "topic": "Machine Learning",
       "why": "Amazon SageMaker is a fully managed platform that enables developers and data scientists to quickly and easily build, train, and deploy machine learning models at any scale.",
       "concept": "Amazon SageMaker AI",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -4435,6 +4739,8 @@
       "topic": "Networking",
       "why": "AWS PrivateLink provides private connectivity between VPCs, AWS services, and on-premises applications, securely on the Amazon network, without exposing traffic to the public internet.",
       "concept": "AWS PrivateLink",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -4464,6 +4770,8 @@
       "topic": "Migration & Transfer / DR",
       "why": "AWS Elastic Disaster Recovery (DRS) minimizes downtime and data loss with fast, reliable recovery of on-premises and cloud-based applications using affordable storage, minimal compute, and point-in-time recovery.",
       "concept": "AWS Elastic Disaster Recovery",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -4493,6 +4801,8 @@
       "topic": "Compute / Serverless",
       "why": "The AWS Serverless Application Repository is a managed repository for serverless applications, enabling teams to securely store and share reusable applications, and easily assemble and deploy serverless architectures.",
       "concept": "",
+      "lowPriority": true,
+      "priorityNote": "not on the CLF-C02 in-scope list",
       "source": "Practice Questions Part 5"
     },
     {
@@ -4522,6 +4832,8 @@
       "topic": "Storage",
       "why": "Amazon FSx for Windows File Server provides a fully managed, highly reliable, and scalable file storage that is accessible over the industry-standard SMB protocol, designed specifically for Windows workloads.",
       "concept": "Amazon FSx for Windows File Server",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -4551,6 +4863,8 @@
       "topic": "Billing & Pricing / Migration",
       "why": "Migration Evaluator (formerly TCO Calculator) helps build a data-driven business case for migrating to AWS by analyzing your existing on-premises inventory and projecting AWS costs.",
       "concept": "Migration Evaluator",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -4580,6 +4894,8 @@
       "topic": "Compute / Auto Scaling",
       "why": "The Auto Scaling Group's size is constrained by the Minimum Capacity and Maximum Capacity. The Maximum Capacity dictates the absolute upper limit of instances that can be launched.",
       "concept": "Auto Scaling Group (ASG)",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -4609,6 +4925,8 @@
       "topic": "Support Plans",
       "why": "The Enterprise Support plan provides access to an AWS Support Concierge, a senior customer service agent assigned to your account who assists with billing and account-level inquiries.",
       "concept": "AWS Enterprise Support",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -4638,6 +4956,8 @@
       "topic": "Analytics",
       "why": "Amazon OpenSearch Service (successor to Amazon Elasticsearch Service) makes it easy to perform interactive log analytics, real-time application monitoring, and website search.",
       "concept": "Amazon OpenSearch Service",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -4667,6 +4987,8 @@
       "topic": "Security & Configuration",
       "why": "AWS Systems Manager Parameter Store provides secure, hierarchical storage for configuration data management and secrets management (like passwords). It is free for standard parameters, unlike Secrets Manager which charges per secret.",
       "concept": "Systems Manager Parameter Store",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -4696,6 +5018,8 @@
       "topic": "Security & Compliance",
       "why": "AWS Audit Manager helps you continuously audit your AWS usage to simplify how you assess risk and compliance with regulations and industry standards by automatically collecting evidence.",
       "concept": "",
+      "lowPriority": true,
+      "priorityNote": "not on the CLF-C02 in-scope list",
       "source": "Practice Questions Part 5"
     },
     {
@@ -4725,6 +5049,8 @@
       "topic": "End User Computing",
       "why": "Amazon AppStream 2.0 is a fully managed non-persistent application and desktop streaming service. It centrally manages desktop applications and securely delivers them to any computer.",
       "concept": "Amazon AppStream 2.0",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -4754,6 +5080,8 @@
       "topic": "Developer Tools",
       "why": "AWS CodeDeploy is a deployment service that automates application deployments to various compute services, minimizing downtime during application updates.",
       "concept": "AWS CodeDeploy",
+      "lowPriority": true,
+      "priorityNote": "not on the CLF-C02 in-scope list",
       "source": "Practice Questions Part 5"
     },
     {
@@ -4783,6 +5111,8 @@
       "topic": "Compute",
       "why": "Amazon Lightsail is an easy-to-use virtual private server (VPS) that offers you everything needed to build an application or website, plus a cost-effective, monthly plan.",
       "concept": "Amazon Lightsail",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -4810,8 +5140,10 @@
         "B"
       ],
       "topic": "Deployment Models",
-      "why": "AWS GovCloud is an isolated AWS Region designed to allow US government agencies and customers to move sensitive workloads into the cloud by addressing their specific regulatory and compliance requirements (a form of Private/Community Cloud).",
+      "why": "AWS GovCloud (US) is an isolated set of AWS Regions for US government agencies and regulated customers, operated by screened US citizens and built for requirements like FedRAMP High and ITAR. It's still AWS cloud infrastructure rather than a private cloud you own, but it's isolated from the standard Regions, which makes it the best fit among these choices.",
       "concept": "AWS GovCloud (US)",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -4841,6 +5173,8 @@
       "topic": "Well-Architected Framework",
       "why": "Stopping guessing capacity is a design principle of the Reliability pillar (as well as Cost Optimization in some contexts). By using cloud elasticity, you eliminate the risk of failure due to under-provisioning or paying for over-provisioning.",
       "concept": "Reliability Pillar",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -4870,6 +5204,8 @@
       "topic": "Storage / EC2",
       "why": "EBS Snapshots are point-in-time, incremental backups of EBS volumes that are stored in Amazon S3, allowing you to recreate the volume if needed.",
       "concept": "EBS Snapshots",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -4899,6 +5235,8 @@
       "topic": "Application Integration",
       "why": "Long Polling reduces the number of empty responses by allowing SQS to wait until a message is available in the queue before sending a response, thus saving CPU cycles and API costs.",
       "concept": "Amazon SQS",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -4928,6 +5266,8 @@
       "topic": "Front-End Web & Mobile",
       "why": "AWS Amplify is a set of tools and services that can be used together or on their own, to help front-end web and mobile developers build scalable full stack applications powered by AWS.",
       "concept": "AWS Amplify",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -4957,6 +5297,8 @@
       "topic": "Migration & Transfer / Snow Family",
       "why": "AWS Snowcone is the smallest member of the AWS Snow Family of edge computing, edge storage, and data transfer devices, weighing only 4.5 lbs (2.1 kg) with 8 Terabytes of usable storage.",
       "concept": "",
+      "lowPriority": true,
+      "priorityNote": "retired by AWS",
       "source": "Practice Questions Part 5"
     },
     {
@@ -4986,6 +5328,8 @@
       "topic": "Developer Tools",
       "why": "AWS X-Ray helps developers analyze and debug production, distributed applications, such as those built using a microservices architecture, by providing end-to-end tracing of requests.",
       "concept": "AWS X-Ray",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -5015,6 +5359,8 @@
       "topic": "Developer Tools",
       "why": "AWS CodeCommit is a fully managed source control service that hosts secure Git-based repositories, making it easy for teams to collaborate on code in a secure and highly scalable ecosystem.",
       "concept": "AWS CodeCommit",
+      "lowPriority": true,
+      "priorityNote": "not on the CLF-C02 in-scope list",
       "source": "Practice Questions Part 5"
     },
     {
@@ -5044,6 +5390,8 @@
       "topic": "Security & Compliance / Shared Responsibility",
       "why": "Customers are responsible for 'Security IN the Cloud', which includes configuring IAM, encrypting customer data, patching guest operating systems (on EC2), and securing their networks.",
       "concept": "Shared Responsibility Model",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -5073,6 +5421,8 @@
       "topic": "Billing & Pricing",
       "why": "With tiered pricing (like in Amazon S3 or Data Transfer Out), the more volume you use, the less you pay per gigabyte. This translates economies of scale to the customer.",
       "concept": "AWS Pricing Models",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -5102,6 +5452,8 @@
       "topic": "Management & Governance",
       "why": "Amazon CloudWatch collects and visualizes real-time logs, metrics, and event data in automated dashboards to streamline your infrastructure and application maintenance.",
       "concept": "Amazon CloudWatch",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -5131,6 +5483,8 @@
       "topic": "Databases",
       "why": "Amazon Neptune is a fast, reliable, fully managed graph database service that makes it easy to build and run applications that work with highly connected datasets (using property graphs or RDF).",
       "concept": "Amazon Neptune",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -5160,6 +5514,8 @@
       "topic": "Machine Learning",
       "why": "Amazon Translate is a neural machine translation service that delivers fast, high-quality, affordable, and customizable language translation.",
       "concept": "Amazon Translate",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -5189,6 +5545,8 @@
       "topic": "Compute / Serverless",
       "why": "AWS Lambda allows you to run code without provisioning servers. It natively triggers based on events in other AWS services, such as an object being created in an S3 bucket.",
       "concept": "AWS Lambda",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -5218,6 +5576,8 @@
       "topic": "Billing & Pricing / Organizations",
       "why": "Consolidated Billing is a feature of AWS Organizations that allows you to consolidate payment for multiple AWS accounts or multiple AISPL accounts into a single bill.",
       "concept": "Consolidated Billing",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 5"
     },
     {
@@ -5247,6 +5607,8 @@
       "topic": "Compute / Serverless",
       "why": "AWS Lambda is an event-driven, serverless compute service that runs your code in response to events (such as an S3 object upload) without provisioning or managing servers.",
       "concept": "AWS Lambda",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -5276,6 +5638,8 @@
       "topic": "EC2 Pricing Models",
       "why": "Spot Instances let you take advantage of unused EC2 capacity in the AWS cloud and are available at up to a 90% discount compared to On-Demand prices. They are ideal for fault-tolerant, flexible workloads.",
       "concept": "Spot Instances",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -5305,6 +5669,8 @@
       "topic": "Databases",
       "why": "Amazon Relational Database Service (RDS) makes it easy to set up, operate, and scale a relational database in the cloud. It automates time-consuming administrative tasks such as hardware provisioning, setup, patching, and backups.",
       "concept": "Amazon RDS",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -5334,6 +5700,8 @@
       "topic": "Networking / VPC",
       "why": "An Internet Gateway is a horizontally scaled, redundant, and highly available VPC component that allows communication between instances in your VPC and the internet.",
       "concept": "Internet Gateway",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -5363,6 +5731,8 @@
       "topic": "Analytics / Streaming",
       "why": "Amazon Kinesis makes it easy to collect, process, and analyze real-time, streaming data so you can get timely insights and react quickly to new information.",
       "concept": "Amazon Kinesis",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -5392,6 +5762,8 @@
       "topic": "Security & Compliance / Shared Responsibility",
       "why": "Configuring security groups (virtual firewalls) is part of managing the guest operating system and applications, which falls under the customer's responsibility ('Security IN the Cloud').",
       "concept": "Shared Responsibility Model",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -5421,6 +5793,8 @@
       "topic": "Storage / Object",
       "why": "Amazon Simple Storage Service (Amazon S3) is an object storage service that offers industry-leading scalability, data availability, security, and performance. It is designed to store virtually unlimited amounts of data.",
       "concept": "Amazon S3",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -5450,6 +5824,8 @@
       "topic": "Networking / CDN",
       "why": "Amazon CloudFront is a fast content delivery network (CDN) service that securely delivers data, videos, applications, and APIs to customers globally with low latency and high transfer speeds.",
       "concept": "Amazon CloudFront",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -5479,6 +5855,8 @@
       "topic": "Analytics / Data Warehouse",
       "why": "Amazon Redshift is a fully managed, petabyte-scale data warehouse service in the cloud. It allows you to analyze data using standard SQL and your existing Business Intelligence (BI) tools.",
       "concept": "Amazon Redshift",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -5508,6 +5886,8 @@
       "topic": "Security & Compliance",
       "why": "A Security Group acts as a virtual firewall for your EC2 instances to control inbound and outbound traffic. It operates at the instance level and is stateful (return traffic is automatically allowed).",
       "concept": "Security Groups",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -5537,6 +5917,8 @@
       "topic": "Application Integration",
       "why": "Amazon Simple Queue Service (SQS) is a fully managed message queuing service that enables you to decouple and scale microservices, distributed systems, and serverless applications.",
       "concept": "Amazon SQS",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -5566,6 +5948,8 @@
       "topic": "Security & Compliance",
       "why": "AWS Web Application Firewall (WAF) helps protect your web applications or APIs against common web exploits and bots that may affect availability, compromise security, or consume excessive resources.",
       "concept": "AWS WAF",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -5595,6 +5979,8 @@
       "topic": "Management & Governance",
       "why": "AWS Trusted Advisor is an online tool that provides you real-time guidance to help you provision your resources following AWS best practices across cost, performance, security, and fault tolerance.",
       "concept": "AWS Trusted Advisor",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -5624,6 +6010,8 @@
       "topic": "Networking",
       "why": "AWS Direct Connect provides a dedicated private network connection from your premises to AWS. This can reduce network costs, increase bandwidth throughput, and provide a more consistent network experience than internet-based connections.",
       "concept": "AWS Direct Connect",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -5653,6 +6041,8 @@
       "topic": "Storage / S3",
       "why": "S3 Standard-IA is designed for data that is accessed less frequently, but requires rapid access when needed. It offers the high durability, high throughput, and low latency of S3 Standard, with a low per GB storage price.",
       "concept": "S3 Standard-IA",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -5682,6 +6072,8 @@
       "topic": "Well-Architected Framework",
       "why": "The Reliability pillar focuses on workloads performing their intended functions and how to recover quickly from failures to meet business and customer demand.",
       "concept": "Reliability Pillar",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -5711,6 +6103,8 @@
       "topic": "Management & Governance",
       "why": "AWS Organizations helps you centrally manage and govern your environment as you grow and scale your AWS resources. It provides consolidated billing and allows you to apply Service Control Policies (SCPs) to multiple accounts.",
       "concept": "AWS Organizations",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -5740,6 +6134,8 @@
       "topic": "Machine Learning",
       "why": "Amazon Polly is a service that turns text into lifelike speech, allowing you to create applications that talk, and build entirely new categories of speech-enabled products.",
       "concept": "Amazon Polly",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -5769,6 +6165,8 @@
       "topic": "Networking / Route 53",
       "why": "Amazon Route 53 is a highly available and scalable cloud Domain Name System (DNS) web service designed to route end users to internet applications by translating domain names into IP addresses.",
       "concept": "Amazon Route 53",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -5798,6 +6196,8 @@
       "topic": "Management & Governance / IaC",
       "why": "AWS CloudFormation gives you an easy way to model a collection of related AWS and third-party resources, provision them quickly and consistently, and manage them throughout their lifecycles, by treating infrastructure as code.",
       "concept": "AWS CloudFormation",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -5827,6 +6227,8 @@
       "topic": "Compute / Auto Scaling",
       "why": "Dynamic Scaling Policies within Amazon EC2 Auto Scaling allow you to automatically adjust your compute capacity based on metrics like CPU utilization or network traffic, ensuring you have the right number of instances at any time.",
       "concept": "Auto Scaling Policies",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -5856,6 +6258,8 @@
       "topic": "Security & Compliance",
       "why": "Amazon Macie is a fully managed data security and data privacy service that uses machine learning and pattern matching to discover and protect your sensitive data in Amazon S3.",
       "concept": "Amazon Macie",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -5885,6 +6289,8 @@
       "topic": "Global Infrastructure",
       "why": "Deploying across multiple Availability Zones provides high availability and fault tolerance. If one AZ experiences a failure, your application can continue to run using the resources in the other AZs.",
       "concept": "High Availability",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -5914,6 +6320,8 @@
       "topic": "Security & Compliance",
       "why": "AWS Secrets Manager helps you protect secrets needed to access your applications, services, and IT resources. The service enables you to easily rotate, manage, and retrieve database credentials, API keys, and other secrets.",
       "concept": "AWS Secrets Manager",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -5943,6 +6351,8 @@
       "topic": "Cloud Concepts / Deployment Models",
       "why": "A Hybrid Cloud deployment combines on-premises infrastructure (or a private cloud) with public cloud resources, allowing organizations to leverage the benefits of both environments.",
       "concept": "Private vs Public vs Hybrid Cloud",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -5972,6 +6382,8 @@
       "topic": "Compute / Containers",
       "why": "AWS Fargate is a serverless compute engine for containers that works with both Amazon ECS and EKS. Fargate makes it easy to focus on building your applications by removing the need to provision and manage servers.",
       "concept": "AWS Fargate",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -6001,6 +6413,8 @@
       "topic": "Security & Compliance",
       "why": "AWS Security Hub gives you a comprehensive view of your high-priority security alerts and security posture across your AWS accounts, automatically aggregating and organizing findings from multiple AWS services.",
       "concept": "AWS Security Hub",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -6030,6 +6444,8 @@
       "topic": "Networking / Route 53",
       "why": "Latency Routing policy routes traffic to the AWS Region that provides the lowest latency to the end user, optimizing the application's performance globally.",
       "concept": "Route 53 Routing Policies",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -6059,6 +6475,8 @@
       "topic": "Networking / Serverless",
       "why": "Amazon API Gateway is a fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale, acting as the 'front door' for applications.",
       "concept": "Amazon API Gateway",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -6088,6 +6506,8 @@
       "topic": "Databases / Caching",
       "why": "Amazon ElastiCache allows you to seamlessly set up, run, and scale popular open-source compatible in-memory data stores (Redis or Memcached) to deliver sub-millisecond response times.",
       "concept": "Amazon ElastiCache",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -6117,6 +6537,8 @@
       "topic": "Migration & Transfer",
       "why": "AWS Application Discovery Service helps enterprise customers plan migration projects by gathering information about their on-premises data centers, including server utilization data and dependency mapping.",
       "concept": "AWS Application Discovery Service",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -6146,6 +6568,8 @@
       "topic": "Billing & Pricing",
       "why": "AWS Budgets gives you the ability to set custom budgets that alert you when your costs or usage exceed (or are forecasted to exceed) your budgeted amount, helping you track your cloud spend.",
       "concept": "AWS Budgets",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -6175,6 +6599,8 @@
       "topic": "Storage",
       "why": "Amazon Elastic Block Store (EBS) provides highly available, consistent, low-latency block storage volumes for use with Amazon EC2 instances.",
       "concept": "Amazon EBS",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -6204,6 +6630,8 @@
       "topic": "Management & Governance / Auditing",
       "why": "AWS CloudTrail records AWS API calls for your account and delivers log files. This history enables security analysis, resource change tracking, and compliance auditing.",
       "concept": "AWS CloudTrail",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -6233,6 +6661,8 @@
       "topic": "Databases / Graph",
       "why": "Amazon Neptune is a fast, reliable, fully managed graph database service that makes it easy to build and run applications that work with highly connected datasets.",
       "concept": "Amazon Neptune",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -6262,6 +6692,8 @@
       "topic": "Cloud Adoption Framework",
       "why": "The Operations Perspective helps you to understand how to update the staff skills and organizational processes necessary to ensure system health and reliability during the move to the cloud and beyond.",
       "concept": "CAF Operations Perspective",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -6291,6 +6723,8 @@
       "topic": "Networking / VPC Security",
       "why": "A Network Access Control List (NACL) is an optional layer of security for your VPC that acts as a firewall for controlling traffic in and out of one or more subnets. It is stateless, meaning return traffic must be explicitly allowed.",
       "concept": "Network ACL (NACL)",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -6320,6 +6754,8 @@
       "topic": "Compute",
       "why": "Amazon Lightsail is an easy-to-use virtual private server (VPS) that offers you everything needed to build an application or website, plus a cost-effective, highly predictable monthly plan.",
       "concept": "Amazon Lightsail",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -6349,6 +6785,8 @@
       "topic": "Migration & Transfer / Snow Family",
       "why": "AWS Snowball Edge is a physical data transport solution that accelerates moving terabytes to petabytes of data into and out of AWS using storage devices designed to be secure for physical transport.",
       "concept": "AWS Snowball",
+      "lowPriority": true,
+      "priorityNote": "not on the CLF-C02 in-scope list",
       "source": "Practice Questions Part 6"
     },
     {
@@ -6378,6 +6816,8 @@
       "topic": "Machine Learning",
       "why": "Amazon Rekognition makes it easy to add image and video analysis to your applications. You just provide an image or video to the Rekognition API, and the service can identify objects, people, text, scenes, and activities.",
       "concept": "Amazon Rekognition",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -6407,6 +6847,8 @@
       "topic": "Support Plans",
       "why": "The Enterprise Support plan is the only plan that includes access to a designated Technical Account Manager (TAM) who provides proactive guidance and best practices.",
       "concept": "AWS Enterprise Support",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -6436,6 +6878,8 @@
       "topic": "Analytics",
       "why": "Amazon Athena is an interactive query service that makes it easy to analyze data in Amazon S3 using standard SQL. Athena is serverless, so there is no infrastructure to manage, and you pay only for the queries that you run.",
       "concept": "Amazon Athena",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -6465,6 +6909,8 @@
       "topic": "Developer Tools",
       "why": "AWS CodePipeline is a fully managed continuous delivery service that helps you automate your release pipelines for fast and reliable application and infrastructure updates.",
       "concept": "AWS CodePipeline",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -6494,6 +6940,8 @@
       "topic": "Cloud Concepts",
       "why": "Elasticity is the ability to acquire resources as you need them and release resources when you no longer need them automatically, matching supply with demand.",
       "concept": "Elasticity",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -6523,6 +6971,8 @@
       "topic": "Security & Compliance",
       "why": "AWS Certificate Manager (ACM) is a service that lets you easily provision, manage, and deploy public and private Secure Sockets Layer/Transport Layer Security (SSL/TLS) certificates for use with AWS services and your internal connected resources.",
       "concept": "AWS Certificate Manager (ACM)",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -6552,6 +7002,8 @@
       "topic": "Global Infrastructure",
       "why": "AWS Wavelength brings AWS services to the edge of the 5G network, minimizing the latency to connect to an application from a mobile device.",
       "concept": "AWS Wavelength",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -6581,6 +7033,8 @@
       "topic": "End User Computing",
       "why": "Amazon WorkSpaces is a fully managed, secure Desktop-as-a-Service (DaaS) solution that helps you provision Windows or Linux desktops for your users in just a few minutes.",
       "concept": "Amazon WorkSpaces",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -6610,6 +7064,8 @@
       "topic": "Networking",
       "why": "AWS Global Accelerator is a networking service that improves the performance of your users' traffic by up to 60% using Amazon's global network infrastructure, providing static IP addresses that act as a fixed entry point to your application endpoints.",
       "concept": "AWS Global Accelerator",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 6"
     },
     {
@@ -6639,6 +7095,8 @@
       "topic": "Cloud Economics",
       "why": "Trading capital expense (CapEx) for variable expense (OpEx) means you pay for what you use, when you use it, instead of investing heavily in data centers before you know how you're going to use them.",
       "concept": "CAPEX vs OPEX",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -6668,6 +7126,8 @@
       "topic": "Well-Architected Framework",
       "why": "The Sustainability pillar focuses on environmental impacts, including reducing energy consumption and increasing efficiency across all components of a workload.",
       "concept": "Sustainability Pillar",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -6697,6 +7157,8 @@
       "topic": "Security & Compliance",
       "why": "AWS allows customers to carry out security assessments or penetration tests against their AWS infrastructure for permitted services (like EC2, RDS, Aurora) without prior approval.",
       "concept": "Penetration Testing on AWS",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -6726,6 +7188,8 @@
       "topic": "Security & Compliance",
       "why": "The AWS Trust & Safety team (AWS Abuse team) is responsible for assisting customers when AWS resources are used to engage in abusive behavior, like spam, port scanning, or malware.",
       "concept": "AWS Trust & Safety",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -6755,6 +7219,8 @@
       "topic": "Billing & Pricing",
       "why": "On-Demand Instances are ideal for short-term, spiky, or unpredictable workloads that cannot be interrupted. (Reserved Instances are for steady-state; Spot is for interruptible).",
       "concept": "On-Demand EC2",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -6784,6 +7250,8 @@
       "topic": "EC2 Purchasing Options",
       "why": "Dedicated Hosts provide a physical server fully dedicated for your use, offering visibility and control over how instances are placed on the server, often required for strict compliance or BYOL.",
       "concept": "Dedicated Hosts",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -6813,6 +7281,8 @@
       "topic": "Networking",
       "why": "Amazon VPC lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define and control.",
       "concept": "Amazon VPC",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -6842,6 +7312,8 @@
       "topic": "Networking / VPC",
       "why": "A subnet is a range of IP addresses in your VPC. Subnets divide your VPC network into smaller segments and are always mapped to a single Availability Zone.",
       "concept": "Subnet",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -6871,6 +7343,8 @@
       "topic": "Security & Compliance",
       "why": "AWS Security Hub provides a comprehensive view of your security state and helps you check your environment against security industry standards and best practices (like CIS AWS Foundations).",
       "concept": "AWS Security Hub",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -6900,6 +7374,8 @@
       "topic": "Analytics",
       "why": "AWS Glue is a serverless data integration service that makes it easy to discover, prepare, and combine data for analytics, machine learning, and application development (ETL processes).",
       "concept": "AWS Glue",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -6929,6 +7405,8 @@
       "topic": "Security & Identity",
       "why": "Amazon Cognito provides authentication, authorization, and user management for your web and mobile apps. It supports social identity providers natively.",
       "concept": "Amazon Cognito",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -6958,6 +7436,8 @@
       "topic": "Compute / Networking",
       "why": "Elastic Load Balancing (ELB) automatically distributes incoming application traffic across multiple targets, such as Amazon EC2 instances, containers, IP addresses, and Lambda functions.",
       "concept": "Elastic Load Balancing (ELB)",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -6987,6 +7467,8 @@
       "topic": "Global Infrastructure",
       "why": "Deploying an application across multiple AWS Regions provides the highest level of disaster recovery and global high availability, protecting against the unlikely event of an entire Region failing.",
       "concept": "Multi-Region Architecture",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -7016,6 +7498,8 @@
       "topic": "Storage",
       "why": "Amazon Elastic Block Store (EBS) provides highly available, consistent, low-latency block storage that is primarily used as the boot and data volumes for Amazon EC2 instances.",
       "concept": "Amazon EBS",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -7045,6 +7529,8 @@
       "topic": "Databases",
       "why": "Amazon Timestream is a fast, scalable, and serverless time series database service for IoT and operational applications that makes it easy to store and analyze trillions of events per day.",
       "concept": "Amazon Timestream",
+      "lowPriority": true,
+      "priorityNote": "not on the CLF-C02 in-scope list",
       "source": "Practice Questions Part 7"
     },
     {
@@ -7074,6 +7560,8 @@
       "topic": "Front-End / Networking",
       "why": "S3 hosts the static files, CloudFront distributes the content globally securely via HTTPS, and Route 53 handles the custom domain name routing.",
       "concept": "S3 Static Website Hosting",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -7103,6 +7591,8 @@
       "topic": "Global Infrastructure",
       "why": "AWS Local Zones place compute, storage, database, and other select AWS services closer to end-users in large population and industry centers for single-digit millisecond latency.",
       "concept": "AWS Local Zones",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -7132,6 +7622,8 @@
       "topic": "Analytics",
       "why": "AWS Glue is a fully managed, serverless ETL (extract, transform, and load) service that makes it simple and cost-effective to categorize your data, clean it, enrich it, and move it reliably between various data stores.",
       "concept": "AWS Glue",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -7161,6 +7653,8 @@
       "topic": "Compute / Containers",
       "why": "Amazon Elastic Kubernetes Service (EKS) gives you the flexibility to start, run, and scale Kubernetes applications in the AWS cloud or on-premises.",
       "concept": "Amazon EKS",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -7190,11 +7684,13 @@
       "topic": "Compute / Deployment",
       "why": "AWS Elastic Beanstalk is an easy-to-use platform as a service (PaaS) for deploying and scaling web applications developed with Java, .NET, PHP, Node.js, Python, Ruby, Go, and Docker.",
       "concept": "AWS Elastic Beanstalk",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
-      "id": "qp36sdf",
-      "text": "Which AWS pricing model gives you the ability to save up to 72% on compute usage across EC2, Fargate, and Lambda by committing to a specific amount of usage for a 1- or 3-year term?",
+      "id": "q19qr8ns",
+      "text": "Which AWS pricing model lets you save on compute usage across EC2, Fargate, and Lambda by committing to a specific amount of usage ($/hour) for a 1- or 3-year term?",
       "options": [
         {
           "letter": "A",
@@ -7217,8 +7713,10 @@
         "C"
       ],
       "topic": "Billing & Pricing",
-      "why": "Savings Plans offer flexible pricing that provides lower prices compared to On-Demand pricing, in exchange for a specific usage commitment (measured in $/hour) across EC2, Fargate, and Lambda.",
+      "why": "Savings Plans trade a 1- or 3-year $/hour commitment for lower prices than On-Demand. Compute Savings Plans cover EC2, Fargate, and Lambda for up to 66% off; EC2 Instance Savings Plans go up to 72% off but only apply to EC2 in one instance family and Region.",
       "concept": "Savings Plans",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -7248,6 +7746,8 @@
       "topic": "Security & Compliance / Shared Responsibility",
       "why": "The Customer is responsible for 'Security IN the Cloud', which includes classifying their data and enabling encryption at rest for services like Amazon S3 and EBS.",
       "concept": "Shared Responsibility Model",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -7277,6 +7777,8 @@
       "topic": "Security & Compliance",
       "why": "AWS Shield is a managed Distributed Denial of Service (DDoS) protection service that safeguards applications running on AWS. Shield Standard is automatically enabled for all AWS customers at no extra cost.",
       "concept": "AWS Shield",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -7306,6 +7808,8 @@
       "topic": "Application Integration",
       "why": "Amazon Simple Notification Service (SNS) is a fully managed pub/sub messaging service that enables you to decouple microservices, distributed systems, and serverless applications, and send push notifications/emails.",
       "concept": "Amazon SNS",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -7335,6 +7839,8 @@
       "topic": "Databases / High Availability",
       "why": "Amazon RDS Multi-AZ deployments provide high availability and failover support for DB instances by automatically provisioning and maintaining a synchronous standby replica in a different Availability Zone.",
       "concept": "RDS Multi-AZ",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -7364,6 +7870,8 @@
       "topic": "Application Integration",
       "why": "AWS Step Functions is a low-code visual workflow service used to orchestrate AWS services, automate business processes, and build serverless applications using state machines.",
       "concept": "AWS Step Functions",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -7393,6 +7901,8 @@
       "topic": "Storage",
       "why": "Amazon Elastic File System (EFS) is a fully managed NFS file system that can be accessed by EC2 instances in multiple AZs as well as on-premises servers via AWS Direct Connect or VPN.",
       "concept": "Amazon EFS",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -7422,6 +7932,8 @@
       "topic": "Security & Compliance",
       "why": "Amazon Inspector is an automated vulnerability management service that continually scans AWS workloads (like EC2 instances and container images) for software vulnerabilities and unintended network exposure.",
       "concept": "Amazon Inspector",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -7451,6 +7963,8 @@
       "topic": "Billing & Pricing",
       "why": "Cost Allocation Tags allow you to assign metadata to your AWS resources. You can then use the AWS Billing Console to organize your resource costs on your cost allocation report based on these tags.",
       "concept": "Cost Allocation Tags",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -7480,6 +7994,8 @@
       "topic": "Security & Compliance / IAM",
       "why": "SCPs do not grant permissions; they set a boundary (guardrails) on the maximum available permissions for all IAM users and roles within an account in AWS Organizations. IAM Policies actually grant the permissions.",
       "concept": "Service Control Policies (SCPs)",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -7509,6 +8025,8 @@
       "topic": "Management & Governance",
       "why": "AWS CloudTrail enables governance, compliance, and operational and risk auditing of your AWS account by recording actions taken by a user, role, or an AWS service.",
       "concept": "AWS CloudTrail",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -7538,6 +8056,8 @@
       "topic": "Security & Compliance",
       "why": "Amazon GuardDuty is an intelligent threat detection service that continuously monitors your AWS accounts, workloads, and data for malicious activity and delivers detailed security findings.",
       "concept": "Amazon GuardDuty",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -7567,6 +8087,8 @@
       "topic": "Storage / Analytics",
       "why": "Amazon S3 is the foundational storage layer for AWS Data Lakes due to its virtually unlimited scalability, high durability, and seamless integration with analytical tools like Athena, Glue, and Redshift.",
       "concept": "Amazon S3",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -7596,6 +8118,8 @@
       "topic": "Security & Compliance",
       "why": "While Parameter Store can store passwords, AWS Secrets Manager is specifically built to easily rotate, manage, and retrieve database credentials, API keys, and other secrets through their lifecycle.",
       "concept": "AWS Secrets Manager",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -7625,6 +8149,8 @@
       "topic": "Cloud Concepts / Value",
       "why": "Business agility allows organizations to react quickly to market changes, deploying new applications instantly and failing fast without wasting large upfront capital on hardware.",
       "concept": "Agility",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -7654,6 +8180,8 @@
       "topic": "Analytics",
       "why": "Amazon Athena is a serverless, interactive query service that makes it easy to analyze data in Amazon S3 using standard SQL. There is no infrastructure to manage, and you pay only for the queries you run.",
       "concept": "Amazon Athena",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -7683,6 +8211,8 @@
       "topic": "Billing & Pricing / Migration",
       "why": "Migration Evaluator (formerly TCO Calculator) provides a business case to make sound financial decisions for AWS cloud migration by comparing on-premises costs with estimated AWS costs.",
       "concept": "Migration Evaluator",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -7712,6 +8242,8 @@
       "topic": "Management & Governance / IaC",
       "why": "AWS CloudFormation allows you to use programming languages or simple text files (JSON/YAML) to model and provision all the resources needed for your applications across all regions and accounts in a safe, repeatable manner.",
       "concept": "Infrastructure as Code (IaC)",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -7741,6 +8273,8 @@
       "topic": "Storage / Hybrid",
       "why": "AWS Storage Gateway is a hybrid cloud storage service that connects your existing on-premises environments with the AWS Cloud, providing local caching for low-latency access to data backed by S3, Glacier, or EBS.",
       "concept": "AWS Storage Gateway",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -7770,6 +8304,8 @@
       "topic": "Databases",
       "why": "Amazon DocumentDB (with MongoDB compatibility) is a fast, reliable, and fully managed database service that makes it easy to set up, operate, and scale MongoDB-compatible databases in the cloud.",
       "concept": "Amazon DocumentDB",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -7799,6 +8335,8 @@
       "topic": "Support Plans",
       "why": "Access to the AWS Support API (for programmatic case management and Trusted Advisor access) requires either a Business, Enterprise On-Ramp, or Enterprise Support plan.",
       "concept": "AWS Business Support",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -7828,6 +8366,8 @@
       "topic": "Machine Learning",
       "why": "Amazon Textract is a machine learning service that automatically extracts printed text, handwriting, and other data from scanned documents, going beyond simple optical character recognition (OCR).",
       "concept": "Amazon Textract",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -7857,6 +8397,8 @@
       "topic": "Security & Compliance",
       "why": "AWS CloudHSM provides a cloud-based hardware security module (HSM) that enables you to easily generate and use your own encryption keys. Unlike KMS, CloudHSM provides dedicated single-tenant access.",
       "concept": "AWS CloudHSM",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -7886,6 +8428,8 @@
       "topic": "Storage / S3",
       "why": "S3 Versioning keeps multiple variants of an object in the same bucket. If you delete an object, S3 inserts a delete marker, but the previous version is retained and can be restored.",
       "concept": "S3 Versioning",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -7915,6 +8459,8 @@
       "topic": "Compute / Serverless",
       "why": "AWS Lambda allows you to run code without provisioning or managing servers. It integrates natively with Amazon API Gateway to create fully serverless REST or HTTP APIs.",
       "concept": "AWS Lambda",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -7944,6 +8490,8 @@
       "topic": "Networking / VPC",
       "why": "A NAT (Network Address Translation) Gateway allows instances in a private subnet to connect to the internet (for outbound traffic) but prevents the internet from initiating a connection with those instances.",
       "concept": "NAT Gateway",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -7973,6 +8521,8 @@
       "topic": "Security & Compliance",
       "why": "AWS Artifact is a self-service portal for on-demand access to AWS' compliance reports. It is the central resource for compliance-related information.",
       "concept": "AWS Artifact",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -8002,6 +8552,8 @@
       "topic": "Networking / CDN",
       "why": "Amazon CloudFront is a Content Delivery Network (CDN) that securely delivers data, videos, applications, and APIs to customers globally with low latency by caching content at edge locations.",
       "concept": "Amazon CloudFront",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -8031,6 +8583,8 @@
       "topic": "Management & Governance",
       "why": "AWS Trusted Advisor is an online tool that acts like your customized cloud expert, helping you provision your resources by analyzing your account against best practices in Cost Optimization, Security, Fault Tolerance, Performance, and Service Limits.",
       "concept": "AWS Trusted Advisor",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -8060,6 +8614,8 @@
       "topic": "Well-Architected Framework",
       "why": "Democratizing advanced technologies (making it easy to consume technologies as a service, like Machine Learning or NoSQL databases, without needing your own experts) is a core principle of the Performance Efficiency pillar.",
       "concept": "Performance Efficiency Pillar",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 7"
     },
     {
@@ -8089,6 +8645,8 @@
       "topic": "Billing & Pricing / Deep Dive",
       "why": "AWS Cost Anomaly Detection uses advanced machine learning to identify anomalous spend and root causes, minimizing the risk of billing surprises.",
       "concept": "AWS Cost Anomaly Detection",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 8"
     },
     {
@@ -8118,6 +8676,8 @@
       "topic": "Security & Identity / Deep Dive",
       "why": "Cognito Identity Pools (Federated Identities) allow you to create unique identities for your users and federate them with identity providers. They exchange the provider token for temporary, limited-privilege AWS credentials.",
       "concept": "Amazon Cognito",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 8"
     },
     {
@@ -8147,6 +8707,8 @@
       "topic": "Security & Identity / Deep Dive",
       "why": "A permissions boundary is an advanced IAM feature that sets the maximum permissions an identity-based policy can grant to an IAM entity. It does not grant permissions on its own.",
       "concept": "AWS IAM",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 8"
     },
     {
@@ -8176,6 +8738,8 @@
       "topic": "Storage / Deep Dive",
       "why": "S3 Glacier Deep Archive is the lowest-cost storage class in AWS. Because it is designed for long-term retention (like magnetic tape backups), standard retrieval times are typically within 12 hours.",
       "concept": "S3 Glacier Deep Archive",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 8"
     },
     {
@@ -8205,6 +8769,8 @@
       "topic": "Storage / Deep Dive",
       "why": "Provisioned IOPS SSD (io1/io2) volumes are designed for latency-sensitive transactional workloads that require sustained, high IOPS performance (up to 256,000 IOPS on io2 Block Express).",
       "concept": "Amazon EBS",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 8"
     },
     {
@@ -8234,6 +8800,8 @@
       "topic": "Networking / Deep Dive",
       "why": "Geoproximity routing routes traffic based on the geographic location of your users and your AWS resources. You can also optionally choose to route more traffic or less to a given resource by specifying a bias value.",
       "concept": "Route 53 Routing Policies",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 8"
     },
     {
@@ -8263,6 +8831,8 @@
       "topic": "Networking / Deep Dive",
       "why": "Gateway VPC Endpoints provide reliable connectivity to Amazon S3 and DynamoDB without requiring an internet gateway or a NAT device, and they are provided at no additional charge.",
       "concept": "VPC Endpoints",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 8"
     },
     {
@@ -8292,6 +8862,8 @@
       "topic": "Management & Governance / Deep Dive",
       "why": "AWS Systems Manager Session Manager provides a fully managed, secure, and auditable interactive browser-based or CLI-based shell access to EC2 instances without opening inbound ports (like SSH 22).",
       "concept": "Systems Manager Session Manager",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 8"
     },
     {
@@ -8321,6 +8893,8 @@
       "topic": "Analytics / Deep Dive",
       "why": "Amazon Redshift Spectrum is a feature of Redshift that allows you to directly query and analyze data in Amazon S3 without having to extract, transform, and load (ETL) it into Redshift tables.",
       "concept": "Amazon Redshift",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 8"
     },
     {
@@ -8350,6 +8924,8 @@
       "topic": "Databases / Deep Dive",
       "why": "Amazon Aurora Serverless is an on-demand, auto-scaling configuration for Aurora. It automatically starts up, shuts down, and scales capacity up or down based on your application's needs, saving costs during idle periods.",
       "concept": "Amazon Aurora Serverless",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 8"
     },
     {
@@ -8379,6 +8955,8 @@
       "topic": "Databases / Deep Dive",
       "why": "Amazon DynamoDB Accelerator (DAX) is a fully managed, highly available, in-memory cache for Amazon DynamoDB that delivers up to a 10x performance improvement (from milliseconds to microseconds).",
       "concept": "DynamoDB Accelerator (DAX)",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 8"
     },
     {
@@ -8408,6 +8986,8 @@
       "topic": "Compute / Deep Dive",
       "why": "Amazon EC2 Hibernate allows you to pause your instance and save its in-memory state (RAM) to your EBS root volume. When you start the instance again, it quickly resumes from where it left off.",
       "concept": "Amazon EC2",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 8"
     },
     {
@@ -8437,6 +9017,8 @@
       "topic": "Security & Compliance / Deep Dive",
       "why": "CloudTrail log file integrity validation creates a digitally signed digest file containing a hash of each log. This mathematically proves whether a log file was changed or deleted after CloudTrail delivered it.",
       "concept": "AWS CloudTrail",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 8"
     },
     {
@@ -8466,6 +9048,8 @@
       "topic": "Compute / Deep Dive",
       "why": "AWS Batch dynamically provisions the optimal quantity and type of compute resources based on the specific requirements of the batch jobs submitted, eliminating the need to install and manage batch computing software.",
       "concept": "AWS Batch",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 8"
     },
     {
@@ -8495,6 +9079,8 @@
       "topic": "End User Computing / Deep Dive",
       "why": "Amazon AppStream 2.0 is a non-persistent application and desktop streaming service. It centrally manages desktop applications and securely delivers them to any computer via a browser. (WorkSpaces provides persistent, full virtual desktops).",
       "concept": "Amazon AppStream 2.0",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 8"
     },
     {
@@ -8524,6 +9110,8 @@
       "topic": "Networking / Deep Dive",
       "why": "AWS Global Accelerator is a networking service that routes traffic over the AWS global network using static IP addresses. Unlike CloudFront (which is an HTTP/HTTPS CDN), Global Accelerator supports both TCP and UDP protocols (gaming, IoT, VoIP).",
       "concept": "AWS Global Accelerator",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 8"
     },
     {
@@ -8553,6 +9141,8 @@
       "topic": "Developer Tools / Deep Dive",
       "why": "The AWS Serverless Application Model (SAM) is an open-source framework used to build serverless applications. It uses a shorthand syntax to express functions, APIs, databases, and event source mappings, which compiles into CloudFormation.",
       "concept": "",
+      "lowPriority": true,
+      "priorityNote": "not on the CLF-C02 in-scope list",
       "source": "Practice Questions Part 8"
     },
     {
@@ -8582,6 +9172,8 @@
       "topic": "Security & Compliance / Deep Dive",
       "why": "AWS Shield Advanced provides expanded DDoS attack protection for web applications. Crucially, it includes 24x7 access to the AWS DDoS Response Team (DRT) to help mitigate complex attacks.",
       "concept": "AWS Shield",
+      "lowPriority": false,
+      "priorityNote": "",
       "source": "Practice Questions Part 8"
     },
     {
@@ -8611,6 +9203,8 @@
       "topic": "Developer Tools / Deep Dive",
       "why": "AWS Cloud9 is a cloud-based IDE that lets you write, run, and debug your code with just a browser. It includes a code editor, debugger, and terminal, and allows you to share your environment for real-time pair programming.",
       "concept": "",
+      "lowPriority": true,
+      "priorityNote": "closed to new customers, not on the in-scope list",
       "source": "Practice Questions Part 8"
     },
     {
@@ -8640,6 +9234,8 @@
       "topic": "Migration & Transfer / Deep Dive",
       "why": "AWS DataSync is an online data transfer service that simplifies, automates, and accelerates copying large amounts of data between on-premises storage and AWS over the internet or Direct Connect.",
       "concept": "",
+      "lowPriority": true,
+      "priorityNote": "not on the CLF-C02 in-scope list",
       "source": "Practice Questions Part 8"
     }
   ]

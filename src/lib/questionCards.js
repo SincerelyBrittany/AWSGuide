@@ -62,6 +62,7 @@ export function buildQuestionCards(questions, links, fallbackDomain = 'Cloud Tec
         officialSource: '',
         notes: '',
         related: link?.strong ? link.card : null,
+        priorityNotes: [],
         questions: [],
         source: 'questions',
       };
@@ -70,10 +71,12 @@ export function buildQuestionCards(questions, links, fallbackDomain = 'Cloud Tec
     if (q.why && !card.whys.includes(q.why)) card.whys.push(q.why);
     if (q.topic && !card.topics.includes(q.topic)) card.topics.push(q.topic);
     for (const w of wrong) if (!card.confuse.includes(w) && keyOf(w) !== key) card.confuse.push(w);
+    if (q.priorityNote && !card.priorityNotes.includes(q.priorityNote)) card.priorityNotes.push(q.priorityNote);
     card.questions.push(q);
   }
   return [...byKey.values()].map((c) => {
     const definition = c.whys.join(' ') || c.questions[0].text;
-    return { ...c, definition, short: firstSentence(c.whys[0] || definition) };
+    // An entry is low priority only when every question behind it is.
+    return { ...c, definition, short: firstSentence(c.whys[0] || definition), lowPriority: c.questions.every((q) => q.lowPriority) };
   });
 }

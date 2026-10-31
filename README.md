@@ -82,10 +82,11 @@
 
 Questions live in [`data/questions/`](data/questions). Any number of `.xlsx` files, one question per row:
 
-| Question | Answer A | Answer B | Answer C | Answer D | Correct Answer | Concept Covered | Description on why its the right answer | Related Concept *(optional)* |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Question | Answer A | Answer B | Answer C | Answer D | Correct Answer | Concept Covered | Description on why its the right answer | Related Concept *(optional)* | Priority *(optional)* |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
 - Add `Answer E`, `Answer F` for longer lists. For multiple-response questions, put several letters in **Correct Answer** (`B, D`) and the quiz asks you to choose that many.
+- **Priority** *(optional)*: put `⚪ Low Priority – reason` to hide a question (retired service, not on the in-scope list) unless low priority is switched on.
 - **Related Concept** is a name from the study guide. Leave it blank and the app works it out from the correct answer.
 - The same question in two files counts once.
 

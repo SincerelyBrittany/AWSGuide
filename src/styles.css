@@ -846,3 +846,4 @@ mark { background: color-mix(in srgb, var(--accent) 45%, transparent); color: in
 .jump-list .count { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); }
 .jump-empty { padding: 10px; color: var(--muted); font-size: 0.9rem; }
 @media (max-width: 720px) { .jump-pop { position: fixed; left: 16px; right: 16px; top: auto; width: auto; } }
+.qentry-low { margin: 0; font-size: 0.86rem; font-style: italic; }

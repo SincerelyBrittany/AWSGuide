@@ -14,6 +14,7 @@ function Question({ q, n, total, picked, onPick, revealed, flagged }) {
     <div className="clue-card quiz-card">
       <div className="quiz-card-top">
         <span className="category">Question {n} of {total}{q.topic && q.topic !== 'General' ? ` · ${q.topic}` : ''}</span>
+        {q.lowPriority && <span className="pill pill-new" title={q.priorityNote}>Low priority</span>}
         {flagged && <span className="pill pill-yellow">Flagged</span>}
       </div>
       <p className="quiz-q">{q.text}</p>
@@ -67,7 +68,7 @@ function Explanation({ q, link, ok }) {
 const answerText = (q) => q.correct.map((l) => q.options.find((o) => o.letter === l)?.text).join(' + ');
 const pickedText = (q, picked) => (picked.length ? picked.map((l) => q.options.find((o) => o.letter === l)?.text).join(' + ') : 'No answer');
 
-export default function Quiz({ questions, links, domains, record, missed, quizHistory, onQuestion, onAttempt }) {
+export default function Quiz({ questions, links, domains, record, missed, quizHistory, onQuestion, onAttempt, lowCount = 0, settings, setSettings }) {
   const [style, setStyle] = useState('practice');
   const [count, setCount] = useState(20);
   const [domain, setDomain] = useState('all');
@@ -217,7 +218,7 @@ export default function Quiz({ questions, links, domains, record, missed, quizHi
   if (phase === 'setup') {
     return (
       <div className="mode">
-        <ModeHeader eyebrow={`${questions.length} practice questions · ${seen} tried`} title="Quiz" />
+        <ModeHeader eyebrow={`${questions.length} practice questions · ${seen} tried${lowCount && !settings?.includeLow ? ` · ${lowCount} low-priority hidden` : ''}`} title="Quiz" />
         <div className="results quiz-setup">
           <p className="lede">Exam-style multiple choice from your question sheets. Every answer also counts toward the concept it tests, so the Progress page and the other games know what to bring back.</p>
 
@@ -268,6 +269,13 @@ export default function Quiz({ questions, links, domains, record, missed, quizHi
               <input id="quiz-shuffle" type="checkbox" checked={shuffleAnswers} onChange={(e) => setShuffleAnswers(e.target.checked)} />
               <span>Shuffle answer order</span>
             </label>
+
+            {lowCount > 0 && setSettings && (
+              <label className="toggle" htmlFor="quiz-low">
+                <input id="quiz-low" type="checkbox" checked={!!settings.includeLow} onChange={(e) => setSettings({ ...settings, includeLow: e.target.checked })} />
+                <span>Include low-priority questions ({lowCount}): retired or not on the in-scope list</span>
+              </label>
+            )}
           </div>
 
           <button className="btn btn-primary btn-lg" onClick={start} disabled={!available}>

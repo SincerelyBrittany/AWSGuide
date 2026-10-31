@@ -1,6 +1,7 @@
 // Reads practice-question spreadsheets.
 // Expected headers (case doesn't matter, order doesn't matter):
 //   Question | Answer A | Answer B | Answer C | Answer D | (Answer E, F…) | Correct Answer | Concept Covered | Description on why its the right answer
+//   Optional: Priority ("⚪ Low Priority – reason" hides the question unless low priority is switched on)
 //   Optional: Related Concept (a name from the study guide; otherwise the app works it out from the correct answer)
 // "Correct Answer" can be one letter ("B") or several for multiple-response questions ("B, D" or "B and D").
 import * as XLSX from 'xlsx';
@@ -12,6 +13,7 @@ const LETTERS = 'ABCDEFGH';
 const QUESTION = ['question', 'questions', 'question text'];
 const CORRECT = ['correct answer', 'correct answers', 'correct', 'answer key', 'correct option'];
 const TOPIC = ['concept covered', 'concept', 'topic', 'category'];
+const PRIORITY = ['priority', 'low priority', 'coverage', 'status', 'exam guide coverage'];
 const RELATED = ['related concept', 'study guide concept', 'related concepts'];
 const WHY = ['description on why its the right answer', "description on why it's the right answer", 'explanation', 'why', 'reason', 'rationale'];
 
@@ -41,7 +43,7 @@ function findHeader(rows) {
       if (i < 0) i = cells.findIndex((c) => names.some((n) => c.startsWith(n)));
       return i;
     };
-    return { row: r, q, correct, options, topic: find(TOPIC), why: find(WHY), concept: cells.findIndex((c) => RELATED.includes(c)) };
+    return { row: r, q, correct, options, topic: find(TOPIC), why: find(WHY), concept: cells.findIndex((c) => RELATED.includes(c)), priority: cells.findIndex((c) => PRIORITY.includes(c)) };
   }
   return null;
 }
@@ -87,6 +89,8 @@ export function parseQuestionWorkbook(wb, source = '') {
         topic: h.topic >= 0 ? clean(row[h.topic]) || 'General' : 'General',
         why: h.why >= 0 ? clean(row[h.why]) : '',
         concept: h.concept >= 0 ? clean(row[h.concept]) : '',
+        lowPriority: h.priority >= 0 && /low|out of scope|retired|⚪/i.test(clean(row[h.priority])),
+        priorityNote: h.priority >= 0 ? clean(row[h.priority]).replace(/^⚪\s*/, '').replace(/^low priority\s*[–—:-]?\s*/i, '') : '',
         source,
       });
     });

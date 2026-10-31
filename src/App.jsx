@@ -77,7 +77,10 @@ export default function App() {
   const guideDomains = useMemo(() => deck.domains.filter((d) => guideCards.some((c) => c.domain === d.name)), [deck, guideCards]);
 
   // Practice questions: built-in bank plus anything imported in this browser, each linked to the concept it tests.
-  const questions = useMemo(() => mergeQuestions(builtInQuestions.questions, importedQuestions), [importedQuestions]);
+  const allQuestions = useMemo(() => mergeQuestions(builtInQuestions.questions, importedQuestions), [importedQuestions]);
+  // Retired or out-of-scope questions are hidden unless "show low priority" is on (same switch as the study guide).
+  const questions = useMemo(() => allQuestions.filter((q) => settings.includeLow || !q.lowPriority), [allQuestions, settings.includeLow]);
+  const lowQuestionCount = allQuestions.length - allQuestions.filter((q) => !q.lowPriority).length;
   const links = useMemo(() => {
     const all = buildIndex(deck.cards);
     const out = {};
@@ -127,7 +130,7 @@ export default function App() {
       // A question sheet (Question / Answer A–D / Correct Answer) goes to the Quiz; anything else is the study guide.
       const qs = parseQuestionFile(buf, 'array', file.name.replace(/\.xlsx?$/i, ''));
       if (qs.questions.length) {
-        const known = new Set(questions.map((x) => x.id));
+        const known = new Set(allQuestions.map((x) => x.id));
         const fresh = qs.questions.filter((x) => !known.has(x.id)).length;
         const nextImported = mergeQuestions(importedQuestions, qs.questions);
         const saved = store.saveImportedQuestions(nextImported);
@@ -170,6 +173,9 @@ export default function App() {
 
   const quizProps = {
     questions,
+    lowCount: lowQuestionCount,
+    settings,
+    setSettings,
     links,
     quizHistory,
     onQuestion: (id, result) => setQuizHistory((h) => recordQuestion(h, id, result)),
@@ -217,7 +223,7 @@ export default function App() {
         {hash === 'guide' ? (
           <Guide {...guideShared} settings={settings} setSettings={setSettings} />
         ) : hash === 'questions' ? (
-          <QuestionsGuide qCards={qCards} domains={qDomains} quizHistory={quizHistory} setLevel={setLevel} />
+          <QuestionsGuide qCards={qCards} domains={qDomains} quizHistory={quizHistory} setLevel={setLevel} lowCount={lowQuestionCount} settings={settings} setSettings={setSettings} />
         ) : hash === 'progress' ? (
           <Progress
             deckSwitch={deckSwitch}
