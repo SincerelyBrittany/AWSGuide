@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { LEVELS, domainTone, shortDomain, lookup } from '../lib/deck.js';
-import { DomainChip, ModeHeader, Triggers } from './ui.jsx';
+import { DomainChip, JumpMenu, ModeHeader, scrollToSection, Triggers } from './ui.jsx';
 
 const GROUPS = { domain: 'Domain', category: 'Category', az: 'A–Z' };
 const LEVEL_ORDER = ['red', 'yellow', 'green'];
@@ -109,17 +109,14 @@ export default function Guide({ cards, deck, domains, index, setLevel, settings,
           <input id="guide-low" type="checkbox" checked={settings.includeLow} onChange={(e) => setSettings({ ...settings, includeLow: e.target.checked })} />
           <span>Show low priority ({lowCount})</span>
         </label>
+        {sections.length > 1 && (
+          <JumpMenu
+            items={sections.map((s) => ({ key: s.key, label: group === 'domain' ? shortDomain(s.title) : s.title, count: s.items.length }))}
+            onJump={(key) => scrollToSection(`sec-${key}`)}
+          />
+        )}
       </div>
 
-      {sections.length > 1 && (
-        <nav className="guide-jump" aria-label="Jump to section">
-          {sections.map((s) => (
-            <button key={s.key} onClick={() => document.getElementById(`sec-${s.key}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' })}>
-              {group === 'domain' ? shortDomain(s.title) : s.title} <span className="count">{s.items.length}</span>
-            </button>
-          ))}
-        </nav>
-      )}
 
       {!list.length && <div className="empty">No concepts match. Try a different search or filter.</div>}
 

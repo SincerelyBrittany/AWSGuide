@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { LEVELS, domainTone, shortDomain } from '../lib/deck.js';
-import { DomainChip, ModeHeader } from './ui.jsx';
+import { DomainChip, JumpMenu, ModeHeader, scrollToSection } from './ui.jsx';
 
 const GROUPS = { topic: 'Concept covered', domain: 'Domain', az: 'A–Z' };
 const LEVEL_ORDER = ['red', 'yellow', 'green'];
@@ -100,17 +100,14 @@ export default function QuestionsGuide({ qCards, domains, quizHistory, setLevel 
           <input id="qg-missed" type="checkbox" checked={onlyMissed} onChange={(e) => setOnlyMissed(e.target.checked)} />
           <span>Only ones I’ve missed ({missedCount})</span>
         </label>
+        {sections.length > 1 && (
+          <JumpMenu
+            items={sections.map((s) => ({ key: s.key, label: group === 'domain' ? shortDomain(s.title) : s.title, count: s.items.length }))}
+            onJump={(key) => scrollToSection(`qsec-${key}`)}
+          />
+        )}
       </div>
 
-      {sections.length > 1 && (
-        <nav className="guide-jump" aria-label="Jump to section">
-          {sections.map((s) => (
-            <button key={s.key} onClick={() => document.getElementById(`qsec-${s.key}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' })}>
-              {group === 'domain' ? shortDomain(s.title) : s.title} <span className="count">{s.items.length}</span>
-            </button>
-          ))}
-        </nav>
-      )}
 
       {!list.length && (
         <div className="empty">{onlyMissed && !missedCount ? 'Nothing missed in the quiz yet.' : 'No answers match. Try a different search or filter.'}</div>

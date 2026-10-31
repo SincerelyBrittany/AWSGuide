@@ -100,7 +100,7 @@ Then either click **Import** in the app and pick the file (it's recognized as a 
 
 A second study page built only from your question sheets. Each correct answer is an entry: the answer is the title, **"Description on why its the right answer"** is the explanation, and **Concept Covered** is the label. When the answer is a phrase ("Test recovery procedures"), the entry uses the concept's name instead ("Reliability Pillar").
 
-- Group by Concept Covered, exam domain or A–Z, and search answers, explanations and questions
+- Group by Concept Covered, exam domain or A–Z, search answers, explanations and questions, and jump to any section from a searchable **Jump to section** dropdown
 - **Show the question** opens the original question with every choice and the right one marked
 - Questions with the same answer share one entry, with each explanation listed
 - Your quiz record on each entry, plus an **Only ones I've missed** filter
