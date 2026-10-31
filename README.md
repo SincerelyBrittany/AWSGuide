@@ -7,7 +7,7 @@
 ![React](https://img.shields.io/badge/React-18-149eca?style=flat-square&logo=react&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-5-646cff?style=flat-square&logo=vite&logoColor=white)
 ![Exam](https://img.shields.io/badge/AWS-CLF--C02-e2932f?style=flat-square)
-![Concepts](https://img.shields.io/badge/concepts-282-23905f?style=flat-square)
+![Concepts](https://img.shields.io/badge/concepts-407-23905f?style=flat-square)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/home-dark.png">
@@ -88,7 +88,7 @@ Every answer in Flashcards, Don't Confuse Me, Rapid-Fire and the Game Board is r
 - **Study these next:** the concepts you miss most, ranked by misses, accuracy and recent mistakes
 - **By exam domain:** your accuracy in each domain next to its exam weight
 - **Recent sessions:** when you studied, which mode, right/wrong and what you missed
-- **All concepts:** a sortable, searchable table of all 282 concepts, with right/wrong counts, accuracy, your last 8 answers and a status (Not practiced → Struggling → Learning → Mastered)
+- **All concepts:** a sortable, searchable table of every concept, with right/wrong counts, accuracy, your last 8 answers and a status (Not practiced → Struggling → Learning → Mastered)
 
 A session is one stretch of play in one mode. Switching modes or 30 idle minutes starts a new one.
 

@@ -160,7 +160,7 @@
       "category": "Storage",
       "hint": "Giant storage BUCKET",
       "eli12": "Put files/objects into buckets.",
-      "definition": "Scalable object storage for any amount of data, stored as objects in buckets (bucket names are globally unique; objects up to 5 TB). Designed for 99.999999999% (11 nines) durability. Also hosts static websites.",
+      "definition": "Scalable object storage for any amount of data, stored as objects in buckets. Buckets are created in a Region; names are globally unique (or unique per account and Region with the newer account regional namespace). Objects can be up to 50 TB. Designed for 99.999999999% (11 nines) durability. Also hosts static websites.",
       "triggers": [
         "object storage",
         "bucket",
@@ -3132,7 +3132,7 @@
       "category": "Pricing",
       "hint": "COMMIT $/hour for savings",
       "eli12": "Commit to compute usage for lower rates.",
-      "definition": "Commit to a consistent amount of compute usage ($/hour) for 1 or 3 years for up to 72% off. Compute Savings Plans apply automatically across EC2 (any family, size, Region, OS), Fargate and Lambda; EC2 Instance Savings Plans are tied to one instance family in one Region for a bigger discount.",
+      "definition": "Commit to a consistent amount of compute usage ($/hour) for 1 or 3 years. EC2 Instance Savings Plans: up to 72% off, tied to one instance family in one Region (flexible on size, OS, tenancy). Compute Savings Plans: up to 66% off, apply automatically across EC2 (any family, size, Region, OS), Fargate and Lambda. Usage above the commitment is billed On-Demand.",
       "triggers": [
         "commitment",
         "compute",
@@ -7147,6 +7147,2574 @@
       "official": "AWS Managed Services provides ongoing management of your AWS infrastructure so you can focus on your applications.",
       "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/customer-enablement.html",
       "notes": "Not on the official CLF-C02 in-scope list. Mentioned in the course."
+    },
+    {
+      "id": "server-components",
+      "term": "Server Components",
+      "category": "IT Basics",
+      "hint": "CPU + RAM + Storage + Database + Network",
+      "eli12": "A server is a computer with a brain (CPU), short-term memory (RAM), long-term storage and a network connection.",
+      "definition": "A server is made of compute (CPU), memory (RAM), storage (disk) and networking, and often runs a database to store data in a structured way.",
+      "triggers": [
+        "CPU",
+        "RAM",
+        "storage",
+        "network"
+      ],
+      "confuse": [
+        "Amazon EC2"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "router-vs-switch",
+      "term": "Router vs Switch",
+      "category": "IT Basics",
+      "hint": "ROUTER = between networks · SWITCH = inside a network",
+      "eli12": "A router is the post office between towns; a switch delivers mail to the right house on your street.",
+      "definition": "A router forwards data packets between different networks (it knows where to send traffic on the internet). A switch delivers packets to the right device inside a local network.",
+      "triggers": [
+        "router",
+        "switch",
+        "packets"
+      ],
+      "confuse": [
+        "Route Table"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "client-and-server",
+      "term": "Client and Server",
+      "category": "IT Basics",
+      "hint": "clients and servers find each other by IP ADDRESS",
+      "eli12": "Your browser (client) asks a server for a page using the server's address.",
+      "definition": "A client (like a web browser) sends requests over a network to a server, which sends responses back. Both have IP addresses; DNS turns website names into IP addresses.",
+      "triggers": [
+        "client",
+        "server",
+        "IP address"
+      ],
+      "confuse": [
+        "Amazon Route 53"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "problems-with-traditional-it",
+      "term": "Problems with Traditional IT",
+      "category": "Cloud Concepts",
+      "hint": "RENT + POWER + slow HARDWARE + 24/7 STAFF + DISASTERS",
+      "eli12": "Running your own data center is expensive, slow and risky.",
+      "definition": "Running your own data center means paying rent, power, cooling and maintenance; waiting to add or replace hardware; limited scaling; a 24/7 team to monitor it; and exposure to disasters. The cloud takes these on for you.",
+      "triggers": [
+        "on-premises problems",
+        "data center costs",
+        "capacity"
+      ],
+      "confuse": [
+        "On-Premises Costs"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "cloud-computing",
+      "term": "Cloud Computing",
+      "category": "Cloud Concepts",
+      "hint": "ON-DEMAND IT over the internet, pay-as-you-go",
+      "eli12": "Renting computers, storage and apps over the internet instead of buying them.",
+      "definition": "On-demand delivery of compute, storage, databases, applications and other IT resources over the internet with pay-as-you-go pricing. You get exactly the type and size of resources you need, almost instantly, and AWS owns and maintains the hardware.",
+      "triggers": [
+        "on-demand",
+        "pay-as-you-go",
+        "internet"
+      ],
+      "confuse": [
+        "Cloud Deployment Model"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "Cloud computing is the on-demand delivery of compute power, database, storage, applications, and other IT resources through a cloud services platform via the internet with pay-as-you-go pricing.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/what-is-cloud-computing.html",
+      "notes": ""
+    },
+    {
+      "id": "private-vs-public-vs-hybrid-cloud",
+      "term": "Private vs Public vs Hybrid Cloud",
+      "category": "Cloud Concepts",
+      "hint": "PRIVATE = yours alone · PUBLIC = provider's · HYBRID = both",
+      "eli12": "Private is your own kitchen, public is a restaurant, hybrid is cooking at home and ordering some dishes.",
+      "definition": "Private cloud: used by one organization, not exposed to the public, full control (good for sensitive apps). Public cloud: resources owned and run by a third-party provider like AWS and delivered over the internet. Hybrid cloud: keep some servers on-premises and extend into the cloud.",
+      "triggers": [
+        "private cloud",
+        "public cloud",
+        "hybrid cloud"
+      ],
+      "confuse": [
+        "Hybrid Deployment Model",
+        "On-Premises Deployment Model"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "problems-solved-by-the-cloud",
+      "term": "Problems Solved by the Cloud",
+      "category": "Cloud Concepts",
+      "hint": "Flexible · Cost-effective · Scalable · Elastic · Highly available · Agile",
+      "eli12": "What the cloud fixes compared with running your own data center.",
+      "definition": "Flexibility (change resource types when needed), cost-effectiveness (pay for what you use), scalability (bigger or more machines), elasticity (scale out and in automatically), high availability and fault tolerance (build across data centers), and agility (build, test and launch fast).",
+      "triggers": [
+        "flexibility",
+        "cost-effectiveness",
+        "agility"
+      ],
+      "confuse": [
+        "Benefits of AWS Cloud"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "aws-pricing-fundamentals",
+      "term": "AWS Pricing Fundamentals",
+      "category": "Billing",
+      "hint": "pay for COMPUTE, STORAGE, DATA OUT (data IN is free)",
+      "eli12": "You pay for computer time, stored data and data leaving AWS.",
+      "definition": "AWS pay-as-you-go pricing is built on three things: compute time, data stored, and data transferred out of AWS. Data transferred in is free.",
+      "triggers": [
+        "compute",
+        "storage",
+        "data transfer out",
+        "inbound free"
+      ],
+      "confuse": [
+        "AWS Data Transfer Pricing"
+      ],
+      "domain": "Billing, Pricing & Support",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "aws-pricing-models",
+      "term": "AWS Pricing Models",
+      "category": "Billing",
+      "hint": "Pay as you go · Save when you reserve · Pay less by using more · Pay less as AWS grows",
+      "eli12": "Four ways AWS keeps prices low.",
+      "definition": "1) Pay as you go: pay only for what you use. 2) Save when you reserve: commit for a discount (EC2 RIs, DynamoDB reserved capacity, ElastiCache reserved nodes, RDS RIs, Redshift reserved nodes). 3) Pay less by using more: volume discounts. 4) Pay less as AWS grows: prices drop over time.",
+      "triggers": [
+        "pay as you go",
+        "reserve",
+        "volume discount"
+      ],
+      "confuse": [
+        "AWS Pricing Fundamentals"
+      ],
+      "domain": "Billing, Pricing & Support",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "global-vs-regional-services",
+      "term": "Global vs Regional Services",
+      "category": "Infrastructure",
+      "hint": "GLOBAL: IAM, Route 53, CloudFront, WAF · most others REGIONAL",
+      "eli12": "A few AWS services work everywhere at once; most live in the Region you pick.",
+      "definition": "A few services are global: IAM, Route 53, CloudFront and WAF. Most services are Region-scoped (e.g., EC2, Elastic Beanstalk, Lambda, Rekognition), so you choose a Region in the console. Not every service or feature is available in every Region.",
+      "triggers": [
+        "global service",
+        "region-scoped",
+        "Region table"
+      ],
+      "confuse": [
+        "AWS Region"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "iam-best-practices",
+      "term": "IAM Best Practices",
+      "category": "Security",
+      "hint": "no ROOT · 1 person = 1 user · GROUPS · MFA · ROLES · AUDIT",
+      "eli12": "The house rules for keeping AWS logins safe.",
+      "definition": "Don't use the root account except for account setup; one IAM user per person; assign permissions through groups; set a strong password policy; enforce MFA; use roles to give AWS services permissions; use access keys only for CLI/SDK; audit with the Credentials Report and Access Advisor; never share users or keys.",
+      "triggers": [
+        "best practices",
+        "least privilege",
+        "MFA",
+        "roles"
+      ],
+      "confuse": [
+        "Principle of Least Privilege"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "ways-to-access-aws",
+      "term": "Ways to Access AWS",
+      "category": "Security",
+      "hint": "CONSOLE (password + MFA) · CLI & SDK (access keys)",
+      "eli12": "Three doors into AWS: the website, the command line, and code.",
+      "definition": "Three ways to access AWS: the AWS Management Console (protected by password + MFA), the AWS CLI (access keys) and AWS SDKs inside your code (access keys). Access key ID ≈ username; secret access key ≈ password. Never share them.",
+      "triggers": [
+        "console",
+        "CLI",
+        "SDK",
+        "access keys"
+      ],
+      "confuse": [
+        "Access Keys"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "iam-policy-inheritance",
+      "term": "IAM Policy Inheritance",
+      "category": "Security",
+      "hint": "a user gets permissions from EVERY group + inline policies",
+      "eli12": "You get the rules of every club you join, plus your own personal rules.",
+      "definition": "An IAM user receives the permissions of every group they belong to, plus any inline policy attached directly to them. Groups contain only users (not other groups); a user can be in several groups or none.",
+      "triggers": [
+        "group policies",
+        "inline policy",
+        "inheritance"
+      ],
+      "confuse": [
+        "IAM Groups",
+        "IAM Policy"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "shared-responsibility-examples-by-service",
+      "term": "Shared Responsibility Examples by Service",
+      "category": "Security & Compliance",
+      "hint": "AWS = infrastructure · YOU = configuration, data, access",
+      "eli12": "Who does what, service by service.",
+      "definition": "IAM: you manage users, groups, roles, policies, MFA and key rotation. EC2: you patch the guest OS, set security groups and protect your data. EBS/EFS: you set up backups, snapshots and encryption; AWS replicates data and replaces hardware. S3: you set bucket policies, versioning and encryption; AWS guarantees durability and keeps customers separated. RDS: AWS patches the OS and database and disables SSH; you set security groups, database users, public access and encryption. Outposts: you handle the rack's physical security.",
+      "triggers": [
+        "shared responsibility",
+        "customer responsibility",
+        "AWS responsibility"
+      ],
+      "confuse": [
+        "Shared Responsibility Model"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "ec2-instance-naming",
+      "term": "EC2 Instance Naming",
+      "category": "Compute",
+      "hint": "m5.2xlarge = CLASS · GENERATION · SIZE",
+      "eli12": "An instance name tells you its family, version and size.",
+      "definition": "In a name like m5.2xlarge: m = instance class (family), 5 = generation, 2xlarge = size within the class. Families: general purpose, compute optimized, memory optimized, storage optimized, accelerated computing, HPC optimized.",
+      "triggers": [
+        "instance type",
+        "family",
+        "generation",
+        "size"
+      ],
+      "confuse": [
+        "EC2 General Purpose Instances"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "ec2-hpc-optimized-instances",
+      "term": "EC2 HPC Optimized Instances",
+      "category": "Compute",
+      "hint": "HPC = huge SIMULATIONS at scale",
+      "eli12": "Super-powered servers for giant science problems.",
+      "definition": "Instances built for high-performance computing at scale, such as large, complex simulations and deep learning workloads.",
+      "triggers": [
+        "HPC",
+        "simulations",
+        "deep learning"
+      ],
+      "confuse": [
+        "EC2 Compute Optimized Instances"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "ssh-secure-shell",
+      "term": "SSH (Secure Shell)",
+      "category": "Networking",
+      "hint": "SSH = remote command line on PORT 22",
+      "eli12": "Typing commands on a faraway Linux computer as if you were sitting at it.",
+      "definition": "Protocol for securely controlling a remote Linux machine from the command line over port 22, using a key pair. Windows users can use PuTTY. Alternatives without managing keys: EC2 Instance Connect and Systems Manager Session Manager.",
+      "triggers": [
+        "port 22",
+        "remote login",
+        "key pair"
+      ],
+      "confuse": [
+        "EC2 Instance Connect",
+        "Systems Manager Session Manager"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "security-group-troubleshooting",
+      "term": "Security Group Troubleshooting",
+      "category": "Security",
+      "hint": "TIMEOUT = security group · CONNECTION REFUSED = the app",
+      "eli12": "How to tell a firewall problem from an app problem.",
+      "definition": "Security groups can be attached to many instances, are tied to one Region/VPC and sit outside the instance (blocked traffic never reaches it). A timeout usually means a security group is blocking; 'connection refused' means the app isn't running or errored. Rules can reference IP ranges or other security groups. Keep a separate group for SSH.",
+      "triggers": [
+        "timeout",
+        "connection refused",
+        "reference security group"
+      ],
+      "confuse": [
+        "Security Groups"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "convertible-reserved-instances",
+      "term": "Convertible Reserved Instances",
+      "category": "Pricing",
+      "hint": "CONVERTIBLE = can change family/OS · smaller discount",
+      "eli12": "A reservation you can swap later, in exchange for a slightly smaller discount.",
+      "definition": "Reserved Instances you can exchange to change the instance family, type, OS, scope or tenancy. The discount is smaller than Standard RIs (up to about 66% vs 72%), and they can't be sold on the RI Marketplace.",
+      "triggers": [
+        "exchange",
+        "flexible",
+        "up to 66%"
+      ],
+      "confuse": [
+        "Reserved Instances",
+        "Reserved Instance Marketplace"
+      ],
+      "domain": "Billing, Pricing & Support",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "ec2-purchasing-options-hotel-analogy",
+      "term": "EC2 Purchasing Options (Hotel Analogy)",
+      "category": "Pricing",
+      "hint": "On-Demand = walk-in · RI = book ahead · Savings Plan = $/hr any room · Spot = bid, may be kicked out · Dedicated Host = whole building · Capacity Reservation = pay for the room even if empty",
+      "eli12": "Picture EC2 pricing as booking a hotel.",
+      "definition": "On-Demand: arrive any time, pay full price. Reserved: plan a long stay for a discount. Savings Plans: pay a set amount per hour and stay in any room type. Spot: bid for empty rooms and can be kicked out at any time. Dedicated Host: book the whole building. Capacity Reservation: book a room at full price whether you use it or not.",
+      "triggers": [
+        "purchasing options",
+        "compare"
+      ],
+      "confuse": [
+        "On-Demand EC2",
+        "Spot Instances"
+      ],
+      "domain": "Billing, Pricing & Support",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "ebs-delete-on-termination",
+      "term": "EBS Delete on Termination",
+      "category": "Storage",
+      "hint": "ROOT volume deleted by default · extra volumes kept",
+      "eli12": "Whether a drive is thrown away when its server is deleted.",
+      "definition": "Attribute controlling whether an EBS volume is deleted when its instance terminates. Enabled by default for the root volume, disabled by default for other attached volumes. Turn it off on the root volume to keep the data.",
+      "triggers": [
+        "root volume",
+        "terminate",
+        "preserve data"
+      ],
+      "confuse": [
+        "EBS Snapshots"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "ec2-image-builder",
+      "term": "EC2 Image Builder",
+      "category": "Compute",
+      "hint": "AUTOMATE building, testing and sharing AMIs",
+      "eli12": "A robot that builds and tests your server templates for you.",
+      "definition": "Free service (you pay only for underlying resources) that automates creating, maintaining, testing and distributing AMIs or container images, on a schedule if you like, and can share them across Regions.",
+      "triggers": [
+        "automate AMI",
+        "pipeline",
+        "test"
+      ],
+      "confuse": [
+        "AMI (Amazon Machine Image)"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "ebs-vs-efs",
+      "term": "EBS vs EFS",
+      "category": "Storage",
+      "hint": "EBS = ONE instance, ONE AZ · EFS = MANY instances, MANY AZs",
+      "eli12": "EBS is a USB stick for one computer; EFS is a shared network drive for the whole office.",
+      "definition": "EBS: block storage attached to one instance in one AZ (move it to another AZ with a snapshot); you pay for provisioned size. EFS: shared NFS file system that hundreds of Linux instances across AZs can mount at once; pay per use, higher price per GB.",
+      "triggers": [
+        "shared vs single",
+        "block vs file"
+      ],
+      "confuse": [
+        "Amazon EBS",
+        "Amazon EFS"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "amazon-fsx-for-windows-file-server",
+      "term": "Amazon FSx for Windows File Server",
+      "category": "Storage",
+      "hint": "WINDOWS shared drive (SMB, Active Directory)",
+      "eli12": "A shared Windows network drive, run by AWS.",
+      "definition": "Fully managed, native Windows shared file system built on Windows File Server: supports SMB and NTFS, integrates with Microsoft Active Directory, and can be reached from AWS or on-premises.",
+      "triggers": [
+        "SMB",
+        "NTFS",
+        "Active Directory",
+        "Windows"
+      ],
+      "confuse": [
+        "Amazon FSx for Lustre",
+        "Amazon EFS"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "amazon-fsx-for-lustre",
+      "term": "Amazon FSx for Lustre",
+      "category": "Storage",
+      "hint": "LUSTRE = Linux + cluster → HPC",
+      "eli12": "A super-fast file system for supercomputer-style jobs.",
+      "definition": "Fully managed, high-performance file system for HPC, machine learning, analytics, video processing and financial modeling. Can link to S3; scales to hundreds of GB/s, millions of IOPS and sub-millisecond latency.",
+      "triggers": [
+        "HPC",
+        "Linux",
+        "S3 integration",
+        "high performance"
+      ],
+      "confuse": [
+        "Amazon FSx for Windows File Server"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "scalability-vs-high-availability",
+      "term": "Scalability vs High Availability",
+      "category": "Cloud Concepts",
+      "hint": "SCALE = handle MORE load · HA = SURVIVE a data-center loss",
+      "eli12": "Scaling is hiring more call-center operators; high availability is having a second office in another city.",
+      "definition": "Scalability means a system can handle greater load by adapting: vertically (bigger instance) or horizontally (more instances). High availability means running in at least 2 Availability Zones so the app survives losing a data center. They're linked (HA usually goes with horizontal scaling) but different.",
+      "triggers": [
+        "scalability",
+        "high availability",
+        "at least 2 AZs"
+      ],
+      "confuse": [
+        "High Availability",
+        "Scalability"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "scalability-vs-elasticity-vs-agility",
+      "term": "Scalability vs Elasticity vs Agility",
+      "category": "Cloud Concepts",
+      "hint": "Scalable = CAN grow · Elastic = grows AUTOMATICALLY · Agility = SPEED (distractor)",
+      "eli12": "Three words that sound alike but mean different things.",
+      "definition": "Scalability: able to handle more load by scaling up or out. Elasticity: once scalable, it scales automatically with the load (pay per use, match demand). Agility: not about scaling — new IT resources are a click away, so teams get them in minutes instead of weeks.",
+      "triggers": [
+        "scalability",
+        "elasticity",
+        "agility"
+      ],
+      "confuse": [
+        "Elasticity",
+        "Agility",
+        "Scalability"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "load-balancing",
+      "term": "Load Balancing",
+      "category": "Networking",
+      "hint": "spread traffic · health checks · one DNS name · HTTPS",
+      "eli12": "A traffic cop sending visitors to whichever server is free and healthy.",
+      "definition": "A load balancer forwards incoming traffic to multiple servers. Benefits: spreads load, gives one point of access (DNS name), handles failed instances through health checks, provides SSL/HTTPS termination and high availability across AZs. ELB is AWS-managed, so AWS handles upgrades, maintenance and availability.",
+      "triggers": [
+        "load balancer",
+        "health checks",
+        "SSL termination"
+      ],
+      "confuse": [
+        "Load Balancer Types (ALB, NLB, GWLB)",
+        "Elastic Load Balancing (ELB)"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "auto-scaling-group-asg",
+      "term": "Auto Scaling Group (ASG)",
+      "category": "Compute",
+      "hint": "ASG = fleet with MIN / DESIRED / MAX",
+      "eli12": "A team of servers that grows when it's busy and shrinks when it's quiet.",
+      "definition": "A group of EC2 instances that scales out when load rises and in when it falls, keeps the count between a minimum and maximum, replaces unhealthy instances and automatically registers new instances with a load balancer. Saves money by running only what's needed.",
+      "triggers": [
+        "scale out",
+        "scale in",
+        "min",
+        "max",
+        "desired capacity"
+      ],
+      "confuse": [
+        "AWS Auto Scaling",
+        "Auto Scaling Policies"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "s3-buckets",
+      "term": "S3 Buckets",
+      "category": "Storage",
+      "hint": "BUCKET = top-level container, created in a REGION",
+      "eli12": "A bucket is a big labeled box you put files in.",
+      "definition": "Containers for S3 objects. Buckets are created in a specific Region, even though S3 looks global. Names must be globally unique (or unique within your account and Region if you use the newer account regional namespace): lowercase, no underscores, not an IP address, starting with a letter or number.",
+      "triggers": [
+        "bucket",
+        "region",
+        "naming rules"
+      ],
+      "confuse": [
+        "S3 Objects"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "s3-objects",
+      "term": "S3 Objects",
+      "category": "Storage",
+      "hint": "OBJECT = KEY (full path) + data (up to 50 TB)",
+      "eli12": "A file in S3, with its full name and some sticky notes about it.",
+      "definition": "Files stored in S3. Each has a key (the full path: prefix + name; there are no real folders, just names with slashes), the data itself (up to 50 TB; use multipart upload above 5 GB), metadata, up to 10 tags and a version ID if versioning is on.",
+      "triggers": [
+        "key",
+        "prefix",
+        "50 TB",
+        "multipart upload"
+      ],
+      "confuse": [
+        "S3 Buckets"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "s3-security-iam-vs-bucket-policy-vs-acl",
+      "term": "S3 Security (IAM vs Bucket Policy vs ACL)",
+      "category": "Security",
+      "hint": "IAM policy = USER-based · Bucket policy/ACL = RESOURCE-based",
+      "eli12": "Two ways to say who can open a bucket: rules on the person, or rules on the bucket.",
+      "definition": "User-based: IAM policies control which S3 API calls a user can make. Resource-based: bucket policies (bucket-wide rules; allow public or cross-account access), plus object and bucket ACLs (finer-grained, can be disabled). Access is allowed if the IAM policy OR the resource policy allows it AND nothing explicitly denies it. Give EC2 access with IAM roles.",
+      "triggers": [
+        "user-based",
+        "resource-based",
+        "ACL",
+        "explicit deny"
+      ],
+      "confuse": [
+        "S3 Bucket Policies & Block Public Access",
+        "IAM Policy"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "s3-static-website-hosting",
+      "term": "S3 Static Website Hosting",
+      "category": "Storage",
+      "hint": "S3 can host STATIC websites (403 = allow public reads)",
+      "eli12": "S3 can be the home of a simple website.",
+      "definition": "S3 can serve a static website from a bucket, at a website URL that includes the Region. A 403 Forbidden error usually means the bucket policy doesn't allow public reads.",
+      "triggers": [
+        "static website",
+        "403 Forbidden",
+        "public read"
+      ],
+      "confuse": [
+        "Amazon CloudFront"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "s3-durability-vs-availability",
+      "term": "S3 Durability vs Availability",
+      "category": "Storage",
+      "hint": "11 9s DURABILITY for every class · AVAILABILITY varies by class",
+      "eli12": "Durable = your file won't be lost; available = you can get it right now.",
+      "definition": "Durability (99.999999999%, the same for every storage class) is about not losing objects: storing 10 million objects, expect to lose one about every 10,000 years. Availability is how often data is reachable and varies by class: Standard 99.99% (about 53 minutes down a year), Standard-IA 99.9%, One Zone-IA 99.5%.",
+      "triggers": [
+        "durability",
+        "availability",
+        "11 nines",
+        "99.99%"
+      ],
+      "confuse": [
+        "Durability"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "relational-databases-sql",
+      "term": "Relational Databases (SQL)",
+      "category": "Database",
+      "hint": "TABLES linked together, queried with SQL",
+      "eli12": "Like spreadsheets with links between them.",
+      "definition": "Store data in tables with defined relationships, queried with SQL; used for transactional apps (OLTP). On AWS: Amazon RDS and Aurora.",
+      "triggers": [
+        "SQL",
+        "tables",
+        "relationships",
+        "OLTP"
+      ],
+      "confuse": [
+        "NoSQL Databases"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "nosql-databases",
+      "term": "NoSQL Databases",
+      "category": "Database",
+      "hint": "NoSQL = non-relational, FLEXIBLE schema (often JSON)",
+      "eli12": "Databases that don't need a fixed table layout.",
+      "definition": "Non-relational databases built for specific data models with flexible schemas: easy to evolve, scale out across clusters, high performance. Types: key-value, document (JSON), graph, in-memory, search. On AWS: DynamoDB, DocumentDB, Neptune, ElastiCache, OpenSearch.",
+      "triggers": [
+        "NoSQL",
+        "JSON",
+        "key-value",
+        "document",
+        "flexible schema"
+      ],
+      "confuse": [
+        "Relational Databases (SQL)"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "oltp-vs-olap",
+      "term": "OLTP vs OLAP",
+      "category": "Database",
+      "hint": "OLTP = transactions (RDS/Aurora) · OLAP = analytics (Redshift)",
+      "eli12": "OLTP is the cash register; OLAP is the end-of-year sales report.",
+      "definition": "OLTP (online transaction processing): many small reads and writes from apps — RDS, Aurora. OLAP (online analytical processing): large analytic queries over big data loaded in batches — Redshift (columnar data warehouse).",
+      "triggers": [
+        "OLTP",
+        "OLAP",
+        "data warehouse",
+        "analytics"
+      ],
+      "confuse": [
+        "Amazon RDS",
+        "Amazon Redshift"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "amazon-aurora-serverless",
+      "term": "Amazon Aurora Serverless",
+      "category": "Database",
+      "hint": "Aurora that SCALES ITSELF, pay per second",
+      "eli12": "A database that turns itself up and down as needed.",
+      "definition": "Aurora option that automatically starts and scales database capacity with actual usage: no capacity planning, pay per second. Good for infrequent, intermittent or unpredictable workloads. Supports MySQL and PostgreSQL.",
+      "triggers": [
+        "serverless database",
+        "auto scaling",
+        "unpredictable workloads"
+      ],
+      "confuse": [
+        "Amazon Aurora"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "rds-multi-region-cross-region-read-replicas",
+      "term": "RDS Multi-Region (Cross-Region Read Replicas)",
+      "category": "Database",
+      "hint": "read replicas in OTHER Regions = DR + fast local reads",
+      "eli12": "Copies of your database in other countries for faraway readers and for emergencies.",
+      "definition": "Read replicas placed in other Regions give disaster recovery if a Region fails and low-latency reads for users around the world. Writes still go to the main database; cross-Region replication costs apply.",
+      "triggers": [
+        "cross-Region",
+        "disaster recovery",
+        "global reads"
+      ],
+      "confuse": [
+        "Amazon RDS Read Replicas",
+        "RDS Multi-AZ"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "dynamodb-global-tables",
+      "term": "DynamoDB Global Tables",
+      "category": "Database",
+      "hint": "DynamoDB in many Regions — read AND write anywhere",
+      "eli12": "The same table kept in sync around the world.",
+      "definition": "Replicates a DynamoDB table across multiple Regions with active-active (two-way) replication, so users can read and write with low latency in any of them.",
+      "triggers": [
+        "multi-Region",
+        "active-active",
+        "low latency"
+      ],
+      "confuse": [
+        "Amazon DynamoDB",
+        "DynamoDB Accelerator (DAX)"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "amazon-redshift-serverless",
+      "term": "Amazon Redshift Serverless",
+      "category": "Analytics",
+      "hint": "Redshift without managing clusters",
+      "eli12": "Run big reports without setting up the warehouse yourself.",
+      "definition": "Runs Redshift analytics without managing data warehouse infrastructure: capacity is provisioned and scaled automatically and you pay only for what you use. Good for reporting, dashboards and real-time analytics.",
+      "triggers": [
+        "serverless data warehouse",
+        "pay per use"
+      ],
+      "confuse": [
+        "Amazon Redshift"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "aws-glue-data-catalog",
+      "term": "AWS Glue Data Catalog",
+      "category": "Analytics",
+      "hint": "CATALOG of your datasets for Athena, Redshift, EMR",
+      "eli12": "A library card catalog for your data.",
+      "definition": "Central catalog of metadata about your datasets (schemas, locations) that Athena, Redshift and EMR use to find and query data.",
+      "triggers": [
+        "metadata",
+        "catalog",
+        "schema"
+      ],
+      "confuse": [
+        "AWS Glue"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "docker-vs-virtual-machines",
+      "term": "Docker vs Virtual Machines",
+      "category": "Compute",
+      "hint": "VMs each have a GUEST OS · containers SHARE the host OS",
+      "eli12": "VMs are separate houses; containers are apartments in one building.",
+      "definition": "VMs each run a full guest OS on a hypervisor. Containers share the host's OS through the Docker daemon, so many more fit on one server and they start in seconds. Images are stored in Docker Hub (public) or Amazon ECR (private).",
+      "triggers": [
+        "container",
+        "virtual machine",
+        "hypervisor",
+        "Docker Hub"
+      ],
+      "confuse": [
+        "Containers & Docker"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "kubernetes",
+      "term": "Kubernetes",
+      "category": "Containers",
+      "hint": "open-source container ORCHESTRATOR → Amazon EKS",
+      "eli12": "A manager that decides where all your containers run.",
+      "definition": "Open-source, cloud-agnostic system for deploying, managing and scaling containerized apps. AWS runs it for you as Amazon EKS, on EC2 instances or Fargate.",
+      "triggers": [
+        "Kubernetes",
+        "orchestration",
+        "cloud-agnostic"
+      ],
+      "confuse": [
+        "Amazon EKS",
+        "Amazon ECS"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "aws-lambda-pricing",
+      "term": "AWS Lambda Pricing",
+      "category": "Billing",
+      "hint": "pay per REQUEST + per GB-SECOND (generous free tier)",
+      "eli12": "You pay for how many times your code runs and how long it runs.",
+      "definition": "Billed per request ($0.20 per million after the first 1 million free each month) and per duration × memory in GB-seconds (400,000 GB-seconds free each month). Functions can have up to 10 GB of memory; more memory also gives more CPU and network.",
+      "triggers": [
+        "per request",
+        "GB-seconds",
+        "free tier",
+        "10 GB"
+      ],
+      "confuse": [
+        "AWS Lambda"
+      ],
+      "domain": "Billing, Pricing & Support",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "aws-batch-vs-aws-lambda",
+      "term": "AWS Batch vs AWS Lambda",
+      "category": "Compute",
+      "hint": "LAMBDA = short serverless (15 min) · BATCH = long jobs in Docker on EC2",
+      "eli12": "Lambda is a quick errand; Batch is a long shift.",
+      "definition": "Lambda: 15-minute limit, limited runtimes and temporary disk, serverless. Batch: no time limit, any runtime packaged as a Docker image, uses EBS/instance store for disk, runs on EC2 or Spot instances managed by AWS.",
+      "triggers": [
+        "time limit",
+        "Docker",
+        "long-running jobs"
+      ],
+      "confuse": [
+        "AWS Batch",
+        "AWS Lambda"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "infrastructure-as-code-iac",
+      "term": "Infrastructure as Code (IaC)",
+      "category": "Management & Governance",
+      "hint": "IaC = infrastructure written as CODE/TEMPLATES",
+      "eli12": "A recipe that builds your cloud setup the same way every time.",
+      "definition": "Managing infrastructure through templates or code instead of manual clicks: repeatable, reviewable, version-controlled, and easy to delete and recreate (e.g., turn off dev at night). On AWS: CloudFormation (declarative JSON/YAML templates) and CDK (programming languages).",
+      "triggers": [
+        "IaC",
+        "templates",
+        "repeatable",
+        "declarative"
+      ],
+      "confuse": [
+        "AWS CloudFormation",
+        "AWS Cloud Development Kit (CDK)"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "three-tier-web-architecture",
+      "term": "Three-Tier Web Architecture",
+      "category": "Compute",
+      "hint": "ELB → EC2 in an ASG (multi-AZ) → RDS + ElastiCache",
+      "eli12": "The classic web app: front door, workers, and a database with a fast cache.",
+      "definition": "Common design for web apps: a load balancer in front of EC2 instances in an Auto Scaling group across AZs, with RDS for data and ElastiCache for session data and caching.",
+      "triggers": [
+        "web app",
+        "multi-AZ",
+        "load balancer",
+        "database"
+      ],
+      "confuse": [
+        "Cloud Design Principles"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "elastic-beanstalk-deployment-models",
+      "term": "Elastic Beanstalk Deployment Models",
+      "category": "Compute",
+      "hint": "Single instance (dev) · LB + ASG (prod web) · ASG only (workers)",
+      "eli12": "Three ready-made layouts Beanstalk can build for you.",
+      "definition": "Beanstalk architectures: single instance (good for dev), load balancer + Auto Scaling group (production web apps), Auto Scaling group only (non-web workers). A health agent pushes metrics to CloudWatch. Beanstalk handles the OS, capacity, load balancing and scaling; only your code is your responsibility.",
+      "triggers": [
+        "single instance",
+        "load balanced",
+        "worker",
+        "health monitoring"
+      ],
+      "confuse": [
+        "AWS Elastic Beanstalk"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "ci-cd",
+      "term": "CI/CD",
+      "category": "Developer Tools",
+      "hint": "CODE → BUILD → TEST → DEPLOY, automatically",
+      "eli12": "An assembly line that tests and ships code changes for you.",
+      "definition": "Continuous integration and continuous delivery: automatically build, test and release every code change. On AWS: CodeCommit (source), CodeBuild (build and test), CodeDeploy (deploy), CodePipeline (orchestrates the whole pipeline).",
+      "triggers": [
+        "continuous integration",
+        "continuous delivery",
+        "pipeline"
+      ],
+      "confuse": [
+        "AWS CodePipeline"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "systems-manager-session-manager",
+      "term": "Systems Manager Session Manager",
+      "category": "Security",
+      "hint": "secure shell WITHOUT SSH, keys or port 22",
+      "eli12": "Log in to a server through AWS without opening any doors.",
+      "definition": "Starts a secure shell on EC2 or on-premises servers through the SSM agent, with no SSH keys, bastion hosts or open port 22. Access is controlled with IAM, and session logs can be sent to S3 or CloudWatch Logs.",
+      "triggers": [
+        "no port 22",
+        "no SSH keys",
+        "SSM agent"
+      ],
+      "confuse": [
+        "EC2 Instance Connect",
+        "SSH (Secure Shell)"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "systems-manager-parameter-store",
+      "term": "Systems Manager Parameter Store",
+      "category": "Security",
+      "hint": "store CONFIG and secrets (no automatic rotation)",
+      "eli12": "A safe drawer for settings and passwords.",
+      "definition": "Secure, serverless storage for configuration values and secrets (plain text or encrypted with KMS), with version tracking and IAM access control. Unlike Secrets Manager, it doesn't rotate secrets automatically.",
+      "triggers": [
+        "configuration",
+        "parameters",
+        "KMS encryption"
+      ],
+      "confuse": [
+        "AWS Secrets Manager"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "global-applications",
+      "term": "Global Applications",
+      "category": "Infrastructure",
+      "hint": "LOW LATENCY + DISASTER RECOVERY + harder to ATTACK",
+      "eli12": "Putting your app in many places around the world.",
+      "definition": "Apps deployed in multiple Regions and/or edge locations: lower latency for users everywhere, failover to another Region in a disaster, and a spread-out footprint that's harder to attack. Tools: Route 53, CloudFront, S3 Transfer Acceleration, Global Accelerator.",
+      "triggers": [
+        "latency",
+        "disaster recovery",
+        "global"
+      ],
+      "confuse": [
+        "Multi-Region Architecture"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "latency",
+      "term": "Latency",
+      "category": "Cloud Concepts",
+      "hint": "LATENCY = how long data takes to travel",
+      "eli12": "The delay between asking for something and getting it.",
+      "definition": "The time it takes a network packet to travel between a user and a server. Reduced by deploying closer to users (Regions, Local Zones, edge locations, Wavelength).",
+      "triggers": [
+        "delay",
+        "distance",
+        "low latency"
+      ],
+      "confuse": [
+        "Global Applications"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "dns-record-types",
+      "term": "DNS Record Types",
+      "category": "Networking",
+      "hint": "A = IPv4 · AAAA = IPv6 · CNAME = name→name · Alias = name→AWS resource",
+      "eli12": "Different kinds of address-book entries.",
+      "definition": "A record: hostname → IPv4. AAAA: hostname → IPv6. CNAME: hostname → another hostname. Alias: hostname → an AWS resource such as an ELB, CloudFront distribution, S3 website or RDS.",
+      "triggers": [
+        "A record",
+        "AAAA",
+        "CNAME",
+        "Alias"
+      ],
+      "confuse": [
+        "Amazon Route 53"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "route-53-routing-policies",
+      "term": "Route 53 Routing Policies",
+      "category": "Networking",
+      "hint": "Simple · Weighted · Latency · Failover",
+      "eli12": "Different rules for which server a visitor is sent to.",
+      "definition": "Simple: one resource, no health checks. Weighted: split traffic by percentage (e.g., 70/20/10). Latency: send users to the Region with the lowest latency. Failover: send traffic to a standby when the primary fails its health check (disaster recovery).",
+      "triggers": [
+        "simple",
+        "weighted",
+        "latency-based",
+        "failover"
+      ],
+      "confuse": [
+        "Amazon Route 53"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "cloudfront-origins-oac",
+      "term": "CloudFront Origins & OAC",
+      "category": "Networking",
+      "hint": "ORIGIN = where CloudFront gets the content (S3, ALB, EC2, HTTP)",
+      "eli12": "The warehouse CloudFront restocks its local shops from.",
+      "definition": "CloudFront fetches content from an origin and caches it at edge locations. Origins: an S3 bucket (secured with Origin Access Control + bucket policy), a VPC origin (private ALB, NLB or EC2), or any custom HTTP backend such as a public ALB or S3 website.",
+      "triggers": [
+        "origin",
+        "Origin Access Control",
+        "cache"
+      ],
+      "confuse": [
+        "Amazon CloudFront"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "cloudfront-vs-s3-cross-region-replication",
+      "term": "CloudFront vs S3 Cross-Region Replication",
+      "category": "Networking",
+      "hint": "CloudFront = CACHE everywhere (static) · CRR = live copies in a FEW Regions (dynamic)",
+      "eli12": "Cached copies worldwide vs a live twin in another Region.",
+      "definition": "CloudFront caches files across the global edge network for a time-to-live (TTL); best for static content needed everywhere. S3 Cross-Region Replication copies objects in near real time to specific Regions you set up; read-only, best for dynamic content needed with low latency in a few Regions.",
+      "triggers": [
+        "TTL",
+        "cache",
+        "replication",
+        "static vs dynamic"
+      ],
+      "confuse": [
+        "Amazon CloudFront",
+        "S3 Replication (CRR & SRR)"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "global-accelerator-vs-cloudfront",
+      "term": "Global Accelerator vs CloudFront",
+      "category": "Networking",
+      "hint": "CloudFront CACHES content · Global Accelerator PROXIES traffic (TCP/UDP, static IPs)",
+      "eli12": "One stores copies near you; the other gives you a faster road to the original.",
+      "definition": "Both use the AWS global network and edge locations and integrate with Shield. CloudFront is a CDN that caches content like images and video at the edge. Global Accelerator doesn't cache: it proxies packets to apps in AWS Regions, works for TCP/UDP, gives static IP addresses and fast regional failover.",
+      "triggers": [
+        "no caching",
+        "static IP",
+        "TCP/UDP",
+        "CDN"
+      ],
+      "confuse": [
+        "AWS Global Accelerator",
+        "Amazon CloudFront"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "multi-region-active-passive-vs-active-active",
+      "term": "Multi-Region Active-Passive vs Active-Active",
+      "category": "Infrastructure",
+      "hint": "ACTIVE-PASSIVE = standby Region · ACTIVE-ACTIVE = all Regions serve",
+      "eli12": "One store open with a backup store closed vs every store open.",
+      "definition": "Global designs from simple to complex: single Region single AZ; single Region multi-AZ (high availability); multi-Region active-passive (one Region serves traffic, another waits for failover); multi-Region active-active (every Region serves reads and writes — lowest latency, most complex).",
+      "triggers": [
+        "active-passive",
+        "active-active",
+        "failover"
+      ],
+      "confuse": [
+        "Disaster Recovery Strategies"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "decoupling-synchronous-vs-asynchronous",
+      "term": "Decoupling (Synchronous vs Asynchronous)",
+      "category": "Application Integration",
+      "hint": "decouple with a QUEUE (SQS), PUB/SUB (SNS) or STREAM (Kinesis)",
+      "eli12": "Instead of calling each other directly, apps leave messages in a shared mailbox.",
+      "definition": "Direct (synchronous) app-to-app calls can break during traffic spikes. Asynchronous, event-based communication through a middle service decouples apps so each part scales on its own: SQS (queue), SNS (pub/sub), Kinesis (real-time streaming).",
+      "triggers": [
+        "synchronous",
+        "asynchronous",
+        "decouple",
+        "event-based"
+      ],
+      "confuse": [
+        "Cloud Design Principles"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "sqs-fifo-queue",
+      "term": "SQS FIFO Queue",
+      "category": "Application Integration",
+      "hint": "FIFO = messages processed IN ORDER",
+      "eli12": "First in line, first served.",
+      "definition": "SQS queue type that keeps messages in the exact order they were sent (first in, first out). Standard queues offer maximum throughput but don't guarantee order.",
+      "triggers": [
+        "first in first out",
+        "ordering"
+      ],
+      "confuse": [
+        "Amazon SQS"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "amazon-data-firehose",
+      "term": "Amazon Data Firehose",
+      "category": "Analytics",
+      "hint": "FIREHOSE = load streaming data INTO S3 / Redshift / OpenSearch",
+      "eli12": "A pipe that pours a stream of data into storage.",
+      "definition": "Fully managed service that delivers streaming data (for example from Kinesis Data Streams) into destinations such as S3, Redshift and OpenSearch.",
+      "triggers": [
+        "streaming delivery",
+        "load into S3"
+      ],
+      "confuse": [
+        "Amazon Kinesis"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "cloudwatch-metrics",
+      "term": "CloudWatch Metrics",
+      "category": "Monitoring",
+      "hint": "METRIC = variable you monitor (CPU, not RAM by default)",
+      "eli12": "Numbers AWS tracks about your stuff over time.",
+      "definition": "Time-stamped values for every AWS service, viewable in dashboards. EC2 sends CPU, status checks and network every 5 minutes by default (every 1 minute with paid detailed monitoring), but not RAM. Other examples: S3 bucket size, billing estimated charges (us-east-1 only), custom metrics.",
+      "triggers": [
+        "CPUUtilization",
+        "detailed monitoring",
+        "custom metrics"
+      ],
+      "confuse": [
+        "Amazon CloudWatch Logs",
+        "CloudWatch Alarms"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "cloudwatch-alarms",
+      "term": "CloudWatch Alarms",
+      "category": "Monitoring",
+      "hint": "ALARM on a metric → Auto Scaling, EC2 action or SNS",
+      "eli12": "An alarm clock that goes off when a number gets too high or low.",
+      "definition": "Trigger notifications or actions when a metric crosses a threshold: adjust Auto Scaling capacity, stop/terminate/reboot/recover an EC2 instance, or notify an SNS topic. States: OK, INSUFFICIENT_DATA, ALARM.",
+      "triggers": [
+        "alarm states",
+        "SNS",
+        "EC2 action",
+        "threshold"
+      ],
+      "confuse": [
+        "CloudWatch Billing Alarm",
+        "CloudWatch Metrics"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "cloudtrail-insights",
+      "term": "CloudTrail Insights",
+      "category": "Monitoring",
+      "hint": "AUTOMATIC detection of unusual API activity",
+      "eli12": "CloudTrail noticing when something weird is going on.",
+      "definition": "CloudTrail feature that automatically analyzes events to detect unusual API activity. Reminders: CloudTrail is on by default, a trail can cover all Regions, logs can go to CloudWatch Logs or S3, and it's the first place to check when a resource was deleted.",
+      "triggers": [
+        "unusual activity",
+        "audit",
+        "enabled by default"
+      ],
+      "confuse": [
+        "AWS CloudTrail"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "ip-addresses-in-aws",
+      "term": "IP Addresses in AWS",
+      "category": "Networking",
+      "hint": "Public IPv4 changes on stop/start · Private stays · Elastic IP = fixed · IPv6 free",
+      "eli12": "Different kinds of addresses for your servers.",
+      "definition": "Public IPv4: reachable on the internet; an EC2 instance gets a new one each time it stops and starts; all public IPv4 addresses (including Elastic IPs) are billed hourly. Private IPv4: for internal networks; stays the same. Elastic IP: a fixed public IPv4. IPv6: every address is public, and it's free.",
+      "triggers": [
+        "public IP",
+        "private IP",
+        "IPv6",
+        "charged"
+      ],
+      "confuse": [
+        "Elastic IP Address"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "customer-gateway-virtual-private-gateway",
+      "term": "Customer Gateway & Virtual Private Gateway",
+      "category": "Networking",
+      "hint": "Site-to-Site VPN = CUSTOMER GATEWAY (on-prem) + VIRTUAL PRIVATE GATEWAY (AWS)",
+      "eli12": "The two ends of the tunnel.",
+      "definition": "A Site-to-Site VPN needs a Customer Gateway on the on-premises side and a Virtual Private Gateway on the AWS (VPC) side.",
+      "triggers": [
+        "CGW",
+        "VGW",
+        "VPN endpoints"
+      ],
+      "confuse": [
+        "AWS Site-to-Site VPN"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "ddos-attack",
+      "term": "DDoS Attack",
+      "category": "Security",
+      "hint": "DDoS = flood of traffic from MANY bots",
+      "eli12": "A crowd of fake visitors jamming the door so real customers can't get in.",
+      "definition": "Distributed denial-of-service: attackers use many machines (bots) to flood an application or server so legitimate users can't reach it.",
+      "triggers": [
+        "denial of service",
+        "bots",
+        "flood"
+      ],
+      "confuse": [
+        "DDoS Protection on AWS"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "ddos-protection-on-aws",
+      "term": "DDoS Protection on AWS",
+      "category": "Security",
+      "hint": "Shield + WAF + CloudFront/Route 53 + Auto Scaling",
+      "eli12": "The layers AWS uses to stop traffic floods.",
+      "definition": "Shield Standard (free, automatic), Shield Advanced (24/7 response team, cost protection), WAF (filter requests, rate-based rules), CloudFront and Route 53 (absorb attacks across the global edge network), and Auto Scaling to handle extra load.",
+      "triggers": [
+        "DDoS mitigation",
+        "edge",
+        "rate-based rules"
+      ],
+      "confuse": [
+        "AWS Shield",
+        "AWS WAF"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "kms-encryption-opt-in-vs-automatic",
+      "term": "KMS Encryption: Opt-in vs Automatic",
+      "category": "Security",
+      "hint": "OPT-IN: EBS, S3 SSE-KMS, RDS, Redshift, EFS · AUTOMATIC: CloudTrail logs, S3 Glacier, Storage Gateway",
+      "eli12": "Some services lock your data only if you ask; others always do.",
+      "definition": "If a question mentions encryption on AWS, think KMS. You opt in to encryption for EBS volumes, S3 with SSE-KMS (SSE-S3 is on by default), RDS, Redshift and EFS. Encryption is automatic for CloudTrail logs, S3 Glacier and Storage Gateway.",
+      "triggers": [
+        "opt-in encryption",
+        "automatic encryption",
+        "SSE"
+      ],
+      "confuse": [
+        "AWS KMS",
+        "Encryption at Rest"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "root-user-only-tasks",
+      "term": "Root-User-Only Tasks",
+      "category": "Security",
+      "hint": "only ROOT can: change account settings, CLOSE account, change SUPPORT PLAN, sell RIs…",
+      "eli12": "The jobs only the account owner can do.",
+      "definition": "Tasks only the root user can do: change account settings (name, email, root password and keys); view certain tax invoices; close the account; restore IAM user permissions; change or cancel the support plan; register as a seller in the RI Marketplace; enable MFA Delete on an S3 bucket; edit or delete a broken S3 bucket policy; sign up for GovCloud.",
+      "triggers": [
+        "root only",
+        "close account",
+        "support plan",
+        "MFA Delete"
+      ],
+      "confuse": [
+        "AWS Root User"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "if-your-aws-account-is-compromised",
+      "term": "If Your AWS Account Is Compromised",
+      "category": "Security",
+      "hint": "change ROOT password · rotate ALL keys/passwords · contact AWS Support",
+      "eli12": "What to do right away if someone breaks in.",
+      "definition": "Change the root password, delete and rotate all passwords and access keys, and contact AWS Support.",
+      "triggers": [
+        "compromised account",
+        "rotate keys"
+      ],
+      "confuse": [
+        "AWS Root User"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "organizational-units-ous",
+      "term": "Organizational Units (OUs)",
+      "category": "Management & Governance",
+      "hint": "OU = folder of accounts (by team, environment or project)",
+      "eli12": "Folders that group your AWS accounts.",
+      "definition": "Groups of accounts inside AWS Organizations, nested under the root, organized by business unit, environment (dev/prod) or project. SCPs can be attached to OUs to limit what their accounts can do.",
+      "triggers": [
+        "OU",
+        "group accounts",
+        "SCP"
+      ],
+      "confuse": [
+        "AWS Organizations",
+        "Service Control Policies (SCPs)"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "multi-account-strategy",
+      "term": "Multi-Account Strategy",
+      "category": "Management & Governance",
+      "hint": "separate ACCOUNTS for teams, environments, compliance and logging",
+      "eli12": "Giving each team or environment its own AWS account.",
+      "definition": "Create accounts per department, cost center or environment (dev/test/prod) for isolation, separate service quotas and compliance (with SCPs). Use tagging standards for billing, and send CloudTrail and CloudWatch Logs from every account to a central logging account.",
+      "triggers": [
+        "multiple accounts",
+        "isolation",
+        "central logging"
+      ],
+      "confuse": [
+        "AWS Organizations",
+        "AWS Control Tower"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "aws-free-plan-credits",
+      "term": "AWS Free Plan & Credits",
+      "category": "Billing",
+      "hint": "new accounts: up to $200 CREDITS · Free Plan (6 months) or Paid Plan",
+      "eli12": "How new AWS accounts get free money to learn with.",
+      "definition": "New accounts get up to $200 in credits and choose a Free Plan (ends after 6 months or when credits run out, with no charges) or a Paid Plan (charged once credits are used). Both include Always Free offers such as Lambda's 1 million requests and DynamoDB's 25 GB each month.",
+      "triggers": [
+        "credits",
+        "Free Plan",
+        "Paid Plan",
+        "Always Free"
+      ],
+      "confuse": [
+        "AWS Free Tier"
+      ],
+      "domain": "Billing, Pricing & Support",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "ec2-pricing-factors",
+      "term": "EC2 Pricing Factors",
+      "category": "Billing",
+      "hint": "instances × (type, size, Region, OS) + purchase option + ELB + detailed monitoring",
+      "eli12": "What makes an EC2 bill bigger or smaller.",
+      "definition": "EC2 cost depends on the number of instances, instance type and size, Region, OS and software, and purchasing option, plus extras such as load balancer hours and data processed and detailed monitoring. On-Demand bills per second for Linux/Windows (60-second minimum) or per hour for other OSes.",
+      "triggers": [
+        "EC2 cost",
+        "per second",
+        "instance configuration"
+      ],
+      "confuse": [
+        "On-Demand EC2",
+        "EC2 Purchasing Options (Hotel Analogy)"
+      ],
+      "domain": "Billing, Pricing & Support",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "ecs-vs-fargate-pricing",
+      "term": "ECS vs Fargate Pricing",
+      "category": "Billing",
+      "hint": "ECS on EC2 = pay for the EC2 · Fargate = pay for vCPU + memory",
+      "eli12": "Either rent the servers, or pay just for what the containers use.",
+      "definition": "ECS with the EC2 launch type has no extra fee: you pay for the EC2 instances and other resources you create. Fargate launch type: you pay for the vCPU and memory allocated to your containers.",
+      "triggers": [
+        "launch type",
+        "vCPU",
+        "memory"
+      ],
+      "confuse": [
+        "AWS Fargate",
+        "Amazon ECS"
+      ],
+      "domain": "Billing, Pricing & Support",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "service-pricing-factors-s3-ebs-rds-cloudfront",
+      "term": "Service Pricing Factors (S3, EBS, RDS, CloudFront)",
+      "category": "Billing",
+      "hint": "S3: class + size + requests + data out · EBS: provisioned GB + IOPS + snapshots · RDS: hours + engine + size + storage · CloudFront: data out + requests",
+      "eli12": "What drives the bill for common services.",
+      "definition": "S3: storage class, amount stored, number and type of requests, data out of the Region, Transfer Acceleration, lifecycle transitions. EBS: volume type, provisioned GB per month, provisioned IOPS, snapshots. RDS: per-hour billing by engine, size and memory class, purchase type, extra storage, I/O, Single- or Multi-AZ (backup storage free up to 100% of database storage). CloudFront: data out and HTTP/HTTPS requests, priced by geography. Inbound data is free.",
+      "triggers": [
+        "pricing factors",
+        "data out",
+        "provisioned"
+      ],
+      "confuse": [
+        "Storage Pricing and Tiers",
+        "AWS Data Transfer Pricing"
+      ],
+      "domain": "Billing, Pricing & Support",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "billing-tools-by-purpose",
+      "term": "Billing Tools by Purpose",
+      "category": "Billing",
+      "hint": "ESTIMATE: Pricing Calculator · TRACK: Billing Dashboard, tags, CUR, Cost Explorer · MONITOR: billing alarms, Budgets",
+      "eli12": "Which money tool to use when.",
+      "definition": "Estimating costs: AWS Pricing Calculator. Tracking costs: Billing Dashboard, cost allocation tags, Cost and Usage Reports, Cost Explorer. Monitoring against plans: CloudWatch billing alarms and AWS Budgets. Also: Savings Plans, Cost Anomaly Detection, Compute Optimizer, Service Quotas.",
+      "triggers": [
+        "estimate",
+        "track",
+        "monitor"
+      ],
+      "confuse": [
+        "AWS Cost Explorer",
+        "AWS Budgets"
+      ],
+      "domain": "Billing, Pricing & Support",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "aws-billing-dashboard",
+      "term": "AWS Billing Dashboard",
+      "category": "Billing",
+      "hint": "high-level OVERVIEW of your bill",
+      "eli12": "The summary page of your AWS bill.",
+      "definition": "Billing console page with a high-level view of month-to-date and forecasted charges and spend by service.",
+      "triggers": [
+        "bill overview",
+        "month-to-date"
+      ],
+      "confuse": [
+        "AWS Cost Explorer"
+      ],
+      "domain": "Billing, Pricing & Support",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "microsoft-active-directory-ad",
+      "term": "Microsoft Active Directory (AD)",
+      "category": "Security",
+      "hint": "AD = Windows' central database of users and computers",
+      "eli12": "The company phone book that also decides who can log in where.",
+      "definition": "Directory service on Windows Server (AD Domain Services) that stores users, computers, printers, file shares and security groups for centralized login and permissions.",
+      "triggers": [
+        "Active Directory",
+        "domain controller",
+        "Windows"
+      ],
+      "confuse": [
+        "AWS Directory Service"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "aws-directory-service-types",
+      "term": "AWS Directory Service Types",
+      "category": "Security",
+      "hint": "Managed AD (full AD in AWS) · AD Connector (proxy to on-prem) · Simple AD (basic, standalone)",
+      "eli12": "Three ways to use Active Directory with AWS.",
+      "definition": "AWS Managed Microsoft AD: real AD in AWS, manage users there, supports MFA and trust with on-prem AD. AD Connector: proxy that sends logins to your on-premises AD (users stay on-prem). Simple AD: basic AD-compatible directory on AWS that can't join on-prem AD.",
+      "triggers": [
+        "Managed AD",
+        "AD Connector",
+        "Simple AD"
+      ],
+      "confuse": [
+        "AWS Directory Service",
+        "AWS IAM Identity Center"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "desktop-as-a-service-daas-vdi",
+      "term": "Desktop as a Service (DaaS / VDI)",
+      "category": "End User Computing",
+      "hint": "DaaS = desktops delivered from the CLOUD",
+      "eli12": "Your work computer runs in AWS and you just log in.",
+      "definition": "Virtual desktops hosted in the cloud instead of on-premises VDI (virtual desktop infrastructure). Amazon WorkSpaces gives users full Windows/Linux desktops; AppStream 2.0 streams individual applications to a browser.",
+      "triggers": [
+        "DaaS",
+        "VDI",
+        "virtual desktop"
+      ],
+      "confuse": [
+        "Amazon WorkSpaces",
+        "Amazon AppStream 2.0"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "rehost-lift-and-shift",
+      "term": "Rehost (Lift and Shift)",
+      "category": "Migration",
+      "hint": "REHOST = move it AS IS",
+      "eli12": "Pick up the whole house and put it down in the cloud unchanged.",
+      "definition": "Migrate applications, databases or servers to AWS without changes or cloud optimizations. Simple and fast; can still save around 30%. Example tool: AWS Application Migration Service.",
+      "triggers": [
+        "lift and shift",
+        "as is",
+        "Application Migration Service"
+      ],
+      "confuse": [
+        "Replatform (Lift and Reshape)",
+        "Relocate"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "replatform-lift-and-reshape",
+      "term": "Replatform (Lift and Reshape)",
+      "category": "Migration",
+      "hint": "REPLATFORM = small cloud tweaks, same architecture",
+      "eli12": "Move the house and swap in a few better appliances.",
+      "definition": "Keep the core architecture but use some cloud optimizations, such as moving a database to RDS or an app to Elastic Beanstalk, to save time and money with managed or serverless services.",
+      "triggers": [
+        "lift and reshape",
+        "managed service",
+        "RDS"
+      ],
+      "confuse": [
+        "Rehost (Lift and Shift)",
+        "Refactor / Re-architect"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "refactor-re-architect",
+      "term": "Refactor / Re-architect",
+      "category": "Migration",
+      "hint": "REFACTOR = REDESIGN cloud-native",
+      "eli12": "Tear down and rebuild the house for the new neighborhood.",
+      "definition": "Reimagine the application using cloud-native features, driven by needs for new features, scale, performance, security or agility — for example, moving from a monolith to microservices or serverless.",
+      "triggers": [
+        "re-architect",
+        "microservices",
+        "serverless",
+        "cloud-native"
+      ],
+      "confuse": [
+        "Replatform (Lift and Reshape)"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "repurchase-drop-and-shop",
+      "term": "Repurchase (Drop and Shop)",
+      "category": "Migration",
+      "hint": "REPURCHASE = switch to a different product (often SaaS)",
+      "eli12": "Throw out the old appliance and buy a new brand.",
+      "definition": "Move to a different product while migrating, often SaaS (e.g., CRM to Salesforce, HR to Workday). More expensive short-term but quick to deploy.",
+      "triggers": [
+        "drop and shop",
+        "SaaS",
+        "new product"
+      ],
+      "confuse": [
+        "Retire"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "retire",
+      "term": "Retire",
+      "category": "Migration",
+      "hint": "RETIRE = turn it OFF",
+      "eli12": "Throw away what you don't use before moving.",
+      "definition": "Turn off applications you no longer need. Saves cost, shrinks the attack surface and lets teams focus on what matters.",
+      "triggers": [
+        "turn off",
+        "decommission",
+        "reduce attack surface"
+      ],
+      "confuse": [
+        "Retain"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "retain",
+      "term": "Retain",
+      "category": "Migration",
+      "hint": "RETAIN = keep it where it is FOR NOW",
+      "eli12": "Leave it in the old house for now.",
+      "definition": "Decide not to migrate yet, for reasons like security, compliance, performance, unresolved dependencies or no business value (e.g., mainframes).",
+      "triggers": [
+        "do nothing for now",
+        "keep on-premises"
+      ],
+      "confuse": [
+        "Retire"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "relocate",
+      "term": "Relocate",
+      "category": "Migration",
+      "hint": "RELOCATE = move to the cloud VERSION of the same platform",
+      "eli12": "Move to the same kind of building in a new city.",
+      "definition": "Move apps to the cloud version of their platform without changing them (e.g., VMware to VMware Cloud on AWS), or move EC2 instances to a different VPC, account or Region.",
+      "triggers": [
+        "VMware Cloud on AWS",
+        "move platform"
+      ],
+      "confuse": [
+        "Rehost (Lift and Shift)"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "well-architected-general-design-principles",
+      "term": "Well-Architected General Design Principles",
+      "category": "Cloud Concepts",
+      "hint": "Stop guessing capacity · Test at production scale · Automate · Evolve · Data-driven · Game days",
+      "eli12": "AWS's general rules for good cloud design.",
+      "definition": "Stop guessing capacity needs; test systems at production scale; automate to make experimenting easier; allow architectures to evolve with changing requirements; drive architecture decisions with data; improve through game days (simulate events like flash-sale traffic).",
+      "triggers": [
+        "guiding principles",
+        "game days",
+        "production scale"
+      ],
+      "confuse": [
+        "Cloud Design Principles"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "operational-excellence-pillar",
+      "term": "Operational Excellence Pillar",
+      "category": "Cloud Concepts",
+      "hint": "run, monitor, IMPROVE: operations as code, small reversible changes",
+      "eli12": "Running things smoothly and getting better every time.",
+      "definition": "Run and monitor systems to deliver business value and keep improving processes. Principles: operations as code, frequent small reversible changes, refine procedures often, anticipate failure, learn from failures, use managed services, observability. Services: CloudFormation, Config, CloudTrail, CloudWatch, X-Ray, CodeBuild, CodePipeline.",
+      "triggers": [
+        "operations as code",
+        "small reversible changes",
+        "observability"
+      ],
+      "confuse": [
+        "Reliability Pillar"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "security-pillar",
+      "term": "Security Pillar",
+      "category": "Cloud Concepts",
+      "hint": "strong IDENTITY, TRACEABILITY, security at ALL LAYERS, protect data",
+      "eli12": "Protecting data, systems and accounts.",
+      "definition": "Protect information, systems and assets. Principles: strong identity foundation (least privilege, no long-term credentials), enable traceability, apply security at all layers, automate security, protect data in transit and at rest, keep people away from data, prepare for security events. Services: IAM, STS, MFA, Organizations, Config, CloudTrail, CloudWatch, VPC, Shield, WAF, Inspector, KMS.",
+      "triggers": [
+        "least privilege",
+        "traceability",
+        "all layers",
+        "encryption"
+      ],
+      "confuse": [
+        "Operational Excellence Pillar"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "reliability-pillar",
+      "term": "Reliability Pillar",
+      "category": "Cloud Concepts",
+      "hint": "RECOVER from failure, scale HORIZONTALLY, stop guessing capacity",
+      "eli12": "Keep working, and bounce back fast when something breaks.",
+      "definition": "Recover from infrastructure or service disruptions, acquire resources to meet demand, and mitigate issues like misconfigurations. Principles: test recovery procedures, recover automatically, scale horizontally, stop guessing capacity, manage change with automation. Services: Service Quotas, Trusted Advisor, Auto Scaling, CloudWatch, Backup, S3, Route 53.",
+      "triggers": [
+        "recover",
+        "horizontal scaling",
+        "test recovery"
+      ],
+      "confuse": [
+        "Performance Efficiency Pillar"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "performance-efficiency-pillar",
+      "term": "Performance Efficiency Pillar",
+      "category": "Cloud Concepts",
+      "hint": "use resources EFFICIENTLY: go global, serverless, experiment",
+      "eli12": "Use the right tool for the job and keep it efficient.",
+      "definition": "Use computing resources efficiently as demand and technology change. Principles: democratize advanced technologies (use them as services), go global in minutes, use serverless, experiment more often, mechanical sympathy (know your services). Services: Auto Scaling, Lambda, EBS, S3, RDS, ElastiCache, CloudFront, CloudWatch.",
+      "triggers": [
+        "efficiency",
+        "serverless",
+        "experiment"
+      ],
+      "confuse": [
+        "Cost Optimization Pillar"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "cost-optimization-pillar",
+      "term": "Cost Optimization Pillar",
+      "category": "Cloud Concepts",
+      "hint": "lowest PRICE: pay for use, measure, TAG and attribute spend",
+      "eli12": "Get the most value for the least money.",
+      "definition": "Deliver business value at the lowest price point. Principles: adopt a consumption model (pay only for use), measure overall efficiency, stop spending on data centers, analyze and attribute spending (use tags), use managed services. Services: Budgets, Cost and Usage Report, Cost Explorer, Spot and Reserved Instances, S3 Glacier, Auto Scaling, Lambda, Trusted Advisor.",
+      "triggers": [
+        "pay for use",
+        "tags",
+        "Spot",
+        "cost visibility"
+      ],
+      "confuse": [
+        "Sustainability Pillar"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "sustainability-pillar",
+      "term": "Sustainability Pillar",
+      "category": "Cloud Concepts",
+      "hint": "minimize ENVIRONMENTAL impact: right-size, use efficient hardware",
+      "eli12": "Using the cloud in a way that's kinder to the planet.",
+      "definition": "Minimize the environmental impact of cloud workloads. Principles: understand your impact, set sustainability goals, maximize utilization (right-size, avoid idle), adopt more efficient hardware and software, use managed services, reduce downstream impact. Services: Auto Scaling, Lambda, Fargate, Graviton, Spot, EFS-IA, S3 Glacier, S3 lifecycle and Intelligent-Tiering.",
+      "triggers": [
+        "energy efficiency",
+        "utilization",
+        "Graviton"
+      ],
+      "confuse": [
+        "Cost Optimization Pillar"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "aws-customer-carbon-footprint-tool",
+      "term": "AWS Customer Carbon Footprint Tool",
+      "category": "Cloud Concepts",
+      "hint": "track your AWS CARBON emissions",
+      "eli12": "Shows how much pollution your AWS use creates.",
+      "definition": "Billing console tool to track, measure, review and forecast the carbon emissions from your AWS usage, to support your sustainability goals.",
+      "triggers": [
+        "carbon emissions",
+        "sustainability"
+      ],
+      "confuse": [
+        "Sustainability Pillar"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "caf-business-perspective",
+      "term": "CAF Business Perspective",
+      "category": "Cloud Concepts",
+      "hint": "BUSINESS = cloud investments drive BUSINESS OUTCOMES",
+      "eli12": "Making sure cloud spending helps the business win.",
+      "definition": "CAF business-capability perspective that ensures cloud investments accelerate digital transformation and business outcomes.",
+      "triggers": [
+        "business outcomes",
+        "investment"
+      ],
+      "confuse": [
+        "CAF People Perspective",
+        "CAF Governance Perspective"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "caf-people-perspective",
+      "term": "CAF People Perspective",
+      "category": "Cloud Concepts",
+      "hint": "PEOPLE = culture, leadership, workforce, org structure",
+      "eli12": "Getting people and culture ready for the cloud.",
+      "definition": "CAF business-capability perspective that bridges technology and business, evolving culture, organizational structure, leadership and workforce toward continuous learning and change.",
+      "triggers": [
+        "culture",
+        "leadership",
+        "workforce",
+        "change management"
+      ],
+      "confuse": [
+        "CAF Business Perspective"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "caf-governance-perspective",
+      "term": "CAF Governance Perspective",
+      "category": "Cloud Concepts",
+      "hint": "GOVERNANCE = orchestrate initiatives, MINIMIZE RISK",
+      "eli12": "Steering the cloud program and keeping risks low.",
+      "definition": "CAF business-capability perspective that orchestrates cloud initiatives to maximize organizational benefits and minimize transformation risks.",
+      "triggers": [
+        "orchestrate",
+        "risk",
+        "benefits"
+      ],
+      "confuse": [
+        "CAF Business Perspective"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "caf-platform-perspective",
+      "term": "CAF Platform Perspective",
+      "category": "Cloud Concepts",
+      "hint": "PLATFORM = build a scalable hybrid cloud platform, modernize",
+      "eli12": "Building the technical foundation in the cloud.",
+      "definition": "CAF technical-capability perspective for building an enterprise-grade, scalable hybrid cloud platform, modernizing existing workloads and implementing cloud-native solutions.",
+      "triggers": [
+        "platform",
+        "modernize",
+        "cloud-native"
+      ],
+      "confuse": [
+        "CAF Operations Perspective"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "caf-security-perspective",
+      "term": "CAF Security Perspective",
+      "category": "Cloud Concepts",
+      "hint": "SECURITY = confidentiality, integrity, availability",
+      "eli12": "Keeping data and workloads safe during the move.",
+      "definition": "CAF technical-capability perspective focused on achieving the confidentiality, integrity and availability of data and cloud workloads.",
+      "triggers": [
+        "CIA",
+        "security",
+        "data protection"
+      ],
+      "confuse": [
+        "CIA Triad"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "caf-operations-perspective",
+      "term": "CAF Operations Perspective",
+      "category": "Cloud Concepts",
+      "hint": "OPERATIONS = deliver cloud services at the level the business needs",
+      "eli12": "Running cloud services well, day to day.",
+      "definition": "CAF technical-capability perspective that ensures cloud services are delivered at a level that meets business needs.",
+      "triggers": [
+        "operations",
+        "service levels"
+      ],
+      "confuse": [
+        "CAF Platform Perspective"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "aws-solutions-library",
+      "term": "AWS Solutions Library",
+      "category": "Support / Resources",
+      "hint": "vetted READY-MADE solutions (formerly Quick Starts)",
+      "eli12": "Ready-made recipes for common AWS setups.",
+      "definition": "Collection of vetted, ready-to-deploy technology solutions for common use cases (e.g., live streaming on AWS). Formerly AWS Quick Starts.",
+      "triggers": [
+        "Quick Starts",
+        "vetted solutions",
+        "reference"
+      ],
+      "confuse": [
+        "AWS Prescriptive Guidance"
+      ],
+      "domain": "Billing, Pricing & Support",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "aws-training-certification",
+      "term": "AWS Training & Certification",
+      "category": "Support / Resources",
+      "hint": "digital, classroom & private TRAINING · AWS Academy for universities",
+      "eli12": "Ways to learn AWS officially.",
+      "definition": "AWS digital (online) and classroom training (in person or virtual), private training for organizations, programs for government and enterprises, and AWS Academy to help universities teach AWS.",
+      "triggers": [
+        "training",
+        "AWS Academy",
+        "certification"
+      ],
+      "confuse": [
+        "AWS re:Post"
+      ],
+      "domain": "Billing, Pricing & Support",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "aws-competency-program-apn-partner-types",
+      "term": "AWS Competency Program & APN Partner Types",
+      "category": "Support / Resources",
+      "hint": "Technology, Consulting, Training partners · COMPETENCY = proven expertise",
+      "eli12": "Different kinds of AWS partners and their badges.",
+      "definition": "APN partner types: Technology partners (hardware, connectivity, software), Consulting partners (firms that help you build on AWS) and Training partners. The AWS Competency Program recognizes partners with proven technical skill and customer success in specialized areas; the Navigate Program helps partners grow.",
+      "triggers": [
+        "Competency",
+        "technology partner",
+        "consulting partner"
+      ],
+      "confuse": [
+        "AWS Partner Network (APN)",
+        "AWS Partners: ISVs vs System Integrators"
+      ],
+      "domain": "Billing, Pricing & Support",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
+    },
+    {
+      "id": "clf-c02-exam-format",
+      "term": "CLF-C02 Exam Format",
+      "category": "Exam Tips",
+      "hint": "65 questions · 90 minutes · 700/1000 to pass · no penalty for guessing",
+      "eli12": "How the test works.",
+      "definition": "65 questions in 90 minutes; multiple choice (one correct) and multiple response (two or more correct, and the number is stated). Unanswered questions count as wrong, so always guess. You can flag questions to review. Pass with 700 out of 1000; you see pass/fail right away; retake after 14 days. Eliminate wrong answers and don't overthink — overly complicated answers are usually wrong.",
+      "triggers": [
+        "65 questions",
+        "90 minutes",
+        "700",
+        "elimination"
+      ],
+      "confuse": [
+        "Exam strategy"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": ""
     }
   ],
   "domains": [
@@ -7295,5 +9863,5 @@
     }
   ],
   "source": "Master Study Guide",
-  "importedAt": "2026-10-30T21:07:37.194Z"
+  "importedAt": "2026-10-31T00:27:45.220Z"
 }
