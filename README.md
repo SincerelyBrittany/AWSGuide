@@ -8,7 +8,7 @@
 ![Vite](https://img.shields.io/badge/Vite-5-646cff?style=flat-square&logo=vite&logoColor=white)
 ![Exam](https://img.shields.io/badge/AWS-CLF--C02-e2932f?style=flat-square)
 ![Concepts](https://img.shields.io/badge/concepts-408-23905f?style=flat-square)
-![Questions](https://img.shields.io/badge/practice%20questions-80-3a5fd6?style=flat-square)
+![Questions](https://img.shields.io/badge/practice%20questions-298-3a5fd6?style=flat-square)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/home-dark.png">

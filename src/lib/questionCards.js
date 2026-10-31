@@ -10,6 +10,8 @@ const SMALL = new Set(['a', 'an', 'and', 'as', 'at', 'by', 'for', 'in', 'of', 'o
  * Answers like "Test recovery procedures" are phrases; those get the concept's name as their title instead.
  */
 export function isPhrase(text) {
+  if (/[,;]/.test(text)) return true; // "Amazon S3, Amazon CloudFront, and Amazon Route 53"
+  if (/^(use|enable|configure|create|deploy|run|install|set|establish|upload|the|it|to|by|within|up to)\b/i.test(text)) return true;
   const words = text.replace(/\(.*?\)/g, '').split(/\s+/).filter((w) => /^[a-z]/i.test(w) && !SMALL.has(w.toLowerCase()));
   return words.filter((w) => /^[a-z]/.test(w)).length >= 2;
 }
@@ -20,15 +22,24 @@ function titleFor(q, link) {
   const answers = q.correct.map((l) => q.options.find((o) => o.letter === l)?.text).filter(Boolean);
   const concept = link?.strong ? link.card.term : q.concept;
   if (answers.length !== 1) return concept || answers.join(' + ');
-  return isPhrase(answers[0]) && concept ? concept : answers[0];
+  const answer = answers[0];
+  if (!concept) return answer;
+  if (isPhrase(answer)) return concept;
+  // A bare short answer that's part of the concept's name ("Security" → "Security Pillar", "Enterprise" → "AWS Enterprise Support").
+  const a = core(answer), c = core(concept);
+  if (a !== c && answer.split(/\s+/).length <= 3 && c.includes(a)) return concept;
+  return answer;
 }
+
+// "Latency Routing" and "Latency Routing Policy" are the same entry.
+const keyOf = (term) => core(term).replace(/ (policy|policies)$/, '');
 
 export function buildQuestionCards(questions, links, fallbackDomain = 'Cloud Technology & Services') {
   const byKey = new Map();
   for (const q of questions) {
     const link = links[q.id];
     const term = titleFor(q, link);
-    const key = core(term) || q.id;
+    const key = keyOf(term) || q.id;
     const wrong = q.options.filter((o) => !q.correct.includes(o.letter)).map((o) => o.text);
     let card = byKey.get(key);
     if (!card) {
@@ -58,7 +69,7 @@ export function buildQuestionCards(questions, links, fallbackDomain = 'Cloud Tec
     }
     if (q.why && !card.whys.includes(q.why)) card.whys.push(q.why);
     if (q.topic && !card.topics.includes(q.topic)) card.topics.push(q.topic);
-    for (const w of wrong) if (!card.confuse.includes(w) && core(w) !== key) card.confuse.push(w);
+    for (const w of wrong) if (!card.confuse.includes(w) && keyOf(w) !== key) card.confuse.push(w);
     card.questions.push(q);
   }
   return [...byKey.values()].map((c) => {
