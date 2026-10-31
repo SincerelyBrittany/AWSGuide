@@ -7,7 +7,8 @@
 ![React](https://img.shields.io/badge/React-18-149eca?style=flat-square&logo=react&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-5-646cff?style=flat-square&logo=vite&logoColor=white)
 ![Exam](https://img.shields.io/badge/AWS-CLF--C02-e2932f?style=flat-square)
-![Concepts](https://img.shields.io/badge/concepts-407-23905f?style=flat-square)
+![Concepts](https://img.shields.io/badge/concepts-408-23905f?style=flat-square)
+![Questions](https://img.shields.io/badge/practice%20questions-80-3a5fd6?style=flat-square)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/home-dark.png">
@@ -16,7 +17,7 @@
 
 </div>
 
-## Five ways to study
+## Six ways to study
 
 <table>
   <tr>
@@ -50,6 +51,13 @@
       Pair each service with its memory hint or its “explain like I'm 12” line. A lighter review for tired brains.
     </td>
     <td width="50%" valign="top">
+      <img src="docs/quiz-light.png" alt="Exam-style quiz question answered correctly, with the explanation and the related study-guide concept">
+      <h3>📝 Quiz</h3>
+      Exam-style questions with the answer and <i>why</i> after each one, or a timed <b>exam simulation</b> (90 minutes per 65 questions) with flagging and review at the end.
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" valign="top">
       <h3>🧠 It learns what you don't know</h3>
       Missing a question in any game moves that card down a confidence level, so it comes back more often everywhere.
       <br><br>
@@ -59,6 +67,29 @@
     </td>
   </tr>
 </table>
+
+## 📝 Quiz
+
+<img src="docs/quiz-dark.png" alt="Exam simulation with a 90-minute timer, a flagged question and a grid to jump between all 65 questions" width="900">
+
+- **Practice:** answer, see right or wrong right away, read why, and see which study-guide concept it tests
+- **Exam simulation:** timed at the real pace (90 minutes per 65 questions), flag questions, jump around, submit for a score
+- **Pick the pool:** 10, 20, 65 or all questions; all, not tried yet, or ones you've missed; filter by exam domain
+- **Results:** score against the ~70% passing line, accuracy by domain, a review of every miss, and one click to retry the ones you got wrong
+- Each answer also counts toward the concept it tests, so missed questions show up in Progress and come back in the other games
+
+### Adding questions
+
+Questions live in [`data/questions/`](data/questions). Any number of `.xlsx` files, one question per row:
+
+| Question | Answer A | Answer B | Answer C | Answer D | Correct Answer | Concept Covered | Description on why its the right answer | Related Concept *(optional)* |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+
+- Add `Answer E`, `Answer F` for longer lists. For multiple-response questions, put several letters in **Correct Answer** (`B, D`) and the quiz asks you to choose that many.
+- **Related Concept** is a name from the study guide. Leave it blank and the app works it out from the correct answer.
+- The same question in two files counts once.
+
+Then either click **Import** in the app and pick the file (it's recognized as a question sheet and added to the quiz in that browser), or drop it in `data/questions/` and run `npm run sync` to build it in for everyone.
 
 ## 📖 Study Guide page
 
@@ -82,7 +113,7 @@ The whole spreadsheet as one readable page. Every concept shows its memory hint,
   <img src="docs/progress-light.png" alt="Progress page with answer totals, accuracy, a study-next list and accuracy by exam domain" width="900">
 </picture>
 
-Every answer in Flashcards, Don't Confuse Me, Rapid-Fire and the Game Board is recorded. The **Progress** tab shows:
+Every answer in Flashcards, Don't Confuse Me, Rapid-Fire, the Game Board and the Quiz is recorded. The **Progress** tab shows:
 
 - **Totals:** questions answered, accuracy, concepts practiced and study sessions
 - **Study these next:** the concepts you miss most, ranked by misses, accuracy and recent mistakes
@@ -111,7 +142,7 @@ The whole app is driven by [`data/AWS CLF-C02 Study Guide.xlsx`](data/). Add row
 
 | | How | Good for |
 | --- | --- | --- |
-| **Import in the app** | Click **Import .xlsx** and pick the file | Quick updates. Saved in that browser |
+| **Import in the app** | Click **Import** and pick the file | Quick updates. Saved in that browser |
 | **Bake it in** | Replace the file in `data/` and run `npm run sync` | Making it the default for everyone |
 
 Your ratings are kept either way.
@@ -147,10 +178,13 @@ The **Exam Info** sheet sets the domain weights and **Exam Cheat Sheet** adds ex
 
 ```
 data/                      the study guide spreadsheet
-scripts/sync-data.mjs      spreadsheet → src/data/studyGuide.json
+data/questions/            practice-question spreadsheets for the Quiz
+scripts/sync-data.mjs      spreadsheets → src/data/studyGuide.json + questions.json
 src/
   lib/parseWorkbook.js     reads the .xlsx (shared by the app and the sync script)
   lib/deck.js              look-alike matching, weighted picks, question building
+  lib/parseQuestions.js    reads question sheets (single and multiple-response)
+  lib/quiz.js              links questions to concepts, builds rounds, quiz history
   lib/stats.js             answer history, sessions, mastery rules
   lib/storage.js           ratings, history, imported deck and best scores (localStorage)
   modes/                   one file per study mode, plus Progress.jsx

@@ -1,5 +1,9 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import builtInDeck from './data/studyGuide.json';
+import builtInQuestions from './data/questions.json';
+import { parseQuestionFile, mergeQuestions } from './lib/parseQuestions.js';
+import { linkConcept, emptyQuizHistory, recordQuestion, addAttempt } from './lib/quiz.js';
+import Quiz from './modes/Quiz.jsx';
 import { parseWorkbook } from './lib/parseWorkbook.js';
 import { buildIndex, demote } from './lib/deck.js';
 import * as store from './lib/storage.js';
@@ -19,6 +23,7 @@ export const MODES = [
   { id: 'rapid', label: 'Rapid-Fire', blurb: '60 seconds of exam triggers. Misses cost you 3 seconds.', Component: RapidFire },
   { id: 'board', label: 'Game Board', blurb: 'Jeopardy-style board. Points follow the exam domain weights.', Component: GameBoard },
   { id: 'match', label: 'Memory Match', blurb: 'Pair each service with its memory hint. A lighter review.', Component: MemoryMatch },
+  { id: 'quiz', label: 'Quiz', blurb: 'Exam-style questions with explanations. Practice, or a timed exam simulation.', Component: Quiz },
 ];
 
 function useHash() {
@@ -40,6 +45,8 @@ export default function App() {
   const [progress, setProgress] = useState(() => store.loadProgress());
   const [settings, setSettings] = useState(() => store.loadSettings());
   const [stats, setStats] = useState(() => store.loadStats() || emptyStats());
+  const [quizHistory, setQuizHistory] = useState(() => store.loadQuiz() || emptyQuizHistory());
+  const [importedQuestions, setImportedQuestions] = useState(() => store.loadImportedQuestions());
   const session = useRef(null);
   const [toast, setToast] = useState(null);
   const fileRef = useRef(null);
@@ -48,6 +55,7 @@ export default function App() {
   useEffect(() => { store.saveProgress(progress); }, [progress]);
   useEffect(() => { store.saveSettings(settings); }, [settings]);
   useEffect(() => { store.saveStats(stats); }, [stats]);
+  useEffect(() => { store.saveQuiz(quizHistory); }, [quizHistory]);
   useEffect(() => {
     if (!toast) return;
     const t = setTimeout(() => setToast(null), 7000);
@@ -64,6 +72,18 @@ export default function App() {
   );
   const index = useMemo(() => buildIndex(cards), [cards]);
   const domains = useMemo(() => deck.domains.filter((d) => cards.some((c) => c.domain === d.name)), [deck, cards]);
+
+  // Practice questions: built-in bank plus anything imported in this browser, each linked to the concept it tests.
+  const questions = useMemo(() => mergeQuestions(builtInQuestions.questions, importedQuestions), [importedQuestions]);
+  const links = useMemo(() => {
+    const all = buildIndex(deck.cards);
+    const out = {};
+    for (const q of questions) {
+      const l = linkConcept(q, all);
+      if (l) out[q.id] = { ...l, domain: l.card.domain };
+    }
+    return out;
+  }, [questions, deck]);
 
   const setLevel = useCallback((id, level) => setProgress((p) => ({ ...p, [id]: level })), []);
   const missed = useCallback(
@@ -87,7 +107,23 @@ export default function App() {
   const onImport = async (file) => {
     if (!file) return;
     try {
-      const next = parseWorkbook(await file.arrayBuffer(), 'array');
+      const buf = await file.arrayBuffer();
+      // A question sheet (Question / Answer A–D / Correct Answer) goes to the Quiz; anything else is the study guide.
+      const qs = parseQuestionFile(buf, 'array', file.name.replace(/\.xlsx?$/i, ''));
+      if (qs.questions.length) {
+        const known = new Set(questions.map((x) => x.id));
+        const fresh = qs.questions.filter((x) => !known.has(x.id)).length;
+        const nextImported = mergeQuestions(importedQuestions, qs.questions);
+        const saved = store.saveImportedQuestions(nextImported);
+        setImportedQuestions(nextImported);
+        const parts = [`Added ${qs.questions.length} quiz questions${fresh < qs.questions.length ? ` (${fresh} new, ${qs.questions.length - fresh} already in the bank)` : ''}.`];
+        if (qs.skipped.length) parts.push(`Skipped ${qs.skipped.length}: ${qs.skipped.slice(0, 2).join('; ')}${qs.skipped.length > 2 ? '…' : ''}.`);
+        parts.push(saved ? 'Saved in this browser.' : 'This view can’t save them, so they reset when you reload.');
+        setToast({ kind: qs.skipped.length || !saved ? 'warn' : 'ok', text: parts.join(' ') });
+        if (window.location.hash !== '#quiz') window.location.hash = 'quiz';
+        return;
+      }
+      const next = parseWorkbook(buf, 'array');
       if (!next.cards.length) throw new Error('The sheet has the right headers but no concept rows under them.');
       const before = new Set(deck.cards.map((c) => c.id));
       const added = next.cards.filter((c) => !before.has(c.id)).length;
@@ -116,6 +152,13 @@ export default function App() {
     setToast({ kind: 'ok', text: 'Progress reset to the confidence levels in your spreadsheet.' });
   };
 
+  const quizProps = {
+    questions,
+    links,
+    quizHistory,
+    onQuestion: (id, result) => setQuizHistory((h) => recordQuestion(h, id, result)),
+    onAttempt: (a) => setQuizHistory((h) => addAttempt(h, a)),
+  };
   const mode = MODES.find((m) => m.id === hash);
   const shared = { cards, index, domains, deck, setLevel, missed, record, stats };
 
@@ -140,7 +183,7 @@ export default function App() {
               Progress
             </a>
           </nav>
-          <button className="btn btn-ghost import-btn" title="Import your study guide (.xlsx)" onClick={() => fileRef.current?.click()}>
+          <button className="btn btn-ghost import-btn" title="Import your study guide or a quiz question sheet (.xlsx)" onClick={() => fileRef.current?.click()}>
             Import
           </button>
           <input ref={fileRef} id="import-file" type="file" accept=".xlsx,.xls,.csv" hidden onChange={(e) => onImport(e.target.files?.[0])} />
@@ -155,20 +198,27 @@ export default function App() {
             {...shared}
             modes={MODES}
             progress={progress}
+            extraBackup={{ quiz: quizHistory, questions: importedQuestions }}
             onRestore={(next) => {
               setStats(next.stats);
               if (next.progress) setProgress(next.progress);
+              if (next.quiz) setQuizHistory(next.quiz);
+              if (next.questions) {
+                setImportedQuestions(next.questions);
+                store.saveImportedQuestions(next.questions);
+              }
               setToast({ kind: 'ok', text: `Restored ${Object.keys(next.stats.concepts).length} concepts and ${next.stats.sessions.length} sessions from the backup.` });
             }}
             onClearHistory={() => {
               setStats(emptyStats());
+              setQuizHistory(emptyQuizHistory());
               session.current = null;
               setToast({ kind: 'ok', text: 'Answer history cleared.' });
             }}
             onError={(text) => setToast({ kind: 'error', text })}
           />
         ) : mode ? (
-          <mode.Component key={mode.id} {...shared} />
+          <mode.Component key={mode.id} {...shared} {...(mode.id === 'quiz' ? quizProps : {})} />
         ) : (
           <Home
             {...shared}

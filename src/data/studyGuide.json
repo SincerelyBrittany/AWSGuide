@@ -8456,14 +8456,16 @@
       "id": "route-53-routing-policies",
       "term": "Route 53 Routing Policies",
       "category": "Networking",
-      "hint": "Simple · Weighted · Latency · Failover",
+      "hint": "Simple · Weighted · Latency · Failover · Geolocation",
       "eli12": "Different rules for which server a visitor is sent to.",
-      "definition": "Simple: one resource, no health checks. Weighted: split traffic by percentage (e.g., 70/20/10). Latency: send users to the Region with the lowest latency. Failover: send traffic to a standby when the primary fails its health check (disaster recovery).",
+      "definition": "Simple: one resource, no health checks. Weighted: split traffic by percentage (e.g., 70/20/10). Latency: send users to the Region with the lowest latency (fastest response). Failover: send traffic to a standby when the primary fails its health check (disaster recovery). Geolocation: route by where the user is located (e.g., all European users to Frankfurt), useful for localized content or restricting by country.",
       "triggers": [
         "simple",
         "weighted",
         "latency-based",
-        "failover"
+        "failover",
+        "geolocation",
+        "user location"
       ],
       "confuse": [
         "Amazon Route 53"
@@ -9715,6 +9717,32 @@
       "official": "",
       "officialSource": "",
       "notes": ""
+    },
+    {
+      "id": "aws-database-migration-service-dms",
+      "term": "AWS Database Migration Service (DMS)",
+      "category": "Migration",
+      "hint": "DMS = move DATABASES, source stays ONLINE",
+      "eli12": "Moving all your files to a new phone while you keep using the old one.",
+      "definition": "Migrates databases to AWS quickly and securely. The source database stays fully operational during the migration, so downtime is minimal. Supports same-engine (homogeneous, e.g., PostgreSQL → PostgreSQL) and different-engine (heterogeneous, e.g., Oracle → Aurora) migrations; use the AWS Schema Conversion Tool (SCT) to convert the schema when engines differ.",
+      "triggers": [
+        "migrate database",
+        "minimal downtime",
+        "source stays operational",
+        "homogeneous",
+        "heterogeneous"
+      ],
+      "confuse": [
+        "AWS Application Migration Service",
+        "AWS DataSync"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "AWS Database Migration Service (AWS DMS) helps you migrate databases to AWS easily and securely. The source database remains fully operational during the migration, minimizing downtime to applications that rely on the database.",
+      "officialSource": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/migration-services.html",
+      "notes": ""
     }
   ],
   "domains": [
@@ -9863,5 +9891,5 @@
     }
   ],
   "source": "Master Study Guide",
-  "importedAt": "2026-10-31T00:27:45.220Z"
+  "importedAt": "2026-10-31T01:16:04.626Z"
 }

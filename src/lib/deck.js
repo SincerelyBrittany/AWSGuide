@@ -17,7 +17,7 @@ export const shuffle = (arr) => {
 
 export const sample = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
-const core = (s) =>
+export const core = (s) =>
   String(s)
     .toLowerCase()
     .replace(/\(.*?\)/g, '')

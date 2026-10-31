@@ -17,7 +17,7 @@ export default function Home({ cards, deck, domains, modes, settings, setSetting
           <h1 className="hero-title">
             {cards.length} concepts.
             <br />
-            Five ways to drill them.
+            Six ways to drill them.
           </h1>
           <p className="lede">
             Everything here comes from your study guide spreadsheet. Rate cards as you go, and the cards you mark <em>Study It</em> show up more often in every game.
@@ -148,6 +148,18 @@ function ModeGlyph({ id }) {
           {[0, 1, 2].map((r) => [0, 1, 2].map((c) => (
             <rect key={`${r}${c}`} x={5 + c * 12} y={5 + r * 12} width="10" height="10" rx="2" fill={(r + c) % 2 ? 'var(--glyph-2)' : 'var(--glyph-1)'} />
           )))}
+        </svg>
+      );
+    case 'quiz':
+      return (
+        <svg {...common}>
+          <rect x="7" y="5" width="30" height="34" rx="4" fill="var(--glyph-2)" />
+          <circle cx="14" cy="15" r="3" fill="var(--glyph-1)" />
+          <rect x="20" y="13.5" width="12" height="3" rx="1.5" fill="var(--fg)" />
+          <circle cx="14" cy="24" r="3" fill="none" stroke="var(--fg)" strokeWidth="1.6" />
+          <rect x="20" y="22.5" width="10" height="3" rx="1.5" fill="var(--fg)" opacity="0.5" />
+          <circle cx="14" cy="33" r="3" fill="none" stroke="var(--fg)" strokeWidth="1.6" />
+          <rect x="20" y="31.5" width="8" height="3" rx="1.5" fill="var(--fg)" opacity="0.5" />
         </svg>
       );
     default:

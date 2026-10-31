@@ -83,5 +83,5 @@ export function parseBackup(text) {
   if (!stats || typeof stats.concepts !== 'object' || !Array.isArray(stats.sessions)) {
     throw new Error('This file isn’t a Study Arcade backup.');
   }
-  return { stats: { ...emptyStats(), ...stats }, progress: data.progress || null };
+  return { stats: { ...emptyStats(), ...stats }, progress: data.progress || null, quiz: data.quiz || null, questions: Array.isArray(data.questions) ? data.questions : null };
 }

@@ -46,7 +46,7 @@ function AccBar({ value }) {
   );
 }
 
-export default function Progress({ cards, domains, stats, modes, progress, onRestore, onClearHistory, onError }) {
+export default function Progress({ cards, domains, stats, modes, progress, extraBackup, onRestore, onClearHistory, onError }) {
   const [query, setQuery] = useState('');
   const [domain, setDomain] = useState('all');
   const [filter, setFilter] = useState('all');
@@ -120,7 +120,7 @@ export default function Progress({ cards, domains, stats, modes, progress, onRes
   const sessions = [...stats.sessions].reverse().slice(0, 12);
 
   const exportBackup = () => {
-    const data = { app: 'clf-study-arcade', exportedAt: new Date().toISOString(), stats, progress };
+    const data = { app: 'clf-study-arcade', exportedAt: new Date().toISOString(), stats, progress, ...extraBackup };
     const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);

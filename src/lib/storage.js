@@ -5,6 +5,8 @@ const KEYS = {
   settings: 'clf-arcade:settings:v1',
   best: 'clf-arcade:best:v1',
   stats: 'clf-arcade:stats:v1',
+  quiz: 'clf-arcade:quiz:v1',
+  questions: 'clf-arcade:questions:v1',
 };
 
 function read(key, fallback) {
@@ -40,3 +42,7 @@ export const loadStats = () => read(KEYS.stats, null);
 export const saveStats = (s) => write(KEYS.stats, s);
 export const loadBest = () => read(KEYS.best, {});
 export const saveBest = (b) => write(KEYS.best, b);
+export const loadQuiz = () => read(KEYS.quiz, null);
+export const saveQuiz = (q) => write(KEYS.quiz, q);
+export const loadImportedQuestions = () => read(KEYS.questions, []);
+export const saveImportedQuestions = (q) => write(KEYS.questions, q);
