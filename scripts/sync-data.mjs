@@ -40,3 +40,20 @@ for (const f of qFiles) {
 const bank = mergeQuestions(...lists);
 fs.writeFileSync(path.join(root, 'src', 'data', 'questions.json'), JSON.stringify({ questions: bank }, null, 2));
 console.log(`✓ ${bank.length} practice questions → src/data/questions.json`);
+
+// Private questions (data/private/*.xlsx): your own study material that stays out of the public repo.
+// They go to src/data/privateQuestions.json, which is git-ignored; builds without it simply skip them.
+const pDir = path.join(root, 'data', 'private');
+const pOut = path.join(root, 'src', 'data', 'privateQuestions.json');
+const pFiles = fs.existsSync(pDir) ? fs.readdirSync(pDir).filter((f) => f.endsWith('.xlsx') && !f.startsWith('~$')).sort() : [];
+if (pFiles.length) {
+  const pLists = pFiles.map((f) => {
+    const { questions, skipped } = parseQuestionFile(fs.readFileSync(path.join(pDir, f)), 'buffer', f.replace(/\.xlsx$/, ''));
+    console.log(`  (private) ${f}: ${questions.length} questions`);
+    for (const s of skipped) console.log(`    ⚠ skipped ${s}`);
+    return questions.map((q) => ({ ...q, private: true }));
+  });
+  const pBank = mergeQuestions(...pLists);
+  fs.writeFileSync(pOut, JSON.stringify({ questions: pBank }, null, 2));
+  console.log(`✓ ${pBank.length} private questions → src/data/privateQuestions.json (not committed)`);
+} else if (fs.existsSync(pOut)) fs.unlinkSync(pOut);

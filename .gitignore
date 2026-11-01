@@ -4,3 +4,7 @@ dist-single
 .DS_Store
 ~$*.xlsx
 *.html.bak
+
+# Personal study material from paid practice exams: kept out of the public repo
+data/private/
+src/data/privateQuestions.json

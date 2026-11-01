@@ -3,6 +3,8 @@
 //   Question | Answer A | Answer B | Answer C | Answer D | (Answer E, F…) | Correct Answer | Concept Covered | Description on why its the right answer
 //   Optional: Priority ("⚪ Low Priority – reason" hides the question unless low priority is switched on)
 //   Optional: Related Concept (a name from the study guide; otherwise the app works it out from the correct answer)
+//   Optional: Answer A Explanation, Answer B Explanation… (why that choice is right or wrong; shown after you answer)
+//   Optional: My Answer (what you picked when you first saw the question, e.g. on a practice test)
 // "Correct Answer" can be one letter ("B") or several for multiple-response questions ("B, D" or "B and D").
 import * as XLSX from 'xlsx';
 
@@ -15,6 +17,8 @@ const CORRECT = ['correct answer', 'correct answers', 'correct', 'answer key', '
 const TOPIC = ['concept covered', 'concept', 'topic', 'category'];
 const PRIORITY = ['priority', 'low priority', 'coverage', 'status', 'exam guide coverage'];
 const RELATED = ['related concept', 'study guide concept', 'related concepts'];
+const ORIGIN = ['practice test', 'origin', 'from'];
+const MINE = ['my answer', 'your answer', 'my answers', 'picked'];
 const WHY = ['description on why its the right answer', "description on why it's the right answer", 'explanation', 'why', 'reason', 'rationale'];
 
 /** Short stable id from the question text, so the same question in two files counts once. */
@@ -38,12 +42,17 @@ function findHeader(rows) {
     });
     if (options.length < 2) continue;
     options.sort((a, b) => a.letter.localeCompare(b.letter));
+    const notes = {};
+    cells.forEach((c, i) => {
+      const m = c.match(/^(?:answer|option|choice)\s*([a-h])\s+(?:explanation|why|reason|note)$/) || c.match(/^why\s+([a-h])\s+is\s+(?:wrong|right|correct|incorrect)$/);
+      if (m) notes[m[1].toUpperCase()] = i;
+    });
     const find = (names) => {
       let i = cells.findIndex((c) => names.includes(c));
       if (i < 0) i = cells.findIndex((c) => names.some((n) => c.startsWith(n)));
       return i;
     };
-    return { row: r, q, correct, options, topic: find(TOPIC), why: find(WHY), concept: cells.findIndex((c) => RELATED.includes(c)), priority: cells.findIndex((c) => PRIORITY.includes(c)) };
+    return { row: r, q, correct, options, topic: find(TOPIC), why: find(WHY), concept: cells.findIndex((c) => RELATED.includes(c)), priority: cells.findIndex((c) => PRIORITY.includes(c)), notes, mine: cells.findIndex((c) => MINE.includes(c)), origin: cells.findIndex((c) => ORIGIN.includes(c)) };
   }
   return null;
 }
@@ -76,7 +85,10 @@ export function parseQuestionWorkbook(wb, source = '') {
     rows.slice(h.row + 1).forEach((row, k) => {
       const text = clean(row[h.q]);
       if (!text) return;
-      const options = h.options.map((o) => ({ letter: o.letter, text: clean(row[o.col]) })).filter((o) => o.text);
+      const options = h.options
+        .map((o) => ({ letter: o.letter, text: clean(row[o.col]), note: h.notes[o.letter] >= 0 ? clean(row[h.notes[o.letter]]) : '' }))
+        .filter((o) => o.text)
+        .map(({ note, ...o }) => (note ? { ...o, note } : o));
       const correct = parseCorrect(row[h.correct], options).filter((l) => options.some((o) => o.letter === l));
       const where = `${name} row ${h.row + k + 2}`;
       if (options.length < 2) return skipped.push(`${where}: fewer than 2 answers`);
@@ -91,6 +103,8 @@ export function parseQuestionWorkbook(wb, source = '') {
         concept: h.concept >= 0 ? clean(row[h.concept]) : '',
         lowPriority: h.priority >= 0 && /low|out of scope|retired|⚪/i.test(clean(row[h.priority])),
         priorityNote: h.priority >= 0 ? clean(row[h.priority]).replace(/^⚪\s*/, '').replace(/^low priority\s*[–—:-]?\s*/i, '') : '',
+        origin: h.origin >= 0 ? clean(row[h.origin]) : '',
+        myAnswer: h.mine >= 0 ? parseCorrect(row[h.mine], options) : [],
         source,
       });
     });

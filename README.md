@@ -87,8 +87,13 @@ Questions live in [`data/questions/`](data/questions). Any number of `.xlsx` fil
 
 - Add `Answer E`, `Answer F` for longer lists. For multiple-response questions, put several letters in **Correct Answer** (`B, D`) and the quiz asks you to choose that many.
 - **Priority** *(optional)*: put `⚪ Low Priority – reason` to hide a question (retired service, not on the in-scope list) unless low priority is switched on.
+- **Answer A Explanation**, **Answer B Explanation**… *(optional)*: why each choice is right or wrong. After you answer, the Quiz lists why every other choice is wrong, and the Questions Guide shows them under **Show the question**.
+- **My Answer** *(optional)*: what you picked the first time (e.g. on a practice test). The Quiz reminds you after you answer.
+- **Practice Test** *(optional)*: where the question came from, shown in the Questions Guide.
 - **Related Concept** is a name from the study guide. Leave it blank and the app works it out from the correct answer.
 - The same question in two files counts once.
+
+Questions you shouldn't publish (for example from a paid practice exam) go in `data/private/` instead. That folder is git-ignored: `npm run sync` builds them into your local copy only, and the GitHub Pages build never sees them.
 
 Then either click **Import** in the app and pick the file (it's recognized as a question sheet and added to the quiz in that browser), or drop it in `data/questions/` and run `npm run sync` to build it in for everyone.
 

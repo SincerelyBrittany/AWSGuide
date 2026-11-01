@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import builtInDeck from './data/studyGuide.json';
 import builtInQuestions from './data/questions.json';
+// Optional, git-ignored: personal questions from data/private/ (see scripts/sync-data.mjs).
+const privateQuestions = Object.values(import.meta.glob('./data/privateQuestions.json', { eager: true, import: 'default' }))[0]?.questions || [];
 import { parseQuestionFile, mergeQuestions } from './lib/parseQuestions.js';
 import { linkConcept, emptyQuizHistory, recordQuestion, addAttempt } from './lib/quiz.js';
 import Quiz from './modes/Quiz.jsx';
@@ -77,7 +79,7 @@ export default function App() {
   const guideDomains = useMemo(() => deck.domains.filter((d) => guideCards.some((c) => c.domain === d.name)), [deck, guideCards]);
 
   // Practice questions: built-in bank plus anything imported in this browser, each linked to the concept it tests.
-  const allQuestions = useMemo(() => mergeQuestions(builtInQuestions.questions, importedQuestions), [importedQuestions]);
+  const allQuestions = useMemo(() => mergeQuestions(builtInQuestions.questions, privateQuestions, importedQuestions), [importedQuestions]);
   // Retired or out-of-scope questions are hidden unless "show low priority" is on (same switch as the study guide).
   const questions = useMemo(() => allQuestions.filter((q) => settings.includeLow || !q.lowPriority), [allQuestions, settings.includeLow]);
   const lowQuestionCount = allQuestions.length - allQuestions.filter((q) => !q.lowPriority).length;

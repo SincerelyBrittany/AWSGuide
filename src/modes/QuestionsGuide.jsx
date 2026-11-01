@@ -36,10 +36,12 @@ export default function QuestionsGuide({ qCards, domains, quizHistory, setLevel,
   const [domain, setDomain] = useState('all');
   const [level, setLevelFilter] = useState('all');
   const [onlyMissed, setOnlyMissed] = useState(false);
+  const [set, setSet] = useState('all');
   const [group, setGroup] = useState('topic');
 
   const q = query.trim().toLowerCase();
   const records = useMemo(() => Object.fromEntries(qCards.map((c) => [c.id, quizRecord(c, quizHistory)])), [qCards, quizHistory]);
+  const sets = useMemo(() => [...new Set(qCards.flatMap((c) => c.questions.map((x) => x.source || 'Imported')))].sort((a, b) => a.localeCompare(b, undefined, { numeric: true })), [qCards]);
   const missedCount = qCards.filter((c) => records[c.id].wrong > 0).length;
   const questionCount = qCards.reduce((n, c) => n + c.questions.length, 0);
 
@@ -50,9 +52,9 @@ export default function QuestionsGuide({ qCards, domains, quizHistory, setLevel,
         .filter(Boolean)
         .some((s) => s.toLowerCase().includes(q));
     return qCards
-      .filter((c) => (domain === 'all' || c.domain === domain) && (level === 'all' || c.level === level) && (!onlyMissed || records[c.id].wrong > 0) && match(c))
+      .filter((c) => (set === 'all' || c.questions.some((x) => (x.source || 'Imported') === set)) && (domain === 'all' || c.domain === domain) && (level === 'all' || c.level === level) && (!onlyMissed || records[c.id].wrong > 0) && match(c))
       .sort((a, b) => a.term.replace(/^(AWS|Amazon)\s+/, '').localeCompare(b.term.replace(/^(AWS|Amazon)\s+/, '')));
-  }, [qCards, q, domain, level, onlyMissed, records]);
+  }, [qCards, q, domain, level, onlyMissed, records, set]);
 
   const sections = useMemo(() => {
     const bucket = (keyOf) => {
@@ -87,6 +89,12 @@ export default function QuestionsGuide({ qCards, domains, quizHistory, setLevel,
           <option value="all">All domains</option>
           {domains.map((d) => <option key={d.name} value={d.name}>{d.name}</option>)}
         </select>
+        {sets.length > 1 && (
+          <select aria-label="Question set" value={set} onChange={(e) => setSet(e.target.value)}>
+            <option value="all">All question sets</option>
+            {sets.map((x) => <option key={x}>{x}</option>)}
+          </select>
+        )}
         <select aria-label="Confidence" value={level} onChange={(e) => setLevelFilter(e.target.value)}>
           <option value="all">Any confidence</option>
           {LEVEL_ORDER.map((l) => <option key={l} value={l}>{LEVELS[l].label}</option>)}
@@ -175,11 +183,14 @@ export default function QuestionsGuide({ qCards, domains, quizHistory, setLevel,
                     {c.questions.map((x) => (
                       <div key={x.id} className="qentry-q">
                         <p><Highlight text={x.text} q={q} /></p>
+                        {(x.origin || x.source) && <span className="qentry-src">{x.origin || x.source}</span>}
                         <ul>
                           {x.options.map((o) => (
                             <li key={o.letter} className={x.correct.includes(o.letter) ? 'is-right' : ''}>
                               <span className="qentry-letter">{o.letter}</span> {o.text}
                               {x.correct.includes(o.letter) && <span className="sr-only"> (correct)</span>}
+                              {x.myAnswer?.includes(o.letter) && !x.correct.includes(o.letter) && <span className="pill pill-red qentry-mine">your practice-test pick</span>}
+                              {o.note && !x.correct.includes(o.letter) && <span className="qentry-note">{o.note}</span>}
                             </li>
                           ))}
                         </ul>

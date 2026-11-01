@@ -49,11 +49,41 @@ function Question({ q, n, total, picked, onPick, revealed, flagged }) {
   );
 }
 
-function Explanation({ q, link, ok }) {
+/** Why each wrong choice is wrong, when the sheet has per-answer explanations. */
+function OptionNotes({ q, picked = [] }) {
+  const notes = q.options.filter((o) => o.note && !q.correct.includes(o.letter));
+  if (!notes.length) return null;
+  // Notes like "These three options contradict…" are shared by a group: show them once.
+  const groups = [];
+  for (const o of notes) {
+    const g = groups.find((x) => x.note === o.note);
+    if (g) g.options.push(o);
+    else groups.push({ note: o.note, options: [o] });
+  }
+  return (
+    <div className="quiz-notes">
+      <span className="field-label">Why the other answers are wrong</span>
+      <ul>
+        {groups.map((g) => (
+          <li key={g.options[0].letter} className={g.options.some((o) => picked.includes(o.letter)) ? 'is-picked' : ''}>
+            <strong>{g.options.map((o) => o.text).join(' · ')}</strong>
+            {g.options.some((o) => picked.includes(o.letter)) && <span className="pill pill-red">your pick</span>}
+            <span className="quiz-note-text">{g.note}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function Explanation({ q, link, ok, picked }) {
+  const before = q.myAnswer?.length ? q.myAnswer.map((l) => q.options.find((o) => o.letter === l)?.text).filter(Boolean).join(' + ') : '';
   return (
     <div className={`quiz-why ${ok ? 'is-right' : 'is-wrong'}`} aria-live="polite">
       <p className="quiz-verdict">{ok ? 'Correct.' : `Not quite. The answer is ${answerText(q)}.`}</p>
       {q.why && <p>{q.why}</p>}
+      <OptionNotes q={q} picked={picked} />
+      {before && <p className="quiz-before muted">On the practice test you picked: <strong>{before}</strong></p>}
       {link && (
         <p className="quiz-concept">
           <span className="field-label">Study guide</span>
@@ -73,6 +103,7 @@ export default function Quiz({ questions, qCardOf = {}, links, domains, record, 
   const [count, setCount] = useState(20);
   const [domain, setDomain] = useState('all');
   const [only, setOnly] = useState('all');
+  const [set, setSet] = useState('all');
   const [shuffleAnswers, setShuffleAnswers] = useState(true);
 
   const [phase, setPhase] = useState('setup');
@@ -88,7 +119,15 @@ export default function Quiz({ questions, qCardOf = {}, links, domains, record, 
   const finished = useRef(false);
 
   const domainOf = (q) => links[q.id]?.domain || 'Other';
-  const pool = useMemo(() => (domain === 'all' ? questions : questions.filter((q) => domainOf(q) === domain)), [questions, domain, links]);
+  const sets = useMemo(() => {
+    const m = new Map();
+    for (const q of questions) m.set(q.source || 'Imported', (m.get(q.source || 'Imported') || 0) + 1);
+    return [...m.entries()].sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true }));
+  }, [questions]);
+  const pool = useMemo(
+    () => questions.filter((q) => (domain === 'all' || domainOf(q) === domain) && (set === 'all' || (q.source || 'Imported') === set)),
+    [questions, domain, set, links]
+  );
   const available = useMemo(() => buildRound(pool, { count: 'all', history: quizHistory.questions, only }).length, [pool, only, quizHistory]);
   const seen = questions.filter((q) => quizHistory.questions[q.id]).length;
 
@@ -254,6 +293,16 @@ export default function Quiz({ questions, qCardOf = {}, links, domains, record, 
               </div>
             </div>
 
+            {sets.length > 1 && (
+              <label className="field" htmlFor="quiz-set">
+                <span className="field-label">Question set</span>
+                <select id="quiz-set" value={set} onChange={(e) => setSet(e.target.value)}>
+                  <option value="all">All sets ({questions.length})</option>
+                  {sets.map(([name, n]) => <option key={name} value={name}>{name} ({n})</option>)}
+                </select>
+              </label>
+            )}
+
             <label className="field" htmlFor="quiz-domain">
               <span className="field-label">Domain</span>
               <select id="quiz-domain" value={domain} onChange={(e) => setDomain(e.target.value)}>
@@ -365,6 +414,7 @@ export default function Quiz({ questions, qCardOf = {}, links, domains, record, 
                   <p className="review-a"><span className="review-tag is-answer">Answer</span> {answerText(r.q)}</p>
                 )}
                 {r.q.why && <p className="review-why">{r.q.why}</p>}
+                <OptionNotes q={r.q} picked={r.picked} />
                 {links[r.q.id]?.strong && (
                   <p className="review-concept muted">Study guide: <strong>{links[r.q.id].card.term}</strong>{links[r.q.id].card.hint ? ` · ${links[r.q.id].card.hint}` : ''}</p>
                 )}
@@ -401,7 +451,7 @@ export default function Quiz({ questions, qCardOf = {}, links, domains, record, 
         <Question q={q} n={pos + 1} total={round.length} picked={picked} onPick={pick} revealed={style === 'practice' && done} flagged={flags[q.id]} />
 
         {style === 'practice' && done && (
-          <Explanation q={q} link={links[q.id]?.strong ? links[q.id].card : null} ok={isCorrect(q, picked)} />
+          <Explanation q={q} link={links[q.id]?.strong ? links[q.id].card : null} ok={isCorrect(q, picked)} picked={picked} />
         )}
 
         <div className="quiz-nav">
