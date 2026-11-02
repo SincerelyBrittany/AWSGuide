@@ -97,7 +97,8 @@ const escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 /** Hide the answer's own name inside a clue. */
 export function redact(text, card) {
   let out = text;
-  const names = [card.term, card.term.replace(/^(AWS|Amazon)\s+/, '').replace(/\s*\(.*?\)/g, ''), ...[...card.term.matchAll(/\(([^)]+)\)/g)].map((m) => m[1])]
+  const head = card.term.split(':')[0].trim(); // "CloudTrail: WHO did WHAT" → also hide "CloudTrail"
+  const names = [card.term, head, head.replace(/^(AWS|Amazon)\s+/, ''), card.term.replace(/^(AWS|Amazon)\s+/, '').replace(/\s*\(.*?\)/g, ''), ...[...card.term.matchAll(/\(([^)]+)\)/g)].map((m) => m[1])]
     .filter((n) => n && n.length > 2)
     .sort((a, b) => b.length - a.length);
   // Whole words only, so "Config" doesn't eat the middle of "configuration".

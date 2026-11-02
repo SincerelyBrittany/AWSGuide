@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { readiness, domainTone } from '../lib/deck.js';
 
-export default function Home({ deckSwitch, cards, deck, domains, modes, settings, setSettings, isImported, onImportClick, onUseBuiltIn, onResetProgress }) {
+export default function Home({ deckSwitch, focusCount = 0, cards, deck, domains, modes, settings, setSettings, isImported, onImportClick, onUseBuiltIn, onResetProgress }) {
   const [confirmReset, setConfirmReset] = useState(false);
   const { rows, overall } = readiness(cards, domains);
   const totals = { red: 0, yellow: 0, green: 0 };
@@ -26,6 +26,11 @@ export default function Home({ deckSwitch, cards, deck, domains, modes, settings
             <a className="btn btn-primary" href="#flashcards">Start with flashcards</a>
             <a className="btn btn-ghost" href="#rapid">Play a 60-second round</a>
             <a className="btn btn-ghost" href="#guide">Read the study guide</a>
+            {focusCount > 0 && (
+              <button className="btn btn-focus" onClick={() => { setSettings({ ...settings, source: 'focus' }); window.location.hash = 'flashcards'; }}>
+                ★ Drill my focus deck ({focusCount})
+              </button>
+            )}
           </div>
         </div>
 
@@ -87,7 +92,7 @@ export default function Home({ deckSwitch, cards, deck, domains, modes, settings
           </p>
           <div className="home-deck-switch">
             {deckSwitch}
-            <p className="muted">Flashcards, the games and Progress use this deck. <strong>Questions Guide</strong> turns each quiz answer and its explanation into a card.</p>
+            <p className="muted">Flashcards, the games and Progress use this deck. <strong>Questions Guide</strong> turns each quiz answer and its explanation into a card. <strong>★ Focus</strong> is a temporary deck aimed at your practice-test mistakes.</p>
           </div>
           <p className="muted">
             Added rows to your spreadsheet? Import it here and the new concepts appear in every mode. Keep the same column headers. Imports and ratings are saved in this browser only, so import again if you switch browsers or devices.

@@ -57,3 +57,17 @@ if (pFiles.length) {
   fs.writeFileSync(pOut, JSON.stringify({ questions: pBank }, null, 2));
   console.log(`✓ ${pBank.length} private questions → src/data/privateQuestions.json (not committed)`);
 } else if (fs.existsSync(pOut)) fs.unlinkSync(pOut);
+
+// Focus deck (data/focus/*.xlsx, same columns as the study guide): a temporary, separate deck.
+// Delete the file and run `npm run sync` to remove it; the "Focus" option disappears when it's empty.
+const fDir = path.join(root, 'data', 'focus');
+const fFiles = fs.existsSync(fDir) ? fs.readdirSync(fDir).filter((f) => f.endsWith('.xlsx') && !f.startsWith('~$')).sort() : [];
+const focusCards = [];
+let focusName = '';
+for (const f of fFiles) {
+  const d = parseWorkbook(fs.readFileSync(path.join(fDir, f)), 'buffer');
+  focusName = focusName || f.replace(/\.xlsx$/, '').replace(/^Focus Deck\s*[-–]\s*/i, '');
+  for (const c of d.cards) focusCards.push({ ...c, id: `fx-${c.id}`, source: 'focus' });
+}
+fs.writeFileSync(path.join(root, 'src', 'data', 'focus.json'), JSON.stringify({ name: focusName, cards: focusCards }, null, 2));
+console.log(`✓ ${focusCards.length} focus cards${focusName ? ` ("${focusName}")` : ''} → src/data/focus.json`);

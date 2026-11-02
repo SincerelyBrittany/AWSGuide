@@ -8,10 +8,10 @@ export const SESSION_GAP_MS = 30 * 60 * 1000; // 30 idle minutes starts a new se
 
 export const emptyStats = () => ({ version: STATS_VERSION, concepts: {}, sessions: [] });
 
-/** Which deck a card belongs to: the study guide, or the Questions Guide (ids start with "qg-"). */
+/** Which deck a card belongs to: the study guide, the Questions Guide ("qg-" ids) or the Focus deck ("fx-" ids). */
 export const deckOf = (cardOrId) => {
   const id = typeof cardOrId === 'string' ? cardOrId : cardOrId.id;
-  return id.startsWith('qg-') ? 'questions' : 'guide';
+  return id.startsWith('qg-') ? 'questions' : id.startsWith('fx-') ? 'focus' : 'guide';
 };
 const emptyTally = () => ({ right: 0, wrong: 0, kinda: 0, missed: [] });
 

@@ -66,7 +66,7 @@ export function Empty({ children }) {
 }
 
 /** Which deck Flashcards, the games and Progress use. */
-export function DeckSwitch({ value, onChange, counts }) {
+export function DeckSwitch({ value, onChange, counts, focusName }) {
   return (
     <div className="deck-switch">
       <span className="field-label">Studying</span>
@@ -77,6 +77,11 @@ export function DeckSwitch({ value, onChange, counts }) {
         <button className={value === 'questions' ? 'is-on' : ''} onClick={() => onChange('questions')} aria-pressed={value === 'questions'} disabled={!counts.questions}>
           Questions Guide <span className="count">{counts.questions}</span>
         </button>
+        {counts.focus > 0 && (
+          <button className={`deck-focus ${value === 'focus' ? 'is-on' : ''}`} onClick={() => onChange('focus')} aria-pressed={value === 'focus'} title={focusName ? `Focus deck: ${focusName}` : 'Focus deck'}>
+            ★ Focus <span className="count">{counts.focus}</span>
+          </button>
+        )}
       </div>
     </div>
   );

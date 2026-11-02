@@ -859,3 +859,5 @@ mark { background: color-mix(in srgb, var(--accent) 45%, transparent); color: in
 .qentry-note { display: block; font-weight: 400; color: var(--muted); font-size: 0.86rem; margin: 2px 0 4px 1.4em; }
 .qentry-mine { margin-left: 6px; }
 .qentry-src { display: inline-block; font-size: 0.75rem; color: var(--muted); font-family: var(--font-mono); margin-bottom: 6px; }
+.deck-switch .segmented button.deck-focus { color: var(--accent); } .deck-switch .segmented button.deck-focus.is-on { color: var(--fg); box-shadow: var(--shadow), inset 0 -2px 0 var(--accent); }
+.btn-focus { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); } .btn-focus:hover { filter: brightness(1.05); }

@@ -1,0 +1,1525 @@
+{
+  "name": "Practice Test Mistakes",
+  "cards": [
+    {
+      "id": "fx-cloudtrail-who-did-what",
+      "term": "CloudTrail: WHO did WHAT",
+      "category": "Audit & Monitoring",
+      "hint": "CloudTrail = WHO did WHAT, WHEN (API calls)",
+      "eli12": "A security camera that records every button anyone presses in your account.",
+      "definition": "Records every API call in your account: who made it, from where, when, and what they did. Use it for auditing, governance and investigations (\"which user deleted this bucket?\"). On by default for 90 days of management events.",
+      "triggers": [
+        "who",
+        "API calls",
+        "audit",
+        "governance",
+        "compliance auditing",
+        "deleted"
+      ],
+      "confuse": [
+        "Config: WHAT CHANGED",
+        "CloudWatch: HOW it's performing"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-config-what-changed",
+      "term": "Config: WHAT CHANGED",
+      "category": "Audit & Monitoring",
+      "hint": "CONFIG = WHAT CHANGED + is it still COMPLIANT",
+      "eli12": "A timeline of photos of each resource, plus a checklist that flags anything that breaks your rules.",
+      "definition": "Keeps a history of each resource's configuration and how it changed over time, and checks resources against rules (e.g. \"all S3 buckets must have versioning\"). Use it to track configuration history, dependencies and compliance drift.",
+      "triggers": [
+        "configuration history",
+        "change tracking",
+        "compliance rules",
+        "resource dependencies"
+      ],
+      "confuse": [
+        "CloudTrail: WHO did WHAT",
+        "CloudFormation vs Config"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-cloudwatch-how-it-s-performing",
+      "term": "CloudWatch: HOW it's performing",
+      "category": "Audit & Monitoring",
+      "hint": "CLOUDWATCH = METRICS, LOGS, ALARMS (performance)",
+      "eli12": "A dashboard of gauges for your resources, with alarms that beep when a number crosses a line.",
+      "definition": "Collects metrics and logs and triggers alarms (CPU over 80%, error spikes). It watches performance, not who did what. Billing metrics are stored only in US East (N. Virginia) us-east-1.",
+      "triggers": [
+        "metrics",
+        "CPU",
+        "alarms",
+        "logs",
+        "dashboards",
+        "performance",
+        "billing alarm"
+      ],
+      "confuse": [
+        "CloudTrail: WHO did WHAT",
+        "Config: WHAT CHANGED"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-cloudformation-vs-config",
+      "term": "CloudFormation vs Config",
+      "category": "Audit & Monitoring",
+      "hint": "CloudFormation BUILDS resources · Config RECORDS their changes",
+      "eli12": "One is the builder with blueprints; the other is the inspector keeping a log of changes.",
+      "definition": "CloudFormation creates and updates infrastructure from templates (infrastructure as code). It does not track the change history of existing resources or show AWS service status. To track configuration changes, use AWS Config; for AWS service status, use the AWS Health Dashboard.",
+      "triggers": [
+        "infrastructure as code",
+        "templates vs change history"
+      ],
+      "confuse": [
+        "Config: WHAT CHANGED",
+        "Health Dashboard: service vs account"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-waf-web-attacks-layer-7",
+      "term": "WAF: web attacks (Layer 7)",
+      "category": "Network Protection",
+      "hint": "WAF = Layer 7 web exploits: SQL injection, XSS, bad bots, block COUNTRIES",
+      "eli12": "A bouncer at the website door who checks each visitor's request.",
+      "definition": "Filters HTTP/HTTPS requests to CloudFront, Application Load Balancer, API Gateway and AppSync. Blocks SQL injection, cross-site scripting, bad bots, too many requests from one IP (rate-based rules), and requests from specific countries (geo match). Works at Layer 7 only.",
+      "triggers": [
+        "SQL injection",
+        "XSS",
+        "Layer 7",
+        "web ACL",
+        "rate-based rule",
+        "block countries",
+        "geo"
+      ],
+      "confuse": [
+        "Shield: DDoS",
+        "GuardDuty: threat detection"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-shield-ddos",
+      "term": "Shield: DDoS",
+      "category": "Network Protection",
+      "hint": "SHIELD = DDoS. Standard = free & automatic · Advanced = paid, 24/7 response team + COST PROTECTION",
+      "eli12": "A flood barrier: the basic one comes with every house; the premium one comes with a rescue team and pays for flood damage.",
+      "definition": "Shield Standard protects every AWS customer automatically at no cost against common network-layer (Layer 3/4) DDoS attacks. Shield Advanced is a paid subscription (not free with any support plan) that adds the 24/7 Shield Response Team, attack visibility, and cost protection (credits for scaling charges caused by a DDoS attack). Advanced protects CloudFront, Route 53, Global Accelerator, Elastic Load Balancing and EC2 Elastic IPs.",
+      "triggers": [
+        "DDoS",
+        "cost protection",
+        "response team",
+        "Route 53",
+        "Global Accelerator",
+        "CloudFront"
+      ],
+      "confuse": [
+        "WAF: web attacks (Layer 7)",
+        "DDoS defense toolkit"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-ddos-defense-toolkit",
+      "term": "DDoS defense toolkit",
+      "category": "Network Protection",
+      "hint": "DDoS = SHIELD + WAF + CloudFront/Route 53 (edge) + Auto Scaling",
+      "eli12": "A crowd-control plan: guards, a door bouncer, many entrances, and extra staff on call.",
+      "definition": "Services that help prevent or absorb DDoS attacks: AWS Shield, AWS WAF (rate-based rules), Amazon CloudFront and Amazon Route 53 (spread across global edge locations), plus Auto Scaling to absorb load. Inspector, Trusted Advisor and CloudHSM do not stop DDoS attacks.",
+      "triggers": [
+        "prevent DDoS",
+        "select three",
+        "edge locations"
+      ],
+      "confuse": [
+        "Shield: DDoS",
+        "WAF: web attacks (Layer 7)"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-guardduty-threat-detection",
+      "term": "GuardDuty: threat detection",
+      "category": "Threat Detection",
+      "hint": "GUARDDUTY = finds THREATS by reading CloudTrail, VPC Flow Logs and DNS logs",
+      "eli12": "A security guard watching the logs for anyone acting suspicious.",
+      "definition": "Uses machine learning to continuously analyze CloudTrail events, VPC Flow Logs and DNS logs to detect malicious or unauthorized activity (compromised instances, crypto-mining, unusual API calls). It detects threats; it does not block web exploits (WAF) or scan for software vulnerabilities (Inspector).",
+      "triggers": [
+        "threat detection",
+        "malicious activity",
+        "VPC Flow Logs",
+        "DNS logs",
+        "machine learning"
+      ],
+      "confuse": [
+        "Inspector: vulnerability scans",
+        "Macie: sensitive data in S3",
+        "WAF: web attacks (Layer 7)"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-inspector-vulnerability-scans",
+      "term": "Inspector: vulnerability scans",
+      "category": "Threat Detection",
+      "hint": "INSPECTOR = INSPECTS EC2, containers and Lambda for VULNERABILITIES",
+      "eli12": "A building inspector checking each room for weak locks and broken windows.",
+      "definition": "Automatically and continuously scans EC2 instances, container images in ECR and Lambda functions for software vulnerabilities (CVEs) and unintended network exposure. Replaces the manual job of running timely security assessments on a fleet.",
+      "triggers": [
+        "vulnerabilities",
+        "CVE",
+        "security assessment",
+        "EC2 fleet",
+        "network exposure"
+      ],
+      "confuse": [
+        "Macie: sensitive data in S3",
+        "GuardDuty: threat detection"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-macie-sensitive-data-in-s3",
+      "term": "Macie: sensitive data in S3",
+      "category": "Data Protection",
+      "hint": "MACIE = finds PII and sensitive data in S3",
+      "eli12": "A sniffer dog trained to find personal information hidden in your file boxes.",
+      "definition": "Uses machine learning and pattern matching to discover and protect sensitive data such as PII, financial or health information stored in Amazon S3. It doesn't scan EC2 (Inspector) and isn't an ETL tool (Glue).",
+      "triggers": [
+        "PII",
+        "sensitive data",
+        "S3",
+        "data privacy"
+      ],
+      "confuse": [
+        "Inspector: vulnerability scans",
+        "GuardDuty: threat detection"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-encryption-on-by-default",
+      "term": "Encryption ON by default",
+      "category": "Data Protection",
+      "hint": "ALWAYS encrypted: CloudTrail logs, S3 (new objects), Storage Gateway, S3 Glacier · YOU turn on: EBS, RDS",
+      "eli12": "Some lockers come pre-locked; for others you have to flip the lock yourself.",
+      "definition": "Encrypted automatically: CloudTrail log files (SSE-S3 by default), all new S3 objects (SSE-S3 since 2023), AWS Storage Gateway data, and S3 Glacier. You must enable encryption yourself for Amazon EBS volumes (or switch on EBS encryption by default for the Region) and Amazon RDS databases (chosen at creation).",
+      "triggers": [
+        "enabled by default",
+        "automatically encrypted",
+        "select two"
+      ],
+      "confuse": [
+        "Client-side vs server-side encryption",
+        "KMS: customer managed key"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-client-side-vs-server-side-encryption",
+      "term": "Client-side vs server-side encryption",
+      "category": "Data Protection",
+      "hint": "CLIENT-side = encrypt BEFORE sending (AWS Encryption SDK) · SERVER-side = S3 encrypts after it arrives",
+      "eli12": "Locking your diary before mailing it, versus the post office locking it once it arrives.",
+      "definition": "If data must be encrypted before it is sent to S3, use client-side encryption (e.g. the AWS Encryption SDK): you encrypt it and S3 only ever stores ciphertext. Server-side encryption (SSE-S3, SSE-KMS, SSE-C) encrypts data after S3 receives it, so it doesn't meet a \"before sending\" requirement.",
+      "triggers": [
+        "encrypted before sending",
+        "client-side",
+        "encryption SDK"
+      ],
+      "confuse": [
+        "Encryption ON by default",
+        "KMS: customer managed key"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-kms-customer-managed-key",
+      "term": "KMS: customer managed key",
+      "category": "Data Protection",
+      "hint": "CUSTOMER MANAGED KEY = YOU create & control it (policy, rotation, disable)",
+      "eli12": "Owning your own key versus borrowing the building manager's key.",
+      "definition": "In AWS KMS, a customer managed key is one you create and fully control: key policy, who can use it, rotation, and disabling or deleting it. AWS managed keys are created automatically by services and you can't manage them. Secrets Manager stores secrets like passwords; CloudHSM gives a dedicated hardware module.",
+      "triggers": [
+        "control over keys",
+        "create own keys",
+        "key policy",
+        "rotation"
+      ],
+      "confuse": [
+        "Client-side vs server-side encryption",
+        "Secrets Manager vs KMS vs CloudHSM"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-secrets-manager-vs-kms-vs-cloudhsm",
+      "term": "Secrets Manager vs KMS vs CloudHSM",
+      "category": "Data Protection",
+      "hint": "SECRETS MANAGER = passwords (auto-ROTATE) · KMS = encryption KEYS (shared) · CloudHSM = your OWN dedicated hardware",
+      "eli12": "A password safe, a key ring, and a private vault only you can open.",
+      "definition": "Secrets Manager stores and automatically rotates secrets (database passwords, API keys). KMS creates and manages encryption keys on AWS-managed, multi-tenant hardware. CloudHSM gives you a dedicated, single-tenant hardware security module you fully control.",
+      "triggers": [
+        "rotate secrets",
+        "encryption keys",
+        "dedicated HSM",
+        "single-tenant"
+      ],
+      "confuse": [
+        "KMS: customer managed key"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-programmatic-access-access-keys",
+      "term": "Programmatic access = access keys",
+      "category": "Identity",
+      "hint": "CLI/SDK access = ACCESS KEY ID + SECRET ACCESS KEY · apps on EC2 = IAM ROLE",
+      "eli12": "A username-and-password pair made for programs instead of people.",
+      "definition": "To call AWS from the CLI or SDKs, use an access key ID and secret access key tied to an IAM user (never the root user). For applications running on EC2, use an IAM role so no long-term keys are stored. IAM groups organize users and policies but don't provide credentials.",
+      "triggers": [
+        "programmatic access",
+        "CLI",
+        "SDK",
+        "access key"
+      ],
+      "confuse": [
+        "IAM policy: required elements"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-iam-policy-required-elements",
+      "term": "IAM policy: required elements",
+      "category": "Identity",
+      "hint": "Every statement needs EFFECT + ACTION (and usually RESOURCE) · Condition & Sid are optional",
+      "eli12": "A permission slip must say yes/no and what you're allowed to do.",
+      "definition": "IAM policies are JSON documents. Each statement must have an Effect (Allow or Deny) and an Action (or NotAction); identity-based policies also specify a Resource. Condition (extra rules like IP or MFA) and Sid (a label) are optional.",
+      "triggers": [
+        "JSON policy",
+        "Effect",
+        "Action",
+        "mandatory elements"
+      ],
+      "confuse": [
+        "Programmatic access = access keys"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-shared-responsibility-managed-services",
+      "term": "Shared responsibility: managed services",
+      "category": "Shared Responsibility",
+      "hint": "Managed services (RDS, Aurora, S3, DynamoDB): AWS patches the OS & platform",
+      "eli12": "When you rent a fully serviced apartment, the landlord fixes the plumbing.",
+      "definition": "For managed and abstracted services (RDS, Aurora, S3, DynamoDB, Lambda), AWS patches the underlying OS and database engine and runs the infrastructure, OS and platform. You still own your data, encryption choices, IAM permissions and network settings. You patch the guest OS only on EC2.",
+      "triggers": [
+        "patches Aurora",
+        "RDS OS",
+        "abstracted services",
+        "S3 platform"
+      ],
+      "confuse": [
+        "Shared responsibility: shared controls",
+        "Shared responsibility: AWS's side"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-shared-responsibility-shared-controls",
+      "term": "Shared responsibility: shared controls",
+      "category": "Shared Responsibility",
+      "hint": "SHARED = PATCH management, CONFIGURATION management, AWARENESS & training",
+      "eli12": "Both the landlord and the tenant have chores in the same room.",
+      "definition": "Shared controls apply to both layers, each in its own context: patch management (AWS patches infrastructure, you patch guest OS and apps), configuration management (AWS configures its infrastructure, you configure your OS, databases and apps), and awareness and training. Customer-only: data, IAM, security group setup. AWS-only: physical security, separating customers' data.",
+      "triggers": [
+        "shared responsibility of both",
+        "configuration management",
+        "patch management"
+      ],
+      "confuse": [
+        "Shared responsibility: AWS's side",
+        "Shared responsibility: managed services"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-shared-responsibility-aws-s-side",
+      "term": "Shared responsibility: AWS's side",
+      "category": "Shared Responsibility",
+      "hint": "AWS = security OF the cloud: physical, hardware, edge locations, hypervisor, global network",
+      "eli12": "The landlord handles the building, the locks on the front door and the wiring.",
+      "definition": "AWS secures the infrastructure that runs every service: data centers, hardware (it replaces faulty EC2 hardware), the global network, edge locations, the virtualization layer, and the infrastructure, OS and platform of abstracted services like S3. AWS Shield Standard is also AWS's, on by default. Customers handle IAM, MFA, security groups, WAF rules and their data.",
+      "triggers": [
+        "responsibility of AWS",
+        "edge location management",
+        "faulty hardware",
+        "security of the cloud"
+      ],
+      "confuse": [
+        "Shared responsibility: shared controls",
+        "Shared responsibility: managed services"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-gateway-endpoint-vs-interface-endpoint",
+      "term": "Gateway endpoint vs Interface endpoint",
+      "category": "VPC",
+      "hint": "GATEWAY endpoint = S3 & DynamoDB ONLY, free · INTERFACE endpoint (PrivateLink) = most services, hourly",
+      "eli12": "A free private road to two places, versus private tunnels to almost anywhere for a toll.",
+      "definition": "VPC endpoints connect a VPC privately to AWS services without an internet gateway or NAT. Gateway endpoints support only Amazon S3 and Amazon DynamoDB, use route-table entries and are free. Interface endpoints (powered by AWS PrivateLink) support many services using a network interface in your subnet, billed hourly. Direct Connect is for on-premises links, not VPC-to-S3.",
+      "triggers": [
+        "privately connect VPC to S3",
+        "gateway endpoint",
+        "no internet",
+        "select two S3 DynamoDB"
+      ],
+      "confuse": [
+        "Transit Gateway vs VPC peering"
+      ],
+      "domain": "Security & Compliance",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-efs-vs-ebs-vs-instance-store-vs-s3",
+      "term": "EFS vs EBS vs Instance Store vs S3",
+      "category": "Storage",
+      "hint": "MANY instances share files → EFS · ONE instance, keeps data → EBS · temporary & fastest → INSTANCE STORE · objects → S3",
+      "eli12": "A shared office drive, your own USB stick, a whiteboard that's wiped at night, and a warehouse.",
+      "definition": "EFS: managed NFS file system that hundreds or thousands of Linux instances across AZs can mount and edit at the same time (even appending to files). EBS: block storage for one instance in one AZ that persists when the instance stops. Instance Store: disks physically on the host; fastest, but data is lost when the instance stops or terminates. S3: object storage; you replace whole objects, no appending to files.",
+      "triggers": [
+        "hundreds of instances",
+        "shared file system",
+        "append",
+        "across AZs",
+        "temporary",
+        "block"
+      ],
+      "confuse": [
+        "EBS: one instance, one AZ",
+        "Instance Store: temporary & fastest",
+        "EFS: shared across AZs"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-efs-shared-across-azs",
+      "term": "EFS: shared across AZs",
+      "category": "Storage",
+      "hint": "EFS = shared FILES, many instances, many AZs (Linux, NFS)",
+      "eli12": "One shared folder the whole team can open and edit at once.",
+      "definition": "A fully managed, elastic file system that EC2 instances across many Availability Zones (and even other VPCs and Regions through peering) can mount and edit at the same time. Pay only for what you store. Linux only (NFS); for Windows use FSx for Windows File Server.",
+      "triggers": [
+        "shared file system",
+        "concurrent access",
+        "across AZs",
+        "NFS"
+      ],
+      "confuse": [
+        "EBS: one instance, one AZ",
+        "EFS vs EBS vs Instance Store vs S3"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-ebs-one-instance-one-az",
+      "term": "EBS: one instance, one AZ",
+      "category": "Storage",
+      "hint": "EBS = a network hard drive for ONE instance in ONE AZ; snapshots are INCREMENTAL",
+      "eli12": "Your own USB stick: plugged into one laptop and kept in one room.",
+      "definition": "Block storage volumes attached to an EC2 instance in the same AZ; data persists when the instance stops. Snapshots are incremental and stored in S3, so you pay only for blocks that changed. Encryption is opt-in. You pay for the provisioned size.",
+      "triggers": [
+        "block storage",
+        "persists",
+        "snapshot incremental",
+        "boot volume"
+      ],
+      "confuse": [
+        "EFS: shared across AZs",
+        "Instance Store: temporary & fastest"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-instance-store-temporary-fastest",
+      "term": "Instance Store: temporary & fastest",
+      "category": "Storage",
+      "hint": "INSTANCE STORE = fastest, physically attached, LOST on stop",
+      "eli12": "A whiteboard in the room: super quick to write on, wiped when you leave.",
+      "definition": "Temporary block storage on disks physically attached to the host. Highest I/O performance and included in the instance price, but data is lost if the instance stops, hibernates or terminates. Good for caches, scratch data, and fault-tolerant apps that keep copies elsewhere.",
+      "triggers": [
+        "temporary",
+        "ephemeral",
+        "high I/O",
+        "fault tolerant",
+        "scratch"
+      ],
+      "confuse": [
+        "EBS: one instance, one AZ"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-storage-gateway-types",
+      "term": "Storage Gateway types",
+      "category": "Storage",
+      "hint": "Storage Gateway = FILE, VOLUME, TAPE gateways (no 'Object' or 'Block' gateway)",
+      "eli12": "A bridge between your office storage and the cloud, in three shapes.",
+      "definition": "Hybrid service that gives on-premises apps access to cloud storage. Types: S3 File Gateway (files stored as S3 objects), Volume Gateway (iSCSI block volumes backed up to AWS), and Tape Gateway (virtual tape library for backup software). Data is encrypted by default.",
+      "triggers": [
+        "hybrid storage",
+        "on-premises access to cloud storage",
+        "tape backup"
+      ],
+      "confuse": [
+        "EFS vs EBS vs Instance Store vs S3"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-s3-standard-ia-vs-one-zone-ia",
+      "term": "S3 Standard-IA vs One Zone-IA",
+      "category": "Storage",
+      "hint": "Re-creatable data (thumbnails) → ONE ZONE-IA (cheaper) · important data → STANDARD-IA (multi-AZ)",
+      "eli12": "Keeping a spare copy of a photo in one drawer versus in three houses.",
+      "definition": "Both are for infrequently accessed data with millisecond access and a per-GB retrieval fee. Standard-IA stores copies across at least 3 AZs. One Zone-IA keeps data in a single AZ, costs about 20% less, and suits data you can re-create if that AZ is lost (thumbnails, secondary backups).",
+      "triggers": [
+        "infrequent",
+        "re-creatable",
+        "thumbnails",
+        "single AZ",
+        "cost-effective"
+      ],
+      "confuse": [
+        "S3 Infrequent Access vs Glacier"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-s3-infrequent-access-vs-glacier",
+      "term": "S3 Infrequent Access vs Glacier",
+      "category": "Storage",
+      "hint": "Rarely used but NEEDED FAST → Standard-IA · ARCHIVE → Glacier Flexible Retrieval (minutes–hours) · cheapest, 12 h → Deep Archive",
+      "eli12": "The closet (grab it now) versus the storage unit across town.",
+      "definition": "Standard-IA: infrequent access, millisecond retrieval. Glacier Instant Retrieval: archive data needed in milliseconds a few times a year. Glacier Flexible Retrieval (formerly S3 Glacier): archives and backups, retrieval in minutes to hours. Glacier Deep Archive: lowest cost, retrieval within 12 hours. \"Data archival\" usually means Glacier Flexible Retrieval.",
+      "triggers": [
+        "archival",
+        "rapid access when needed",
+        "retrieval time",
+        "long-term"
+      ],
+      "confuse": [
+        "S3 Standard-IA vs One Zone-IA"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-efs-standard-ia",
+      "term": "EFS Standard-IA",
+      "category": "Storage",
+      "hint": "EFS-IA = cheaper storage for files you rarely open, but you PAY PER READ/WRITE",
+      "eli12": "The back shelf of the shared office cabinet: cheaper space, small fee each time you pull a file.",
+      "definition": "An EFS storage class for files accessed only occasionally, such as files kept to satisfy audit requirements. Storage costs less than EFS Standard, but you pay a fee each time you read or write data. Lifecycle management can move files there automatically.",
+      "triggers": [
+        "infrequently accessed files",
+        "audit",
+        "access fee",
+        "lifecycle"
+      ],
+      "confuse": [
+        "EFS: shared across AZs"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-security-group-vs-nacl",
+      "term": "Security Group vs NACL",
+      "category": "VPC",
+      "hint": "SECURITY GROUP = INSTANCE level, STATEFUL, ALLOW only · NACL = SUBNET level, STATELESS, ALLOW + DENY",
+      "eli12": "A bodyguard for one person versus a gate guard for the whole neighborhood.",
+      "definition": "Security groups attach to instances (network interfaces), only have allow rules, and are stateful (return traffic is allowed automatically). Network ACLs apply to a whole subnet, have both allow and deny rules evaluated in number order, and are stateless (return traffic must be allowed explicitly).",
+      "triggers": [
+        "instance level",
+        "subnet level",
+        "stateful",
+        "stateless",
+        "deny rules"
+      ],
+      "confuse": [
+        "VPC vs subnet scope"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-vpc-vs-subnet-scope",
+      "term": "VPC vs subnet scope",
+      "category": "VPC",
+      "hint": "VPC spans ALL AZs in a Region · each SUBNET lives in ONE AZ",
+      "eli12": "The VPC is the whole town; each subnet is one neighborhood in one district.",
+      "definition": "A VPC is regional and covers every Availability Zone in its Region. Each subnet is a range of IPs inside one AZ, so for high availability you create subnets in several AZs. A NAT gateway is fully managed by AWS.",
+      "triggers": [
+        "VPC spans",
+        "subnet one AZ",
+        "regional"
+      ],
+      "confuse": [
+        "Security Group vs NACL",
+        "Transit Gateway vs VPC peering"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-transit-gateway-vs-vpc-peering",
+      "term": "Transit Gateway vs VPC peering",
+      "category": "VPC",
+      "hint": "PEERING = 1-to-1, NOT transitive · TRANSIT GATEWAY = one HUB for many VPCs + on-premises",
+      "eli12": "Phone calls between every pair of friends versus one group chat.",
+      "definition": "VPC peering connects exactly two VPCs and isn't transitive (A-B and B-C doesn't give A-C), so many VPCs means many connections. Transit Gateway is a central hub that connects many VPCs and on-premises networks through one gateway: the answer when an organization keeps adding VPCs.",
+      "triggers": [
+        "connect many VPCs",
+        "hub and spoke",
+        "simplify",
+        "growing number of VPCs"
+      ],
+      "confuse": [
+        "Gateway endpoint vs Interface endpoint",
+        "Site-to-Site VPN parts"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-site-to-site-vpn-parts",
+      "term": "Site-to-Site VPN parts",
+      "category": "VPC",
+      "hint": "SITE-TO-SITE VPN = VIRTUAL PRIVATE GATEWAY (AWS side) + CUSTOMER GATEWAY (your side)",
+      "eli12": "Two ends of a secret tunnel: one door in AWS, one door in your office.",
+      "definition": "An encrypted IPsec tunnel over the internet between your network and a VPC. Its components are a virtual private gateway (or Transit Gateway) on the AWS side and a customer gateway on your side. An internet gateway is not part of it. To connect on-premises to AWS, use Site-to-Site VPN (internet, quick) or Direct Connect (private line).",
+      "triggers": [
+        "components of VPN",
+        "customer gateway",
+        "virtual private gateway",
+        "connect on-premises"
+      ],
+      "confuse": [
+        "Transit Gateway vs VPC peering"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-route-53-failover-active-passive",
+      "term": "Route 53 Failover = active-passive",
+      "category": "Networking",
+      "hint": "ACTIVE-PASSIVE → FAILOVER routing",
+      "eli12": "A backup generator that only turns on when the main power fails.",
+      "definition": "Failover routing sends traffic to a primary resource and switches to a standby when health checks fail: an active-passive setup. Simple routing has no health-check failover; weighted splits traffic by percentage; latency picks the fastest Region; geolocation routes by the user's location.",
+      "triggers": [
+        "active-passive",
+        "failover",
+        "health checks",
+        "disaster recovery"
+      ],
+      "confuse": [
+        "Edge Locations vs Local Zones"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-cloudfront-vs-s3-transfer-acceleration",
+      "term": "CloudFront vs S3 Transfer Acceleration",
+      "category": "Networking",
+      "hint": "Users far away READ/DOWNLOAD a site → CLOUDFRONT (cache) · users far away UPLOAD to a bucket → S3 Transfer Acceleration",
+      "eli12": "A local copy shop for readers, versus an express lane for sending packages in.",
+      "definition": "A static website in one Region with users worldwide loads faster through CloudFront, which caches content at edge locations near users. S3 Transfer Acceleration speeds up uploads into a bucket from far away using the edge network. It doesn't cache content for readers.",
+      "triggers": [
+        "improve website performance globally",
+        "static website",
+        "uploads over long distance"
+      ],
+      "confuse": [
+        "Edge Locations vs Local Zones"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-edge-locations-vs-local-zones",
+      "term": "Edge Locations vs Local Zones",
+      "category": "Networking",
+      "hint": "EDGE LOCATIONS = CACHE content (CloudFront) · LOCAL ZONES = RUN compute near a city (low-latency gaming)",
+      "eli12": "A newsstand that only hands out copies, versus a branch office where real work gets done.",
+      "definition": "Edge locations cache content for CloudFront and answer DNS for Route 53; they don't run your servers. Local Zones run EC2, EBS and other services in large cities for single-digit-millisecond latency, which suits real-time gaming and media. For consistent low-latency gameplay, pick Local Zones.",
+      "triggers": [
+        "low-latency gameplay",
+        "cache",
+        "run compute near users"
+      ],
+      "confuse": [
+        "CloudFront vs S3 Transfer Acceleration"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-ecr-vs-ecs-vs-fargate-vs-eks",
+      "term": "ECR vs ECS vs Fargate vs EKS",
+      "category": "Containers",
+      "hint": "ECR = STORE images · ECS = RUN containers (AWS orchestrator) · FARGATE = no servers to manage · EKS = Kubernetes",
+      "eli12": "The photo album, the stage manager, the self-driving stage, and the stage manager who speaks Kubernetes.",
+      "definition": "Amazon ECR is a registry to store, manage and deploy Docker container images. Amazon ECS runs and manages containers (the service to recommend for running Docker apps on AWS). AWS Fargate is a serverless way to run ECS or EKS containers without managing EC2 instances. Amazon EKS runs Kubernetes.",
+      "triggers": [
+        "store Docker images",
+        "run containers",
+        "container orchestration",
+        "serverless containers"
+      ],
+      "confuse": [
+        "Decoupling & scheduling: SQS, SNS, EventBridge, Step Functions"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-decoupling-scheduling-sqs-sns-eventbridge-step-functions",
+      "term": "Decoupling & scheduling: SQS, SNS, EventBridge, Step Functions",
+      "category": "Application Integration",
+      "hint": "DECOUPLE → SQS (queue) + SNS (pub/sub) · SCHEDULE a short job → EventBridge + Lambda · ORCHESTRATE steps → Step Functions · move an existing message broker → Amazon MQ",
+      "eli12": "A mailbox, a megaphone, an alarm clock, a recipe card, and a moving truck for the old mail room.",
+      "definition": "SQS and SNS decouple microservices. To run a short task on a schedule (every Monday at 2 AM for 5 minutes), use an EventBridge scheduled rule that triggers a Lambda function. Step Functions coordinates multi-step workflows. Amazon MQ is managed ActiveMQ/RabbitMQ for moving an existing on-premises message broker.",
+      "triggers": [
+        "decouple",
+        "cron schedule",
+        "every Monday",
+        "workflow",
+        "message broker"
+      ],
+      "confuse": [
+        "ECR vs ECS vs Fargate vs EKS"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-lambda-pricing",
+      "term": "Lambda pricing",
+      "category": "Compute",
+      "hint": "LAMBDA price = number of REQUESTS + DURATION (time × memory)",
+      "eli12": "Paying per ride and per minute, not per car brand.",
+      "definition": "You pay for the number of requests and for how long the code runs (measured in GB-seconds, so memory size matters). The programming language and the number of functions you've created don't affect the price. Lambda is the go-to for running code when a file lands in S3.",
+      "triggers": [
+        "pricing criteria",
+        "requests",
+        "execution time",
+        "S3 upload trigger"
+      ],
+      "confuse": [
+        "Decoupling & scheduling: SQS, SNS, EventBridge, Step Functions"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-dedicated-host-vs-dedicated-instance",
+      "term": "Dedicated Host vs Dedicated Instance",
+      "category": "Compute",
+      "hint": "Server-bound / per-socket licenses (BYOL) → DEDICATED HOST · just not shared hardware → Dedicated Instance",
+      "eli12": "Renting a whole house where you can count the rooms, versus a room in a house no stranger shares.",
+      "definition": "Both run on hardware not shared with other customers. A Dedicated Host gives you a whole physical server with visibility into its sockets and cores, which is needed for server-bound or per-socket software licenses and some compliance needs. Dedicated Instances only guarantee single-tenant hardware, with no host visibility or control.",
+      "triggers": [
+        "server-bound licenses",
+        "BYOL",
+        "sockets",
+        "cores",
+        "compliance"
+      ],
+      "confuse": [
+        "Reserved Instance payment options"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-amis-are-regional",
+      "term": "AMIs are Regional",
+      "category": "Compute",
+      "hint": "An AMI belongs to ONE Region · COPY it to launch in another Region",
+      "eli12": "A recipe card kept in one kitchen; to cook elsewhere, photocopy it first.",
+      "definition": "To launch an EC2 instance you must use an AMI from the same Region. Copy the AMI to the other Region first. The AMI's original Region doesn't affect performance. Similarly, there's no button to move resources between Regions: create new resources in the target Region and migrate the data and apps there.",
+      "triggers": [
+        "AMI region",
+        "launch instance",
+        "move to another Region"
+      ],
+      "confuse": [
+        "Global vs Regional services"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-global-vs-regional-services",
+      "term": "Global vs Regional services",
+      "category": "Infrastructure",
+      "hint": "GLOBAL: IAM, CloudFront, Route 53, WAF (on CloudFront) · REGIONAL: EC2, RDS, Lambda, S3 buckets…",
+      "eli12": "A passport works everywhere; a library card works in one town.",
+      "definition": "A few services are global: IAM, Amazon CloudFront, Amazon Route 53 and AWS WAF for CloudFront. Most are Regional, including Amazon EC2, RDS, Lambda and VPCs; S3 bucket names are global but each bucket lives in one Region.",
+      "triggers": [
+        "global in scope",
+        "select two",
+        "regional"
+      ],
+      "confuse": [
+        "AMIs are Regional"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-dynamodb-vs-aurora-vs-redshift",
+      "term": "DynamoDB vs Aurora vs Redshift",
+      "category": "Database",
+      "hint": "FLEXIBLE schema / documents → DYNAMODB · relational OLTP → Aurora/RDS · ANALYTICS (OLAP) → REDSHIFT",
+      "eli12": "A flexible notebook, a strict spreadsheet, and the giant report generator.",
+      "definition": "DynamoDB is a serverless NoSQL key-value and document database with a flexible schema; Global Tables make it multi-Region active-active for resiliency. Aurora and RDS are relational databases for transactions (OLTP). Redshift is the data warehouse for online analytical processing (OLAP).",
+      "triggers": [
+        "flexible schema",
+        "document data model",
+        "NoSQL",
+        "OLAP",
+        "analytics"
+      ],
+      "confuse": [
+        "Compute Optimizer & rightsizing"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-compute-optimizer-rightsizing",
+      "term": "Compute Optimizer & rightsizing",
+      "category": "Cost Management",
+      "hint": "COMPUTE OPTIMIZER = rightsizing for EC2, Auto Scaling groups, EBS, Lambda · find idle EC2 → TRUSTED ADVISOR + COST EXPLORER",
+      "eli12": "A coach who tells you which shoes fit better.",
+      "definition": "AWS Compute Optimizer uses machine learning on utilization history to recommend better sizes for EC2 instances, EC2 Auto Scaling groups, EBS volumes and Lambda functions. It doesn't cover S3. To find under-used EC2 instances without setting anything up, use Trusted Advisor (low-utilization check) and Cost Explorer (rightsizing recommendations).",
+      "triggers": [
+        "rightsizing",
+        "under-utilized EC2",
+        "recommendations",
+        "select two"
+      ],
+      "confuse": [
+        "Pricing Calculator vs Cost Explorer vs Budgets vs CUR"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-health-dashboard-service-vs-account",
+      "term": "Health Dashboard: service vs account",
+      "category": "Monitoring",
+      "hint": "SERVICE health = public status of ALL AWS services · YOUR ACCOUNT health = events affecting YOUR resources",
+      "eli12": "The weather report for the whole country versus an alert about a storm on your street.",
+      "definition": "The AWS Health Dashboard has two views. Service health shows the general, up-to-the-minute status of every AWS service in every Region. Your account health gives a personalized view of events that affect the services and resources you use, with remediation guidance. CloudFormation doesn't report service status.",
+      "triggers": [
+        "status of all AWS services",
+        "personalized view",
+        "your resources"
+      ],
+      "confuse": [
+        "CloudFormation vs Config"
+      ],
+      "domain": "Cloud Technology & Services",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-six-advantages-of-cloud-computing",
+      "term": "Six advantages of cloud computing",
+      "category": "Cloud Concepts",
+      "hint": "TRADE CAPEX → variable expense · ECONOMIES of scale · STOP GUESSING capacity · SPEED & agility · STOP running data centers · GO GLOBAL in minutes",
+      "eli12": "Six reasons renting beats building your own power plant.",
+      "definition": "AWS's six advantages: trade capital expense for variable expense (not the other way around), benefit from massive economies of scale, stop guessing capacity, increase speed and agility, stop spending money running and maintaining data centers, and go global in minutes.",
+      "triggers": [
+        "advantages of cloud",
+        "capital expense",
+        "select three"
+      ],
+      "confuse": [
+        "Horizontal vs vertical scaling"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-horizontal-vs-vertical-scaling",
+      "term": "Horizontal vs vertical scaling",
+      "category": "Cloud Concepts",
+      "hint": "HORIZONTAL = ADD more (read replicas, more instances behind ELB) · VERTICAL = make one BIGGER (larger instance type)",
+      "eli12": "More cashiers versus one faster cashier.",
+      "definition": "Horizontal scaling (elasticity) adds or removes resources: more EC2 instances behind Elastic Load Balancing, RDS read replicas, Auto Scaling. Vertical scaling changes the size of one resource, such as moving to a bigger instance type or adding CPU and RAM to a database instance.",
+      "triggers": [
+        "horizontal scalability",
+        "elasticity",
+        "read replicas",
+        "larger instance"
+      ],
+      "confuse": [
+        "Six advantages of cloud computing"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-rehost-vs-replatform",
+      "term": "Rehost vs Replatform",
+      "category": "Migration",
+      "hint": "REHOST = move AS-IS · REPLATFORM = small upgrade on the way (self-run MySQL → Amazon RDS)",
+      "eli12": "Moving your furniture as it is, versus swapping the old fridge for a new one when you move.",
+      "definition": "Rehost (lift and shift) moves an application without changes. Replatform keeps the core application but adopts a managed service to cut operational work, for example moving self-managed MySQL to Amazon RDS for MySQL. Refactor re-architects for cloud-native; Repurchase switches to a different product, often SaaS.",
+      "triggers": [
+        "reduce operational burden",
+        "fully managed database",
+        "migration strategy"
+      ],
+      "confuse": [
+        "Getting migration help"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-getting-migration-help",
+      "term": "Getting migration help",
+      "category": "Ecosystem",
+      "hint": "MIGRATION HELP = AWS PROFESSIONAL SERVICES + APN partners (consulting/services) · not Trusted Advisor or forums",
+      "eli12": "Hiring the pros or a certified contractor, not asking strangers online.",
+      "definition": "For expert help migrating and running workloads on AWS, use AWS Professional Services or an AWS Partner Network consulting (services) partner. Technology (software) partners provide products, not hands-on advice. Trusted Advisor gives best-practice checks; it doesn't migrate anything.",
+      "triggers": [
+        "migrate",
+        "expert advice",
+        "consulting partner",
+        "professional services"
+      ],
+      "confuse": [
+        "Rehost vs Replatform"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-caf-transformation-phases",
+      "term": "CAF transformation phases",
+      "category": "Cloud Adoption Framework",
+      "hint": "ENVISION → ALIGN → LAUNCH → SCALE",
+      "eli12": "Dream it, plan it, try it, grow it.",
+      "definition": "The AWS Cloud Adoption Framework's four iterative phases: Envision (identify and prioritize transformation opportunities tied to business outcomes), Align (find capability gaps and dependencies, get stakeholders aligned), Launch (deliver pilots in production and show value), and Scale (expand pilots to the desired scale).",
+      "triggers": [
+        "transformation journey",
+        "phase",
+        "prioritize opportunities"
+      ],
+      "confuse": [
+        "CAF stakeholders by perspective"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-caf-stakeholders-by-perspective",
+      "term": "CAF stakeholders by perspective",
+      "category": "Cloud Adoption Framework",
+      "hint": "PLATFORM → CTO, architects, ENGINEERS · SECURITY → CISO · BUSINESS → CEO/CFO/COO · OPERATIONS → IT operations leaders",
+      "eli12": "Who sits at which table at the planning meeting.",
+      "definition": "Common stakeholders per CAF perspective: Business (CEO, CFO, COO, CIO, CTO), People (CIO, COO, CTO, cloud director, cross-functional leaders), Governance (CIO, CTO, CFO, chief data officer, chief risk officer), Platform (CTO, technology leaders, architects, engineers), Security (CISO, chief compliance officer, internal audit, security architects and engineers), Operations (infrastructure and operations leaders, site reliability engineers, IT service managers).",
+      "triggers": [
+        "stakeholder role",
+        "platform perspective",
+        "select two"
+      ],
+      "confuse": [
+        "CAF transformation phases"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-well-architected-pillars-6",
+      "term": "Well-Architected pillars (6)",
+      "category": "Well-Architected",
+      "hint": "6 PILLARS: Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization, Sustainability (no 'Availability' pillar)",
+      "eli12": "Six legs of a sturdy table.",
+      "definition": "The AWS Well-Architected Framework has six pillars: Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization and Sustainability. \"Availability\", \"Scalability\" and \"Elasticity\" sound right but aren't pillars.",
+      "triggers": [
+        "pillars",
+        "select two",
+        "Well-Architected"
+      ],
+      "confuse": [
+        "Six advantages of cloud computing"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-leaving-aws-organizations",
+      "term": "Leaving AWS Organizations",
+      "category": "Account Management",
+      "hint": "An account can LEAVE an organization only if it can STAND ALONE (support plan, payment method, contact info)",
+      "eli12": "Moving out of your parents' house: you need your own bank card and phone first.",
+      "definition": "To remove a member account from AWS Organizations, it must have what a standalone account needs: an accepted AWS Customer Agreement, a support plan, verified contact information and a valid payment method. Attached SCPs don't block it, and you don't need AWS Support.",
+      "triggers": [
+        "remove account",
+        "standalone",
+        "organizations"
+      ],
+      "confuse": [
+        "Pricing Calculator vs Cost Explorer vs Budgets vs CUR"
+      ],
+      "domain": "Cloud Concepts",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-pricing-calculator-vs-cost-explorer-vs-budgets-vs-cur",
+      "term": "Pricing Calculator vs Cost Explorer vs Budgets vs CUR",
+      "category": "Cost Management",
+      "hint": "ESTIMATE before building → PRICING CALCULATOR · ANALYZE past & forecast → COST EXPLORER · ALERT on limits → BUDGETS · most DETAILED data → CUR",
+      "eli12": "A quote before you shop, a review of your receipts, a spending alarm, and the full itemized statement.",
+      "definition": "AWS Pricing Calculator estimates the monthly cost of services you haven't built yet. Cost Explorer visualizes past spending, forecasts, and gives rightsizing recommendations. AWS Budgets sends alerts when cost or usage exceeds, or is forecast to exceed, your limit. The Cost and Usage Report (CUR) is the most detailed line-item data, delivered to S3.",
+      "triggers": [
+        "estimate monthly bill",
+        "before deploying",
+        "visualize costs",
+        "alert",
+        "detailed report"
+      ],
+      "confuse": [
+        "AWS Budgets types",
+        "Compute Optimizer & rightsizing"
+      ],
+      "domain": "Billing, Pricing & Support",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-aws-budgets-types",
+      "term": "AWS Budgets types",
+      "category": "Cost Management",
+      "hint": "BUDGET TYPES = COST, USAGE, RESERVATION (utilization/coverage), SAVINGS PLANS (no 'resource budget')",
+      "eli12": "Four kinds of spending limits on one card.",
+      "definition": "AWS Budgets can track cost budgets, usage budgets, reservation budgets (RI utilization or coverage) and Savings Plans budgets (utilization or coverage), with alerts by email or SNS. There's no \"resource budget\" type.",
+      "triggers": [
+        "budget types",
+        "select three",
+        "reservation budget"
+      ],
+      "confuse": [
+        "Pricing Calculator vs Cost Explorer vs Budgets vs CUR"
+      ],
+      "domain": "Billing, Pricing & Support",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-reserved-instance-payment-options",
+      "term": "Reserved Instance payment options",
+      "category": "Pricing",
+      "hint": "MOST savings → ALL UPFRONT + 3-YEAR · then Partial upfront · then No upfront; 3-year always beats 1-year",
+      "eli12": "Paying for the whole year of gym membership upfront gets the best deal.",
+      "definition": "Reserved Instance discounts grow with term length and with how much you pay upfront: 3-year beats 1-year, and All Upfront beats Partial Upfront, which beats No Upfront. Among a list of options, choose the longest term with the most paid upfront.",
+      "triggers": [
+        "most cost-effective RI",
+        "upfront",
+        "term"
+      ],
+      "confuse": [
+        "Services you can reserve"
+      ],
+      "domain": "Billing, Pricing & Support",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-services-you-can-reserve",
+      "term": "Services you can reserve",
+      "category": "Pricing",
+      "hint": "RESERVE: EC2, RDS, DynamoDB, ElastiCache, Redshift, OpenSearch · NOT S3",
+      "eli12": "Booking ahead works at hotels and restaurants, not at the self-storage unit.",
+      "definition": "Reservations (reserved instances, nodes or capacity) are available for Amazon EC2, Amazon RDS, Amazon DynamoDB, Amazon ElastiCache, Amazon Redshift and Amazon OpenSearch Service. Amazon S3 has no reservations; you save there with storage classes.",
+      "triggers": [
+        "support reservations",
+        "select three",
+        "reserved capacity"
+      ],
+      "confuse": [
+        "Reserved Instance payment options"
+      ],
+      "domain": "Billing, Pricing & Support",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-cost-allocation-tags",
+      "term": "Cost allocation tags",
+      "category": "Cost Management",
+      "hint": "BOTH AWS-generated and user-defined tags must be ACTIVATED · each tag key has ONE value per resource",
+      "eli12": "Labels on your receipts, but you must switch on the label printer first.",
+      "definition": "Tags are key-value pairs. On a resource, each tag key must be unique and can hold only one value. Both AWS-generated and user-defined cost allocation tags must be activated in the Billing console before they appear in Cost Explorer or cost allocation reports.",
+      "triggers": [
+        "cost allocation tags",
+        "activate",
+        "select two"
+      ],
+      "confuse": [
+        "Pricing Calculator vs Cost Explorer vs Budgets vs CUR"
+      ],
+      "domain": "Billing, Pricing & Support",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-billing-metrics-live-in-us-east-1",
+      "term": "Billing metrics live in us-east-1",
+      "category": "Cost Management",
+      "hint": "CloudWatch BILLING metrics & billing alarms = US EAST (N. VIRGINIA) us-east-1 only",
+      "eli12": "All the bills are mailed to one head office.",
+      "definition": "Estimated-charges metrics for your whole account are stored in CloudWatch in US East (N. Virginia), us-east-1, regardless of where your resources run. Create billing alarms in that Region.",
+      "triggers": [
+        "billing metric",
+        "which Region",
+        "billing alarm"
+      ],
+      "confuse": [
+        "AWS Budgets types"
+      ],
+      "domain": "Billing, Pricing & Support",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-aws-credits-order",
+      "term": "AWS credits order",
+      "category": "Billing",
+      "hint": "Credits that EXPIRE SOONEST are used FIRST, on eligible services",
+      "eli12": "Use the gift card that expires next week before the one that expires next year.",
+      "definition": "When several credits apply, AWS applies the one with the earliest expiration date first, to the charges it covers, then the next credit to whatever is left. A credit only covers the services it's valid for.",
+      "triggers": [
+        "credits",
+        "expires",
+        "applied first"
+      ],
+      "confuse": [
+        "Pricing Calculator vs Cost Explorer vs Budgets vs CUR"
+      ],
+      "domain": "Billing, Pricing & Support",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    },
+    {
+      "id": "fx-support-plans-what-you-get",
+      "term": "Support plans: what you get",
+      "category": "Support",
+      "hint": "CORE Trusted Advisor checks only → BASIC & DEVELOPER · 24/7 PHONE (cheapest) → BUSINESS · third-party software help → BUSINESS and above",
+      "eli12": "Free help desk, email help, phone help any time, and a dedicated advisor.",
+      "definition": "Basic and Developer include only the core Trusted Advisor checks; Business and higher get the full set. 24/7 phone, email and chat with engineers starts at Business, so Business is the cheapest plan with 24/7 phone support. Help with third-party software working with AWS is in Business, Enterprise On-Ramp and Enterprise. (Late 2025: AWS added Business Support+ and is retiring Developer, Business and Enterprise On-Ramp by January 1, 2027, but the exam still uses these names.)",
+      "triggers": [
+        "core checks",
+        "24x7 phone",
+        "third-party software",
+        "most cost-effective plan"
+      ],
+      "confuse": [
+        "Shield: DDoS"
+      ],
+      "domain": "Billing, Pricing & Support",
+      "confidence": "red",
+      "lowPriority": false,
+      "coverage": " Official Guide / In Scope",
+      "official": "",
+      "officialSource": "",
+      "notes": "Focus deck: built from my practice-test mistakes (Oct 2026)",
+      "source": "focus"
+    }
+  ]
+}

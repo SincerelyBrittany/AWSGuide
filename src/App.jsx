@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import builtInDeck from './data/studyGuide.json';
 import builtInQuestions from './data/questions.json';
+import focusDeck from './data/focus.json';
 // Optional, git-ignored: personal questions from data/private/ (see scripts/sync-data.mjs).
 const privateQuestions = Object.values(import.meta.glob('./data/privateQuestions.json', { eager: true, import: 'default' }))[0]?.questions || [];
 import { parseQuestionFile, mergeQuestions } from './lib/parseQuestions.js';
@@ -112,10 +113,18 @@ export default function App() {
   const qDomains = useMemo(() => deck.domains.filter((d) => qCards.some((c) => c.domain === d.name)), [deck, qCards]);
 
   // Flashcards, the games and Progress run on whichever deck is switched on.
-  const source = settings.source === 'questions' && qCards.length ? 'questions' : 'guide';
-  const cards = source === 'questions' ? qCards : guideCards;
-  const index = source === 'questions' ? qIndex : guideIndex;
-  const domains = source === 'questions' ? qDomains : guideDomains;
+  // Focus deck: a temporary, separate deck from data/focus/ (practice-test weak spots).
+  const focusCards = useMemo(() => (focusDeck.cards || []).map((c) => ({ ...c, level: progress[c.id] || c.confidence })), [progress]);
+  const focusIndex = useMemo(() => buildIndex(focusCards), [focusCards]);
+  const focusDomains = useMemo(() => deck.domains.filter((d) => focusCards.some((c) => c.domain === d.name)), [deck, focusCards]);
+
+  // Flashcards, the games and Progress run on whichever deck is switched on.
+  const source =
+    settings.source === 'questions' && qCards.length ? 'questions' : settings.source === 'focus' && focusCards.length ? 'focus' : 'guide';
+  const pick = (g, q, f) => (source === 'questions' ? q : source === 'focus' ? f : g);
+  const cards = pick(guideCards, qCards, focusCards);
+  const index = pick(guideIndex, qIndex, focusIndex);
+  const domains = pick(guideDomains, qDomains, focusDomains);
   const setSource = (v) => setSettings((st) => ({ ...st, source: v }));
 
   const setLevel = useCallback((id, level) => setProgress((p) => ({ ...p, [id]: level })), []);
@@ -204,7 +213,7 @@ export default function App() {
   const shared = { cards, index, domains, deck, setLevel, missed, record, stats };
   const guideShared = { ...shared, cards: guideCards, index: guideIndex, domains: guideDomains };
   const deckSwitch = (
-    <DeckSwitch value={source} onChange={setSource} counts={{ guide: guideCards.length, questions: qCards.length }} />
+    <DeckSwitch value={source} onChange={setSource} counts={{ guide: guideCards.length, questions: qCards.length, focus: focusCards.length }} focusName={focusDeck.name} />
   );
 
   return (
@@ -282,6 +291,7 @@ export default function App() {
           <Home
             {...guideShared}
             deckSwitch={deckSwitch}
+            focusCount={focusCards.length}
             modes={MODES}
             settings={settings}
             setSettings={setSettings}

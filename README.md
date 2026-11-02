@@ -119,6 +119,12 @@ Flashcards, Don't Confuse Me, Rapid-Fire, the Game Board, Memory Match and Progr
 - **Don't Confuse Me** pits the right answer against a wrong choice from the same question
 - **Memory Match** pairs each answer with the first line of its explanation
 
+## ★ Focus deck (temporary)
+
+A separate 60-card deck aimed at the topics I kept missing on practice tests: which security service does what, encryption, shared responsibility edge cases, storage choices, VPC networking, and billing tools. It lives in [`data/focus/`](data/focus) (same columns as the study guide) and shows up as **★ Focus** in the *Studying* switch for Flashcards, every game and Progress.
+
+**To remove it:** delete the file in `data/focus/` and run `npm run sync`. The ★ Focus option disappears when the folder is empty. To make a new one, drop a different sheet in the same folder.
+
 ## 📖 Study Guide page
 
 <picture>
