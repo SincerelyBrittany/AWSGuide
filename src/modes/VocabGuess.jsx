@@ -48,7 +48,7 @@ function optionsFor(card, pool) {
   return shuffle([card, ...[...same, ...rest].slice(0, 3)]);
 }
 
-export default function VocabGuess({ vocab, examples, record, missed, levelOf, skips = {}, setSkips = () => {} }) {
+export default function VocabGuess({ vocab, examples, record, missed, levelOf, skips = {}, setSkips = () => {}, stats = { concepts: {} } }) {
   const [category, setCategory] = useState('all');
   const [priority, setPriority] = useState('all');
   const [style, setStyle] = useState('choice'); // 'choice' | 'type'
@@ -71,11 +71,17 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf, s
   const pool = useMemo(
     () =>
       vocab.filter(
-        (v) => (category === 'all' || v.category === category) && (priority === 'all' || v.priority === priority) && (only !== 'skipped' || skips[v.id])
+        (v) => (category === 'all' || v.category === category) && (priority === 'all' || v.priority === priority) && (only !== 'skipped' || skips[v.id]) && (only !== 'missed' || stats.concepts[v.id]?.lastResult === 'wrong')
       ),
-    [vocab, category, priority, only, skips]
+    [vocab, category, priority, only, skips, stats]
   );
   const bestKey = `vocab:${style}:${category}:${priority}`;
+  // Missed: terms whose most recent answer was wrong (in Vocab Guess, or on the Vocab deck in any game).
+  // Getting one right takes it off the list.
+  const missedCards = useMemo(
+    () => vocab.filter((v) => stats.concepts[v.id]?.lastResult === 'wrong').sort((a, b) => stats.concepts[b.id].lastSeen - stats.concepts[a.id].lastSeen),
+    [vocab, stats]
+  );
   const skippedCards = useMemo(() => vocab.filter((v) => skips[v.id]).sort((a, b) => skips[b.id].at - skips[a.id].at), [vocab, skips]);
 
   const card = round[pos];
@@ -169,7 +175,7 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf, s
     const withExamples = pool.filter((v) => v.example || examples[v.id]).length;
     return (
       <div className="mode">
-        <ModeHeader eyebrow={`${vocab.length} vocabulary terms · best ${best[bestKey] || 0} pts${skippedCards.length ? ` · ${skippedCards.length} skipped` : ''}`} title="Vocab Guess" />
+        <ModeHeader eyebrow={`${vocab.length} vocabulary terms · best ${best[bestKey] || 0} pts${missedCards.length ? ` · ${missedCards.length} missed` : ''}${skippedCards.length ? ` · ${skippedCards.length} skipped` : ''}`} title="Vocab Guess" />
         <div className="results quiz-setup vocab-setup">
           <p className="lede">
             Read the definition and name the term. Stuck? Reveal the <strong>Think of…</strong> clue, then an <strong>example exam question</strong>.
@@ -211,6 +217,9 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf, s
                 <button className={only === 'skipped' ? 'is-on' : ''} onClick={() => setOnly('skipped')} disabled={!skippedCards.length}>
                   Skipped <span className="count">{skippedCards.length}</span>
                 </button>
+                <button className={only === 'missed' ? 'is-on' : ''} onClick={() => setOnly('missed')} disabled={!missedCards.length}>
+                  Missed <span className="count">{missedCards.length}</span>
+                </button>
               </div>
             </div>
             <label className="field" htmlFor="vg-cat">
@@ -225,6 +234,33 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf, s
             Start {count === 'all' ? pool.length : Math.min(count, pool.length)} cards <kbd>↵</kbd>
           </button>
           <p className="muted">{withExamples} of {pool.length} terms in this selection have an example question.</p>
+
+          {missedCards.length > 0 && (
+            <div className="vocab-skips vocab-missed">
+              <div className="table-head">
+                <h2 className="section-title">Missed, still to get right <span className="count">{missedCards.length}</span></h2>
+                <div className="quiz-actions">
+                  <button className="btn btn-primary" onClick={() => deal(shuffle(missedCards))}>Play my missed terms</button>
+                </div>
+              </div>
+              <p className="muted">Terms you got wrong the last time you saw them. Answer one correctly and it comes off this list. Full right/wrong history is on the Progress page under the Vocab deck.</p>
+              <ul>
+                {missedCards.map((v) => {
+                  const c = stats.concepts[v.id];
+                  return (
+                    <li key={v.id}>
+                      <span className="vocab-skip-def">{v.definition}</span>
+                      <span className="muted vocab-skip-meta">{v.category} · missed {c.wrong}×{c.right ? ` · right ${c.right}×` : ''}</span>
+                      <details className="vocab-reveal">
+                        <summary>Show term</summary>
+                        <strong>{v.term}</strong>
+                      </details>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          )}
 
           {skippedCards.length > 0 && (
             <div className="vocab-skips">

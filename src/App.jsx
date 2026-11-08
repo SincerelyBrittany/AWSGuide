@@ -314,7 +314,7 @@ export default function App() {
           mode.id === 'quiz' ? (
             <Quiz key="quiz" {...guideShared} {...quizProps} />
           ) : mode.id === 'vocab' ? (
-            <VocabGuess key="vocab" vocab={vocabCards} examples={vocabExamples} record={record} missed={missed} levelOf={(c) => progress[c.id] || 'red'} skips={vocabSkips} setSkips={setVocabSkips} />
+            <VocabGuess key="vocab" vocab={vocabCards} examples={vocabExamples} record={record} missed={missed} levelOf={(c) => progress[c.id] || 'red'} skips={vocabSkips} setSkips={setVocabSkips} stats={stats} />
           ) : (
             <>
               <div className="deck-switch-bar">{deckSwitch}</div>

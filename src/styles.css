@@ -892,3 +892,8 @@ mark { background: color-mix(in srgb, var(--accent) 45%, transparent); color: in
 .vocab-skip-meta { font-size: 0.8rem; white-space: nowrap; }
 .review-list li.is-skipped { border-left-color: var(--yellow); }
 @media (max-width: 560px) { .vocab-skips li { grid-template-columns: 1fr auto; } .vocab-skip-meta { grid-column: 1; } }
+.vocab-missed { border-top-color: var(--line); }
+.vocab-missed li { box-shadow: inset 3px 0 0 var(--red); }
+.vocab-reveal summary { cursor: pointer; font-size: 0.85rem; color: var(--t-tech); font-weight: 600; white-space: nowrap; }
+.vocab-reveal[open] summary { margin-bottom: 2px; }
+.vocab-reveal strong { display: block; font-size: 0.9rem; }
