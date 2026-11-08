@@ -904,3 +904,11 @@ mark { background: color-mix(in srgb, var(--accent) 45%, transparent); color: in
 .vocab-flagged li { box-shadow: inset 3px 0 0 var(--yellow); }
 .vocab-flag-actions { display: flex; gap: 10px; align-items: baseline; }
 .quiz-nav .vocab-flag + .btn-primary { margin-left: auto; }
+/* Vocab Guess: multi-select groups + Passed list */
+.field-note { text-transform: none; letter-spacing: 0; font-weight: 500; color: var(--muted); margin-left: 6px; }
+.vocab-groups button.is-on .vocab-check { color: var(--green); font-weight: 800; }
+.vocab-passed > summary { list-style: none; cursor: pointer; }
+.vocab-passed > summary::-webkit-details-marker { display: none; }
+.vocab-passed-toggle { font-size: 0.85rem; color: var(--t-tech); font-weight: 600; }
+.vocab-passed[open] .vocab-passed-toggle { visibility: hidden; }
+.vocab-passed li { box-shadow: inset 3px 0 0 var(--green); }

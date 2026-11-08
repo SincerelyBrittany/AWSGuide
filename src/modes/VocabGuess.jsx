@@ -67,7 +67,7 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf, s
   const [priority, setPriority] = useState('all');
   const [style, setStyle] = useState('choice'); // 'choice' | 'type'
   const [count, setCount] = useState(10);
-  const [only, setOnly] = useState('all'); // 'all' | 'skipped'
+  const [groups, setGroups] = useState([]); // Which terms: empty = all; otherwise any mix of new / skipped / missed / passed / flagged
 
   const [phase, setPhase] = useState('setup');
   const [round, setRound] = useState([]);
@@ -82,19 +82,22 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf, s
   const inputRef = useRef(null);
 
   const categories = useMemo(() => [...new Set(vocab.map((v) => v.category))].sort(), [vocab]);
-  // Which terms: all, not tried yet, only skipped, only missed, or skipped + missed together.
+  // Which terms. Pick any mix of groups; a term is in the round if it's in ANY picked group. Nothing picked = all terms.
   const isSkipped = (v) => !!skips[v.id];
   const isMissed = (v) => stats.concepts[v.id]?.lastResult === 'wrong';
+  const isPassed = (v) => stats.concepts[v.id]?.lastResult === 'right'; // last answer was right
   // Not tried yet: never answered (in Vocab Guess or on the Vocab deck anywhere) and never skipped.
   const isNew = (v) => !stats.concepts[v.id] && !skips[v.id];
-  const inSet = (v) =>
-    only === 'skipped' ? isSkipped(v) : only === 'missed' ? isMissed(v) : only === 'both' ? isSkipped(v) || isMissed(v) : only === 'new' ? isNew(v) : only === 'flagged' ? !!flags[v.id] : true;
+  const isFlagged = (v) => !!flags[v.id];
+  const TEST = { new: isNew, skipped: isSkipped, missed: isMissed, passed: isPassed, flagged: isFlagged };
+  const inSet = (v) => !groups.length || groups.some((g) => TEST[g](v));
+  const toggleGroup = (g) => setGroups((gs) => (gs.includes(g) ? gs.filter((x) => x !== g) : [...gs, g]));
   const pool = useMemo(
     () =>
       vocab.filter(
         (v) => (category === 'all' || v.category === category) && (priority === 'all' || v.priority === priority) && inSet(v)
       ),
-    [vocab, category, priority, only, skips, stats, flags]
+    [vocab, category, priority, groups, skips, stats, flags]
   );
   const bestKey = `vocab:${style}:${category}:${priority}`;
   // Missed: terms whose most recent answer was wrong (in Vocab Guess, or on the Vocab deck in any game).
@@ -110,7 +113,10 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf, s
       return { ...f, [c.id]: { at: Date.now() } };
     });
   const newCards = useMemo(() => vocab.filter((v) => !stats.concepts[v.id] && !skips[v.id]), [vocab, skips, stats]);
-  const reviewCards = useMemo(() => vocab.filter((v) => skips[v.id] || stats.concepts[v.id]?.lastResult === 'wrong'), [vocab, skips, stats]);
+  const passedCards = useMemo(
+    () => vocab.filter((v) => stats.concepts[v.id]?.lastResult === 'right').sort((a, b) => stats.concepts[b.id].lastSeen - stats.concepts[a.id].lastSeen),
+    [vocab, stats]
+  );
   const skippedCards = useMemo(() => vocab.filter((v) => skips[v.id]).sort((a, b) => skips[b.id].at - skips[a.id].at), [vocab, skips]);
 
   const card = round[pos];
@@ -205,7 +211,7 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf, s
     const withExamples = pool.filter((v) => v.example || examples[v.id]).length;
     return (
       <div className="mode">
-        <ModeHeader eyebrow={`${vocab.length} vocabulary terms · best ${best[bestKey] || 0} pts${missedCards.length ? ` · ${missedCards.length} missed` : ''}${skippedCards.length ? ` · ${skippedCards.length} skipped` : ''}${flaggedCards.length ? ` · ${flaggedCards.length} flagged` : ''}`} title="Vocab Guess" />
+        <ModeHeader eyebrow={`${vocab.length} vocabulary terms · best ${best[bestKey] || 0} pts${missedCards.length ? ` · ${missedCards.length} missed` : ''}${skippedCards.length ? ` · ${skippedCards.length} skipped` : ''}${passedCards.length ? ` · ${passedCards.length} passed` : ''}${flaggedCards.length ? ` · ${flaggedCards.length} flagged` : ''}`} title="Vocab Guess" />
         <div className="results quiz-setup vocab-setup">
           <p className="lede">
             Read the definition and name the term. Stuck? Reveal the <strong>Think of…</strong> clue, then an <strong>example exam question</strong>.
@@ -241,25 +247,35 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf, s
               </div>
             </div>
             <div className="field">
-              <span className="field-label">Which terms</span>
-              <div className="segmented" role="group" aria-label="Which terms">
-                <button className={only === 'all' ? 'is-on' : ''} onClick={() => setOnly('all')}>All</button>
-                <button className={only === 'new' ? 'is-on' : ''} onClick={() => setOnly('new')} disabled={!newCards.length}>
-                  Not tried yet <span className="count">{newCards.length}</span>
+              <span className="field-label">Which terms <span className="field-note">pick one or more</span></span>
+              <div className="segmented vocab-groups" role="group" aria-label="Which terms">
+                <button className={!groups.length ? 'is-on' : ''} onClick={() => setGroups([])} aria-pressed={!groups.length}>
+                  All <span className="count">{vocab.length}</span>
                 </button>
-                <button className={only === 'skipped' ? 'is-on' : ''} onClick={() => setOnly('skipped')} disabled={!skippedCards.length}>
-                  Skipped <span className="count">{skippedCards.length}</span>
-                </button>
-                <button className={only === 'missed' ? 'is-on' : ''} onClick={() => setOnly('missed')} disabled={!missedCards.length}>
-                  Missed <span className="count">{missedCards.length}</span>
-                </button>
-                <button className={only === 'both' ? 'is-on' : ''} onClick={() => setOnly('both')} disabled={!reviewCards.length}>
-                  Skipped + Missed <span className="count">{reviewCards.length}</span>
-                </button>
-                <button className={only === 'flagged' ? 'is-on' : ''} onClick={() => setOnly('flagged')} disabled={!flaggedCards.length}>
-                  ⚑ Flagged <span className="count">{flaggedCards.length}</span>
-                </button>
+                {[
+                  ['new', 'Not tried yet', newCards.length],
+                  ['skipped', 'Skipped', skippedCards.length],
+                  ['missed', 'Missed', missedCards.length],
+                  ['passed', 'Passed', passedCards.length],
+                  ['flagged', '⚑ Flagged', flaggedCards.length],
+                ].map(([key, label, n]) => (
+                  <button
+                    key={key}
+                    className={groups.includes(key) ? 'is-on' : ''}
+                    onClick={() => toggleGroup(key)}
+                    aria-pressed={groups.includes(key)}
+                    disabled={!n && !groups.includes(key)}
+                  >
+                    {groups.includes(key) && <span className="vocab-check" aria-hidden="true">✓ </span>}
+                    {label} <span className="count">{n}</span>
+                  </button>
+                ))}
               </div>
+              <span className="quiz-help">
+                {groups.length
+                  ? `Playing terms that are ${groups.map((g) => ({ new: 'not tried yet', skipped: 'skipped', missed: 'missed', passed: 'passed', flagged: 'flagged' })[g]).join(' or ')}${groups.length > 1 ? ' (each term counted once)' : ''}.`
+                  : 'Playing from all terms. Tap groups to combine them, e.g. Skipped + Passed.'}
+              </span>
             </div>
             <label className="field" htmlFor="vg-cat">
               <span className="field-label">Category</span>
@@ -273,11 +289,6 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf, s
             Start {count === 'all' ? pool.length : Math.min(count, pool.length)} cards <kbd>↵</kbd>
           </button>
           <p className="muted">{withExamples} of {pool.length} terms in this selection have an example question.</p>
-          {skippedCards.length > 0 && missedCards.length > 0 && (
-            <button className="btn btn-ghost" onClick={() => deal(shuffle(reviewCards))}>
-              Play all my skipped + missed terms ({reviewCards.length})
-            </button>
-          )}
 
           {flaggedCards.length > 0 && (
             <div className="vocab-skips vocab-flagged">
@@ -335,6 +346,34 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf, s
                 })}
               </ul>
             </div>
+          )}
+
+          {passedCards.length > 0 && (
+            <details className="vocab-skips vocab-passed">
+              <summary className="table-head">
+                <h2 className="section-title">✓ Passed <span className="count">{passedCards.length}</span></h2>
+                <span className="muted vocab-passed-toggle">Show list</span>
+              </summary>
+              <div className="quiz-actions">
+                <button className="btn btn-primary" onClick={() => deal(shuffle(passedCards))}>Replay my passed terms</button>
+              </div>
+              <p className="muted">Terms you got right the last time you saw them. Miss one later and it moves to Missed.</p>
+              <ul>
+                {passedCards.map((v) => {
+                  const c = stats.concepts[v.id];
+                  return (
+                    <li key={v.id}>
+                      <span className="vocab-skip-def">{v.definition}</span>
+                      <span className="muted vocab-skip-meta">{v.category} · right {c.right}×{c.wrong ? ` · missed ${c.wrong}×` : ''}</span>
+                      <details className="vocab-reveal">
+                        <summary>Show term</summary>
+                        <strong>{v.term}</strong>
+                      </details>
+                    </li>
+                  );
+                })}
+              </ul>
+            </details>
           )}
 
           {skippedCards.length > 0 && (
