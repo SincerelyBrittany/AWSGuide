@@ -883,3 +883,12 @@ mark { background: color-mix(in srgb, var(--accent) 45%, transparent); color: in
   .tab { padding: 6px 6px; font-size: 0.82rem; }
   .tab-guide, .tab-qguide, .tab-progress { margin-left: 1px; }
 }
+/* Vocab Guess skips */
+.vocab-cluebtns { display: flex; gap: 8px; flex-wrap: wrap; }
+.vocab-skips { width: 100%; border-top: 1px solid var(--line); padding-top: 16px; display: flex; flex-direction: column; gap: 8px; }
+.vocab-skips p { margin: 0; }
+.vocab-skips ul { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.vocab-skips li { display: grid; grid-template-columns: 1fr auto auto; gap: 4px 12px; align-items: baseline; padding: 8px 12px; border-radius: 9px; background: var(--surface-2); font-size: 0.93rem; }
+.vocab-skip-meta { font-size: 0.8rem; white-space: nowrap; }
+.review-list li.is-skipped { border-left-color: var(--yellow); }
+@media (max-width: 560px) { .vocab-skips li { grid-template-columns: 1fr auto; } .vocab-skip-meta { grid-column: 1; } }

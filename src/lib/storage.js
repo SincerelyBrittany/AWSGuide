@@ -7,6 +7,7 @@ const KEYS = {
   stats: 'clf-arcade:stats:v1',
   quiz: 'clf-arcade:quiz:v1',
   questions: 'clf-arcade:questions:v1',
+  vocabSkips: 'clf-arcade:vocab-skips:v1',
 };
 
 function read(key, fallback) {
@@ -46,3 +47,5 @@ export const loadQuiz = () => read(KEYS.quiz, null);
 export const saveQuiz = (q) => write(KEYS.quiz, q);
 export const loadImportedQuestions = () => read(KEYS.questions, []);
 export const saveImportedQuestions = (q) => write(KEYS.questions, q);
+export const loadVocabSkips = () => read(KEYS.vocabSkips, {});
+export const saveVocabSkips = (v) => write(KEYS.vocabSkips, v);

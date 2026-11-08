@@ -48,11 +48,12 @@ function optionsFor(card, pool) {
   return shuffle([card, ...[...same, ...rest].slice(0, 3)]);
 }
 
-export default function VocabGuess({ vocab, examples, record, missed, levelOf }) {
+export default function VocabGuess({ vocab, examples, record, missed, levelOf, skips = {}, setSkips = () => {} }) {
   const [category, setCategory] = useState('all');
   const [priority, setPriority] = useState('all');
   const [style, setStyle] = useState('choice'); // 'choice' | 'type'
   const [count, setCount] = useState(10);
+  const [only, setOnly] = useState('all'); // 'all' | 'skipped'
 
   const [phase, setPhase] = useState('setup');
   const [round, setRound] = useState([]);
@@ -68,10 +69,14 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf })
 
   const categories = useMemo(() => [...new Set(vocab.map((v) => v.category))].sort(), [vocab]);
   const pool = useMemo(
-    () => vocab.filter((v) => (category === 'all' || v.category === category) && (priority === 'all' || v.priority === priority)),
-    [vocab, category, priority]
+    () =>
+      vocab.filter(
+        (v) => (category === 'all' || v.category === category) && (priority === 'all' || v.priority === priority) && (only !== 'skipped' || skips[v.id])
+      ),
+    [vocab, category, priority, only, skips]
   );
   const bestKey = `vocab:${style}:${category}:${priority}`;
+  const skippedCards = useMemo(() => vocab.filter((v) => skips[v.id]).sort((a, b) => skips[b.id].at - skips[a.id].at), [vocab, skips]);
 
   const card = round[pos];
   const example = card ? card.example || examples[card.id] || '' : '';
@@ -110,6 +115,17 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf })
     setResults((r) => [...r, { card, ok, points, clues, picked: pickedTerm }]);
     record(card, ok ? 'right' : 'wrong');
     if (!ok) missed(card);
+    // Getting a skipped term right takes it off your Skipped list.
+    if (ok && skips[card.id]) setSkips((s) => { const { [card.id]: _, ...rest } = s; return rest; });
+  };
+
+  // Skip: no points, not counted right or wrong, saved to your Skipped list to come back to.
+  const skip = () => {
+    if (answer || !card) return;
+    setSkips((s) => ({ ...s, [card.id]: { at: Date.now(), count: (s[card.id]?.count || 0) + 1 } }));
+    setResults((r) => [...r, { card, ok: false, skipped: true, points: 0, clues, picked: '' }]);
+    if (pos < round.length - 1) setPos(pos + 1);
+    else setTimeout(finish, 0);
   };
 
   const next = () => {
@@ -141,6 +157,7 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf })
       if (answer && e.key === 'Enter') { e.preventDefault(); return next(); }
       if (inInput) return;
       if (!answer && (e.key === 'h' || e.key === 'H')) return reveal();
+      if (!answer && (e.key === 's' || e.key === 'S')) return skip();
       if (!answer && style === 'choice' && '1234'.includes(e.key) && options[+e.key - 1]) return submit(options[+e.key - 1].term);
     };
     window.addEventListener('keydown', onKey);
@@ -152,7 +169,7 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf })
     const withExamples = pool.filter((v) => v.example || examples[v.id]).length;
     return (
       <div className="mode">
-        <ModeHeader eyebrow={`${vocab.length} vocabulary terms · best ${best[bestKey] || 0} pts`} title="Vocab Guess" />
+        <ModeHeader eyebrow={`${vocab.length} vocabulary terms · best ${best[bestKey] || 0} pts${skippedCards.length ? ` · ${skippedCards.length} skipped` : ''}`} title="Vocab Guess" />
         <div className="results quiz-setup vocab-setup">
           <p className="lede">
             Read the definition and name the term. Stuck? Reveal the <strong>Think of…</strong> clue, then an <strong>example exam question</strong>.
@@ -187,6 +204,15 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf })
                 ))}
               </div>
             </div>
+            <div className="field">
+              <span className="field-label">Which terms</span>
+              <div className="segmented" role="group" aria-label="Which terms">
+                <button className={only === 'all' ? 'is-on' : ''} onClick={() => setOnly('all')}>All</button>
+                <button className={only === 'skipped' ? 'is-on' : ''} onClick={() => setOnly('skipped')} disabled={!skippedCards.length}>
+                  Skipped <span className="count">{skippedCards.length}</span>
+                </button>
+              </div>
+            </div>
             <label className="field" htmlFor="vg-cat">
               <span className="field-label">Category</span>
               <select id="vg-cat" value={category} onChange={(e) => setCategory(e.target.value)}>
@@ -199,6 +225,28 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf })
             Start {count === 'all' ? pool.length : Math.min(count, pool.length)} cards <kbd>↵</kbd>
           </button>
           <p className="muted">{withExamples} of {pool.length} terms in this selection have an example question.</p>
+
+          {skippedCards.length > 0 && (
+            <div className="vocab-skips">
+              <div className="table-head">
+                <h2 className="section-title">Skipped to come back to <span className="count">{skippedCards.length}</span></h2>
+                <div className="quiz-actions">
+                  <button className="btn btn-primary" onClick={() => deal(shuffle(skippedCards))}>Play my skipped terms</button>
+                  <button className="btn btn-link" onClick={() => setSkips({})}>Clear list</button>
+                </div>
+              </div>
+              <p className="muted">Answer one correctly and it comes off this list. Your list is saved in this browser and included in Export backup.</p>
+              <ul>
+                {skippedCards.map((v) => (
+                  <li key={v.id}>
+                    <span className="vocab-skip-def">{v.definition}</span>
+                    <span className="muted vocab-skip-meta">{v.category}{skips[v.id].count > 1 ? ` · skipped ${skips[v.id].count}×` : ''}</span>
+                    <button className="btn btn-link" aria-label={`Remove from skipped: ${v.definition}`} onClick={() => setSkips((s) => { const { [v.id]: _, ...rest } = s; return rest; })}>Remove</button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     );
@@ -209,16 +257,18 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf })
     const score = results.reduce((s, r) => s + r.points, 0);
     const right = results.filter((r) => r.ok).length;
     const clean = results.filter((r) => r.ok && r.clues === 0).length;
-    const misses = results.filter((r) => !r.ok);
+    const misses = results.filter((r) => !r.ok && !r.skipped);
+    const skipped = results.filter((r) => r.skipped);
     return (
       <div className="mode">
         <ModeHeader eyebrow={style === 'choice' ? 'Pick from 4' : 'Type it'} title="Vocab Guess results" />
         <div className="results">
           <p className="eyebrow">{newBest ? 'New best score' : `Best: ${best[bestKey] || 0} pts`}</p>
           <p className="big-score">{score}<small> / {results.length * 3} pts</small></p>
-          <p className="lede">{right} of {results.length} right · {clean} with no clues.</p>
+          <p className="lede">{right} of {results.length} right · {clean} with no clues{skipped.length ? ` · ${skipped.length} skipped` : ''}.</p>
           <div className="quiz-actions">
             {misses.length > 0 && <button className="btn btn-primary" onClick={() => deal(misses.map((m) => m.card))}>Retry the {misses.length} I missed</button>}
+            {skipped.length > 0 && <button className="btn btn-primary" onClick={() => deal(skipped.map((m) => m.card))}>Try the {skipped.length} I skipped</button>}
             <button className="btn btn-ghost" onClick={start}>Play again</button>
             <button className="btn btn-ghost" onClick={() => setPhase('setup')}>Change settings</button>
           </div>
@@ -228,8 +278,8 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf })
             <h2 className="section-title">Review</h2>
             <ol className="review-list">
               {results.map((r, i) => (
-                <li key={i} className={r.ok ? 'is-right' : 'is-wrong'}>
-                  <p className="review-q">{r.card.term} <span className="muted">· {r.ok ? `+${r.points}` : `you said "${r.picked || '—'}"`}</span></p>
+                <li key={i} className={r.ok ? 'is-right' : r.skipped ? 'is-skipped' : 'is-wrong'}>
+                  <p className="review-q">{r.card.term} <span className="muted">· {r.ok ? `+${r.points}` : r.skipped ? 'skipped (saved to your Skipped list)' : `you said "${r.picked || '—'}"`}</span></p>
                   <p className="review-why">{r.card.definition}</p>
                   {r.card.think && <p className="review-concept muted">Think: {r.card.think}</p>}
                 </li>
@@ -276,11 +326,14 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf })
           {!answer && (
             <div className="vocab-cluebar">
               <span className="muted">Worth <strong>{POINTS[clues]}</strong> {POINTS[clues] === 1 ? 'point' : 'points'}</span>
+              <span className="vocab-cluebtns">
               {canMore && (
                 <button className="btn btn-ghost" onClick={reveal}>
                   {clues === 0 ? 'Show hint' : 'Show example question'} (−1) <kbd>H</kbd>
                 </button>
               )}
+              <button className="btn btn-ghost vocab-skip" onClick={skip} title="Skip for now and save it to your Skipped list">Skip <kbd>S</kbd></button>
+              </span>
             </div>
           )}
         </div>
@@ -321,7 +374,7 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf })
             </div>
           </div>
         )}
-        <p className="muted quiz-keys">Keys: H for the next clue · {style === 'choice' ? '1–4 to pick' : 'type and press Enter'} · Enter to continue</p>
+        <p className="muted quiz-keys">Keys: H for the next clue · S to skip{style === 'type' ? ' (when not typing)' : ''} · {style === 'choice' ? '1–4 to pick' : 'type and press Enter'} · Enter to continue</p>
       </div>
     </div>
   );

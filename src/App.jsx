@@ -56,6 +56,9 @@ export default function App() {
   const [stats, setStats] = useState(() => store.loadStats() || emptyStats());
   const [quizHistory, setQuizHistory] = useState(() => store.loadQuiz() || emptyQuizHistory());
   const [importedQuestions, setImportedQuestions] = useState(() => store.loadImportedQuestions());
+  // Vocab Guess skips: { [cardId]: { at, count } }, so you can come back to them.
+  const [vocabSkips, setVocabSkips] = useState(() => store.loadVocabSkips());
+  useEffect(() => { store.saveVocabSkips(vocabSkips); }, [vocabSkips]);
   const session = useRef(null);
   const [toast, setToast] = useState(null);
   const fileRef = useRef(null);
@@ -287,11 +290,12 @@ export default function App() {
             {...shared}
             modes={MODES}
             progress={progress}
-            extraBackup={{ quiz: quizHistory, questions: importedQuestions }}
+            extraBackup={{ quiz: quizHistory, questions: importedQuestions, vocabSkips }}
             onRestore={(next) => {
               setStats(next.stats);
               if (next.progress) setProgress(next.progress);
               if (next.quiz) setQuizHistory(next.quiz);
+              if (next.vocabSkips) setVocabSkips(next.vocabSkips);
               if (next.questions) {
                 setImportedQuestions(next.questions);
                 store.saveImportedQuestions(next.questions);
@@ -310,7 +314,7 @@ export default function App() {
           mode.id === 'quiz' ? (
             <Quiz key="quiz" {...guideShared} {...quizProps} />
           ) : mode.id === 'vocab' ? (
-            <VocabGuess key="vocab" vocab={vocabCards} examples={vocabExamples} record={record} missed={missed} levelOf={(c) => progress[c.id] || 'red'} />
+            <VocabGuess key="vocab" vocab={vocabCards} examples={vocabExamples} record={record} missed={missed} levelOf={(c) => progress[c.id] || 'red'} skips={vocabSkips} setSkips={setVocabSkips} />
           ) : (
             <>
               <div className="deck-switch-bar">{deckSwitch}</div>
