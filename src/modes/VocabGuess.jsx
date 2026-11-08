@@ -68,10 +68,13 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf, s
   const inputRef = useRef(null);
 
   const categories = useMemo(() => [...new Set(vocab.map((v) => v.category))].sort(), [vocab]);
-  // Which terms: all, only skipped, only missed, or skipped + missed together.
+  // Which terms: all, not tried yet, only skipped, only missed, or skipped + missed together.
   const isSkipped = (v) => !!skips[v.id];
   const isMissed = (v) => stats.concepts[v.id]?.lastResult === 'wrong';
-  const inSet = (v) => (only === 'skipped' ? isSkipped(v) : only === 'missed' ? isMissed(v) : only === 'both' ? isSkipped(v) || isMissed(v) : true);
+  // Not tried yet: never answered (in Vocab Guess or on the Vocab deck anywhere) and never skipped.
+  const isNew = (v) => !stats.concepts[v.id] && !skips[v.id];
+  const inSet = (v) =>
+    only === 'skipped' ? isSkipped(v) : only === 'missed' ? isMissed(v) : only === 'both' ? isSkipped(v) || isMissed(v) : only === 'new' ? isNew(v) : true;
   const pool = useMemo(
     () =>
       vocab.filter(
@@ -86,6 +89,7 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf, s
     () => vocab.filter((v) => stats.concepts[v.id]?.lastResult === 'wrong').sort((a, b) => stats.concepts[b.id].lastSeen - stats.concepts[a.id].lastSeen),
     [vocab, stats]
   );
+  const newCards = useMemo(() => vocab.filter((v) => !stats.concepts[v.id] && !skips[v.id]), [vocab, skips, stats]);
   const reviewCards = useMemo(() => vocab.filter((v) => skips[v.id] || stats.concepts[v.id]?.lastResult === 'wrong'), [vocab, skips, stats]);
   const skippedCards = useMemo(() => vocab.filter((v) => skips[v.id]).sort((a, b) => skips[b.id].at - skips[a.id].at), [vocab, skips]);
 
@@ -219,6 +223,9 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf, s
               <span className="field-label">Which terms</span>
               <div className="segmented" role="group" aria-label="Which terms">
                 <button className={only === 'all' ? 'is-on' : ''} onClick={() => setOnly('all')}>All</button>
+                <button className={only === 'new' ? 'is-on' : ''} onClick={() => setOnly('new')} disabled={!newCards.length}>
+                  Not tried yet <span className="count">{newCards.length}</span>
+                </button>
                 <button className={only === 'skipped' ? 'is-on' : ''} onClick={() => setOnly('skipped')} disabled={!skippedCards.length}>
                   Skipped <span className="count">{skippedCards.length}</span>
                 </button>
