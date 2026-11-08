@@ -17,7 +17,7 @@
 
 </div>
 
-## Six ways to study
+## Seven ways to study
 
 <table>
   <tr>
@@ -118,6 +118,16 @@ Flashcards, Don't Confuse Me, Rapid-Fire, the Game Board, Memory Match and Progr
 - **Flashcards** show the answer, why it's right, the wrong choices from the quiz and the question it came from
 - **Don't Confuse Me** pits the right answer against a wrong choice from the same question
 - **Memory Match** pairs each answer with the first line of its explanation
+
+## 🔤 Vocab Guess
+
+A guessing game built from [`data/vocab/`](data/vocab), a 288-term vocabulary sheet (TERM, DEFINITION, CATEGORY, THINK — MEMORY CLUE, STUDY PRIORITY, EXAMPLE QUESTION).
+
+1. **Definition** — name the term from its definition
+2. **Hint** — reveal the *Think of…* memory clue
+3. **Example question** — reveal an exam-style question whose answer is the term (from the quiz bank when one exists, otherwise the sheet's EXAMPLE QUESTION column)
+
+Guess by **picking from 4** (look-alikes from the same category) or by **typing it** (close spellings and abbreviations like "AZ" or "RPO" count). Scoring: **3** points with just the definition, **2** after the hint, **1** after the example, **0** if wrong. Missed terms come back more often, and the terms also appear as a **Vocab** deck in Flashcards, the games and Progress.
 
 ## ★ Focus deck (temporary)
 

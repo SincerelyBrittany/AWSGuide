@@ -1,0 +1,2884 @@
+{
+  "cards": [
+    {
+      "id": "vx-cloud-computing",
+      "term": "Cloud computing",
+      "definition": "On-demand delivery of computing resources over the internet with pay-as-you-go pricing",
+      "category": "Cloud Concepts",
+      "think": "Netflix runs on rented computers",
+      "priority": "High",
+      "example": "A startup wants to rent servers, storage and databases over the internet and pay only for what it uses instead of buying hardware. What is this model called?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-on-demand-self-service",
+      "term": "On-demand self-service",
+      "definition": "Provision resources without human interaction with the provider",
+      "category": "Cloud Concepts",
+      "think": "Vending machine: push button, get resources",
+      "priority": "High",
+      "example": "A developer launches a new server from the AWS console in minutes without calling or emailing anyone at AWS. Which cloud characteristic does this show?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-elasticity",
+      "term": "Elasticity",
+      "definition": "Automatically increase or decrease resources as demand changes",
+      "category": "Cloud Concepts",
+      "think": "Rubber band: stretch then shrink",
+      "priority": "High",
+      "example": "",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-scalability",
+      "term": "Scalability",
+      "definition": "Ability to increase or decrease capacity to handle workload",
+      "category": "Cloud Concepts",
+      "think": "Bigger ladder handles more weight",
+      "priority": "High",
+      "example": "An application must be able to handle ten times more users next year by adding capacity. Which cloud concept describes this ability?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-high-availability",
+      "term": "High availability",
+      "definition": "Design systems to remain operational with minimal downtime",
+      "category": "Cloud Concepts",
+      "think": "Always open for business",
+      "priority": "High",
+      "example": "A company designs its web app so it stays up with minimal downtime, even during maintenance or a data center problem. What is this design goal called?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-fault-tolerance",
+      "term": "Fault tolerance",
+      "definition": "Continue operating when a component fails",
+      "category": "Cloud Concepts",
+      "think": "Spare tire when one fails",
+      "priority": "High",
+      "example": "A system keeps running with no interruption even when one of its servers fails, because a redundant component takes over instantly. Which concept is this?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-durability",
+      "term": "Durability",
+      "definition": "Likelihood that stored data remains intact over time",
+      "category": "Cloud Concepts",
+      "think": "Data survives the storm",
+      "priority": "High",
+      "example": "Amazon S3 is designed so that stored objects are very unlikely to ever be lost (11 nines). Which characteristic does this describe?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-agility",
+      "term": "Agility",
+      "definition": "Rapidly provision and experiment with technology resources",
+      "category": "Cloud Concepts",
+      "think": "Move fast, experiment faster",
+      "priority": "High",
+      "example": "A team can spin up test environments in minutes, try new ideas, and throw them away cheaply. Which cloud benefit is this?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-economies-of-scale",
+      "term": "Economies of scale",
+      "definition": "Lower unit costs achieved through large-scale cloud operations",
+      "category": "Cloud Concepts",
+      "think": "Buying wholesale costs less",
+      "priority": "High",
+      "example": "Because AWS buys hardware for millions of customers, it can offer lower prices than a company could get on its own. Which cloud advantage is this?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-capital-expenditure-capex",
+      "term": "Capital expenditure (CapEx)",
+      "definition": "Upfront investment in physical assets",
+      "category": "Cloud Concepts",
+      "think": "Buy the building upfront",
+      "priority": "High",
+      "example": "A company spends $500,000 upfront to buy servers for its own data center. What type of spending is this?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-operational-expenditure-opex",
+      "term": "Operational expenditure (OpEx)",
+      "definition": "Ongoing expenses based on usage or operations",
+      "category": "Cloud Concepts",
+      "think": "Pay the monthly utility bill",
+      "priority": "High",
+      "example": "A company pays a monthly bill to AWS that changes with how much it uses. What type of spending is this?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-pay-as-you-go",
+      "term": "Pay-as-you-go",
+      "definition": "Pay for consumed resources instead of purchasing infrastructure upfront",
+      "category": "Cloud Concepts",
+      "think": "Electric meter, not a flat fee",
+      "priority": "High",
+      "example": "Which pricing approach lets you pay only for the compute and storage you actually consume, with no long-term contract or upfront purchase?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-aws-region",
+      "term": "AWS Region",
+      "definition": "Geographic area containing multiple isolated Availability Zones",
+      "category": "Cloud Concepts",
+      "think": "Country-sized AWS neighborhood",
+      "priority": "High",
+      "example": "A company must choose the geographic area, such as Frankfurt or Tokyo, where its resources will run; each one contains multiple isolated Availability Zones. What is this area called?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-availability-zone-az",
+      "term": "Availability Zone (AZ)",
+      "definition": "One or more discrete data centers with independent infrastructure in a Region",
+      "category": "Cloud Concepts",
+      "think": "Separate buildings in one neighborhood",
+      "priority": "High",
+      "example": "",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-edge-location",
+      "term": "Edge location",
+      "definition": "Site used to deliver content or services closer to users",
+      "category": "Cloud Concepts",
+      "think": "Mini delivery hub near viewers",
+      "priority": "High",
+      "example": "",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-multi-az-architecture",
+      "term": "Multi-AZ architecture",
+      "definition": "Deploy across multiple AZs for availability and resilience",
+      "category": "Cloud Concepts",
+      "think": "Two buildings, one city",
+      "priority": "High",
+      "example": "A company runs its application in two Availability Zones in the same Region so that losing one data center doesn't take it down. What is this architecture called?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-multi-region-architecture",
+      "term": "Multi-Region architecture",
+      "definition": "Deploy across Regions for geographic resilience or global requirements",
+      "category": "Cloud Concepts",
+      "think": "Backup cities across the globe",
+      "priority": "High",
+      "example": "A global company runs its application in both the US and Europe so it can survive the loss of an entire Region and serve users locally. What is this architecture called?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-disaster-recovery-dr",
+      "term": "Disaster recovery (DR)",
+      "definition": "Restore services and data after a disruptive event",
+      "category": "Cloud Concepts",
+      "think": "Plan B after catastrophe",
+      "priority": "High",
+      "example": "A company's plan describes how it will bring back its applications and data after a flood destroys its main site. What is this plan called?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-recovery-time-objective-rto",
+      "term": "Recovery Time Objective (RTO)",
+      "definition": "Target maximum acceptable time to restore a service",
+      "category": "Cloud Concepts",
+      "think": "T = time until back online",
+      "priority": "High",
+      "example": "The business says the order system must be back online within 2 hours of an outage. Which metric is this?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-recovery-point-objective-rpo",
+      "term": "Recovery Point Objective (RPO)",
+      "definition": "Maximum acceptable amount of data loss measured in time",
+      "category": "Cloud Concepts",
+      "think": "P = point in time you can recover",
+      "priority": "High",
+      "example": "The business says it can afford to lose at most 15 minutes of data after a failure. Which metric is this?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-backup-and-restore",
+      "term": "Backup and restore",
+      "definition": "DR strategy that restores data and infrastructure from backups",
+      "category": "Cloud Concepts",
+      "think": "Save a copy, rebuild later",
+      "priority": "High",
+      "example": "A company with a relaxed recovery target simply keeps copies of its data and rebuilds everything from them after a disaster. Which disaster recovery strategy is the cheapest and slowest?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-pilot-light",
+      "term": "Pilot light",
+      "definition": "DR strategy keeping essential components ready for recovery",
+      "category": "Cloud Concepts",
+      "think": "Tiny flame waiting to ignite",
+      "priority": "High",
+      "example": "A company keeps only its core database replicating in a second Region and starts the rest of its servers only during a disaster. Which disaster recovery strategy is this?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-warm-standby",
+      "term": "Warm standby",
+      "definition": "DR strategy running a scaled-down functional environment",
+      "category": "Cloud Concepts",
+      "think": "Small engine already idling",
+      "priority": "High",
+      "example": "A company runs a smaller, fully working copy of its production environment in another Region and scales it up when disaster strikes. Which disaster recovery strategy is this?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-active-active",
+      "term": "Active-active",
+      "definition": "Multiple active environments serving traffic simultaneously",
+      "category": "Cloud Concepts",
+      "think": "Two live engines share the work",
+      "priority": "High",
+      "example": "Two Regions both serve live user traffic at the same time, so if one fails the other already carries the load. What is this setup called?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-shared-responsibility-model",
+      "term": "Shared Responsibility Model",
+      "definition": "AWS secures the cloud infrastructure; customers secure what they run and configure in the cloud",
+      "category": "Cloud Concepts",
+      "think": "AWS protects building; you lock your room",
+      "priority": "High",
+      "example": "Which model explains that AWS secures the data centers and hardware, while customers secure their data, IAM permissions and configurations?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-security-of-the-cloud",
+      "term": "Security of the cloud",
+      "definition": "AWS responsibility for underlying facilities hardware and infrastructure",
+      "category": "Cloud Concepts",
+      "think": "AWS guards the physical building",
+      "priority": "High",
+      "example": "",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-security-in-the-cloud",
+      "term": "Security in the cloud",
+      "definition": "Customer responsibility for data identities configurations and workload security",
+      "category": "Cloud Concepts",
+      "think": "You guard your apps and data",
+      "priority": "High",
+      "example": "Under the AWS model, the customer is responsible for encrypting its data, managing IAM users and configuring security groups. What is this side of responsibility called?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-aws-well-architected-framework",
+      "term": "AWS Well-Architected Framework",
+      "definition": "Guidance for evaluating and improving cloud architectures",
+      "category": "Cloud Concepts",
+      "think": "Six pillars = architecture report card",
+      "priority": "High",
+      "example": "A company wants an AWS-provided set of best practices and questions to review its workloads across six pillars. Which framework should it use?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-operational-excellence-pillar",
+      "term": "Operational Excellence pillar",
+      "definition": "Run monitor and improve systems and processes effectively",
+      "category": "Cloud Concepts",
+      "think": "Run, measure, improve",
+      "priority": "High",
+      "example": "",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-security-pillar",
+      "term": "Security pillar",
+      "definition": "Protect data systems and assets through risk management and controls",
+      "category": "Cloud Concepts",
+      "think": "Lock every door",
+      "priority": "High",
+      "example": "Which Well-Architected pillar focuses on protecting data, systems and assets using identity controls, traceability and encryption?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-reliability-pillar",
+      "term": "Reliability pillar",
+      "definition": "Recover from disruptions and meet demand consistently",
+      "category": "Cloud Concepts",
+      "think": "Bounce back after failure",
+      "priority": "High",
+      "example": "",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-performance-efficiency-pillar",
+      "term": "Performance Efficiency pillar",
+      "definition": "Use computing resources efficiently as requirements evolve",
+      "category": "Cloud Concepts",
+      "think": "Right-sized speed",
+      "priority": "High",
+      "example": "",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-cost-optimization-pillar",
+      "term": "Cost Optimization pillar",
+      "definition": "Avoid unnecessary costs and optimize spending",
+      "category": "Cloud Concepts",
+      "think": "No wasted dollars",
+      "priority": "High",
+      "example": "",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-sustainability-pillar",
+      "term": "Sustainability pillar",
+      "definition": "Minimize environmental impacts of cloud workloads",
+      "category": "Cloud Concepts",
+      "think": "Less environmental impact",
+      "priority": "High",
+      "example": "",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-aws-cloud-adoption-framework-aws-caf",
+      "term": "AWS Cloud Adoption Framework (AWS CAF)",
+      "definition": "Guidance for organizational cloud transformation and capability assessment",
+      "category": "Cloud Concepts",
+      "think": "CAF = people + process + technology change",
+      "priority": "High",
+      "example": "A company wants AWS guidance organized into six perspectives (Business, People, Governance, Platform, Security, Operations) to plan its cloud transformation. Which framework is this?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-caf-business-perspective",
+      "term": "CAF Business perspective",
+      "definition": "Align cloud investments with business outcomes",
+      "category": "Cloud Concepts",
+      "think": "Business case and value",
+      "priority": "High",
+      "example": "",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-caf-people-perspective",
+      "term": "CAF People perspective",
+      "definition": "Develop workforce skills culture and organizational change",
+      "category": "Cloud Concepts",
+      "think": "Train and organize the team",
+      "priority": "High",
+      "example": "",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-caf-governance-perspective",
+      "term": "CAF Governance perspective",
+      "definition": "Manage cloud investments risks and organizational oversight",
+      "category": "Cloud Concepts",
+      "think": "Rules and oversight",
+      "priority": "High",
+      "example": "",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-caf-platform-perspective",
+      "term": "CAF Platform perspective",
+      "definition": "Build and manage scalable cloud platforms",
+      "category": "Cloud Concepts",
+      "think": "Build the cloud foundation",
+      "priority": "High",
+      "example": "",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-caf-security-perspective",
+      "term": "CAF Security perspective",
+      "definition": "Manage security compliance and risk during transformation",
+      "category": "Cloud Concepts",
+      "think": "Risk and protection",
+      "priority": "High",
+      "example": "",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-caf-operations-perspective",
+      "term": "CAF Operations perspective",
+      "definition": "Operate and improve cloud services",
+      "category": "Cloud Concepts",
+      "think": "Keep day-to-day running",
+      "priority": "High",
+      "example": "",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-caf-envision-phase",
+      "term": "CAF Envision phase",
+      "definition": "Identify transformation opportunities and expected business outcomes",
+      "category": "Cloud Concepts",
+      "think": "Imagine the future",
+      "priority": "High",
+      "example": "In the cloud transformation journey, which phase is about identifying and prioritizing opportunities and the business outcomes they should deliver?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-caf-align-phase",
+      "term": "CAF Align phase",
+      "definition": "Identify capability gaps and stakeholder alignment",
+      "category": "Cloud Concepts",
+      "think": "Get everyone on the same page",
+      "priority": "High",
+      "example": "In the cloud transformation journey, which phase finds capability gaps across the organization and gets stakeholders on the same page?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-caf-launch-phase",
+      "term": "CAF Launch phase",
+      "definition": "Deliver initial cloud initiatives and demonstrate value",
+      "category": "Cloud Concepts",
+      "think": "Try a first real project",
+      "priority": "High",
+      "example": "In the cloud transformation journey, which phase delivers pilot initiatives in production and shows early business value?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-caf-scale-phase",
+      "term": "CAF Scale phase",
+      "definition": "Expand successful cloud initiatives across the organization",
+      "category": "Cloud Concepts",
+      "think": "Roll it out broadly",
+      "priority": "High",
+      "example": "In the cloud transformation journey, which phase expands successful pilots across the organization to the desired size?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-migration",
+      "term": "Migration",
+      "definition": "Move applications or data from one environment to another",
+      "category": "Cloud Concepts",
+      "think": "Move house to AWS",
+      "priority": "High",
+      "example": "A company moves its on-premises applications and databases into AWS. What is this process called?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-rehost",
+      "term": "Rehost",
+      "definition": "Move an application with minimal changes; lift and shift",
+      "category": "Cloud Concepts",
+      "think": "Lift and shift: same furniture",
+      "priority": "High",
+      "example": "",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-replatform",
+      "term": "Replatform",
+      "definition": "Make limited optimizations while moving to cloud",
+      "category": "Cloud Concepts",
+      "think": "Change the engine, keep the car",
+      "priority": "High",
+      "example": "A company moves its app to AWS mostly as-is but switches its self-managed database to Amazon RDS to reduce maintenance. Which migration strategy is this?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-refactor-re-architect",
+      "term": "Refactor / re-architect",
+      "definition": "Change application architecture to use cloud-native capabilities",
+      "category": "Cloud Concepts",
+      "think": "Rebuild the car for the cloud",
+      "priority": "High",
+      "example": "",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-repurchase",
+      "term": "Repurchase",
+      "definition": "Move to a different product often SaaS",
+      "category": "Cloud Concepts",
+      "think": "Buy a replacement app",
+      "priority": "High",
+      "example": "During migration, a company drops its self-hosted CRM and starts using a SaaS CRM product instead. Which migration strategy is this?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-retain",
+      "term": "Retain",
+      "definition": "Keep a workload in its current environment for now",
+      "category": "Cloud Concepts",
+      "think": "Leave this one where it is",
+      "priority": "High",
+      "example": "A company decides to leave a mainframe application on-premises for now because it isn't ready to move. Which migration strategy is this?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-retire",
+      "term": "Retire",
+      "definition": "Decommission an unneeded workload",
+      "category": "Cloud Concepts",
+      "think": "Switch it off permanently",
+      "priority": "High",
+      "example": "During its migration review, a company finds an old reporting app nobody uses and turns it off. Which migration strategy is this?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-infrastructure-as-a-service-iaas",
+      "term": "Infrastructure as a Service (IaaS)",
+      "definition": "Rent fundamental compute storage and networking infrastructure",
+      "category": "Cloud Concepts",
+      "think": "Rent the virtual machines",
+      "priority": "High",
+      "example": "A company rents virtual servers, storage and networking and manages the operating system itself. Which cloud service model is this?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-platform-as-a-service-paas",
+      "term": "Platform as a Service (PaaS)",
+      "definition": "Use a managed platform for deploying applications without managing underlying infrastructure",
+      "category": "Cloud Concepts",
+      "think": "Developer gets the kitchen, not plumbing",
+      "priority": "High",
+      "example": "A developer uploads code and the provider handles the servers, operating system and runtime, like AWS Elastic Beanstalk. Which cloud service model is this?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-software-as-a-service-saas",
+      "term": "Software as a Service (SaaS)",
+      "definition": "Access complete software applications delivered over the internet",
+      "category": "Cloud Concepts",
+      "think": "Use the finished app",
+      "priority": "High",
+      "example": "A business uses a complete web-based email application that the provider builds, runs and maintains. Which cloud service model is this?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-serverless",
+      "term": "Serverless",
+      "definition": "Run code or services without provisioning or managing servers",
+      "category": "Cloud Concepts",
+      "think": "No server babysitting",
+      "priority": "High",
+      "example": "A developer runs code with AWS Lambda without provisioning or managing any servers, and pays only when the code runs. What is this model called?",
+      "domain": "Cloud Concepts"
+    },
+    {
+      "id": "vx-aws-identity-and-access-management-iam",
+      "term": "AWS Identity and Access Management (IAM)",
+      "definition": "Manage permissions and access to AWS services and resources",
+      "category": "Security & Compliance",
+      "think": "IAM = who can do what",
+      "priority": "High",
+      "example": "Which AWS service lets you create users, groups and roles and control who can access which AWS resources?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-iam-user",
+      "term": "IAM user",
+      "definition": "Identity representing a person or application with long-term credentials",
+      "category": "Security & Compliance",
+      "think": "One person's AWS identity",
+      "priority": "High",
+      "example": "A new employee needs a permanent identity with their own sign-in credentials for the AWS account. What should the administrator create?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-iam-group",
+      "term": "IAM group",
+      "definition": "Collection of IAM users that share identity-based permissions",
+      "category": "Security & Compliance",
+      "think": "A team of IAM users",
+      "priority": "High",
+      "example": "An administrator wants to give the same permissions to all 20 developers at once and manage them in one place. What should the developers be put into?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-iam-role",
+      "term": "IAM role",
+      "definition": "Assumable identity providing temporary permissions to AWS resources",
+      "category": "Security & Compliance",
+      "think": "Borrow a badge temporarily",
+      "priority": "High",
+      "example": "",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-iam-policy",
+      "term": "IAM policy",
+      "definition": "JSON document defining allowed or denied actions on resources",
+      "category": "Security & Compliance",
+      "think": "Permission rulebook",
+      "priority": "High",
+      "example": "",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-identity-based-policy",
+      "term": "Identity-based policy",
+      "definition": "Permissions policy attached to a user group or role",
+      "category": "Security & Compliance",
+      "think": "Rules attached to a person or role",
+      "priority": "High",
+      "example": "A permissions policy is attached directly to an IAM user, group or role to say what that identity can do. What type of policy is this?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-resource-based-policy",
+      "term": "Resource-based policy",
+      "definition": "Permissions policy attached to a resource such as an S3 bucket",
+      "category": "Security & Compliance",
+      "think": "Rules attached to the bucket",
+      "priority": "High",
+      "example": "A policy is attached to an S3 bucket to allow another AWS account to read its objects. What type of policy is this?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-iam-trust-policy",
+      "term": "IAM trust policy",
+      "definition": "Defines which principals can assume an IAM role",
+      "category": "Security & Compliance",
+      "think": "Who may borrow this role?",
+      "priority": "High",
+      "example": "Which part of an IAM role defines which principals (users, services or accounts) are allowed to assume that role?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-aws-security-token-service-sts",
+      "term": "AWS Security Token Service (STS)",
+      "definition": "Issue temporary security credentials for AWS access",
+      "category": "Security & Compliance",
+      "think": "STS = short-term security badge",
+      "priority": "High",
+      "example": "",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-assumerole",
+      "term": "AssumeRole",
+      "definition": "STS operation to obtain temporary credentials for an IAM role",
+      "category": "Security & Compliance",
+      "think": "Put on another role's badge",
+      "priority": "High",
+      "example": "An application needs temporary credentials to act as an IAM role. Which AWS STS operation does it call?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-least-privilege",
+      "term": "Least privilege",
+      "definition": "Grant only permissions necessary to perform required tasks",
+      "category": "Security & Compliance",
+      "think": "Only the keys you need",
+      "priority": "High",
+      "example": "A security team gives each user only the exact permissions needed for their job and nothing more. Which security principle is this?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-explicit-deny",
+      "term": "Explicit deny",
+      "definition": "A deny statement that overrides applicable allows in policy evaluation",
+      "category": "Security & Compliance",
+      "think": "DENY is the red stop sign",
+      "priority": "High",
+      "example": "A user is allowed s3:* by one policy, but another policy says Deny s3:DeleteObject. The user cannot delete objects. What wins in IAM policy evaluation?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-root-user",
+      "term": "Root user",
+      "definition": "Original account identity with full access requiring special protection",
+      "category": "Security & Compliance",
+      "think": "Master key: lock it away",
+      "priority": "High",
+      "example": "Which identity, created when the AWS account is opened, has full access to everything and should be protected with MFA and used only for a few account tasks?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-multi-factor-authentication-mfa",
+      "term": "Multi-factor authentication (MFA)",
+      "definition": "Require an additional authentication factor beyond a password",
+      "category": "Security & Compliance",
+      "think": "Password plus a second proof",
+      "priority": "High",
+      "example": "A company requires users to enter a code from their phone in addition to their password when signing in. What is this called?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-federation",
+      "term": "Federation",
+      "definition": "Allow external identities to access AWS using established identity providers",
+      "category": "Security & Compliance",
+      "think": "Use your company login",
+      "priority": "High",
+      "example": "Employees sign in to AWS using their existing corporate identity provider instead of separate IAM users. What is this called?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-aws-iam-identity-center",
+      "term": "AWS IAM Identity Center",
+      "definition": "Centrally manage workforce access to multiple AWS accounts and applications",
+      "category": "Security & Compliance",
+      "think": "One login for many AWS accounts",
+      "priority": "High",
+      "example": "",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-aws-organizations",
+      "term": "AWS Organizations",
+      "definition": "Centrally manage and govern multiple AWS accounts",
+      "category": "Security & Compliance",
+      "think": "Umbrella over multiple accounts",
+      "priority": "High",
+      "example": "",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-organizational-unit-ou",
+      "term": "Organizational unit (OU)",
+      "definition": "Logical grouping of AWS accounts in Organizations",
+      "category": "Security & Compliance",
+      "think": "Folder of AWS accounts",
+      "priority": "High",
+      "example": "In AWS Organizations, an administrator groups the Finance accounts together so policies can be applied to all of them. What is this group called?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-service-control-policy-scp",
+      "term": "Service control policy (SCP)",
+      "definition": "Set maximum available permissions for accounts in an AWS organization",
+      "category": "Security & Compliance",
+      "think": "Organization's permission ceiling",
+      "priority": "High",
+      "example": "A company wants to make sure no account in its organization can ever launch resources outside approved Regions, no matter what IAM allows. What should it use?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-aws-control-tower",
+      "term": "AWS Control Tower",
+      "definition": "Set up and govern a secure multi-account AWS environment",
+      "category": "Security & Compliance",
+      "think": "Landing-zone guardrails",
+      "priority": "High",
+      "example": "",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-aws-resource-access-manager-ram",
+      "term": "AWS Resource Access Manager (RAM)",
+      "definition": "Share supported AWS resources across accounts",
+      "category": "Security & Compliance",
+      "think": "Share resources across accounts",
+      "priority": "High",
+      "example": "A company wants to share a set of VPC subnets with other accounts in its organization instead of duplicating them. Which service should it use?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-aws-key-management-service-kms",
+      "term": "AWS Key Management Service (KMS)",
+      "definition": "Create control and use encryption keys for AWS-integrated encryption",
+      "category": "Security & Compliance",
+      "think": "KMS = keys for encryption",
+      "priority": "High",
+      "example": "",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-kms-key",
+      "term": "KMS key",
+      "definition": "Logical cryptographic key used for encryption operations in AWS KMS",
+      "category": "Security & Compliance",
+      "think": "Key that locks/unlocks ciphertext",
+      "priority": "High",
+      "example": "In AWS KMS, what is the logical resource, identified by an ARN, that is used to encrypt and decrypt data?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-key-policy",
+      "term": "Key policy",
+      "definition": "Resource policy controlling access to an AWS KMS key",
+      "category": "Security & Compliance",
+      "think": "Who may use the encryption key?",
+      "priority": "High",
+      "example": "Which resource policy controls who can use and manage a specific AWS KMS key?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-aws-cloudhsm",
+      "term": "AWS CloudHSM",
+      "definition": "Dedicated hardware security modules under customer control",
+      "category": "Security & Compliance",
+      "think": "Your own dedicated crypto vault",
+      "priority": "High",
+      "example": "",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-aws-secrets-manager",
+      "term": "AWS Secrets Manager",
+      "definition": "Store retrieve and automatically rotate secrets such as database passwords",
+      "category": "Security & Compliance",
+      "think": "Password vault with auto-rotation",
+      "priority": "High",
+      "example": "",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-aws-systems-manager-parameter-store",
+      "term": "AWS Systems Manager Parameter Store",
+      "definition": "Store and retrieve configuration values and secrets",
+      "category": "Security & Compliance",
+      "think": "Configuration values drawer",
+      "priority": "High",
+      "example": "",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-aws-certificate-manager-acm",
+      "term": "AWS Certificate Manager (ACM)",
+      "definition": "Provision manage and renew TLS certificates for supported AWS services",
+      "category": "Security & Compliance",
+      "think": "ACM = HTTPS certificates",
+      "priority": "High",
+      "example": "",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-encryption-at-rest",
+      "term": "Encryption at rest",
+      "definition": "Protect stored data using encryption",
+      "category": "Security & Compliance",
+      "think": "Locked file on disk",
+      "priority": "High",
+      "example": "A company must make sure data stored in its EBS volumes and S3 buckets is unreadable if the disks are stolen. What is this protection called?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-encryption-in-transit",
+      "term": "Encryption in transit",
+      "definition": "Protect data as it moves across networks using protocols such as TLS",
+      "category": "Security & Compliance",
+      "think": "Locked message on the road",
+      "priority": "High",
+      "example": "A company must protect data as it travels between users' browsers and its web application. What is this protection called?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-tls",
+      "term": "TLS",
+      "definition": "Cryptographic protocol securing communications in transit",
+      "category": "Security & Compliance",
+      "think": "The padlock behind HTTPS",
+      "priority": "High",
+      "example": "Which cryptographic protocol, used by HTTPS, protects data as it moves across a network?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-sse-s3",
+      "term": "SSE-S3",
+      "definition": "Amazon S3 server-side encryption using S3-managed keys",
+      "category": "Security & Compliance",
+      "think": "S3 uses its own managed key",
+      "priority": "High",
+      "example": "Which S3 encryption option uses keys that Amazon S3 manages for you and is applied to new objects by default?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-sse-kms",
+      "term": "SSE-KMS",
+      "definition": "Amazon S3 server-side encryption using AWS KMS keys",
+      "category": "Security & Compliance",
+      "think": "S3 encryption uses KMS key",
+      "priority": "High",
+      "example": "A company wants S3 to encrypt objects on the server side using keys it controls in AWS KMS, with key usage logged in CloudTrail. Which option should it choose?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-client-side-encryption",
+      "term": "Client-side encryption",
+      "definition": "Encrypt data before sending it to AWS",
+      "category": "Security & Compliance",
+      "think": "Encrypt before uploading",
+      "priority": "High",
+      "example": "A company must encrypt files before they leave its servers so AWS only ever stores encrypted data. Which approach is this?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-amazon-guardduty",
+      "term": "Amazon GuardDuty",
+      "definition": "Detect potentially malicious activity and threats in AWS accounts and workloads",
+      "category": "Security & Compliance",
+      "think": "Guard = catch bad actors",
+      "priority": "High",
+      "example": "",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-amazon-inspector",
+      "term": "Amazon Inspector",
+      "definition": "Identify software vulnerabilities and unintended network exposure",
+      "category": "Security & Compliance",
+      "think": "Inspector = find weak spots",
+      "priority": "High",
+      "example": "",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-amazon-macie",
+      "term": "Amazon Macie",
+      "definition": "Discover sensitive data such as PII in Amazon S3",
+      "category": "Security & Compliance",
+      "think": "Macie = spot private data in S3",
+      "priority": "High",
+      "example": "",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-aws-security-hub",
+      "term": "AWS Security Hub",
+      "definition": "Centralize security findings and assess security posture",
+      "category": "Security & Compliance",
+      "think": "Security Hub = security command center",
+      "priority": "High",
+      "example": "",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-aws-waf",
+      "term": "AWS WAF",
+      "definition": "Filter and block malicious HTTP and HTTPS web requests",
+      "category": "Security & Compliance",
+      "think": "WAF = bouncer for web requests",
+      "priority": "High",
+      "example": "",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-aws-shield",
+      "term": "AWS Shield",
+      "definition": "Protect applications against distributed denial-of-service attacks",
+      "category": "Security & Compliance",
+      "think": "Shield = DDoS umbrella",
+      "priority": "High",
+      "example": "",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-aws-network-firewall",
+      "term": "AWS Network Firewall",
+      "definition": "Managed network traffic filtering for Amazon VPC",
+      "category": "Security & Compliance",
+      "think": "Firewall around VPC traffic",
+      "priority": "High",
+      "example": "A company needs managed, stateful traffic inspection and filtering for traffic entering and leaving its VPCs. Which service should it use?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-aws-firewall-manager",
+      "term": "AWS Firewall Manager",
+      "definition": "Centrally configure and manage firewall policies across accounts",
+      "category": "Security & Compliance",
+      "think": "One manager for many firewalls",
+      "priority": "High",
+      "example": "A security team wants to centrally configure WAF rules and security group policies across all accounts in its organization. Which service should it use?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-aws-cloudtrail",
+      "term": "AWS CloudTrail",
+      "definition": "Record AWS API calls and account activity for auditing",
+      "category": "Security & Compliance",
+      "think": "Trail = who clicked what?",
+      "priority": "High",
+      "example": "",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-aws-config",
+      "term": "AWS Config",
+      "definition": "Record resource configurations and evaluate compliance with rules",
+      "category": "Security & Compliance",
+      "think": "Config = what changed on resources?",
+      "priority": "High",
+      "example": "",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-amazon-cloudwatch",
+      "term": "Amazon CloudWatch",
+      "definition": "Collect metrics logs and alarms for monitoring resources",
+      "category": "Security & Compliance",
+      "think": "Watch = metrics and alarms",
+      "priority": "High",
+      "example": "",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-aws-artifact",
+      "term": "AWS Artifact",
+      "definition": "Access AWS compliance reports and agreements",
+      "category": "Security & Compliance",
+      "think": "Artifact = download audit paperwork",
+      "priority": "High",
+      "example": "",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-aws-audit-manager",
+      "term": "AWS Audit Manager",
+      "definition": "Collect and organize evidence for compliance assessments",
+      "category": "Security & Compliance",
+      "think": "Audit Manager = gather evidence",
+      "priority": "High",
+      "example": "An auditor asks a company to continuously collect evidence from its AWS usage to prepare for compliance assessments. Which service helps?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-aws-trusted-advisor",
+      "term": "AWS Trusted Advisor",
+      "definition": "Provide best-practice recommendations on cost security performance and operations",
+      "category": "Security & Compliance",
+      "think": "Advisor = best-practice coach",
+      "priority": "High",
+      "example": "",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-aws-detective",
+      "term": "AWS Detective",
+      "definition": "Investigate and analyze security findings to identify root causes",
+      "category": "Security & Compliance",
+      "think": "Detective = investigate the clues",
+      "priority": "High",
+      "example": "After GuardDuty flags suspicious activity, a security analyst wants to investigate and visualize the root cause across logs. Which service should they use?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-amazon-cognito",
+      "term": "Amazon Cognito",
+      "definition": "Provide customer sign-up sign-in and application identity features",
+      "category": "Security & Compliance",
+      "think": "Cognito = customer sign-in",
+      "priority": "High",
+      "example": "",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-aws-directory-service",
+      "term": "AWS Directory Service",
+      "definition": "Provide managed directory capabilities including Microsoft Active Directory options",
+      "category": "Security & Compliance",
+      "think": "Managed Microsoft-style directory",
+      "priority": "High",
+      "example": "A company wants a managed Microsoft Active Directory in AWS so its Windows workloads can use domain sign-in. Which service provides this?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-aws-private-ca",
+      "term": "AWS Private CA",
+      "definition": "Create and manage private certificate authorities",
+      "category": "Security & Compliance",
+      "think": "Private certificates, not public web certs",
+      "priority": "High",
+      "example": "A company needs to issue private TLS certificates for its internal applications from its own managed certificate authority. Which service should it use?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-amazon-verified-permissions",
+      "term": "Amazon Verified Permissions",
+      "definition": "Fine-grained authorization for applications",
+      "category": "Security & Compliance",
+      "think": "Fine-grained app permissions",
+      "priority": "High",
+      "example": "A developer wants a managed service to define and evaluate fine-grained permissions inside their own application (who can view or edit which records). Which service fits?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-aws-health-dashboard",
+      "term": "AWS Health Dashboard",
+      "definition": "Show AWS service events and account-specific operational health",
+      "category": "Security & Compliance",
+      "think": "Health = AWS service trouble notices",
+      "priority": "High",
+      "example": "Which AWS tool shows both the general status of AWS services and events affecting your own account's resources?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-aws-abuse-team",
+      "term": "AWS Abuse team",
+      "definition": "Handle reports of abusive or malicious activity involving AWS resources",
+      "category": "Security & Compliance",
+      "think": "Report abusive AWS activity",
+      "priority": "High",
+      "example": "",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-aws-penetration-testing-policy",
+      "term": "AWS penetration testing policy",
+      "definition": "Defines permitted security testing of AWS services",
+      "category": "Security & Compliance",
+      "think": "Check the rules before a pen test",
+      "priority": "High",
+      "example": "A company wants to run security tests against its own EC2 instances. Which AWS policy says which tests are allowed without prior approval?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-security-group",
+      "term": "Security group",
+      "definition": "Stateful instance-level virtual firewall with allow rules",
+      "category": "Security & Compliance",
+      "think": "Instance firewall; remembers connections",
+      "priority": "High",
+      "example": "",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-network-acl-nacl",
+      "term": "Network ACL (NACL)",
+      "definition": "Stateless subnet-level network control with allow and deny rules",
+      "category": "Security & Compliance",
+      "think": "Subnet firewall; forgets connections",
+      "priority": "High",
+      "example": "",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-aws-shared-responsibility-for-ec2",
+      "term": "AWS shared responsibility for EC2",
+      "definition": "Customer manages guest OS patches applications and data while AWS manages underlying infrastructure",
+      "category": "Security & Compliance",
+      "think": "EC2: customer patches guest OS",
+      "priority": "High",
+      "example": "On Amazon EC2, who patches the guest operating system and the applications installed on the instance?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-aws-shared-responsibility-for-rds",
+      "term": "AWS shared responsibility for RDS",
+      "definition": "AWS manages underlying database infrastructure and OS while customer manages data access and configurations",
+      "category": "Security & Compliance",
+      "think": "RDS: AWS patches host OS",
+      "priority": "High",
+      "example": "With Amazon RDS, AWS patches the database engine and underlying OS. What is the customer still responsible for?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-aws-shared-responsibility-for-s3",
+      "term": "AWS shared responsibility for S3",
+      "definition": "AWS manages physical storage infrastructure while customer manages data access and protection choices",
+      "category": "Security & Compliance",
+      "think": "S3: customer controls bucket access",
+      "priority": "High",
+      "example": "For Amazon S3, AWS manages the physical storage. What does the customer manage?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-personally-identifiable-information-pii",
+      "term": "Personally identifiable information (PII)",
+      "definition": "Data that can identify or relate to a specific individual",
+      "category": "Security & Compliance",
+      "think": "PII = data identifying a person",
+      "priority": "High",
+      "example": "A company stores customers' names, home addresses and Social Security numbers. What is this kind of data called?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-compliance",
+      "term": "Compliance",
+      "definition": "Meeting applicable regulatory standards policies and requirements",
+      "category": "Security & Compliance",
+      "think": "Pass the required rules",
+      "priority": "High",
+      "example": "A healthcare company must show that its systems meet HIPAA requirements and its internal policies. What is this called?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-data-residency",
+      "term": "Data residency",
+      "definition": "Requirement for data to be stored or processed in a specified geographic location",
+      "category": "Security & Compliance",
+      "think": "Where must data physically live?",
+      "priority": "High",
+      "example": "A regulation says a government agency's data must be stored and processed only inside its own country. What is this requirement called?",
+      "domain": "Security & Compliance"
+    },
+    {
+      "id": "vx-amazon-ec2",
+      "term": "Amazon EC2",
+      "definition": "Resizable virtual servers in AWS",
+      "category": "Compute & Containers",
+      "think": "EC2 = virtual computer",
+      "priority": "Medium",
+      "example": "Which AWS service provides resizable virtual servers that you can launch in minutes and choose CPU, memory and OS for?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-machine-image-ami",
+      "term": "Amazon Machine Image (AMI)",
+      "definition": "Template used to launch EC2 instances",
+      "category": "Compute & Containers",
+      "think": "AMI = computer starter image",
+      "priority": "Medium",
+      "example": "An administrator wants every new web server to launch with the same OS, software and settings. What template should be used to launch them?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-ec2-instance-type",
+      "term": "EC2 instance type",
+      "definition": "Hardware configuration determining CPU memory networking and other capabilities",
+      "category": "Compute & Containers",
+      "think": "Size of virtual computer",
+      "priority": "Medium",
+      "example": "When launching an EC2 instance, what setting decides its CPU, memory, storage and networking capacity (for example m5.large)?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-ec2-auto-scaling",
+      "term": "EC2 Auto Scaling",
+      "definition": "Automatically adjust EC2 instance count to demand",
+      "category": "Compute & Containers",
+      "think": "Add/remove EC2 machines automatically",
+      "priority": "Medium",
+      "example": "A web app needs to automatically add EC2 instances when traffic rises and remove them when it falls. Which feature should be used?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-elastic-load-balancing-elb",
+      "term": "Elastic Load Balancing (ELB)",
+      "definition": "Distribute incoming traffic across multiple targets",
+      "category": "Compute & Containers",
+      "think": "Traffic cop across servers",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-application-load-balancer-alb",
+      "term": "Application Load Balancer (ALB)",
+      "definition": "Layer 7 load balancer for HTTP and HTTPS traffic",
+      "category": "Compute & Containers",
+      "think": "ALB = HTTP/HTTPS traffic cop",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-network-load-balancer-nlb",
+      "term": "Network Load Balancer (NLB)",
+      "definition": "Layer 4 load balancer for TCP UDP and TLS traffic",
+      "category": "Compute & Containers",
+      "think": "NLB = TCP/UDP traffic cop",
+      "priority": "Medium",
+      "example": "A gaming company needs a load balancer for TCP and UDP traffic with ultra-low latency and millions of requests per second. Which type should it use?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-lambda",
+      "term": "AWS Lambda",
+      "definition": "Run event-driven code without managing servers",
+      "category": "Compute & Containers",
+      "think": "Lambda = code runs on event",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-elastic-beanstalk",
+      "term": "AWS Elastic Beanstalk",
+      "definition": "Deploy web applications while AWS handles underlying provisioning and management",
+      "category": "Compute & Containers",
+      "think": "Beanstalk = deploy app, AWS handles setup",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-ecs",
+      "term": "Amazon ECS",
+      "definition": "AWS-managed container orchestration service",
+      "category": "Compute & Containers",
+      "think": "ECS = AWS container conductor",
+      "priority": "Medium",
+      "example": "Which AWS-native service runs and orchestrates Docker containers across a cluster?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-eks",
+      "term": "Amazon EKS",
+      "definition": "Managed Kubernetes control plane for containerized applications",
+      "category": "Compute & Containers",
+      "think": "EKS = Kubernetes conductor",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-fargate",
+      "term": "AWS Fargate",
+      "definition": "Serverless compute engine for containers",
+      "category": "Compute & Containers",
+      "think": "Fargate = containers, no servers to manage",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-ecr",
+      "term": "Amazon ECR",
+      "definition": "Managed container image registry",
+      "category": "Compute & Containers",
+      "think": "ECR = container image warehouse",
+      "priority": "Medium",
+      "example": "A team needs a private place to store, version and share its Docker container images. Which service should it use?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-batch",
+      "term": "AWS Batch",
+      "definition": "Run and schedule batch computing workloads",
+      "category": "Compute & Containers",
+      "think": "Batch = job queue for compute",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-lightsail",
+      "term": "Amazon Lightsail",
+      "definition": "Simplified cloud servers databases and networking for smaller workloads",
+      "category": "Compute & Containers",
+      "think": "Lightsail = simple starter server",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-outposts",
+      "term": "AWS Outposts",
+      "definition": "Run AWS infrastructure and services on premises",
+      "category": "Compute & Containers",
+      "think": "AWS hardware in your building",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-local-zones",
+      "term": "AWS Local Zones",
+      "definition": "Place select AWS resources close to metropolitan end users",
+      "category": "Compute & Containers",
+      "think": "Cloud close to a metro area",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-wavelength",
+      "term": "AWS Wavelength",
+      "definition": "Run applications near 5G network endpoints",
+      "category": "Compute & Containers",
+      "think": "5G edge for mobile apps",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-app-runner",
+      "term": "AWS App Runner",
+      "definition": "Deploy containerized web applications and APIs with managed infrastructure",
+      "category": "Compute & Containers",
+      "think": "Run web apps from source/container",
+      "priority": "Medium",
+      "example": "A developer wants to deploy a containerized web API from source code or an image without configuring load balancers, scaling or servers. Which service fits best?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-step-functions",
+      "term": "AWS Step Functions",
+      "definition": "Coordinate workflows and service tasks using state machines",
+      "category": "Compute & Containers",
+      "think": "Workflow as a flowchart",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-eventbridge",
+      "term": "Amazon EventBridge",
+      "definition": "Route events between applications and AWS services",
+      "category": "Compute & Containers",
+      "think": "Event router rings the doorbell",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-sqs",
+      "term": "Amazon SQS",
+      "definition": "Fully managed message queue for decoupling application components",
+      "category": "Compute & Containers",
+      "think": "SQS = queue of messages",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-sns",
+      "term": "Amazon SNS",
+      "definition": "Publish messages to multiple subscribers and endpoints",
+      "category": "Compute & Containers",
+      "think": "SNS = broadcast to subscribers",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-mq",
+      "term": "Amazon MQ",
+      "definition": "Managed message broker for protocols such as ActiveMQ and RabbitMQ",
+      "category": "Compute & Containers",
+      "think": "MQ = traditional message broker",
+      "priority": "Medium",
+      "example": "A company is moving an on-premises application that uses Apache ActiveMQ and wants a managed broker without rewriting code. Which service should it use?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-cloudformation",
+      "term": "AWS CloudFormation",
+      "definition": "Provision infrastructure using declarative templates",
+      "category": "Compute & Containers",
+      "think": "Infrastructure recipe as code",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-cdk",
+      "term": "AWS CDK",
+      "definition": "Define cloud infrastructure using programming languages",
+      "category": "Compute & Containers",
+      "think": "Build AWS resources with programming code",
+      "priority": "Medium",
+      "example": "A developer wants to define AWS infrastructure using TypeScript or Python instead of writing JSON or YAML templates. Which tool should they use?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-systems-manager",
+      "term": "AWS Systems Manager",
+      "definition": "Manage operational tasks and configurations across AWS resources",
+      "category": "Compute & Containers",
+      "think": "One toolbox for AWS operations",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-s3",
+      "term": "Amazon S3",
+      "definition": "Object storage for virtually any amount of data",
+      "category": "Storage & Databases",
+      "think": "S3 = object storage warehouse",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-s3-bucket",
+      "term": "S3 bucket",
+      "definition": "Container for objects stored in Amazon S3",
+      "category": "Storage & Databases",
+      "think": "Bucket = container for objects",
+      "priority": "Medium",
+      "example": "In Amazon S3, what is the top-level container that holds objects and has a unique name?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-s3-object",
+      "term": "S3 object",
+      "definition": "File and associated metadata stored in an S3 bucket",
+      "category": "Storage & Databases",
+      "think": "Object = file plus metadata",
+      "priority": "Medium",
+      "example": "In Amazon S3, what is the file plus its metadata, identified by a key, that you upload?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-s3-versioning",
+      "term": "S3 Versioning",
+      "definition": "Keep multiple versions of an object for recovery",
+      "category": "Storage & Databases",
+      "think": "Undo accidental overwrites",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-s3-lifecycle",
+      "term": "S3 Lifecycle",
+      "definition": "Automatically transition or expire objects according to rules",
+      "category": "Storage & Databases",
+      "think": "Automatically move/expire old files",
+      "priority": "Medium",
+      "example": "A company wants S3 objects to move to Glacier after 90 days and be deleted after 7 years automatically. Which feature should it configure?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-s3-standard",
+      "term": "S3 Standard",
+      "definition": "Storage class for frequently accessed objects",
+      "category": "Storage & Databases",
+      "think": "Hot storage: frequently used",
+      "priority": "Medium",
+      "example": "Which S3 storage class is designed for frequently accessed data with millisecond access and no retrieval fees?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-s3-intelligent-tiering",
+      "term": "S3 Intelligent-Tiering",
+      "definition": "Automatically optimize storage tier for changing access patterns",
+      "category": "Storage & Databases",
+      "think": "Storage class chooses for you",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-s3-standard-ia",
+      "term": "S3 Standard-IA",
+      "definition": "Lower-cost storage for infrequently accessed data with rapid retrieval",
+      "category": "Storage & Databases",
+      "think": "Rarely opened; multiple AZs",
+      "priority": "Medium",
+      "example": "A company stores backups it rarely opens but must restore within milliseconds when needed, across multiple AZs. Which S3 storage class is most cost-effective?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-s3-one-zone-ia",
+      "term": "S3 One Zone-IA",
+      "definition": "Infrequent-access storage in a single AZ",
+      "category": "Storage & Databases",
+      "think": "Rarely opened; one AZ",
+      "priority": "Medium",
+      "example": "A company stores thumbnail images it can easily re-create and rarely accesses. Which S3 storage class is cheapest while keeping millisecond access?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-s3-glacier-instant-retrieval",
+      "term": "S3 Glacier Instant Retrieval",
+      "definition": "Archive storage with millisecond retrieval",
+      "category": "Storage & Databases",
+      "think": "Archive with instant access",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-s3-glacier-flexible-retrieval",
+      "term": "S3 Glacier Flexible Retrieval",
+      "definition": "Archive storage with retrieval options from minutes to hours",
+      "category": "Storage & Databases",
+      "think": "Archive with minutes-to-hours retrieval",
+      "priority": "Medium",
+      "example": "A company archives records it may need back within minutes to a few hours, a couple of times a year. Which S3 storage class fits?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-s3-glacier-deep-archive",
+      "term": "S3 Glacier Deep Archive",
+      "definition": "Lowest-cost archive class for rarely accessed data with hours-long retrieval",
+      "category": "Storage & Databases",
+      "think": "Deep freezer: cheapest, slowest",
+      "priority": "Medium",
+      "example": "A company must keep compliance records for 10 years and almost never reads them; retrieval within 12 hours is fine. Which S3 storage class is cheapest?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-s3-transfer-acceleration",
+      "term": "S3 Transfer Acceleration",
+      "definition": "Accelerate long-distance uploads to S3 through edge locations",
+      "category": "Storage & Databases",
+      "think": "Fast upload through edge network",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-s3-replication",
+      "term": "S3 Replication",
+      "definition": "Automatically copy objects between S3 buckets",
+      "category": "Storage & Databases",
+      "think": "Copy objects to another bucket",
+      "priority": "Medium",
+      "example": "A company wants every new object in its S3 bucket in Virginia to be copied automatically to a bucket in Ireland. Which feature should it use?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-s3-object-lock",
+      "term": "S3 Object Lock",
+      "definition": "Prevent object deletion or overwrite for a specified retention period",
+      "category": "Storage & Databases",
+      "think": "WORM: can't overwrite or delete",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-ebs",
+      "term": "Amazon EBS",
+      "definition": "Block storage volumes for EC2 instances",
+      "category": "Storage & Databases",
+      "think": "EBS = hard drive for EC2",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-ebs-snapshot",
+      "term": "EBS snapshot",
+      "definition": "Point-in-time backup of an EBS volume",
+      "category": "Storage & Databases",
+      "think": "Photo of an EBS volume",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-efs",
+      "term": "Amazon EFS",
+      "definition": "Elastic shared file storage for Linux workloads",
+      "category": "Storage & Databases",
+      "think": "EFS = shared Linux file cabinet",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-fsx",
+      "term": "Amazon FSx",
+      "definition": "Managed file systems including Windows and high-performance options",
+      "category": "Storage & Databases",
+      "think": "FSx = managed specialty file systems",
+      "priority": "Medium",
+      "example": "A company needs a fully managed Windows file share that works with Active Directory, or a high-performance Lustre file system for HPC. Which service family provides these?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-storage-gateway",
+      "term": "AWS Storage Gateway",
+      "definition": "Connect on-premises environments with AWS cloud storage",
+      "category": "Storage & Databases",
+      "think": "Bridge office storage to AWS",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-backup",
+      "term": "AWS Backup",
+      "definition": "Centralize and automate backup policies across supported AWS services",
+      "category": "Storage & Databases",
+      "think": "Central backup scheduler",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-snow-family",
+      "term": "AWS Snow Family",
+      "definition": "Physical devices for transferring data and edge computing",
+      "category": "Storage & Databases",
+      "think": "Move giant datasets physically",
+      "priority": "Medium",
+      "example": "A company needs rugged physical devices that AWS ships to move petabytes of data offline or to run compute at a remote site. Which family of devices is this?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-snowball-edge",
+      "term": "AWS Snowball Edge",
+      "definition": "Physical device for large-scale offline data transfer and edge processing",
+      "category": "Storage & Databases",
+      "think": "Ship a data-filled suitcase",
+      "priority": "Medium",
+      "example": "A company with slow internet needs to move 80 TB to AWS and also process data at a remote site before sending it. Which physical device should it use?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-datasync",
+      "term": "AWS DataSync",
+      "definition": "Automate data movement between on-premises and AWS storage services",
+      "category": "Storage & Databases",
+      "think": "Move files online faster",
+      "priority": "Medium",
+      "example": "A company wants to automate and speed up recurring online transfers from its on-premises NFS file server to Amazon S3 and EFS. Which service should it use?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-transfer-family",
+      "term": "AWS Transfer Family",
+      "definition": "Managed file transfer using SFTP FTPS FTP and AS2",
+      "category": "Storage & Databases",
+      "think": "Managed SFTP/FTP endpoints",
+      "priority": "Medium",
+      "example": "A company's partners send files using SFTP and the company wants them to land directly in Amazon S3 without running FTP servers. Which service should it use?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-rds",
+      "term": "Amazon RDS",
+      "definition": "Managed relational database service",
+      "category": "Storage & Databases",
+      "think": "RDS = managed SQL databases",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-aurora",
+      "term": "Amazon Aurora",
+      "definition": "AWS relational database compatible with MySQL and PostgreSQL",
+      "category": "Storage & Databases",
+      "think": "Aurora = AWS-built SQL engine",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-dynamodb",
+      "term": "Amazon DynamoDB",
+      "definition": "Serverless key-value and document NoSQL database",
+      "category": "Storage & Databases",
+      "think": "DynamoDB = serverless NoSQL",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-redshift",
+      "term": "Amazon Redshift",
+      "definition": "Managed cloud data warehouse for analytics",
+      "category": "Storage & Databases",
+      "think": "Redshift = analytics warehouse",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-elasticache",
+      "term": "Amazon ElastiCache",
+      "definition": "Managed in-memory caching using Redis-compatible or Memcached engines",
+      "category": "Storage & Databases",
+      "think": "Cache = avoid slow database reads",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-memorydb",
+      "term": "Amazon MemoryDB",
+      "definition": "Redis-compatible durable in-memory database",
+      "category": "Storage & Databases",
+      "think": "Redis-compatible durable memory database",
+      "priority": "Medium",
+      "example": "An application needs a Redis-compatible in-memory database that is also durable enough to be the primary database. Which service fits?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-documentdb",
+      "term": "Amazon DocumentDB",
+      "definition": "Managed document database compatible with MongoDB workloads",
+      "category": "Storage & Databases",
+      "think": "DocumentDB = JSON documents",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-neptune",
+      "term": "Amazon Neptune",
+      "definition": "Managed graph database",
+      "category": "Storage & Databases",
+      "think": "Neptune = relationships as graphs",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-keyspaces",
+      "term": "Amazon Keyspaces",
+      "definition": "Managed Apache Cassandra-compatible database",
+      "category": "Storage & Databases",
+      "think": "Cassandra-compatible database",
+      "priority": "Medium",
+      "example": "A company runs Apache Cassandra workloads and wants a serverless, managed, Cassandra-compatible database. Which service should it use?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-timestream",
+      "term": "Amazon Timestream",
+      "definition": "Managed time-series database",
+      "category": "Storage & Databases",
+      "think": "Time-stamped measurements",
+      "priority": "Medium",
+      "example": "A company collects sensor readings every second and wants a database built for time-stamped data. Which service fits best?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-database-migration-service-dms",
+      "term": "AWS Database Migration Service (DMS)",
+      "definition": "Migrate and replicate databases with minimal downtime",
+      "category": "Storage & Databases",
+      "think": "DMS = move databases",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-schema-conversion-tool-sct",
+      "term": "AWS Schema Conversion Tool (SCT)",
+      "definition": "Convert database schemas between database engines",
+      "category": "Storage & Databases",
+      "think": "SCT = translate database schema",
+      "priority": "Medium",
+      "example": "A company is migrating from Oracle to Amazon Aurora PostgreSQL and needs to convert the database schema and code. Which tool should it use with AWS DMS?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-relational-database",
+      "term": "Relational database",
+      "definition": "Database organized into related tables using structured schemas",
+      "category": "Storage & Databases",
+      "think": "Tables with joins and SQL",
+      "priority": "Medium",
+      "example": "Which database type stores data in tables with rows and columns, uses a fixed schema and is queried with SQL?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-nosql-database",
+      "term": "NoSQL database",
+      "definition": "Database model such as key-value document or graph without requiring relational tables",
+      "category": "Storage & Databases",
+      "think": "Flexible key-value/document data",
+      "priority": "Medium",
+      "example": "Which database type supports flexible models such as key-value, document or graph without fixed relational tables?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-data-warehouse",
+      "term": "Data warehouse",
+      "definition": "Analytical repository optimized for large-scale querying and reporting",
+      "category": "Storage & Databases",
+      "think": "Analyze huge historical datasets",
+      "priority": "Medium",
+      "example": "A company needs a central repository optimized for complex analytical queries and reports across years of sales data. What is this called?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-read-replica",
+      "term": "Read replica",
+      "definition": "Read-only database copy used to scale read workloads",
+      "category": "Storage & Databases",
+      "think": "Extra copy for reading",
+      "priority": "Medium",
+      "example": "A reporting tool is slowing down the main database with heavy read queries. What can be added to take over read traffic?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-multi-az-database-deployment",
+      "term": "Multi-AZ database deployment",
+      "definition": "Standby replication for database availability and failover",
+      "category": "Storage & Databases",
+      "think": "Standby database in another AZ",
+      "priority": "Medium",
+      "example": "A company wants its RDS database to fail over automatically to a standby copy in another AZ if the primary fails. Which deployment option should it use?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-vpc",
+      "term": "Amazon VPC",
+      "definition": "Logically isolated virtual network in AWS",
+      "category": "Networking & Delivery",
+      "think": "VPC = private cloud neighborhood",
+      "priority": "Medium",
+      "example": "Which service gives you a logically isolated virtual network in AWS where you define IP ranges, subnets and routes?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-subnet",
+      "term": "Subnet",
+      "definition": "Range of IP addresses within a VPC",
+      "category": "Networking & Delivery",
+      "think": "Subnet = section of the neighborhood",
+      "priority": "Medium",
+      "example": "Inside a VPC, what is the range of IP addresses that lives in a single Availability Zone?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-public-subnet",
+      "term": "Public subnet",
+      "definition": "Subnet with routing to an internet gateway",
+      "category": "Networking & Delivery",
+      "think": "Route to internet gateway",
+      "priority": "Medium",
+      "example": "A web server must be reachable from the internet, so its subnet has a route to an internet gateway. What kind of subnet is this?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-private-subnet",
+      "term": "Private subnet",
+      "definition": "Subnet without direct route to an internet gateway",
+      "category": "Networking & Delivery",
+      "think": "No direct inbound internet route",
+      "priority": "Medium",
+      "example": "A database server should never be directly reachable from the internet, so its subnet has no route to an internet gateway. What kind of subnet is this?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-internet-gateway",
+      "term": "Internet gateway",
+      "definition": "Enable internet connectivity for resources in a VPC",
+      "category": "Networking & Delivery",
+      "think": "Front door to the public internet",
+      "priority": "Medium",
+      "example": "Which VPC component must be attached so resources in public subnets can communicate with the internet?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-nat-gateway",
+      "term": "NAT gateway",
+      "definition": "Allow private subnet resources to initiate outbound internet connections",
+      "category": "Networking & Delivery",
+      "think": "Private servers go out, not in",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-route-table",
+      "term": "Route table",
+      "definition": "Rules that determine where subnet network traffic is directed",
+      "category": "Networking & Delivery",
+      "think": "GPS directions for network packets",
+      "priority": "Medium",
+      "example": "Which VPC component contains rules that decide where network traffic from a subnet is sent?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-vpc-endpoint",
+      "term": "VPC endpoint",
+      "definition": "Privately connect to supported AWS services without traversing public internet",
+      "category": "Networking & Delivery",
+      "think": "Private path to AWS services",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-privatelink",
+      "term": "AWS PrivateLink",
+      "definition": "Private connectivity to supported services through VPC endpoints",
+      "category": "Networking & Delivery",
+      "think": "Private service access without public internet",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-vpc-peering",
+      "term": "VPC peering",
+      "definition": "Private network connection between two VPCs",
+      "category": "Networking & Delivery",
+      "think": "Private bridge between two VPCs",
+      "priority": "Medium",
+      "example": "A company needs a private connection between exactly two VPCs so they can talk using private IP addresses. What should it use?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-transit-gateway",
+      "term": "AWS Transit Gateway",
+      "definition": "Hub connecting VPCs and on-premises networks",
+      "category": "Networking & Delivery",
+      "think": "Hub-and-spoke VPC network",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-direct-connect",
+      "term": "AWS Direct Connect",
+      "definition": "Dedicated private network connection from premises to AWS",
+      "category": "Networking & Delivery",
+      "think": "Dedicated private network cable",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-site-to-site-vpn",
+      "term": "AWS Site-to-Site VPN",
+      "definition": "Encrypted connection between on-premises network and AWS VPC over IP networks",
+      "category": "Networking & Delivery",
+      "think": "Encrypted tunnel between sites",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-client-vpn",
+      "term": "AWS Client VPN",
+      "definition": "Managed VPN access for remote users",
+      "category": "Networking & Delivery",
+      "think": "Remote worker's VPN tunnel",
+      "priority": "Medium",
+      "example": "Remote employees need a secure, managed VPN connection from their laptops into the company's VPC. Which service should it use?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-route-53",
+      "term": "Amazon Route 53",
+      "definition": "Managed DNS domain registration and routing service",
+      "category": "Networking & Delivery",
+      "think": "Route 53 = DNS phonebook",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-dns",
+      "term": "DNS",
+      "definition": "Translate domain names into IP addresses",
+      "category": "Networking & Delivery",
+      "think": "Translate names into IP addresses",
+      "priority": "Medium",
+      "example": "Which system translates a name like example.com into the IP address computers use to connect?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-cloudfront",
+      "term": "Amazon CloudFront",
+      "definition": "Content delivery network caching content near viewers",
+      "category": "Networking & Delivery",
+      "think": "CloudFront = cached content nearby",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-global-accelerator",
+      "term": "AWS Global Accelerator",
+      "definition": "Improve availability and performance using global network routing and static anycast IPs",
+      "category": "Networking & Delivery",
+      "think": "Global Accelerator = fast global entry point",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-elastic-ip-address",
+      "term": "Elastic IP address",
+      "definition": "Static public IPv4 address allocated to an AWS account",
+      "category": "Networking & Delivery",
+      "think": "Static public IPv4 address",
+      "priority": "Medium",
+      "example": "A company needs a public IPv4 address for its EC2 instance that stays the same even after the instance stops and starts. What should it allocate?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-ipv4",
+      "term": "IPv4",
+      "definition": "Internet Protocol address format using 32-bit addresses",
+      "category": "Networking & Delivery",
+      "think": "Old-style 32-bit IP addresses",
+      "priority": "Medium",
+      "example": "Which Internet Protocol version uses 32-bit addresses written like 192.168.1.10?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-ipv6",
+      "term": "IPv6",
+      "definition": "Internet Protocol address format using 128-bit addresses",
+      "category": "Networking & Delivery",
+      "think": "New-style 128-bit IP addresses",
+      "priority": "Medium",
+      "example": "Which Internet Protocol version uses 128-bit addresses and offers a huge address space?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-cidr",
+      "term": "CIDR",
+      "definition": "Notation for specifying IP address ranges",
+      "category": "Networking & Delivery",
+      "think": "Slash notation for IP ranges",
+      "priority": "Medium",
+      "example": "A network engineer writes 10.0.0.0/16 to define a VPC's IP address range. What is this notation called?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-latency",
+      "term": "Latency",
+      "definition": "Delay before data begins transferring or a response arrives",
+      "category": "Networking & Delivery",
+      "think": "Delay before response",
+      "priority": "Medium",
+      "example": "Users in Australia complain about a delay before a website in Virginia starts to respond. What is this delay called?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-bandwidth",
+      "term": "Bandwidth",
+      "definition": "Maximum data transfer capacity of a connection",
+      "category": "Networking & Delivery",
+      "think": "Maximum road capacity",
+      "priority": "Medium",
+      "example": "A connection is rated at a maximum of 10 Gbps of data transfer capacity. What is this measure called?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-throughput",
+      "term": "Throughput",
+      "definition": "Amount of data processed or transferred per unit time",
+      "category": "Networking & Delivery",
+      "think": "Actual traffic delivered",
+      "priority": "Medium",
+      "example": "A storage system actually transfers 500 MB of data per second during a backup. What is this measure called?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-athena",
+      "term": "Amazon Athena",
+      "definition": "Query data in S3 using SQL without managing servers",
+      "category": "Analytics, AI & Integration",
+      "think": "Athena = SQL on S3",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-glue",
+      "term": "AWS Glue",
+      "definition": "Serverless data integration and ETL service",
+      "category": "Analytics, AI & Integration",
+      "think": "Glue = data ETL glue",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-emr",
+      "term": "Amazon EMR",
+      "definition": "Managed big-data processing frameworks such as Apache Spark",
+      "category": "Analytics, AI & Integration",
+      "think": "EMR = big-data cluster",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-kinesis",
+      "term": "Amazon Kinesis",
+      "definition": "Collect and process real-time streaming data",
+      "category": "Analytics, AI & Integration",
+      "think": "Kinesis = live data stream",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-quicksight",
+      "term": "Amazon QuickSight",
+      "definition": "Business intelligence dashboards and data visualization",
+      "category": "Analytics, AI & Integration",
+      "think": "QuickSight = business dashboards",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-lake-formation",
+      "term": "AWS Lake Formation",
+      "definition": "Build and govern centralized data lakes",
+      "category": "Analytics, AI & Integration",
+      "think": "Set up governed data lake",
+      "priority": "Medium",
+      "example": "A company wants to build a secure, centrally governed data lake on S3 with fine-grained access permissions. Which service should it use?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-opensearch-service",
+      "term": "Amazon OpenSearch Service",
+      "definition": "Managed search log analytics and observability",
+      "category": "Analytics, AI & Integration",
+      "think": "Search and analyze logs",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-data-exchange",
+      "term": "AWS Data Exchange",
+      "definition": "Find and subscribe to third-party datasets",
+      "category": "Analytics, AI & Integration",
+      "think": "Buy third-party datasets",
+      "priority": "Medium",
+      "example": "An analytics team wants to find and subscribe to third-party datasets, such as weather or financial data, inside AWS. Which service should it use?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-bedrock",
+      "term": "Amazon Bedrock",
+      "definition": "Build generative AI applications using foundation models",
+      "category": "Analytics, AI & Integration",
+      "think": "Bedrock = use foundation models",
+      "priority": "Medium",
+      "example": "A company wants to build a generative AI chatbot using foundation models from several providers through one managed API. Which service should it use?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-sagemaker-ai",
+      "term": "Amazon SageMaker AI",
+      "definition": "Build train and deploy machine learning models",
+      "category": "Analytics, AI & Integration",
+      "think": "SageMaker = build/train ML",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-rekognition",
+      "term": "Amazon Rekognition",
+      "definition": "Analyze images and video using machine learning",
+      "category": "Analytics, AI & Integration",
+      "think": "Rekognition = see images/video",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-textract",
+      "term": "Amazon Textract",
+      "definition": "Extract text tables and forms from documents",
+      "category": "Analytics, AI & Integration",
+      "think": "Textract = read documents",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-comprehend",
+      "term": "Amazon Comprehend",
+      "definition": "Analyze natural-language text for insights and entities",
+      "category": "Analytics, AI & Integration",
+      "think": "Comprehend = understand written text",
+      "priority": "Medium",
+      "example": "A company wants to analyze customer reviews to find sentiment, key phrases and entities. Which service should it use?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-transcribe",
+      "term": "Amazon Transcribe",
+      "definition": "Convert speech to text",
+      "category": "Analytics, AI & Integration",
+      "think": "Transcribe = speech to text",
+      "priority": "Medium",
+      "example": "A call center wants to automatically turn recorded phone calls into text. Which service should it use?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-polly",
+      "term": "Amazon Polly",
+      "definition": "Convert text to natural-sounding speech",
+      "category": "Analytics, AI & Integration",
+      "think": "Polly = text to speech",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-translate",
+      "term": "Amazon Translate",
+      "definition": "Translate text between languages",
+      "category": "Analytics, AI & Integration",
+      "think": "Translate = change language",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-lex",
+      "term": "Amazon Lex",
+      "definition": "Build conversational interfaces and chatbots",
+      "category": "Analytics, AI & Integration",
+      "think": "Lex = chatbot conversations",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-personalize",
+      "term": "Amazon Personalize",
+      "definition": "Create personalized recommendations",
+      "category": "Analytics, AI & Integration",
+      "think": "Personalize = recommendations",
+      "priority": "Medium",
+      "example": "An online store wants to show each shopper product recommendations based on their behavior, without building ML models from scratch. Which service fits?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-q-business",
+      "term": "Amazon Q Business",
+      "definition": "Generative AI assistant for enterprise information and workflows",
+      "category": "Analytics, AI & Integration",
+      "think": "Q Business = answers from work data",
+      "priority": "Medium",
+      "example": "A company wants a generative AI assistant that answers employees' questions using its internal documents and business systems. Which service fits?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-q-developer",
+      "term": "Amazon Q Developer",
+      "definition": "Generative AI assistant for software development and AWS work",
+      "category": "Analytics, AI & Integration",
+      "think": "Q Developer = coding assistant",
+      "priority": "Medium",
+      "example": "A developer wants a generative AI assistant in their IDE that suggests code and helps with AWS tasks. Which service should they use?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-connect",
+      "term": "Amazon Connect",
+      "definition": "Cloud contact center service",
+      "category": "Analytics, AI & Integration",
+      "think": "Connect = cloud call center",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-ses",
+      "term": "Amazon SES",
+      "definition": "Send and receive email using a managed email service",
+      "category": "Analytics, AI & Integration",
+      "think": "SES = send email",
+      "priority": "Medium",
+      "example": "A company needs to send order confirmations and marketing emails at scale using a managed email service. Which service should it use?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-appsync",
+      "term": "AWS AppSync",
+      "definition": "Managed GraphQL APIs and real-time data synchronization",
+      "category": "Analytics, AI & Integration",
+      "think": "AppSync = managed GraphQL",
+      "priority": "Medium",
+      "example": "A mobile app needs a managed GraphQL API with real-time data updates and offline sync. Which service should it use?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-amazon-api-gateway",
+      "term": "Amazon API Gateway",
+      "definition": "Create publish secure and manage APIs",
+      "category": "Analytics, AI & Integration",
+      "think": "API Gateway = API front door",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-iot-core",
+      "term": "AWS IoT Core",
+      "definition": "Connect and manage IoT devices and messages",
+      "category": "Analytics, AI & Integration",
+      "think": "IoT Core = devices talking to cloud",
+      "priority": "Medium",
+      "example": "A manufacturer needs to securely connect millions of sensors and route their messages to AWS services. Which service should it use?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-migration-hub",
+      "term": "AWS Migration Hub",
+      "definition": "Track application and server migrations across AWS tools",
+      "category": "Migration, Dev & Operations",
+      "think": "Migration Hub = moving dashboard",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-application-migration-service-mgn",
+      "term": "AWS Application Migration Service (MGN)",
+      "definition": "Lift and shift physical virtual and cloud servers to AWS",
+      "category": "Migration, Dev & Operations",
+      "think": "MGN = lift-and-shift servers",
+      "priority": "Medium",
+      "example": "A company wants to lift and shift hundreds of on-premises servers to EC2 with minimal downtime and no code changes. Which service should it use?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-application-discovery-service",
+      "term": "AWS Application Discovery Service",
+      "definition": "Collect information about on-premises servers and dependencies",
+      "category": "Migration, Dev & Operations",
+      "think": "Discovery = inventory old servers",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-migration-evaluator",
+      "term": "AWS Migration Evaluator",
+      "definition": "Assess migration business case and infrastructure costs",
+      "category": "Migration, Dev & Operations",
+      "think": "Evaluator = migration business case",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-mainframe-modernization",
+      "term": "AWS Mainframe Modernization",
+      "definition": "Migrate and modernize mainframe applications",
+      "category": "Migration, Dev & Operations",
+      "think": "Modernize old mainframes",
+      "priority": "Medium",
+      "example": "A bank wants to migrate and modernize its COBOL applications running on a mainframe. Which AWS service is built for this?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-elastic-disaster-recovery-drs",
+      "term": "AWS Elastic Disaster Recovery (DRS)",
+      "definition": "Continuously replicate servers for disaster recovery",
+      "category": "Migration, Dev & Operations",
+      "think": "DRS = recover servers after disaster",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-codebuild",
+      "term": "AWS CodeBuild",
+      "definition": "Build and test source code in managed build environments",
+      "category": "Migration, Dev & Operations",
+      "think": "CodeBuild = compile and test",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-codedeploy",
+      "term": "AWS CodeDeploy",
+      "definition": "Automate application deployments",
+      "category": "Migration, Dev & Operations",
+      "think": "CodeDeploy = release application",
+      "priority": "Medium",
+      "example": "A team wants to automate deploying new application versions to EC2 instances and on-premises servers. Which service should it use?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-codepipeline",
+      "term": "AWS CodePipeline",
+      "definition": "Automate continuous delivery workflows",
+      "category": "Migration, Dev & Operations",
+      "think": "CodePipeline = assembly line for releases",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-x-ray",
+      "term": "AWS X-Ray",
+      "definition": "Trace and analyze distributed application requests",
+      "category": "Migration, Dev & Operations",
+      "think": "X-Ray = trace a request",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-cloudwatch-logs",
+      "term": "AWS CloudWatch Logs",
+      "definition": "Collect store and analyze log events",
+      "category": "Migration, Dev & Operations",
+      "think": "Logs = application event diary",
+      "priority": "Medium",
+      "example": "A company wants to collect and search application log files from many EC2 instances in one place. Which service should it use?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-cloudwatch-alarm",
+      "term": "CloudWatch alarm",
+      "definition": "Trigger notifications or actions when metrics cross thresholds",
+      "category": "Migration, Dev & Operations",
+      "think": "Alarm = notify at threshold",
+      "priority": "Medium",
+      "example": "An administrator wants an email when an EC2 instance's CPU stays above 80% for 5 minutes. What should they create in CloudWatch?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-cloudwatch-application-insights",
+      "term": "AWS CloudWatch Application Insights",
+      "definition": "Automated monitoring insights for application resources",
+      "category": "Migration, Dev & Operations",
+      "think": "Insights = application health clues",
+      "priority": "Medium",
+      "example": "A team wants automatic dashboards and problem detection for its .NET and SQL Server application stack without setting up each metric. Which CloudWatch feature helps?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-cloudshell",
+      "term": "AWS CloudShell",
+      "definition": "Browser-based shell with AWS CLI access",
+      "category": "Migration, Dev & Operations",
+      "think": "CloudShell = terminal in browser",
+      "priority": "Medium",
+      "example": "A developer wants to run AWS CLI commands right from the browser without installing anything locally. Which tool should they use?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-cli",
+      "term": "AWS CLI",
+      "definition": "Command-line interface for AWS service operations",
+      "category": "Migration, Dev & Operations",
+      "think": "CLI = type AWS commands",
+      "priority": "Medium",
+      "example": "An administrator wants to manage AWS resources by typing commands in a terminal and scripting them. Which tool should they use?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-sdk",
+      "term": "AWS SDK",
+      "definition": "Language-specific libraries for AWS API integration",
+      "category": "Migration, Dev & Operations",
+      "think": "SDK = AWS calls in your code",
+      "priority": "Medium",
+      "example": "A developer wants to call AWS services directly from their Python or Java application code. What should they use?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-management-console",
+      "term": "AWS Management Console",
+      "definition": "Web interface for managing AWS resources",
+      "category": "Migration, Dev & Operations",
+      "think": "Console = click through AWS website",
+      "priority": "Medium",
+      "example": "A new user wants to manage AWS resources through a web-based graphical interface. What should they use?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-trusted-advisor-check",
+      "term": "AWS Trusted Advisor check",
+      "definition": "Automated recommendation based on AWS best practices",
+      "category": "Migration, Dev & Operations",
+      "think": "Advisor check = one recommendation",
+      "priority": "Medium",
+      "example": "Trusted Advisor flags that an S3 bucket allows public access and that some EC2 instances are underused. What is each of these automated recommendations called?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-service-catalog",
+      "term": "AWS Service Catalog",
+      "definition": "Create and manage approved infrastructure product catalogs",
+      "category": "Migration, Dev & Operations",
+      "think": "Catalog = approved IT products",
+      "priority": "Medium",
+      "example": "A company wants to give teams a catalog of pre-approved CloudFormation products they can launch on their own while staying compliant. Which service should it use?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-compute-optimizer",
+      "term": "AWS Compute Optimizer",
+      "definition": "Recommend optimized compute configurations based on usage",
+      "category": "Migration, Dev & Operations",
+      "think": "Optimizer = right-size compute",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-health",
+      "term": "AWS Health",
+      "definition": "Provide service health and account-specific events",
+      "category": "Migration, Dev & Operations",
+      "think": "Health = personalized AWS events",
+      "priority": "Medium",
+      "example": "Which AWS service gives visibility into AWS service events and scheduled changes that may affect your resources, viewable in a dashboard or through an API?",
+      "domain": "Cloud Technology & Services"
+    },
+    {
+      "id": "vx-aws-free-tier",
+      "term": "AWS Free Tier",
+      "definition": "Limited free usage offers for eligible AWS services",
+      "category": "Billing, Pricing & Support",
+      "think": "Free Tier = try before paying",
+      "priority": "Medium",
+      "example": "A student wants to try AWS services at no cost within limited monthly usage amounts. Which offer should they use?",
+      "domain": "Billing, Pricing & Support"
+    },
+    {
+      "id": "vx-on-demand-instances",
+      "term": "On-Demand Instances",
+      "definition": "Pay for compute capacity without long-term commitment",
+      "category": "Billing, Pricing & Support",
+      "think": "On-Demand = no commitment",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Billing, Pricing & Support"
+    },
+    {
+      "id": "vx-savings-plans",
+      "term": "Savings Plans",
+      "definition": "Commit to consistent compute spend for discounted rates",
+      "category": "Billing, Pricing & Support",
+      "think": "Savings Plan = commit to spend",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Billing, Pricing & Support"
+    },
+    {
+      "id": "vx-compute-savings-plans",
+      "term": "Compute Savings Plans",
+      "definition": "Flexible compute discounts across eligible compute usage",
+      "category": "Billing, Pricing & Support",
+      "think": "Compute plan = flexibility across compute",
+      "priority": "Medium",
+      "example": "A company wants a commitment-based discount that applies automatically across EC2 in any Region or family, Fargate and Lambda. Which pricing option fits?",
+      "domain": "Billing, Pricing & Support"
+    },
+    {
+      "id": "vx-ec2-instance-savings-plans",
+      "term": "EC2 Instance Savings Plans",
+      "definition": "Discounts tied to an instance family in a Region",
+      "category": "Billing, Pricing & Support",
+      "think": "EC2 plan = commitment to instance family",
+      "priority": "Medium",
+      "example": "A company commits to using one EC2 instance family in one Region for 3 years in exchange for the biggest Savings Plan discount. Which option is this?",
+      "domain": "Billing, Pricing & Support"
+    },
+    {
+      "id": "vx-reserved-instances-ris",
+      "term": "Reserved Instances (RIs)",
+      "definition": "Discounted capacity pricing in exchange for term commitments",
+      "category": "Billing, Pricing & Support",
+      "think": "Reserved = 1 or 3 year discount",
+      "priority": "Medium",
+      "example": "A company knows it will run the same EC2 instances 24/7 for 3 years and wants a big discount in exchange for a term commitment. Which pricing option fits?",
+      "domain": "Billing, Pricing & Support"
+    },
+    {
+      "id": "vx-standard-reserved-instance",
+      "term": "Standard Reserved Instance",
+      "definition": "Reserved Instance option with larger discounts and limited flexibility",
+      "category": "Billing, Pricing & Support",
+      "think": "Standard RI = less flexible, bigger discount",
+      "priority": "Medium",
+      "example": "A company wants the largest Reserved Instance discount and doesn't need to change instance families during the term. Which RI option should it buy?",
+      "domain": "Billing, Pricing & Support"
+    },
+    {
+      "id": "vx-convertible-reserved-instance",
+      "term": "Convertible Reserved Instance",
+      "definition": "Reserved Instance option allowing qualifying exchanges",
+      "category": "Billing, Pricing & Support",
+      "think": "Convertible RI = exchange eligible reservations",
+      "priority": "Medium",
+      "example": "A company wants a Reserved Instance discount but may need to switch to a different instance family later. Which RI option should it buy?",
+      "domain": "Billing, Pricing & Support"
+    },
+    {
+      "id": "vx-spot-instances",
+      "term": "Spot Instances",
+      "definition": "Use spare EC2 capacity at discounts with interruption risk",
+      "category": "Billing, Pricing & Support",
+      "think": "Spot = spare capacity, can interrupt",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Billing, Pricing & Support"
+    },
+    {
+      "id": "vx-dedicated-hosts",
+      "term": "Dedicated Hosts",
+      "definition": "Physical servers dedicated to a single customer",
+      "category": "Billing, Pricing & Support",
+      "think": "Dedicated Host = entire physical server",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Billing, Pricing & Support"
+    },
+    {
+      "id": "vx-dedicated-instances",
+      "term": "Dedicated Instances",
+      "definition": "Instances running on single-tenant hardware",
+      "category": "Billing, Pricing & Support",
+      "think": "Dedicated Instance = isolated hardware tenancy",
+      "priority": "Medium",
+      "example": "A company's compliance rules require that its EC2 instances run on hardware not shared with any other AWS customer, but it doesn't need control of the physical server. Which option fits?",
+      "domain": "Billing, Pricing & Support"
+    },
+    {
+      "id": "vx-aws-pricing-calculator",
+      "term": "AWS Pricing Calculator",
+      "definition": "Estimate AWS costs before deployment",
+      "category": "Billing, Pricing & Support",
+      "think": "Calculator = estimate future bill",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Billing, Pricing & Support"
+    },
+    {
+      "id": "vx-aws-cost-explorer",
+      "term": "AWS Cost Explorer",
+      "definition": "Analyze and visualize historical and forecast AWS spending",
+      "category": "Billing, Pricing & Support",
+      "think": "Cost Explorer = examine past/future costs",
+      "priority": "Medium",
+      "example": "A finance team wants to see last year's AWS spending by service in charts and forecast next quarter's costs. Which tool should it use?",
+      "domain": "Billing, Pricing & Support"
+    },
+    {
+      "id": "vx-aws-budgets",
+      "term": "AWS Budgets",
+      "definition": "Set cost and usage budgets and receive threshold alerts",
+      "category": "Billing, Pricing & Support",
+      "think": "Budgets = alert when spending rises",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Billing, Pricing & Support"
+    },
+    {
+      "id": "vx-aws-cost-and-usage-report-cur",
+      "term": "AWS Cost and Usage Report (CUR)",
+      "definition": "Detailed report of AWS usage and costs",
+      "category": "Billing, Pricing & Support",
+      "think": "CUR = line-by-line bill details",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Billing, Pricing & Support"
+    },
+    {
+      "id": "vx-aws-billing-and-cost-management",
+      "term": "AWS Billing and Cost Management",
+      "definition": "Manage bills payments budgets and cost analysis",
+      "category": "Billing, Pricing & Support",
+      "think": "Billing = pay and manage charges",
+      "priority": "Medium",
+      "example": "Which AWS console area is where you view and pay bills, set budgets and analyze costs?",
+      "domain": "Billing, Pricing & Support"
+    },
+    {
+      "id": "vx-cost-allocation-tags",
+      "term": "Cost allocation tags",
+      "definition": "Label resources to categorize and attribute costs",
+      "category": "Billing, Pricing & Support",
+      "think": "Tags = cost labels",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Billing, Pricing & Support"
+    },
+    {
+      "id": "vx-aws-organizations-consolidated-billing",
+      "term": "AWS Organizations consolidated billing",
+      "definition": "Combine billing across accounts for centralized payment and potential discounts",
+      "category": "Billing, Pricing & Support",
+      "think": "Consolidated = one bill for accounts",
+      "priority": "Medium",
+      "example": "A company with 30 AWS accounts wants one bill and to combine usage for volume pricing discounts. Which feature should it use?",
+      "domain": "Billing, Pricing & Support"
+    },
+    {
+      "id": "vx-aws-marketplace",
+      "term": "AWS Marketplace",
+      "definition": "Discover purchase and deploy third-party software and services",
+      "category": "Billing, Pricing & Support",
+      "think": "Marketplace = third-party software store",
+      "priority": "Medium",
+      "example": "A company wants to find, buy and deploy third-party software such as firewalls or BI tools that run on AWS. Where should it look?",
+      "domain": "Billing, Pricing & Support"
+    },
+    {
+      "id": "vx-aws-support-basic",
+      "term": "AWS Support Basic",
+      "definition": "Included support level with account and billing assistance",
+      "category": "Billing, Pricing & Support",
+      "think": "Basic = included support",
+      "priority": "Medium",
+      "example": "Which support level is included free with every AWS account and covers account and billing questions?",
+      "domain": "Billing, Pricing & Support"
+    },
+    {
+      "id": "vx-aws-developer-support",
+      "term": "AWS Developer Support",
+      "definition": "Support option intended for development and testing workloads",
+      "category": "Billing, Pricing & Support",
+      "think": "Developer = development support",
+      "priority": "Medium",
+      "example": "A developer experimenting with AWS in a test environment wants business-hours email access to support engineers at low cost. Which support plan fits?",
+      "domain": "Billing, Pricing & Support"
+    },
+    {
+      "id": "vx-aws-business-support",
+      "term": "AWS Business Support+",
+      "definition": "Paid support option for production workloads and business needs",
+      "category": "Billing, Pricing & Support",
+      "think": "Business+ = production-oriented help",
+      "priority": "Medium",
+      "example": "In AWS's newer support lineup, which paid plan is aimed at production workloads and business needs?",
+      "domain": "Billing, Pricing & Support"
+    },
+    {
+      "id": "vx-aws-enterprise-support",
+      "term": "AWS Enterprise Support",
+      "definition": "High-touch support with designated guidance for business-critical environments",
+      "category": "Billing, Pricing & Support",
+      "think": "Enterprise = highest-touch guidance",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Billing, Pricing & Support"
+    },
+    {
+      "id": "vx-technical-account-manager-tam",
+      "term": "Technical Account Manager (TAM)",
+      "definition": "AWS support contact providing proactive technical guidance under eligible plans",
+      "category": "Billing, Pricing & Support",
+      "think": "TAM = named technical adviser",
+      "priority": "Medium",
+      "example": "Which AWS role, available with Enterprise-level support, provides proactive technical guidance and helps plan and review architectures?",
+      "domain": "Billing, Pricing & Support"
+    },
+    {
+      "id": "vx-service-quota",
+      "term": "Service quota",
+      "definition": "Maximum allowed quantity of a service resource in an account or Region",
+      "category": "Billing, Pricing & Support",
+      "think": "Quota = service limit",
+      "priority": "Medium",
+      "example": "A team can't launch more EC2 instances because the account hit the maximum allowed number in that Region. What is this limit called?",
+      "domain": "Billing, Pricing & Support"
+    },
+    {
+      "id": "vx-aws-cost-anomaly-detection",
+      "term": "AWS Cost Anomaly Detection",
+      "definition": "Identify unusual AWS spending patterns",
+      "category": "Billing, Pricing & Support",
+      "think": "Anomaly = surprise spending spike",
+      "priority": "Medium",
+      "example": "",
+      "domain": "Billing, Pricing & Support"
+    },
+    {
+      "id": "vx-aws-customer-carbon-footprint-tool",
+      "term": "AWS Customer Carbon Footprint Tool",
+      "definition": "Estimate emissions associated with AWS usage",
+      "category": "Billing, Pricing & Support",
+      "think": "Carbon tool = emissions estimate",
+      "priority": "Medium",
+      "example": "A company wants to measure and forecast the carbon emissions from its AWS usage. Which tool should it use?",
+      "domain": "Billing, Pricing & Support"
+    },
+    {
+      "id": "vx-total-cost-of-ownership-tco",
+      "term": "Total Cost of Ownership (TCO)",
+      "definition": "Full cost of owning and operating technology over time",
+      "category": "Billing, Pricing & Support",
+      "think": "TCO = full lifetime cost",
+      "priority": "Medium",
+      "example": "A company compares the full cost of running its own data center (hardware, power, staff, space) against AWS over five years. What is this full cost called?",
+      "domain": "Billing, Pricing & Support"
+    }
+  ]
+}

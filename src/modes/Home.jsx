@@ -17,7 +17,7 @@ export default function Home({ deckSwitch, focusCount = 0, cards, deck, domains,
           <h1 className="hero-title">
             {cards.length} concepts.
             <br />
-            Six ways to drill them.
+            Seven ways to drill them.
           </h1>
           <p className="lede">
             Everything here comes from your study guide spreadsheet. Rate cards as you go, and the cards you mark <em>Study It</em> show up more often in every game.

@@ -7,6 +7,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseWorkbook } from '../src/lib/parseWorkbook.js';
 import { parseQuestionFile, mergeQuestions } from '../src/lib/parseQuestions.js';
+import { parseVocab } from '../src/lib/parseVocab.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const input = process.argv[2]
@@ -71,3 +72,11 @@ for (const f of fFiles) {
 }
 fs.writeFileSync(path.join(root, 'src', 'data', 'focus.json'), JSON.stringify({ name: focusName, cards: focusCards }, null, 2));
 console.log(`✓ ${focusCards.length} focus cards${focusName ? ` ("${focusName}")` : ''} → src/data/focus.json`);
+
+// Vocabulary sheet for Vocab Guess (data/vocab/*.xlsx).
+const vDir = path.join(root, 'data', 'vocab');
+const vFiles = fs.existsSync(vDir) ? fs.readdirSync(vDir).filter((f) => f.endsWith('.xlsx') && !f.startsWith('~$')).sort() : [];
+const vocab = [];
+for (const f of vFiles) vocab.push(...parseVocab(fs.readFileSync(path.join(vDir, f)), 'buffer').cards);
+fs.writeFileSync(path.join(root, 'src', 'data', 'vocab.json'), JSON.stringify({ cards: vocab }, null, 2));
+console.log(`✓ ${vocab.length} vocabulary terms (${vocab.filter((v) => v.example).length} with a written example question) → src/data/vocab.json`);

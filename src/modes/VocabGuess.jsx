@@ -1,0 +1,328 @@
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { shuffle, weightedPick, redact } from '../lib/deck.js';
+import { loadBest, saveBest } from '../lib/storage.js';
+import { ModeHeader } from './ui.jsx';
+
+// Points for a right answer, by how many clues you used: definition only, + hint, + example question.
+const POINTS = [3, 2, 1];
+const COUNTS = [10, 20, 'all'];
+
+const norm = (s) =>
+  String(s)
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/^(aws|amazon)\s+/, '')
+    .replace(/[^a-z0-9+]+/g, ' ')
+    .trim();
+
+function distance(a, b) {
+  if (Math.abs(a.length - b.length) > 3) return 99;
+  const d = Array.from({ length: a.length + 1 }, (_, i) => [i, ...Array(b.length).fill(0)]);
+  for (let j = 1; j <= b.length; j++) d[0][j] = j;
+  for (let i = 1; i <= a.length; i++)
+    for (let j = 1; j <= b.length; j++)
+      d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+  return d[a.length][b.length];
+}
+
+/** Every way of writing the term that should count: full name, without the parenthetical, the abbreviation, without AWS/Amazon. */
+function acceptedAnswers(term) {
+  const out = new Set([norm(term)]);
+  const bare = term.replace(/\s*\(.*?\)/g, '').trim();
+  if (bare) out.add(norm(bare));
+  for (const m of term.matchAll(/\(([^)]+)\)/g)) out.add(norm(m[1]));
+  for (const x of [...out]) out.add(x.replace(/^(aws|amazon) /, ''));
+  return [...out].filter(Boolean);
+}
+
+export function typedMatches(guess, term) {
+  const g = norm(guess);
+  if (!g) return false;
+  return acceptedAnswers(term).some((a) => a === g || (a.length >= 6 && distance(a, g) <= (a.length >= 12 ? 2 : 1)));
+}
+
+/** Three believable wrong options: same category first, then anything. */
+function optionsFor(card, pool) {
+  const same = shuffle(pool.filter((c) => c.id !== card.id && c.category === card.category));
+  const rest = shuffle(pool.filter((c) => c.id !== card.id && c.category !== card.category));
+  return shuffle([card, ...[...same, ...rest].slice(0, 3)]);
+}
+
+export default function VocabGuess({ vocab, examples, record, missed, levelOf }) {
+  const [category, setCategory] = useState('all');
+  const [priority, setPriority] = useState('all');
+  const [style, setStyle] = useState('choice'); // 'choice' | 'type'
+  const [count, setCount] = useState(10);
+
+  const [phase, setPhase] = useState('setup');
+  const [round, setRound] = useState([]);
+  const [pos, setPos] = useState(0);
+  const [clues, setClues] = useState(0); // 0 = definition, 1 = + hint, 2 = + example
+  const [options, setOptions] = useState([]);
+  const [typed, setTyped] = useState('');
+  const [answer, setAnswer] = useState(null); // { ok, picked, points }
+  const [results, setResults] = useState([]);
+  const [best, setBest] = useState(() => loadBest());
+  const [newBest, setNewBest] = useState(false);
+  const inputRef = useRef(null);
+
+  const categories = useMemo(() => [...new Set(vocab.map((v) => v.category))].sort(), [vocab]);
+  const pool = useMemo(
+    () => vocab.filter((v) => (category === 'all' || v.category === category) && (priority === 'all' || v.priority === priority)),
+    [vocab, category, priority]
+  );
+  const bestKey = `vocab:${style}:${category}:${priority}`;
+
+  const card = round[pos];
+  const example = card ? card.example || examples[card.id] || '' : '';
+
+  const deal = (list) => {
+    setRound(list);
+    setPos(0);
+    setResults([]);
+    setNewBest(false);
+    setPhase('playing');
+  };
+
+  // Weak cards (ones you've missed) come up more often.
+  const start = () => {
+    const n = count === 'all' ? pool.length : Math.min(count, pool.length);
+    const picked = [];
+    while (picked.length < n) picked.push(weightedPick(pool, levelOf, picked.map((c) => c.id)));
+    deal(picked);
+  };
+
+  // New card: reset clues and build the options.
+  useEffect(() => {
+    if (phase !== 'playing' || !card) return;
+    setClues(0);
+    setTyped('');
+    setAnswer(null);
+    setOptions(optionsFor(card, vocab.filter((v) => category === 'all' || v.category === category).length >= 4 ? vocab.filter((v) => category === 'all' || v.category === category) : vocab));
+    if (style === 'type') setTimeout(() => inputRef.current?.focus(), 30);
+  }, [phase, pos, round]);
+
+  const submit = (pickedTerm) => {
+    if (answer || !card) return;
+    const ok = style === 'type' ? typedMatches(pickedTerm, card.term) : pickedTerm === card.term;
+    const points = ok ? POINTS[clues] : 0;
+    setAnswer({ ok, picked: pickedTerm, points });
+    setResults((r) => [...r, { card, ok, points, clues, picked: pickedTerm }]);
+    record(card, ok ? 'right' : 'wrong');
+    if (!ok) missed(card);
+  };
+
+  const next = () => {
+    if (pos < round.length - 1) setPos(pos + 1);
+    else finish();
+  };
+
+  const finish = () => {
+    const score = results.reduce((s, r) => s + r.points, 0);
+    if (score > (best[bestKey] || 0)) {
+      const b = { ...best, [bestKey]: score };
+      setBest(b);
+      saveBest(b);
+      setNewBest(true);
+    }
+    setPhase('done');
+    window.scrollTo({ top: 0 });
+  };
+
+  const reveal = () => setClues((c) => Math.min(c + 1, example ? 2 : 1));
+
+  // Keys: H = next clue, 1–4 = pick, Enter = submit typed answer / next card.
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      if (phase === 'setup' && e.key === 'Enter' && !e.target.closest('select')) return start();
+      if (phase !== 'playing') return;
+      const inInput = e.target.closest('input');
+      if (answer && e.key === 'Enter') { e.preventDefault(); return next(); }
+      if (inInput) return;
+      if (!answer && (e.key === 'h' || e.key === 'H')) return reveal();
+      if (!answer && style === 'choice' && '1234'.includes(e.key) && options[+e.key - 1]) return submit(options[+e.key - 1].term);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  });
+
+  /* ---------- Setup ---------- */
+  if (phase === 'setup') {
+    const withExamples = pool.filter((v) => v.example || examples[v.id]).length;
+    return (
+      <div className="mode">
+        <ModeHeader eyebrow={`${vocab.length} vocabulary terms · best ${best[bestKey] || 0} pts`} title="Vocab Guess" />
+        <div className="results quiz-setup vocab-setup">
+          <p className="lede">
+            Read the definition and name the term. Stuck? Reveal the <strong>Think of…</strong> clue, then an <strong>example exam question</strong>.
+            Fewer clues, more points: <strong>3</strong> with just the definition, <strong>2</strong> after the hint, <strong>1</strong> after the example.
+          </p>
+          <div className="quiz-options">
+            <div className="field">
+              <span className="field-label">How you guess</span>
+              <div className="segmented" role="group" aria-label="Guess style">
+                <button className={style === 'choice' ? 'is-on' : ''} onClick={() => setStyle('choice')}>Pick from 4</button>
+                <button className={style === 'type' ? 'is-on' : ''} onClick={() => setStyle('type')}>Type it</button>
+              </div>
+              <span className="quiz-help">
+                {style === 'choice' ? 'Wrong options come from the same category, so they look alike.' : 'Close spellings and abbreviations count (e.g. "AZ", "RPO", "S3 Standard IA").'}
+              </span>
+            </div>
+            <div className="field">
+              <span className="field-label">Cards</span>
+              <div className="segmented" role="group" aria-label="Number of cards">
+                {COUNTS.map((c) => (
+                  <button key={c} className={count === c ? 'is-on' : ''} onClick={() => setCount(c)}>{c === 'all' ? 'All' : c}</button>
+                ))}
+              </div>
+            </div>
+            <div className="field">
+              <span className="field-label">Study priority</span>
+              <div className="segmented" role="group" aria-label="Study priority">
+                {['all', 'High', 'Medium'].map((p) => (
+                  <button key={p} className={priority === p ? 'is-on' : ''} onClick={() => setPriority(p)}>
+                    {p === 'all' ? 'All' : p} <span className="count">{vocab.filter((v) => p === 'all' || v.priority === p).filter((v) => category === 'all' || v.category === category).length}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+            <label className="field" htmlFor="vg-cat">
+              <span className="field-label">Category</span>
+              <select id="vg-cat" value={category} onChange={(e) => setCategory(e.target.value)}>
+                <option value="all">All categories</option>
+                {categories.map((c) => <option key={c} value={c}>{c} ({vocab.filter((v) => v.category === c).length})</option>)}
+              </select>
+            </label>
+          </div>
+          <button className="btn btn-primary btn-lg" onClick={start} disabled={pool.length < 2}>
+            Start {count === 'all' ? pool.length : Math.min(count, pool.length)} cards <kbd>↵</kbd>
+          </button>
+          <p className="muted">{withExamples} of {pool.length} terms in this selection have an example question.</p>
+        </div>
+      </div>
+    );
+  }
+
+  /* ---------- Results ---------- */
+  if (phase === 'done') {
+    const score = results.reduce((s, r) => s + r.points, 0);
+    const right = results.filter((r) => r.ok).length;
+    const clean = results.filter((r) => r.ok && r.clues === 0).length;
+    const misses = results.filter((r) => !r.ok);
+    return (
+      <div className="mode">
+        <ModeHeader eyebrow={style === 'choice' ? 'Pick from 4' : 'Type it'} title="Vocab Guess results" />
+        <div className="results">
+          <p className="eyebrow">{newBest ? 'New best score' : `Best: ${best[bestKey] || 0} pts`}</p>
+          <p className="big-score">{score}<small> / {results.length * 3} pts</small></p>
+          <p className="lede">{right} of {results.length} right · {clean} with no clues.</p>
+          <div className="quiz-actions">
+            {misses.length > 0 && <button className="btn btn-primary" onClick={() => deal(misses.map((m) => m.card))}>Retry the {misses.length} I missed</button>}
+            <button className="btn btn-ghost" onClick={start}>Play again</button>
+            <button className="btn btn-ghost" onClick={() => setPhase('setup')}>Change settings</button>
+          </div>
+        </div>
+        {results.length > 0 && (
+          <div className="quiz-review">
+            <h2 className="section-title">Review</h2>
+            <ol className="review-list">
+              {results.map((r, i) => (
+                <li key={i} className={r.ok ? 'is-right' : 'is-wrong'}>
+                  <p className="review-q">{r.card.term} <span className="muted">· {r.ok ? `+${r.points}` : `you said "${r.picked || '—'}"`}</span></p>
+                  <p className="review-why">{r.card.definition}</p>
+                  {r.card.think && <p className="review-concept muted">Think: {r.card.think}</p>}
+                </li>
+              ))}
+            </ol>
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  /* ---------- Playing ---------- */
+  const total = results.reduce((s, r) => s + r.points, 0);
+  const canMore = !answer && clues < (example ? 2 : 1);
+  return (
+    <div className="mode">
+      <ModeHeader eyebrow={`${card.category} · ${card.priority} priority`} title="Vocab Guess">
+        <button className="btn btn-ghost" onClick={finish}>End round</button>
+      </ModeHeader>
+      <div className="quiz vocab">
+        <div className="round-bar">
+          <span>{pos + 1}/{round.length}</span>
+          <span className="progress-track" aria-hidden="true"><span style={{ width: `${(results.length / round.length) * 100}%` }} /></span>
+          <span className="vocab-score" aria-label="Score">{total} pts</span>
+        </div>
+
+        <div className="clue-card vocab-card">
+          <div className="vocab-step">
+            <span className="field-label">1 · Definition</span>
+            <p className="vocab-def">{card.definition}</p>
+          </div>
+          {clues >= 1 && card.think && (
+            <div className="vocab-step vocab-hint">
+              <span className="field-label">2 · Think of…</span>
+              <p>{card.think}</p>
+            </div>
+          )}
+          {clues >= 2 && example && (
+            <div className="vocab-step vocab-example">
+              <span className="field-label">3 · Example exam question</span>
+              <p>{redact(example, card)}</p>
+            </div>
+          )}
+          {!answer && (
+            <div className="vocab-cluebar">
+              <span className="muted">Worth <strong>{POINTS[clues]}</strong> {POINTS[clues] === 1 ? 'point' : 'points'}</span>
+              {canMore && (
+                <button className="btn btn-ghost" onClick={reveal}>
+                  {clues === 0 ? 'Show hint' : 'Show example question'} (−1) <kbd>H</kbd>
+                </button>
+              )}
+            </div>
+          )}
+        </div>
+
+        {style === 'choice' ? (
+          <div className="quiz-choices" role="radiogroup" aria-label="Which term is it?">
+            {options.map((o, k) => {
+              let state = '';
+              if (answer) state = o.term === card.term ? 'right' : o.term === answer.picked ? 'wrong' : 'dim';
+              return (
+                <button key={o.id} className={`choice quiz-choice ${state ? `is-${state}` : ''}`} onClick={() => submit(o.term)} disabled={!!answer} role="radio" aria-checked={answer?.picked === o.term}>
+                  <kbd className="choice-key">{k + 1}</kbd>
+                  <span className="choice-body"><span className="choice-label">{o.term}</span></span>
+                </button>
+              );
+            })}
+          </div>
+        ) : (
+          <form className="vocab-type" onSubmit={(e) => { e.preventDefault(); if (!answer && typed.trim()) submit(typed); }}>
+            <label className="sr-only" htmlFor="vg-input">Your answer</label>
+            <input id="vg-input" ref={inputRef} type="text" autoComplete="off" spellCheck="false" placeholder="Type the term…" value={typed} onChange={(e) => setTyped(e.target.value)} disabled={!!answer} />
+            {!answer && <button className="btn btn-primary" type="submit" disabled={!typed.trim()}>Guess <kbd>↵</kbd></button>}
+            {!answer && <button className="btn btn-ghost" type="button" onClick={() => submit('')}>I don’t know</button>}
+          </form>
+        )}
+
+        {answer && (
+          <div className={`quiz-why ${answer.ok ? 'is-right' : 'is-wrong'}`} aria-live="polite">
+            <p className="quiz-verdict">{answer.ok ? `Correct! +${answer.points}` : 'Not quite.'} The answer is <span className="vocab-answer">{card.term}</span>.</p>
+            {!answer.ok && (() => {
+              const other = vocab.find((v) => v.term === answer.picked);
+              return other ? <p className="muted"><span className="field-label">You picked</span> <strong>{other.term}</strong>: {other.definition}</p> : null;
+            })()}
+            {card.think && clues < 1 && <p><span className="field-label">Think of</span> {card.think}</p>}
+            {example && clues < 2 && <p className="muted"><span className="field-label">Example question</span> {example}</p>}
+            <div className="quiz-nav">
+              <button className="btn btn-primary" onClick={next}>{pos < round.length - 1 ? 'Next card' : 'See results'} <kbd>↵</kbd></button>
+            </div>
+          </div>
+        )}
+        <p className="muted quiz-keys">Keys: H for the next clue · {style === 'choice' ? '1–4 to pick' : 'type and press Enter'} · Enter to continue</p>
+      </div>
+    </div>
+  );
+}

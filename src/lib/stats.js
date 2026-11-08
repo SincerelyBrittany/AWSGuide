@@ -11,7 +11,7 @@ export const emptyStats = () => ({ version: STATS_VERSION, concepts: {}, session
 /** Which deck a card belongs to: the study guide, the Questions Guide ("qg-" ids) or the Focus deck ("fx-" ids). */
 export const deckOf = (cardOrId) => {
   const id = typeof cardOrId === 'string' ? cardOrId : cardOrId.id;
-  return id.startsWith('qg-') ? 'questions' : id.startsWith('fx-') ? 'focus' : 'guide';
+  return id.startsWith('qg-') ? 'questions' : id.startsWith('fx-') ? 'focus' : id.startsWith('vx-') ? 'vocab' : 'guide';
 };
 const emptyTally = () => ({ right: 0, wrong: 0, kinda: 0, missed: [] });
 

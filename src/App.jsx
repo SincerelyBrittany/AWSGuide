@@ -2,6 +2,8 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import builtInDeck from './data/studyGuide.json';
 import builtInQuestions from './data/questions.json';
 import focusDeck from './data/focus.json';
+import vocabData from './data/vocab.json';
+import VocabGuess from './modes/VocabGuess.jsx';
 // Optional, git-ignored: personal questions from data/private/ (see scripts/sync-data.mjs).
 const privateQuestions = Object.values(import.meta.glob('./data/privateQuestions.json', { eager: true, import: 'default' }))[0]?.questions || [];
 import { parseQuestionFile, mergeQuestions } from './lib/parseQuestions.js';
@@ -11,7 +13,7 @@ import QuestionsGuide from './modes/QuestionsGuide.jsx';
 import { buildQuestionCards } from './lib/questionCards.js';
 import { DeckSwitch } from './modes/ui.jsx';
 import { parseWorkbook } from './lib/parseWorkbook.js';
-import { buildIndex, demote } from './lib/deck.js';
+import { buildIndex, demote, lookup } from './lib/deck.js';
 import * as store from './lib/storage.js';
 import Home from './modes/Home.jsx';
 import Flashcards from './modes/Flashcards.jsx';
@@ -30,6 +32,7 @@ export const MODES = [
   { id: 'board', label: 'Game Board', blurb: 'Jeopardy-style board. Points follow the exam domain weights.', Component: GameBoard },
   { id: 'match', label: 'Memory Match', blurb: 'Pair each service with its memory hint. A lighter review.', Component: MemoryMatch },
   { id: 'quiz', label: 'Quiz', blurb: 'Exam-style questions with explanations. Practice, or a timed exam simulation.', Component: Quiz },
+  { id: 'vocab', label: 'Vocab Guess', tab: 'Vocab', blurb: 'Definition first, then a Think-of hint, then an example question. Fewer clues, more points.', Component: VocabGuess },
 ];
 
 function useHash() {
@@ -118,13 +121,38 @@ export default function App() {
   const focusIndex = useMemo(() => buildIndex(focusCards), [focusCards]);
   const focusDomains = useMemo(() => deck.domains.filter((d) => focusCards.some((c) => c.domain === d.name)), [deck, focusCards]);
 
+  // Vocab Guess: your vocabulary sheet. Cards also work as a deck in Flashcards, the games and Progress.
+  const vocabCards = useMemo(
+    () =>
+      (vocabData.cards || []).map((v) => ({
+        ...v, hint: v.think, eli12: '', triggers: [], confuse: [], notes: '', official: '', confidence: 'red', lowPriority: false, source: 'vocab',
+        level: progress[v.id] || 'red',
+      })),
+    [progress]
+  );
+  const vocabIndex = useMemo(() => buildIndex(vocabCards), [vocabCards]);
+  const vocabDomains = useMemo(() => deck.domains.filter((d) => vocabCards.some((c) => c.domain === d.name)), [deck, vocabCards]);
+  // Example question for each term: one of your quiz questions whose answer is that term (the sheet's own column wins).
+  const vocabExamples = useMemo(() => {
+    const out = {};
+    for (const q of questions) {
+      if (q.correct.length !== 1) continue;
+      const hit = lookup(q.options.find((o) => o.letter === q.correct[0])?.text || '', vocabIndex);
+      if (hit && !out[hit.id]) out[hit.id] = q.text;
+    }
+    return out;
+  }, [questions, vocabIndex]);
+
   // Flashcards, the games and Progress run on whichever deck is switched on.
   const source =
-    settings.source === 'questions' && qCards.length ? 'questions' : settings.source === 'focus' && focusCards.length ? 'focus' : 'guide';
-  const pick = (g, q, f) => (source === 'questions' ? q : source === 'focus' ? f : g);
-  const cards = pick(guideCards, qCards, focusCards);
-  const index = pick(guideIndex, qIndex, focusIndex);
-  const domains = pick(guideDomains, qDomains, focusDomains);
+    settings.source === 'questions' && qCards.length ? 'questions'
+      : settings.source === 'focus' && focusCards.length ? 'focus'
+      : settings.source === 'vocab' && vocabCards.length ? 'vocab'
+      : 'guide';
+  const pick = (g, q, f, v) => (source === 'questions' ? q : source === 'focus' ? f : source === 'vocab' ? v : g);
+  const cards = pick(guideCards, qCards, focusCards, vocabCards);
+  const index = pick(guideIndex, qIndex, focusIndex, vocabIndex);
+  const domains = pick(guideDomains, qDomains, focusDomains, vocabDomains);
   const setSource = (v) => setSettings((st) => ({ ...st, source: v }));
 
   const setLevel = useCallback((id, level) => setProgress((p) => ({ ...p, [id]: level })), []);
@@ -213,7 +241,7 @@ export default function App() {
   const shared = { cards, index, domains, deck, setLevel, missed, record, stats };
   const guideShared = { ...shared, cards: guideCards, index: guideIndex, domains: guideDomains };
   const deckSwitch = (
-    <DeckSwitch value={source} onChange={setSource} counts={{ guide: guideCards.length, questions: qCards.length, focus: focusCards.length }} focusName={focusDeck.name} />
+    <DeckSwitch value={source} onChange={setSource} counts={{ guide: guideCards.length, questions: qCards.length, focus: focusCards.length, vocab: vocabCards.length }} focusName={focusDeck.name} />
   );
 
   return (
@@ -227,7 +255,7 @@ export default function App() {
           <nav className="tabs" aria-label="Study modes">
             {MODES.map((m) => (
               <a key={m.id} href={`#${m.id}`} className={`tab ${hash === m.id ? 'is-active' : ''}`} aria-current={hash === m.id ? 'page' : undefined}>
-                {m.label}
+                {m.tab || m.label}
               </a>
             ))}
             <a href="#guide" className={`tab tab-guide ${hash === 'guide' ? 'is-active' : ''}`} aria-current={hash === 'guide' ? 'page' : undefined}>
@@ -281,6 +309,8 @@ export default function App() {
         ) : mode ? (
           mode.id === 'quiz' ? (
             <Quiz key="quiz" {...guideShared} {...quizProps} />
+          ) : mode.id === 'vocab' ? (
+            <VocabGuess key="vocab" vocab={vocabCards} examples={vocabExamples} record={record} missed={missed} levelOf={(c) => progress[c.id] || 'red'} />
           ) : (
             <>
               <div className="deck-switch-bar">{deckSwitch}</div>

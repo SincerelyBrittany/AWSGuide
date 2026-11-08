@@ -77,6 +77,11 @@ export function DeckSwitch({ value, onChange, counts, focusName }) {
         <button className={value === 'questions' ? 'is-on' : ''} onClick={() => onChange('questions')} aria-pressed={value === 'questions'} disabled={!counts.questions}>
           Questions Guide <span className="count">{counts.questions}</span>
         </button>
+        {counts.vocab > 0 && (
+          <button className={value === 'vocab' ? 'is-on' : ''} onClick={() => onChange('vocab')} aria-pressed={value === 'vocab'}>
+            Vocab <span className="count">{counts.vocab}</span>
+          </button>
+        )}
         {counts.focus > 0 && (
           <button className={`deck-focus ${value === 'focus' ? 'is-on' : ''}`} onClick={() => onChange('focus')} aria-pressed={value === 'focus'} title={focusName ? `Focus deck: ${focusName}` : 'Focus deck'}>
             ★ Focus <span className="count">{counts.focus}</span>
