@@ -68,10 +68,14 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf, s
   const inputRef = useRef(null);
 
   const categories = useMemo(() => [...new Set(vocab.map((v) => v.category))].sort(), [vocab]);
+  // Which terms: all, only skipped, only missed, or skipped + missed together.
+  const isSkipped = (v) => !!skips[v.id];
+  const isMissed = (v) => stats.concepts[v.id]?.lastResult === 'wrong';
+  const inSet = (v) => (only === 'skipped' ? isSkipped(v) : only === 'missed' ? isMissed(v) : only === 'both' ? isSkipped(v) || isMissed(v) : true);
   const pool = useMemo(
     () =>
       vocab.filter(
-        (v) => (category === 'all' || v.category === category) && (priority === 'all' || v.priority === priority) && (only !== 'skipped' || skips[v.id]) && (only !== 'missed' || stats.concepts[v.id]?.lastResult === 'wrong')
+        (v) => (category === 'all' || v.category === category) && (priority === 'all' || v.priority === priority) && inSet(v)
       ),
     [vocab, category, priority, only, skips, stats]
   );
@@ -82,6 +86,7 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf, s
     () => vocab.filter((v) => stats.concepts[v.id]?.lastResult === 'wrong').sort((a, b) => stats.concepts[b.id].lastSeen - stats.concepts[a.id].lastSeen),
     [vocab, stats]
   );
+  const reviewCards = useMemo(() => vocab.filter((v) => skips[v.id] || stats.concepts[v.id]?.lastResult === 'wrong'), [vocab, skips, stats]);
   const skippedCards = useMemo(() => vocab.filter((v) => skips[v.id]).sort((a, b) => skips[b.id].at - skips[a.id].at), [vocab, skips]);
 
   const card = round[pos];
@@ -220,6 +225,9 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf, s
                 <button className={only === 'missed' ? 'is-on' : ''} onClick={() => setOnly('missed')} disabled={!missedCards.length}>
                   Missed <span className="count">{missedCards.length}</span>
                 </button>
+                <button className={only === 'both' ? 'is-on' : ''} onClick={() => setOnly('both')} disabled={!reviewCards.length}>
+                  Skipped + Missed <span className="count">{reviewCards.length}</span>
+                </button>
               </div>
             </div>
             <label className="field" htmlFor="vg-cat">
@@ -230,10 +238,15 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf, s
               </select>
             </label>
           </div>
-          <button className="btn btn-primary btn-lg" onClick={start} disabled={pool.length < 2}>
+          <button className="btn btn-primary btn-lg" onClick={start} disabled={pool.length < 1}>
             Start {count === 'all' ? pool.length : Math.min(count, pool.length)} cards <kbd>↵</kbd>
           </button>
           <p className="muted">{withExamples} of {pool.length} terms in this selection have an example question.</p>
+          {skippedCards.length > 0 && missedCards.length > 0 && (
+            <button className="btn btn-ghost" onClick={() => deal(shuffle(reviewCards))}>
+              Play all my skipped + missed terms ({reviewCards.length})
+            </button>
+          )}
 
           {missedCards.length > 0 && (
             <div className="vocab-skips vocab-missed">
