@@ -59,6 +59,9 @@ export default function App() {
   // Vocab Guess skips: { [cardId]: { at, count } }, so you can come back to them.
   const [vocabSkips, setVocabSkips] = useState(() => store.loadVocabSkips());
   useEffect(() => { store.saveVocabSkips(vocabSkips); }, [vocabSkips]);
+  // Vocab Guess flags: terms you marked for review, kept until you unflag them.
+  const [vocabFlags, setVocabFlags] = useState(() => store.loadVocabFlags());
+  useEffect(() => { store.saveVocabFlags(vocabFlags); }, [vocabFlags]);
   const session = useRef(null);
   const [toast, setToast] = useState(null);
   const fileRef = useRef(null);
@@ -290,12 +293,13 @@ export default function App() {
             {...shared}
             modes={MODES}
             progress={progress}
-            extraBackup={{ quiz: quizHistory, questions: importedQuestions, vocabSkips }}
+            extraBackup={{ quiz: quizHistory, questions: importedQuestions, vocabSkips, vocabFlags }}
             onRestore={(next) => {
               setStats(next.stats);
               if (next.progress) setProgress(next.progress);
               if (next.quiz) setQuizHistory(next.quiz);
               if (next.vocabSkips) setVocabSkips(next.vocabSkips);
+              if (next.vocabFlags) setVocabFlags(next.vocabFlags);
               if (next.questions) {
                 setImportedQuestions(next.questions);
                 store.saveImportedQuestions(next.questions);
@@ -314,7 +318,7 @@ export default function App() {
           mode.id === 'quiz' ? (
             <Quiz key="quiz" {...guideShared} {...quizProps} />
           ) : mode.id === 'vocab' ? (
-            <VocabGuess key="vocab" vocab={vocabCards} examples={vocabExamples} record={record} missed={missed} levelOf={(c) => progress[c.id] || 'red'} skips={vocabSkips} setSkips={setVocabSkips} stats={stats} />
+            <VocabGuess key="vocab" vocab={vocabCards} examples={vocabExamples} record={record} missed={missed} levelOf={(c) => progress[c.id] || 'red'} skips={vocabSkips} setSkips={setVocabSkips} flags={vocabFlags} setFlags={setVocabFlags} stats={stats} />
           ) : (
             <>
               <div className="deck-switch-bar">{deckSwitch}</div>

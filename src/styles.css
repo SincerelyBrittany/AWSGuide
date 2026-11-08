@@ -897,3 +897,10 @@ mark { background: color-mix(in srgb, var(--accent) 45%, transparent); color: in
 .vocab-reveal summary { cursor: pointer; font-size: 0.85rem; color: var(--t-tech); font-weight: 600; white-space: nowrap; }
 .vocab-reveal[open] summary { margin-bottom: 2px; }
 .vocab-reveal strong { display: block; font-size: 0.9rem; }
+/* Vocab Guess flags */
+.btn.vocab-flag.is-on { border-color: var(--yellow); color: var(--yellow); background: var(--yellow-soft); }
+.vocab-flag-sm { padding: 0 4px; font-size: 1rem; text-decoration: none; color: var(--muted); }
+.vocab-flag-sm.is-on { color: var(--yellow); background: none; border: 0; }
+.vocab-flagged li { box-shadow: inset 3px 0 0 var(--yellow); }
+.vocab-flag-actions { display: flex; gap: 10px; align-items: baseline; }
+.quiz-nav .vocab-flag + .btn-primary { margin-left: auto; }

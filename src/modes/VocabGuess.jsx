@@ -48,7 +48,21 @@ function optionsFor(card, pool) {
   return shuffle([card, ...[...same, ...rest].slice(0, 3)]);
 }
 
-export default function VocabGuess({ vocab, examples, record, missed, levelOf, skips = {}, setSkips = () => {}, stats = { concepts: {} } }) {
+function FlagButton({ on, onClick, small }) {
+  return (
+    <button
+      type="button"
+      className={`btn ${small ? 'btn-link vocab-flag-sm' : 'btn-ghost'} vocab-flag ${on ? 'is-on' : ''}`}
+      onClick={onClick}
+      aria-pressed={on}
+      title={on ? 'Flagged for review: click to unflag' : 'Flag for review'}
+    >
+      {on ? '⚑' : '⚐'}{small ? '' : on ? ' Flagged' : ' Flag'}{!small && <kbd>F</kbd>}
+    </button>
+  );
+}
+
+export default function VocabGuess({ vocab, examples, record, missed, levelOf, skips = {}, setSkips = () => {}, flags = {}, setFlags = () => {}, stats = { concepts: {} } }) {
   const [category, setCategory] = useState('all');
   const [priority, setPriority] = useState('all');
   const [style, setStyle] = useState('choice'); // 'choice' | 'type'
@@ -74,13 +88,13 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf, s
   // Not tried yet: never answered (in Vocab Guess or on the Vocab deck anywhere) and never skipped.
   const isNew = (v) => !stats.concepts[v.id] && !skips[v.id];
   const inSet = (v) =>
-    only === 'skipped' ? isSkipped(v) : only === 'missed' ? isMissed(v) : only === 'both' ? isSkipped(v) || isMissed(v) : only === 'new' ? isNew(v) : true;
+    only === 'skipped' ? isSkipped(v) : only === 'missed' ? isMissed(v) : only === 'both' ? isSkipped(v) || isMissed(v) : only === 'new' ? isNew(v) : only === 'flagged' ? !!flags[v.id] : true;
   const pool = useMemo(
     () =>
       vocab.filter(
         (v) => (category === 'all' || v.category === category) && (priority === 'all' || v.priority === priority) && inSet(v)
       ),
-    [vocab, category, priority, only, skips, stats]
+    [vocab, category, priority, only, skips, stats, flags]
   );
   const bestKey = `vocab:${style}:${category}:${priority}`;
   // Missed: terms whose most recent answer was wrong (in Vocab Guess, or on the Vocab deck in any game).
@@ -89,6 +103,12 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf, s
     () => vocab.filter((v) => stats.concepts[v.id]?.lastResult === 'wrong').sort((a, b) => stats.concepts[b.id].lastSeen - stats.concepts[a.id].lastSeen),
     [vocab, stats]
   );
+  const flaggedCards = useMemo(() => vocab.filter((v) => flags[v.id]).sort((a, b) => flags[b.id].at - flags[a.id].at), [vocab, flags]);
+  const toggleFlag = (c) =>
+    setFlags((f) => {
+      if (f[c.id]) { const { [c.id]: _, ...rest } = f; return rest; }
+      return { ...f, [c.id]: { at: Date.now() } };
+    });
   const newCards = useMemo(() => vocab.filter((v) => !stats.concepts[v.id] && !skips[v.id]), [vocab, skips, stats]);
   const reviewCards = useMemo(() => vocab.filter((v) => skips[v.id] || stats.concepts[v.id]?.lastResult === 'wrong'), [vocab, skips, stats]);
   const skippedCards = useMemo(() => vocab.filter((v) => skips[v.id]).sort((a, b) => skips[b.id].at - skips[a.id].at), [vocab, skips]);
@@ -173,6 +193,7 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf, s
       if (inInput) return;
       if (!answer && (e.key === 'h' || e.key === 'H')) return reveal();
       if (!answer && (e.key === 's' || e.key === 'S')) return skip();
+      if (card && (e.key === 'f' || e.key === 'F')) return toggleFlag(card);
       if (!answer && style === 'choice' && '1234'.includes(e.key) && options[+e.key - 1]) return submit(options[+e.key - 1].term);
     };
     window.addEventListener('keydown', onKey);
@@ -184,7 +205,7 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf, s
     const withExamples = pool.filter((v) => v.example || examples[v.id]).length;
     return (
       <div className="mode">
-        <ModeHeader eyebrow={`${vocab.length} vocabulary terms · best ${best[bestKey] || 0} pts${missedCards.length ? ` · ${missedCards.length} missed` : ''}${skippedCards.length ? ` · ${skippedCards.length} skipped` : ''}`} title="Vocab Guess" />
+        <ModeHeader eyebrow={`${vocab.length} vocabulary terms · best ${best[bestKey] || 0} pts${missedCards.length ? ` · ${missedCards.length} missed` : ''}${skippedCards.length ? ` · ${skippedCards.length} skipped` : ''}${flaggedCards.length ? ` · ${flaggedCards.length} flagged` : ''}`} title="Vocab Guess" />
         <div className="results quiz-setup vocab-setup">
           <p className="lede">
             Read the definition and name the term. Stuck? Reveal the <strong>Think of…</strong> clue, then an <strong>example exam question</strong>.
@@ -235,6 +256,9 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf, s
                 <button className={only === 'both' ? 'is-on' : ''} onClick={() => setOnly('both')} disabled={!reviewCards.length}>
                   Skipped + Missed <span className="count">{reviewCards.length}</span>
                 </button>
+                <button className={only === 'flagged' ? 'is-on' : ''} onClick={() => setOnly('flagged')} disabled={!flaggedCards.length}>
+                  ⚑ Flagged <span className="count">{flaggedCards.length}</span>
+                </button>
               </div>
             </div>
             <label className="field" htmlFor="vg-cat">
@@ -253,6 +277,37 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf, s
             <button className="btn btn-ghost" onClick={() => deal(shuffle(reviewCards))}>
               Play all my skipped + missed terms ({reviewCards.length})
             </button>
+          )}
+
+          {flaggedCards.length > 0 && (
+            <div className="vocab-skips vocab-flagged">
+              <div className="table-head">
+                <h2 className="section-title">⚑ Flagged for review <span className="count">{flaggedCards.length}</span></h2>
+                <div className="quiz-actions">
+                  <button className="btn btn-primary" onClick={() => deal(shuffle(flaggedCards))}>Play my flagged terms</button>
+                  <button className="btn btn-link" onClick={() => setFlags({})}>Unflag all</button>
+                </div>
+              </div>
+              <p className="muted">Terms you flagged, right or wrong. They stay here until you unflag them.</p>
+              <ul>
+                {flaggedCards.map((v) => {
+                  const c = stats.concepts[v.id];
+                  return (
+                    <li key={v.id}>
+                      <span className="vocab-skip-def">{v.definition}</span>
+                      <span className="muted vocab-skip-meta">{v.category}{c ? ` · right ${c.right}× · missed ${c.wrong}×` : ' · not answered yet'}</span>
+                      <span className="vocab-flag-actions">
+                        <details className="vocab-reveal">
+                          <summary>Show term</summary>
+                          <strong>{v.term}</strong>
+                        </details>
+                        <button className="btn btn-link" aria-label={`Unflag: ${v.definition}`} onClick={() => toggleFlag(v)}>Unflag</button>
+                      </span>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
           )}
 
           {missedCards.length > 0 && (
@@ -325,6 +380,7 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf, s
           <div className="quiz-actions">
             {misses.length > 0 && <button className="btn btn-primary" onClick={() => deal(misses.map((m) => m.card))}>Retry the {misses.length} I missed</button>}
             {skipped.length > 0 && <button className="btn btn-primary" onClick={() => deal(skipped.map((m) => m.card))}>Try the {skipped.length} I skipped</button>}
+            {flaggedCards.length > 0 && <button className="btn btn-ghost" onClick={() => deal(shuffle(flaggedCards))}>Review my {flaggedCards.length} flagged</button>}
             <button className="btn btn-ghost" onClick={start}>Play again</button>
             <button className="btn btn-ghost" onClick={() => setPhase('setup')}>Change settings</button>
           </div>
@@ -335,7 +391,7 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf, s
             <ol className="review-list">
               {results.map((r, i) => (
                 <li key={i} className={r.ok ? 'is-right' : r.skipped ? 'is-skipped' : 'is-wrong'}>
-                  <p className="review-q">{r.card.term} <span className="muted">· {r.ok ? `+${r.points}` : r.skipped ? 'skipped (saved to your Skipped list)' : `you said "${r.picked || '—'}"`}</span></p>
+                  <p className="review-q"><FlagButton small on={!!flags[r.card.id]} onClick={() => toggleFlag(r.card)} /> {r.card.term} <span className="muted">· {r.ok ? `+${r.points}` : r.skipped ? 'skipped (saved to your Skipped list)' : `you said "${r.picked || '—'}"`}</span></p>
                   <p className="review-why">{r.card.definition}</p>
                   {r.card.think && <p className="review-concept muted">Think: {r.card.think}</p>}
                 </li>
@@ -389,6 +445,7 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf, s
                 </button>
               )}
               <button className="btn btn-ghost vocab-skip" onClick={skip} title="Skip for now and save it to your Skipped list">Skip <kbd>S</kbd></button>
+              <FlagButton on={!!flags[card.id]} onClick={() => toggleFlag(card)} />
               </span>
             </div>
           )}
@@ -426,11 +483,12 @@ export default function VocabGuess({ vocab, examples, record, missed, levelOf, s
             {card.think && clues < 1 && <p><span className="field-label">Think of</span> {card.think}</p>}
             {example && clues < 2 && <p className="muted"><span className="field-label">Example question</span> {example}</p>}
             <div className="quiz-nav">
+              <FlagButton on={!!flags[card.id]} onClick={() => toggleFlag(card)} />
               <button className="btn btn-primary" onClick={next}>{pos < round.length - 1 ? 'Next card' : 'See results'} <kbd>↵</kbd></button>
             </div>
           </div>
         )}
-        <p className="muted quiz-keys">Keys: H for the next clue · S to skip{style === 'type' ? ' (when not typing)' : ''} · {style === 'choice' ? '1–4 to pick' : 'type and press Enter'} · Enter to continue</p>
+        <p className="muted quiz-keys">Keys: H for the next clue · S to skip · F to flag{style === 'type' ? ' (when not typing)' : ''} · {style === 'choice' ? '1–4 to pick' : 'type and press Enter'} · Enter to continue</p>
       </div>
     </div>
   );
