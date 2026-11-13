@@ -23,17 +23,39 @@ import GameBoard from './modes/GameBoard.jsx';
 import MemoryMatch from './modes/MemoryMatch.jsx';
 import Progress from './modes/Progress.jsx';
 import Guide from './modes/Guide.jsx';
+import Practice from './modes/Practice.jsx';
+import Help from './modes/Help.jsx';
 import { emptyStats, recordAnswer, upgradeStats, deckOf, SESSION_GAP_MS } from './lib/stats.js';
 
 export const MODES = [
-  { id: 'flashcards', label: 'Flashcards', blurb: 'Flip, rate yourself, and your weak cards come back more often.', Component: Flashcards },
-  { id: 'showdown', label: "Don't Confuse Me", blurb: 'Two look-alike services. One exam clue. Pick the right one.', Component: Showdown },
-  { id: 'rapid', label: 'Rapid-Fire', blurb: '60 seconds of exam triggers. Misses cost you 3 seconds.', Component: RapidFire },
-  { id: 'board', label: 'Game Board', blurb: 'Jeopardy-style board. Points follow the exam domain weights.', Component: GameBoard },
-  { id: 'match', label: 'Memory Match', blurb: 'Pair each service with its memory hint. A lighter review.', Component: MemoryMatch },
-  { id: 'quiz', label: 'Quiz', blurb: 'Exam-style questions with explanations. Practice, or a timed exam simulation.', Component: Quiz },
-  { id: 'vocab', label: 'Vocab Guess', tab: 'Vocab', blurb: 'Definition first, then a Think-of hint, then an example question. Fewer clues, more points.', Component: VocabGuess },
+  { id: 'flashcards', group: 'practice', label: 'Flashcards', blurb: 'Flip, rate yourself, and your weak cards come back more often.', Component: Flashcards },
+  { id: 'showdown', group: 'practice', label: "Don't Confuse Me", blurb: 'Two look-alike services. One exam clue. Pick the right one.', Component: Showdown },
+  { id: 'rapid', group: 'practice', label: 'Rapid-Fire', blurb: '60 seconds of exam triggers. Misses cost you 3 seconds.', Component: RapidFire },
+  { id: 'board', group: 'practice', label: 'Game Board', blurb: 'Jeopardy-style board. Points follow the exam domain weights.', Component: GameBoard },
+  { id: 'match', group: 'practice', label: 'Memory Match', blurb: 'Pair each service with its memory hint. A lighter review.', Component: MemoryMatch },
+  { id: 'vocab', group: 'practice', label: 'Vocab Guess', blurb: 'Definition first, then a Think-of hint, then an example question. Fewer clues, more points.', Component: VocabGuess },
+  { id: 'quiz', group: 'quiz', label: 'Quiz', blurb: 'Exam-style questions with explanations. Practice, or a timed exam simulation.', Component: Quiz },
 ];
+
+// Top bar: five tabs. Each game page lights up Practice; both guides light up Guides.
+const NAV = [
+  { href: 'practice', label: 'Practice', match: ['practice', ...MODES.filter((m) => m.group === 'practice').map((m) => m.id)] },
+  { href: 'quiz', label: 'Quiz', match: ['quiz'] },
+  { href: 'guide', label: 'Guides', match: ['guide', 'questions'] },
+  { href: 'progress', label: 'Progress', match: ['progress'] },
+  { href: 'help', label: 'Help', match: ['help'] },
+];
+
+function GuideSwitch({ hash }) {
+  return (
+    <nav className="segmented guide-switch" aria-label="Guides">
+      <a href="#guide" className={hash === 'guide' ? 'is-on' : ''} aria-current={hash === 'guide' ? 'page' : undefined}>Study Guide</a>
+      <a href="#questions" className={hash === 'questions' ? 'is-on' : ''} aria-current={hash === 'questions' ? 'page' : undefined}>Questions Guide</a>
+    </nav>
+  );
+}
+
+const BackToGames = () => <a href="#practice" className="back-link">← All games</a>;
 
 function useHash() {
   const [hash, setHash] = useState(() => window.location.hash.slice(1));
@@ -258,34 +280,35 @@ export default function App() {
             <span className="brand-mark" aria-hidden="true">C02</span>
             <span className="brand-name">Study Arcade</span>
           </a>
-          <nav className="tabs" aria-label="Study modes">
-            {MODES.map((m) => (
-              <a key={m.id} href={`#${m.id}`} className={`tab ${hash === m.id ? 'is-active' : ''}`} aria-current={hash === m.id ? 'page' : undefined}>
-                {m.tab || m.label}
-              </a>
-            ))}
-            <a href="#guide" className={`tab tab-guide ${hash === 'guide' ? 'is-active' : ''}`} aria-current={hash === 'guide' ? 'page' : undefined}>
-              Study Guide
-            </a>
-            <a href="#questions" className={`tab tab-qguide ${hash === 'questions' ? 'is-active' : ''}`} aria-current={hash === 'questions' ? 'page' : undefined}>
-              Questions Guide
-            </a>
-            <a href="#progress" className={`tab tab-progress ${hash === 'progress' ? 'is-active' : ''}`} aria-current={hash === 'progress' ? 'page' : undefined}>
-              Progress
-            </a>
+          <nav className="tabs" aria-label="Sections">
+            {NAV.map((n) => {
+              const on = n.match.includes(hash);
+              return (
+                <a key={n.href} href={`#${n.href}`} className={`tab ${on ? 'is-active' : ''}`} aria-current={on ? 'page' : undefined}>
+                  {n.label}
+                </a>
+              );
+            })}
           </nav>
-          <button className="btn btn-ghost import-btn" title="Import your study guide or a quiz question sheet (.xlsx)" onClick={() => fileRef.current?.click()}>
-            Import
-          </button>
           <input ref={fileRef} id="import-file" type="file" accept=".xlsx,.xls,.csv" hidden onChange={(e) => onImport(e.target.files?.[0])} />
         </div>
       </header>
 
       <main className="main">
-        {hash === 'guide' ? (
-          <Guide {...guideShared} settings={settings} setSettings={setSettings} />
+        {hash === 'practice' ? (
+          <Practice modes={MODES} deckSwitch={deckSwitch} />
+        ) : hash === 'help' ? (
+          <Help modes={MODES} onImportClick={() => fileRef.current?.click()} />
+        ) : hash === 'guide' ? (
+          <>
+            <GuideSwitch hash={hash} />
+            <Guide {...guideShared} settings={settings} setSettings={setSettings} />
+          </>
         ) : hash === 'questions' ? (
+          <>
+          <GuideSwitch hash={hash} />
           <QuestionsGuide qCards={qCards} domains={qDomains} quizHistory={quizHistory} setLevel={setLevel} lowCount={lowQuestionCount} settings={settings} setSettings={setSettings} />
+          </>
         ) : hash === 'progress' ? (
           <Progress
             deckSwitch={deckSwitch}
@@ -318,10 +341,13 @@ export default function App() {
           mode.id === 'quiz' ? (
             <Quiz key="quiz" {...guideShared} {...quizProps} />
           ) : mode.id === 'vocab' ? (
+            <>
+            <div className="deck-switch-bar"><BackToGames /></div>
             <VocabGuess key="vocab" vocab={vocabCards} examples={vocabExamples} record={record} missed={missed} levelOf={(c) => progress[c.id] || 'red'} skips={vocabSkips} setSkips={setVocabSkips} flags={vocabFlags} setFlags={setVocabFlags} stats={stats} />
+            </>
           ) : (
             <>
-              <div className="deck-switch-bar">{deckSwitch}</div>
+              <div className="deck-switch-bar"><BackToGames />{deckSwitch}</div>
               <mode.Component key={`${mode.id}-${source}`} {...shared} />
             </>
           )

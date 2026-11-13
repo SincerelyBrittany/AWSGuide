@@ -17,7 +17,7 @@ export default function Home({ deckSwitch, focusCount = 0, cards, deck, domains,
           <h1 className="hero-title">
             {cards.length} concepts.
             <br />
-            Seven ways to drill them.
+            Six games and a quiz to drill them.
           </h1>
           <p className="lede">
             Everything here comes from your study guide spreadsheet. Rate cards as you go, and the cards you mark <em>Study It</em> show up more often in every game.
@@ -26,6 +26,7 @@ export default function Home({ deckSwitch, focusCount = 0, cards, deck, domains,
             <a className="btn btn-primary" href="#flashcards">Start with flashcards</a>
             <a className="btn btn-ghost" href="#rapid">Play a 60-second round</a>
             <a className="btn btn-ghost" href="#guide">Read the study guide</a>
+            <a className="btn btn-link" href="#help">New here? How it works</a>
             {focusCount > 0 && (
               <button className="btn btn-focus" onClick={() => { setSettings({ ...settings, source: 'focus' }); window.location.hash = 'flashcards'; }}>
                 ★ Drill my focus deck ({focusCount})
@@ -122,7 +123,7 @@ export default function Home({ deckSwitch, focusCount = 0, cards, deck, domains,
   );
 }
 
-function ModeGlyph({ id }) {
+export function ModeGlyph({ id }) {
   const common = { width: 44, height: 44, viewBox: '0 0 44 44', 'aria-hidden': true, className: 'mode-glyph' };
   switch (id) {
     case 'flashcards':
@@ -169,6 +170,14 @@ function ModeGlyph({ id }) {
           <rect x="20" y="22.5" width="10" height="3" rx="1.5" fill="var(--fg)" opacity="0.5" />
           <circle cx="14" cy="33" r="3" fill="none" stroke="var(--fg)" strokeWidth="1.6" />
           <rect x="20" y="31.5" width="8" height="3" rx="1.5" fill="var(--fg)" opacity="0.5" />
+        </svg>
+      );
+    case 'vocab':
+      return (
+        <svg {...common}>
+          <rect x="5" y="9" width="34" height="26" rx="4" fill="var(--glyph-2)" />
+          <text x="12" y="28" fontFamily="var(--font-display)" fontWeight="800" fontSize="15" fill="var(--glyph-1)">Aa</text>
+          <rect x="30" y="16" width="3" height="14" rx="1.5" fill="var(--fg)" />
         </svg>
       );
     default:
