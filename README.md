@@ -275,4 +275,4 @@ npm run build:single   # one self-contained HTML file in dist-single/
 
 ---
 
-<sub>Built by [Brittany R](https://www.linkedin.com/in/sincerelybrittany) · [MIT License](LICENSE) · A personal study tool. Not affiliated with or endorsed by Amazon Web Services.</sub>
+<sub>Built by [Sincerely Brittany](https://www.linkedin.com/in/sincerelybrittany) · [MIT License](LICENSE) · A personal study tool. Not affiliated with or endorsed by Amazon Web Services.</sub>
