@@ -9,6 +9,11 @@
 ![Exam](https://img.shields.io/badge/AWS-CLF--C02-e2932f?style=flat-square)
 ![Concepts](https://img.shields.io/badge/concepts-409-23905f?style=flat-square)
 ![Questions](https://img.shields.io/badge/practice%20questions-330-3a5fd6?style=flat-square)
+![License](https://img.shields.io/badge/license-MIT-555?style=flat-square)
+
+### [▶ Try it live](https://sincerelybrittany.github.io/AWSGuide/) &nbsp;·&nbsp; [🍴 Fork it and make it yours](#-make-it-your-own)
+
+<sub>I built this to study for the CLF-C02, and I passed. ☁️</sub>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/home-dark.png">
@@ -171,6 +176,18 @@ A session is one stretch of play in one mode. Switching modes or 30 idle minutes
 
 Everything is saved in your browser's `localStorage`. No account, no server, no cost, and nothing leaves your device. That also means history is per browser, so use **Export backup** on the Progress page to save a `.json` file, and **Restore backup** to load it on another device or after clearing your browser data.
 
+## 🍴 Make it your own
+
+The whole app runs on spreadsheets, so making it yours takes no code:
+
+1. **Fork** this repo (button at the top right).
+2. **Swap in your notes.** Edit the study guide in [`data/`](data), add question sheets to [`data/questions/`](data/questions), then run `npm run sync`.
+3. **Publish it.** Turn on GitHub Pages (steps [below](#deploy-to-github-pages)) and you'll have your own study site at `https://<your-username>.github.io/AWSGuide/`.
+
+Studying for a different exam? The columns aren't AWS-specific. List your exam's domains and weights in the **Exam Info** sheet, put the matching domain on each concept row, and fill it with your own material.
+
+Found a wrong answer or have a better memory hint? Issues and pull requests are welcome.
+
 ## Quick start
 
 ```bash
@@ -258,4 +275,4 @@ npm run build:single   # one self-contained HTML file in dist-single/
 
 ---
 
-<sub>A personal study tool. Not affiliated with or endorsed by Amazon Web Services.</sub>
+<sub>Built by [Sincerely Brittany](https://www.linkedin.com/in/sincerelybrittany) · [MIT License](LICENSE) · A personal study tool. Not affiliated with or endorsed by Amazon Web Services.</sub>

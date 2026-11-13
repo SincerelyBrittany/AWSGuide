@@ -1,19 +1,25 @@
 {
   "name": "clf-study-arcade",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Flashcards and study games for the AWS Certified Cloud Practitioner (CLF-C02) exam, built from a study-guide spreadsheet.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "sync": "node scripts/sync-data.mjs",
     "build:single": "vite build --mode single"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "aws",
+    "clf-c02",
+    "cloud-practitioner",
+    "flashcards",
+    "study-tool",
+    "react",
+    "vite"
+  ],
+  "author": "Sincerely Brittany (https://github.com/SincerelyBrittany)",
+  "license": "MIT",
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -24,5 +30,10 @@
     "vite": "^5.4.10",
     "vite-plugin-singlefile": "^2.0.3"
   },
-  "type": "module"
+  "type": "module",
+  "homepage": "https://sincerelybrittany.github.io/AWSGuide/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SincerelyBrittany/AWSGuide.git"
+  }
 }
