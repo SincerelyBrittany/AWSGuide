@@ -22,7 +22,11 @@
 
 </div>
 
-## Seven ways to study
+## How it's organized
+
+Five tabs keep it simple: **Practice** (all six games), **Quiz**, **Guides** (Study Guide and Questions Guide), **Progress** and **Help**. Import lives on the home page and in Help.
+
+## Six games and a quiz
 
 <table>
   <tr>
@@ -100,7 +104,7 @@ Questions live in [`data/questions/`](data/questions). Any number of `.xlsx` fil
 
 Questions you shouldn't publish (for example from a paid practice exam) go in `data/private/` instead. That folder is git-ignored: `npm run sync` builds them into your local copy only, and the GitHub Pages build never sees them.
 
-Then either click **Import** in the app and pick the file (it's recognized as a question sheet and added to the quiz in that browser), or drop it in `data/questions/` and run `npm run sync` to build it in for everyone.
+Then either click **Import** on the home page or in Help and pick the file (it's recognized as a question sheet and added to the quiz in that browser), or drop it in `data/questions/` and run `npm run sync` to build it in for everyone.
 
 ## 📚 Questions Guide
 
@@ -203,7 +207,7 @@ The whole app is driven by [`data/AWS CLF-C02 Study Guide.xlsx`](data/). Add row
 
 | | How | Good for |
 | --- | --- | --- |
-| **Import in the app** | Click **Import** and pick the file | Quick updates. Saved in that browser |
+| **Import in the app** | Click **Import updated spreadsheet** on the home page (or in Help) and pick the file | Quick updates. Saved in that browser |
 | **Bake it in** | Replace the file in `data/` and run `npm run sync` | Making it the default for everyone |
 
 Your ratings are kept either way.

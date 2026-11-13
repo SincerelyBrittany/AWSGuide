@@ -151,7 +151,7 @@ kbd {
   border-radius: 7px;
 }
 .brand-name { font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; letter-spacing: -0.01em; }
-.tabs { display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; flex: 1; min-width: 0; }
+.tabs { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; flex: 1; min-width: 0; justify-content: flex-end; }
 .tabs::-webkit-scrollbar { display: none; }
 .tab {
   white-space: nowrap;
@@ -164,12 +164,11 @@ kbd {
 }
 .tab:hover { color: var(--fg); background: var(--surface-2); }
 .tab.is-active { color: var(--accent-ink); background: var(--accent); }
-.import-btn { flex-shrink: 0; }
 
-@media (max-width: 720px) {
+@media (max-width: 640px) {
   .topbar-inner { flex-wrap: wrap; gap: 8px 12px; }
-  .tabs { order: 3; flex-basis: 100%; }
-  .import-btn { margin-left: auto; }
+  .tabs { order: 3; flex-basis: 100%; justify-content: space-between; }
+  .tab { padding: 7px 10px; font-size: 0.88rem; }
 }
 
 /* ---------- Buttons & fields ---------- */
@@ -591,7 +590,6 @@ select, input[type='text'], .player-row input {
 }
 
 /* ---------- Progress page ---------- */
-.tab-progress { margin-left: 6px; border: 1px solid var(--line); }
 .readiness-link { display: inline-block; margin-top: 16px; font-size: 0.9rem; font-weight: 600; color: var(--fg); }
 .ok { color: var(--green); }
 .bad { color: var(--red); }
@@ -657,8 +655,6 @@ select, input[type='text'], .player-row input {
 .source-link { margin-left: 8px; font-size: 0.82rem; font-weight: 600; color: var(--t-tech); white-space: nowrap; }
 
 /* ---------- Study Guide page ---------- */
-.tab-guide { margin-left: 6px; border: 1px solid var(--line); }
-.tab-guide + .tab-progress { margin-left: 2px; }
 .guide-tools {
   position: sticky;
   top: calc(env(safe-area-inset-top, 0px) + 62px);
@@ -727,11 +723,6 @@ select, input[type='text'], .player-row input {
 .link-btn { background: none; border: none; padding: 0; color: var(--t-tech); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
 mark { background: color-mix(in srgb, var(--accent) 45%, transparent); color: inherit; border-radius: 3px; padding: 0 1px; }
 
-/* Top bar fits 7 tabs */
-.tab { padding: 7px 10px; font-size: 0.9rem; }
-.tabs { gap: 0; }
-@media (max-width: 1240px) { .brand-name { display: none; } }
-@media (max-width: 720px) { .brand-name { display: inline; } }
 
 /* ---------- Quiz ---------- */
 .quiz { display: flex; flex-direction: column; gap: 16px; }
@@ -798,9 +789,6 @@ mark { background: color-mix(in srgb, var(--accent) 45%, transparent); color: in
   .quiz-nav .btn-primary { margin-left: 0; }
 }
 
-/* Top bar fits 8 tabs */
-@media (max-width: 1320px) { .brand-name { display: none; } }
-@media (max-width: 720px) { .brand-name { display: inline; } }
 
 /* ---------- Deck switch + Questions Guide ---------- */
 .deck-switch { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
@@ -808,8 +796,6 @@ mark { background: color-mix(in srgb, var(--accent) 45%, transparent); color: in
 .deck-switch-bar { display: flex; justify-content: flex-start; margin: -6px 0 18px; }
 .home-deck-switch { display: flex; flex-direction: column; gap: 6px; margin: 4px 0 12px; }
 .home-deck-switch p { margin: 0; }
-.tab-qguide { margin-left: 2px; border: 1px solid var(--line); }
-.tab-guide + .tab-qguide { margin-left: 2px; }
 .qguide-lede { margin: -8px 0 18px; font-size: 0.98rem; }
 .qentry-why { margin: 0; line-height: 1.6; }
 .qentry-why + .qentry-why { padding-top: 8px; border-top: 1px dashed var(--line); }
@@ -824,13 +810,6 @@ mark { background: color-mix(in srgb, var(--accent) 45%, transparent); color: in
 .qentry-q li.is-right { color: var(--green); font-weight: 700; }
 .qentry-letter { display: inline-block; width: 1.4em; font-family: var(--font-mono); font-size: 0.8rem; }
 .qentry { gap: 10px; }
-/* Top bar fits 9 tabs */
-@media (max-width: 1440px) { .brand-name { display: none; } }
-@media (max-width: 720px) { .brand-name { display: inline; } }
-@media (min-width: 721px) and (max-width: 1440px) {
-  .tab { padding: 6px 8px; font-size: 0.86rem; }
-  .tab-guide, .tab-qguide, .tab-progress { margin-left: 2px; }
-}
 
 /* ---------- Searchable jump-to-section dropdown ---------- */
 .jump-menu { position: relative; flex: 0 1 auto; }
@@ -876,13 +855,6 @@ mark { background: color-mix(in srgb, var(--accent) 45%, transparent); color: in
 .vocab-type input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
 .vocab-answer { font-weight: 800; }
 .quiz-why .field-label { margin-right: 6px; }
-/* Top bar fits 10 tabs */
-@media (min-width: 721px) and (max-width: 1440px) { .tab { padding: 6px 7px; font-size: 0.84rem; } }
-@media (min-width: 721px) and (max-width: 1440px) {
-  .tabs { gap: 1px; }
-  .tab { padding: 6px 6px; font-size: 0.82rem; }
-  .tab-guide, .tab-qguide, .tab-progress { margin-left: 1px; }
-}
 /* Vocab Guess skips */
 .vocab-cluebtns { display: flex; gap: 8px; flex-wrap: wrap; }
 .vocab-skips { width: 100%; border-top: 1px solid var(--line); padding-top: 16px; display: flex; flex-direction: column; gap: 8px; }
@@ -912,3 +884,26 @@ mark { background: color-mix(in srgb, var(--accent) 45%, transparent); color: in
 .vocab-passed-toggle { font-size: 0.85rem; color: var(--t-tech); font-weight: 600; }
 .vocab-passed[open] .vocab-passed-toggle { visibility: hidden; }
 .vocab-passed li { box-shadow: inset 3px 0 0 var(--green); }
+
+/* ---------- Practice hub, guide switch, Help ---------- */
+.practice-deck { display: flex; flex-direction: column; gap: 8px; margin: 8px 0 22px; }
+.practice-deck p { margin: 0; }
+.practice-foot { margin-top: 20px; }
+.practice-foot a { color: var(--fg); font-weight: 600; }
+.help .mode-header { margin-bottom: 20px; }
+.back-link { font-weight: 600; font-size: 0.9rem; color: var(--muted); text-decoration: none; white-space: nowrap; align-self: center; }
+.back-link:hover { color: var(--fg); }
+.deck-switch-bar { gap: 8px 16px; flex-wrap: wrap; align-items: center; }
+.guide-switch { margin-bottom: 18px; }
+.guide-switch a { padding: 6px 12px; border-radius: 7px; font-weight: 600; font-size: 0.9rem; color: var(--muted); text-decoration: none; }
+.guide-switch a.is-on { background: var(--surface); color: var(--fg); box-shadow: var(--shadow); }
+.help { max-width: 760px; }
+.help-section { margin-bottom: 28px; }
+.help-section p { line-height: 1.6; }
+.help-list { display: grid; grid-template-columns: max-content 1fr; gap: 8px 18px; margin: 0; }
+.help-row { display: contents; }
+.help-list dt { font-weight: 700; }
+.help-list dd { margin: 0; color: var(--muted); }
+.help-list a { color: var(--fg); }
+.help-keys { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; }
+@media (max-width: 560px) { .help-list { grid-template-columns: 1fr; gap: 2px; } .help-list dd { margin-bottom: 10px; } }
